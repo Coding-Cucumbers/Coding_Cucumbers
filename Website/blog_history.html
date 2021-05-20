@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>The HTML5 Herald</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" type="text/css" href="C:\Users\Silas Tay\coding_cucumbers\CSS\blog_history.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Pattaya&family=Playfair+Display:wght@500&family=Merriweather&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<!-- navigation bar -->
+
+<div class="topnav" id="myTopnav">
+    <a href="#home" class="active"> <strong>Home</strong> </a>
+    <a href="#posts"> <strong>Posts</strong> </a>
+    <a href="#about"> <strong>About</strong> </a>
+    <a href="#merchandise"> <strong>Merchandise</strong> </a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<div class="container-fluid">
+    <div class="row header col-7">
+        <div>Coding Cucumbers Tutorials</div>
+    </div>
+
+    <div id="main" class="row">
+        <div class="col-1"></div>
+
+        <div id="all_posts" class="col-9 container">
+            <div class="row">
+                <div class="left_column posts_column col-6">
+                    <div class="post_thumbnail">
+                        <h1 class="post_title">The best way to learn programming from scratch</h1>
+
+                        <p class="post_preamble">And change your career path for good.</p>
+                        <img src="C:\Users\Silas Tay\coding_cucumbers\resources\learn_programming_stock.png" class="post_img">
+
+                        <div class="tags">
+                            <div class="general_tag tag">General</div>
+                        </div>
+
+                        <div class="author">
+                            <div class="author_container">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\cutecumber.png" class="author_img">
+                                <div class="author_details">
+                                    <p class="author_name">Silas Tay</p>
+                                    <p class="date">13th November 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="socials">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\facebook.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\twitter.png">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="post_thumbnail">
+                        <h1 class="post_title">Webscraping with BeautifulSoup</h1>
+
+                        <p class="post_preamble">Data never became so accessible.</p>
+                        <img src="C:\Users\Silas Tay\coding_cucumbers\resources\data_stock.png" class="post_img">
+
+                        <div class="tags">
+                            <div class="general_tag tag">General</div>
+                            <div class="python_tag tag">Python</div>
+                        </div>
+
+                        <div class="author">
+                            <div class="author_container">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\cutecumber.png" class="author_img">
+                                <div class="author_details">
+                                    <p class="author_name">Silas Tay</p>
+                                    <p class="date">13th November 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="socials">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\facebook.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\twitter.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right_column posts_column col-6">
+                    <div class="post_thumbnail">
+                        <h1 class="post_title">How to implement a RecyclerView</h1>
+
+                        <p class="post_preamble">Limitless scrolling AND Efficient.</p>
+                        <img src="C:\Users\Silas Tay\coding_cucumbers\resources\android_stock.png" class="post_img">
+
+                        <div class="tags">
+                            <div class="general_tag tag">General</div>
+                            <div class="android_tag tag">Android</div>
+                        </div>
+
+                        <div class="author">
+                            <div class="author_container">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\cutecumber.png" class="author_img">
+                                <div class="author_details">
+                                    <p class="author_name">Silas Tay</p>
+                                    <p class="date">13th November 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="socials">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\facebook.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\twitter.png">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="post_thumbnail">
+                        <h1 class="post_title">What the heck is Docker?</h1>
+
+                        <p class="post_preamble">Package your scripts, nice and concise.</p>
+                        <img src="C:\Users\Silas Tay\coding_cucumbers\resources\docker_stock.png" class="post_img">
+
+                        <div class="tags">
+                            <div class="general_tag tag">General</div>
+                            <div class="python_tag tag">Python</div>
+                        </div>
+
+                        <div class="author">
+                            <div class="author_container">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\cutecumber.png" class="author_img">
+                                <div class="author_details">
+                                    <p class="author_name">Silas Tay</p>
+                                    <p class="date">13th November 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="socials">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\facebook.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\twitter.png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="post_thumbnail">
+                        <h1 class="post_title">5 Essential Git Concepts</h1>
+
+                        <p class="post_preamble">To master the wizardry of Git.</p>
+                        <img src="C:\Users\Silas Tay\coding_cucumbers\resources\branch_stock.png" class="post_img">
+
+                        <div class="tags">
+                            <div class="git_tag tag">Git</div>
+                        </div>
+
+                        <div class="author">
+                            <div class="author_container">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\cutecumber.png" class="author_img">
+                                <div class="author_details">
+                                    <p class="author_name">Silas Tay</p>
+                                    <p class="date">13th November 2021</p>
+                                </div>
+                            </div>
+
+                            <div class="socials">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\facebook.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
+                                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\twitter.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sidebar" class="col-2">
+            <div class="row">
+                <p>Tags:</p>
+                <div id="tag_navigation_total">
+                    <div class="general_tag tag">General</div>
+                    <div class="python_tag tag">Python</div>
+                    <div class="git_tag tag">Git</div>
+                    <div class="android_tag tag">Android</div>
+                    <div class="webdev_tag tag">Web Development</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
