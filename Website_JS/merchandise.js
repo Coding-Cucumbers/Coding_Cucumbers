@@ -26,3 +26,26 @@ var x = setInterval(function() {
     document.getElementById("demo").innerHTML = "EXPIRED";
   }
 }, 1000);
+
+//change header size upon scroll
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    document.getElementById("container").style.padding = "30px 10px";
+    document.getElementById("cc_image").style.fontSize = "25px";
+  } else {
+    document.getElementById("container").style.padding = "80px 10px";
+    document.getElementById("cc_image").style.fontSize = "35px";
+  }
+}
+
+$(window).scroll(function() {
+    var position = $(this).scrollTop();
+    if(position >= 200) {
+      $('.nav-menu').addClass('custom-navbar');
+      } else {
+      $('.nav-menu').removeClass('custom-navbar');
+      }
+    });
+  });

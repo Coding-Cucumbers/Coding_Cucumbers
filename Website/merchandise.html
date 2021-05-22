@@ -2,54 +2,81 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Merchandise</title>
-    <link rel="stylesheet" href="C:\Users\Silas Tay\coding_cucumbers\CSS\merchandise.css">
+    <link rel="stylesheet" href="/Users/bryan/coding_cucumbers/CSS/merchandise.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="/Users/bryan/coding_cucumbers/Website_JS/merchandise.js"></script>
+
   </head>
   <body>
 
     <div class="container">
-      <!-- coding cucumber circle -->
-      <div class="cc_circle">
-      <br> <strong>CODING</strong> <br> <strong>CUCUMBERS</strong>
-      </div>
-      <!-- coding cucumber icon -->
-      <div>
-        <img src="C:\Users\Silas Tay\coding_cucumbers\Website\photo6116403394148150619.jpg" alt="cc_icon" id="cc_image">
-      </div>
+     <!-- coding cucumber icon -->
+     <div>
+       <img src="/Users/bryan/coding_cucumbers/Website/Pictures/Coding_Cucumber_Logo.png" alt="cc_logo" id="cc_logo">
+     </div>
+     <!-- navbar -->
+     <div class="navigation-container">
+       <ul class="nav">
+         <li class="nav-item"> <a href="#home"> <u>HOME</u> </a> </li>
+         <li class="nav-item"> <a href="#posts"><u>POSTS</u></a> </li>
+         <li class="nav-item"> <a href="#about_us"><u>ABOUT US</u></a> </li>
+         <li class="nav-item"> <a href="#merchandise"><u>MERCHANDISE</u></a> </li>
+       </ul>
+     </div>
 
-    </div>
-    <br>
 
-<hr style="width:33%; text-align:left; margin-left:35%">
-<div class="topnav" id="myTopnav">
-  <a href="#home"><strong>Home</strong></a>
-  <a href="#posts"> <strong>Posts</strong> </a>
-  <a href="#about"> <strong>About</strong> </a>
-  <a href="#merchandise" class="active"> <strong>Merchandise</strong>  </a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
+   </div>
+
+   <!-- 2 line break -->
+   <div class="container p-0">
+      <hr class="heading_hr">
+   </div>
+   <div class="container p-0">
+    <hr class="heading_hr">
+   </div>
+
+<br>
+<!-- merchandise header -->
+<div class="merchandise_header">
+  <h2 id="header">&nbsp MERCHANDISE</h2>
+
 </div>
-<hr style="width:33%; text-align:left; margin-left:35%">
-
-<div class="">
-  <h2 id="header">MERCHANDISE</h2>
-
-</div>
 
 
-    <div class="bgimg">
-  <div class="topleft">
-  </div>
-  <div class="middle">
-    <h1>COMING SOON</h1>
-    <hr>
-    <p id="demo">365 days</p>
-  </div>
-  <div class="bottomleft">
-  </div>
-</div>
-<script type="text/javascript"
-src="C:\Users\Silas Tay\coding_cucumbers\Website_JS\merchandise.js"></script>
+
+    <div class="container-fluid p-5">
+        <div class="mask mask-custom">
+
+          <div class="flex-box-1 d-flex flex-column align-items-center p-3">
+              <img src="/Users/bryan/coding_cucumbers/Website/Pictures/cucumber_shades.jpeg"
+            alt="cucumber_shades" id="cucumber_shades" class="align-self-starts">
+          </div>
+
+          <div class="flex-box-2">
+              <strong>SOMETHING COOL IS IN THE WORKS</strong>
+              <br>
+            <hr class="hr_in_merch">
+            <br>
+            </div>
+
+          <div class="flex-box-3 d-flex justify-content-center">
+            <div class="form-group">
+              <label for="connecting">Want to beat the crowd to our <strong>latest</strong> items?</label>
+              <br>
+              <input type="text" placeholder="your email" class="form-control">
+              <br><br>
+              <button type="button" name="button" class="btn btn-default">Connect With Us!</button>
+            </div>
+          </div>
+        </div>
+        </div>
+
+
+
   </body>
 </html>
