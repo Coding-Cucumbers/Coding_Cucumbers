@@ -40,15 +40,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+.main_row {
+    flex-direction: column;
+    align-items: center;
 }
 
 #main_container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 60%;
+    margin-top: 0px;
     padding: 3.5%;
-    background-color: #2FEDB4;
-    border-radius: 30px;
     font-family: 'Lato', sans-serif;
     font-size: 120%;
 }
@@ -70,8 +77,8 @@
 }
 
 h1.title{
-    width: 50%;
-    font-size: 250%;
+    width: 100%;
+    font-size: 300%;
     font-weight: 900;
     text-align: left;
     text-transform: capitalize;
@@ -79,14 +86,10 @@ h1.title{
 
 .author_container {
     display: flex;
+    margin-top: 20px;
     font-family: 'Lato', sans-serif;
-    font-size: 150%;
+    font-size: 100%;
     font-weight: 900;
-}
-
-.first_paragraph {
-    border-left: 6px solid green;
-    padding-left: 20px;
 }
 
 .author {
@@ -95,14 +98,63 @@ h1.title{
     width: 55%;
 }
 
+.author_details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .preamble {
     color: rgba(0, 0, 0, 0.5);
     font-size: 120%;
 }
 
+.quote {
+    font-size: 170%;
+    color: rgba(0,0,0,0.4);
+    text-indent: 0px;
+    padding-left: 15px;
+    border-left: 4px solid #AFE1AB;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.quote-author {
+    text-align: right;
+}
+
+.highlight {
+    padding: 1px;
+    background-color: rgba(0,0,0,0.35);
+}
+
+.inside_post_img_container {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: end;
+}
+
+.inside_post_img {
+    width: 100%;
+}
+
+.img_description {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    font-size: 75%;
+    text-indent: 0px;
+    text-align: center;
+    color: rgba(0,0,0,0.5);
+}
+
 .blog_post_img {
-    width: 50%;
     margin: 20px;
+    margin-bottom: 0px;
+    width: 60%;
 }
 
 #author_img {
@@ -126,25 +178,36 @@ h1.title{
 }
 
 .content_box {
-    background-color: rgb(176, 255, 185);
-    border-radius: 20px;
     padding: 2%;
     margin: 2%;
     text-indent: 0px;
-    border: 3px solid green;
 }
 
 .content_title {
-    text-decoration: underline;
     font-size: 150%;
     font-weight: 800;
-    margin: 0px;
+    display: inline-block;
+    margin-bottom: -20px;
+    margin-left: -20px;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255,0,0,1);
+}
+
+.content_list {
+    position: relative;
+    z-index: 0;
+    border: 2px solid;
+    padding: 20px;
+    padding-left: 40px;
 }
 
 .signposting {
+    align-self: start;
     font-size: 170%;
     font-weight: 900;
-    margin: 10px;
+    margin: 40px;
     text-indent: 0px;
 }
 
