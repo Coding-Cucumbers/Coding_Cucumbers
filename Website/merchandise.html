@@ -4,12 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/Users/bryan/coding_cucumbers/Website_JS/merchandise.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Merchandise</title>
     <link rel="stylesheet" href="/Users/bryan/coding_cucumbers/CSS/merchandise.css">
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="/Users/bryan/coding_cucumbers/Website_JS/merchandise.js"></script>
 
   </head>
   <body>
@@ -43,7 +46,7 @@
 <br>
 <!-- merchandise header -->
 <div class="merchandise_header">
-  <h2 id="header">&nbsp MERCHANDISE</h2>
+  <h2 id="header">&nbsp MERCHANDISE &nbsp</h2>
 
 </div>
 
@@ -55,6 +58,14 @@
           <div class="flex-box-1 d-flex flex-column align-items-center p-3">
               <img src="/Users/bryan/coding_cucumbers/Website/Pictures/cucumber_shades.jpeg"
             alt="cucumber_shades" id="cucumber_shades" class="align-self-starts">
+            <div class="hidden-text">
+              <p style="font-family: monospace">Oh wow, you've found me! You are a real cucumber detective huh...</p>
+              <p style="font-family: monospace">Well, you deserve a prize, connect with us through email and send us this special code: <strong>iloveCODINGCUCUMBERS</strong> </p>
+              <p style="font-family: monospace">We will mail you a special, limited-edition sticker set! Congrats!</p>
+              <p style="font-family: monospace">These are limited to the first 30 Singaporean fans, so quick!!! What are you waiting for!!!</p>
+              <p style="font-family: monospace">But let's keep this a secret keep us... shh...</p><br><br>
+              <p style="font-family: monospace">p.s. try looking around other pages for hidden treasure</p>
+            </div>
           </div>
 
           <div class="flex-box-2">
@@ -68,9 +79,9 @@
             <div class="form-group">
               <label for="connecting">Want to beat the crowd to our <strong>latest</strong> items?</label>
               <br>
-              <input type="text" placeholder="your email" class="form-control">
+              <input type="text" placeholder="your email" class="form-control" id="input_box">
               <br><br>
-              <button type="button" name="button" class="btn btn-default">Connect With Us!</button>
+              <button type="button" name="button" class="btn btn-default" id="submit_button">Connect With Us!</button>
             </div>
           </div>
         </div>
