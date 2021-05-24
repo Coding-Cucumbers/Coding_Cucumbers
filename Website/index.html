@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- for jquery -->
+    <!-- for jquery, ajax and for linking to js -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/Users/bryan/coding_cucumbers/Website_JS/index.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,8 +15,8 @@
     <!-- importing fonts -->
    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
 
-   <!-- linking to css -->
-   <link rel="stylesheet" type="text/css" href="/Users/bryan/coding_cucumbers/CSS/home_styling.css">
+   <!-- linking to css-->
+   <link rel="stylesheet" type="text/css" href="/Users/bryan/coding_cucumbers/CSS/index.css">
 
    <!-- for social icons -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -35,7 +37,7 @@
      <!-- navbar -->
      <div class="navigation-container">
        <ul class="nav">
-         <li class="nav-item"> <a href="#home"> <u>HOME</u> </a> </li>
+         <li class="nav-item" id="nav-item"> <a href="#home"> <u>HOME</u> </a> </li>
          <li class="nav-item"> <a href="#posts"><u>POSTS</u></a> </li>
          <li class="nav-item"> <a href="#about_us"><u>ABOUT US</u></a> </li>
          <li class="nav-item"> <a href="#merchandise"><u>MERCHANDISE</u></a> </li>
@@ -69,7 +71,7 @@
 
 <!-- middle header -->
 <div class="popular_posts_div">
-  <h2 id="popular_posts"> &nbsp POPULAR POSTS</h2>
+  <h2 id="popular_posts"> &nbsp POPULAR POSTS &nbsp</h2>
 </div>
 <br>
 
@@ -77,7 +79,7 @@
 <div class="container">
   <div class="card-columns">
 
-  <div class="card border-dark">
+  <div class="card">
     <img class="card-img-top" src="/Users/bryan/coding_cucumbers/Website/Pictures/4.png" alt="pic">
     <div class="card-body">
       <h3 class="card-title">How to Use Pandas</h3>
@@ -86,7 +88,7 @@
     </div>
   </div>
 
-  <div class="card border-dark mt-5">
+  <div class="card mt-5">
     <img class="card-img-top" src="/Users/bryan/coding_cucumbers/Website/Pictures/10.png" alt="pic">
     <div class="card-body">
       <h3 class="card-title">Webscrapping for Dummies</h3>
@@ -95,7 +97,7 @@
     </div>
   </div>
 
-  <div class="card border-dark mt-2">
+  <div class="card mt-2">
     <img class="card-img-top" src="/Users/bryan/coding_cucumbers/Website/Pictures/13.png" alt="pic">
     <div class="card-body">
       <h3 class="card-title">5 Things We Learnt From 5 Years of Coding</h3>
@@ -104,7 +106,7 @@
     </div>
   </div>
 
-  <div class=" card border-dark mt-5">
+  <div class="card mt-5">
     <img class="card-img-top" src="/Users/bryan/coding_cucumbers/Website/Pictures/7.png" alt="Card image top">
     <div class="card-body">
       <h3 class="card-title">How to make your own telebot</h3>
@@ -113,7 +115,7 @@
   </div>
   </div>
 
-  <div class=" card border-dark">
+  <div class="card">
     <img class="card-img-top" src="/Users/bryan/coding_cucumbers/Website/Pictures/15.png" alt="Card image top">
     <div class="card-body">
       <h3 class="card-title">How to be the best coder ever</h3>
@@ -123,7 +125,7 @@
   </div>
 
 
-  <div class="card border-dark mt-4">
+  <div class="card mt-4">
     <img class="card-img-top" src="/Users/bryan/coding_cucumbers/Website/Pictures/11.png" alt="pic">
     <div class="card-body">
       <h3 class="card-title">Difference between Git and Github</h3>
@@ -135,6 +137,13 @@
 </div>
 </div>
 
+<br><br><br>
+<!-- more "button" -->
+<div class="container-more">
+  <a href="#" class="more">MORE &nbsp</a>
+  <span id="arrow">&#10230;</span>
+</div>
+<br><br><br>
 
 <!-- footer -->
 <div class="container-fluid" style="background-color: black">
@@ -145,11 +154,9 @@
   <img src="/Users/bryan/coding_cucumbers/Website/Pictures/Coding_Cucumber_Logo.png" alt="cc_logo" id="cc_logo_footer">
 <br><br>
   <div>
-    <a href="#" class="fa fa-instagram"></a>
-    <a href="#" class="fa fa-twitter"></a>
-    <a href="#" class="fa fa-linkedin"></a>
-    <a href="#" class="fa fa-github"></a>
-    <a href="#" class="fa fa-google"></a>
+    <a href="#" class="fa fa-instagram fa-2x"></a>
+    <a href="#" class="fa fa-twitter fa-2x"></a>
+    <a href="#" class="fa fa-google fa-2x"></a>
   </div>
 
 </div>
@@ -158,17 +165,18 @@
   <div class="col-6">
     <div class="form-group has-feedback text-left">
       <br><br><br><br>
-      <h6 style="color:white"> &nbsp &nbsp STAY IN TOUCH</h6>
-      <label for="email" class="col-sm-3 control-label h5" style="color:white; display: inline">Connect with us through email</label>
+      <h6 style="color:white"> &nbsp &nbsp &nbsp &nbsp STAY IN TOUCH</h6>
 
       <div class="col">
-        <br>
-        <input type="text" name="email" placeholder="your email" class="form-control">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <form class="myForm" id="myForm">
+          <label for="email" class="col-sm-3 control-label h5" style="color:white; display: inline">Connect with us through email</label>
+          <br><br>
+          <input type="text" name="email" placeholder="your email" class="form-control" id="input_box">
+        </form>
       </div>
 <br>
       <div class="col">
-        <button type="submit" name="button" class="btn btn-default">Connect</button>
+        <button type="submit" name="button" class="btn btn-default" id="submit_button">Connect</button>
         <br><br><br><br>
       </div>
     </div>
@@ -179,15 +187,6 @@
   </div>
 </div>
 
-
-
-
-
-
-
-<script type="text/javascript" src="/Users/bryan/coding_cucumbers/Website_JS/home.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
   </body>
 </html>

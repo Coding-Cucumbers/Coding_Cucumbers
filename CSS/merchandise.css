@@ -37,7 +37,6 @@ body {
   border-top: 1px solid black;
 }
 
-
 /* for merchandise title */
 
 .merchandise_header{
@@ -49,7 +48,7 @@ body {
   color: white;
   font-family: Ubuntu;
   background-color: black;
-  width: 40%;
+  width: 30%;
 }
 
 .container-fluid{
@@ -74,6 +73,18 @@ body {
   margin-right: auto;
   display: block;
   margin: 0;
+  z-index: 1;
+}
+
+.hidden-text {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  padding: 5%;
 }
 
 .hr_in_merch {
