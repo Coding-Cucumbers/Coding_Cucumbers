@@ -9,25 +9,42 @@
 
     <link rel="stylesheet" type="text/css" href="C:\Users\Silas Tay\coding_cucumbers\CSS\blogpost.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Pattaya&family=Playfair+Display:wght@500&family=Merriweather&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body>
 
-<!-- navigation bar -->
+<div class="container">
+    <!-- coding cucumber icon -->
+    <div>
+        <img src="C:\Users\Silas Tay\coding_cucumbers\Website\Pictures\Coding_Cucumber_Logo.png" alt="cc_logo" id="cc_logo">
+    </div>
+    <!-- navbar -->
+    <div class="navigation-container">
+        <ul class="nav">
+            <li class="nav-item"> <a href="#home"> <u>HOME</u> </a> </li>
+            <li class="nav-item"> <a href="#posts"><u>POSTS</u></a> </li>
+            <li class="nav-item"> <a href="#about_us"><u>ABOUT US</u></a> </li>
+            <li class="nav-item"> <a href="#merchandise"><u>MERCHANDISE</u></a> </li>
+        </ul>
+    </div>
 
-<div class="topnav" id="myTopnav">
-    <a href="#home" class="active"> <strong>Home</strong> </a>
-    <a href="#posts"> <strong>Posts</strong> </a>
-    <a href="#about"> <strong>About</strong> </a>
-    <a href="#about"> <strong>About</strong> </a>
-    <a href="#merchandise"> <strong>Merchandise</strong> </a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-    </a>
+
 </div>
+
+<!-- 2 line break -->
+<div class="container p-0">
+    <hr class="heading_hr">
+</div>
+<div class="container p-0">
+    <hr class="heading_hr">
+</div>
+
+<br>
+
+
 <div class="container-fluid main_container_box">
     <div class="row main_row">
         <div class="col-1"></div>
@@ -71,29 +88,17 @@
                     <p class="content_title">Content Page</p>
                     <ol class="content_list">
                         <li>What is your reason?</li>
-                            <ul>
-                                <li>Why do you want to learn programming?</li>
-                            </ul>
+
                         <li>Survey your options</li>
-                            <ul>
-                                <li>Where should you go to learn programming?</li>
-                            </ul>
+
                         <li>Apply First Principle Thinking</li>
-                            <ul>
-                                <li>Boil everything down to the fundamentals!</li>
-                            </ul>
+
                         <li>The First solution isn't always the Best</li>
-                            <ul>
-                                <li>Never stop thinking, never be satisfied!</li>
-                            </ul>
+
                         <li>Practice makes Perfect</li>
-                            <ul>
-                                <li>Practice, practice, practice!</li>
-                            </ul>
+
                         <li>GOOGLE</li>
-                            <ul>
-                                <li>Man's best friend!</li>
-                            </ul>
+
                     </ol>
                 </container>
                 <container class="main_text text">
@@ -120,7 +125,7 @@
                     <div  class="quote">
                         <p>"The way I see it, if you want the rainbow, you gotta put up with the rain." <p class="quote-author">-Kelvin Beh</p></p>
                     </div>
-                    
+
                     <p>
                         Natoque penatibus et magnis dis parturient. Varius quam
                         quisque id diam vel. Neque convallis a cras semper auctor neque. Varius duis at consectetur lorem donec
@@ -165,6 +170,49 @@
 
     </div>
 
+</div>
+
+<!-- footer -->
+<div class="container-fluid" style="background-color: black">
+
+    <!-- footer-left -->
+    <div class="row">
+        <div class="footer_left col-6">
+            <img src="C:\Users\Silas Tay\coding_cucumbers\Website\Pictures\Coding_Cucumber_Logo.png" alt="cc_logo" id="cc_logo_footer">
+            <br><br>
+            <div>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-github"></a>
+                <a href="#" class="fa fa-google"></a>
+            </div>
+
+        </div>
+
+        <!-- footer-right -->
+        <div class="col-6">
+            <div class="form-group has-feedback text-left">
+                <br><br><br><br>
+                <h6 style="color:white"> &nbsp &nbsp STAY IN TOUCH</h6>
+                <label for="email" class="col-sm-3 control-label h5" style="color:white; display: inline">Connect with us through email</label>
+
+                <div class="col">
+                    <br>
+                    <input type="text" name="email" placeholder="your email" class="form-control">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <br>
+                <div class="col">
+                    <button type="submit" name="button" class="btn btn-default">Connect</button>
+                    <br><br><br><br>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
 </div>
 
 <script src="js/scripts.js"></script>

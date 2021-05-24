@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Pattaya&family=Playfair+Display:wght@500&family=Merriweather&=Lora:wght@500&Pattaya&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 </head>
 
@@ -18,91 +21,131 @@
 
 <!-- navigation bar -->
 
-<div class="topnav" id="myTopnav">
-    <a href="#home" class="active"> <strong>Home</strong> </a>
-    <a href="#posts"> <strong>Posts</strong> </a>
-    <a href="#about"> <strong>About</strong> </a>
-    <a href="#merchandise"> <strong>Merchandise</strong> </a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-    </a>
+<div class="container">
+    <!-- coding cucumber icon -->
+    <div>
+        <img src="C:\Users\Silas Tay\coding_cucumbers\Website\Pictures\Coding_Cucumber_Logo.png" alt="cc_logo" id="cc_logo">
+    </div>
+    <!-- navbar -->
+    <div class="navigation-container">
+        <ul class="nav">
+            <li class="nav-item"> <a href="#home"> <u>HOME</u> </a> </li>
+            <li class="nav-item"> <a href="#posts"><u>POSTS</u></a> </li>
+            <li class="nav-item"> <a href="#about_us"><u>ABOUT US</u></a> </li>
+            <li class="nav-item"> <a href="#merchandise"><u>MERCHANDISE</u></a> </li>
+        </ul>
+    </div>
 </div>
 
-<div class="container-fluid" id="main">
-    <div class="row">
-        <div class="col-4 about_us_title">About</div>
-    </div>
-    <div class="row profile_pictures_row">
-        <div class="col-2"></div>
-        <div class="col-4">
-            <img src="C:\Users\Silas Tay\coding_cucumbers\resources\profile_picture_1_stock.png" class="profile_pic_left">
-        </div>
-        <div class="col-4 img_cropper">
-            <img src="C:\Users\Silas Tay\coding_cucumbers\resources\profile_picture_2_stock.png" class="profile_pic_right">
-        </div>
-        <div class="col-2"></div>
+<!-- 2 line break -->
+<div class="container p-0">
+    <hr class="heading_hr">
+</div>
+<div class="container p-0">
+    <hr class="heading_hr">
+</div>
+
+<br>
+
+<!--Start of main content-->
+<div class="container-fluid">
+    <div class="row header_container">
+        <h1 class="header">Our Story &nbsp</h1>
     </div>
 
-    <div class="row stories_row">
-        <div class="story_left col-5">
-            <h1 class="name_left name_details">Silas Tay, CS Student, Cucumber Hater</h1>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-            <div class="socials">
-                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\facebook.png">
-                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
-                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
-                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\twitter.png">
-            </div>
+    <div class="introduction_container container">
+        <div class="quote col-6">
+            Coding is Difficult, We can help you Dill with it.
         </div>
-        <div class="story_right col-5">
-            <h1 class="name_right name_details">Bryan Ho, CS Student, Cucumber Lover</h1>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-            <div class="socials">
-                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\facebook.png">
-                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
-                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
-                <img src="C:\Users\Silas Tay\coding_cucumbers\resources\twitter.png">
-            </div>
+        <div class="introduction_description_container col-6">
+            <p class="introduction_description">
+                Bacon ipsum dolor amet shank flank short loin tenderloin. Chuck bacon tail burgdoggen, leberkas flank turducken. Shank frankfurter sirloin chislic biltong bresaola. Corned beef venison frankfurter tri-tip meatball chuck strip steak ribeye. Chuck turkey porchetta turducken sausage chicken corned beef capicola prosciutto.
+            </p>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-2"></div>
-        <div class="col-5">
-            <div class="quote">
-                Coding is Difficult, We can help you Dill with it.
+        <div class="profile_container container">
+            <img src="C:\Users\Silas Tay\coding_cucumbers\resources\profile_picture_1_stock.png" class="profile_picture col-6">
+            <div class="profile_details_container_top col-6">
+                <h1 class="profile_name_top">Silas Tay</h1>
+                <h2 class="profile_title_top">CS Student, Aspiring Entrepreneur</h2>
+                <p class="profile_description">Bacon ipsum dolor amet shank flank short loin tenderloin. Chuck bacon tail burgdoggen, leberkas flank turducken. Shank frankfurter sirloin chislic biltong bresaola. Corned beef venison frankfurter tri-tip meatball chuck strip steak ribeye. Chuck turkey porchetta turducken sausage chicken corned beef capicola prosciutto.</p>
+                <div class="socials">
+                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\facebook.png">
+                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
+                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
+                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\twitter.png">
+                </div>
             </div>
         </div>
-        <div class="col-5">
-            <div class="col-3"></div>
-            <h1 class="contact">
-                Contact Us
-            </h1>
-            <div class="contact_details">
-                <div class="coding_cucumbers_contact contact_box">
-                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\cutecumber.png" class="contact_pic">
-                    <p class="contact_labels">Coding Cucumbers:</p>
-                    <p class="contact_emails">coding_cucumbers@gmail.com</p>
-                </div>
 
-                <div class="silas_contact contact_box">
-                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\cutecumber.png" class="contact_pic">
-                    <p class="contact_labels">Silas:</p>
-                    <p class="contact_emails">silastaysl@gmail.com</p>
-                </div>
+        <div class="profile_container container">
 
-                <div class="bryan_contact contact_box">
-                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\cutecumber.png" class="contact_pic">
-                    <p class="contact_labels">Bryan:</p>
-                    <p class="contact_emails">bryan_ho@gmail.com</p>
+            <div class="profile_details_container_bottom col-6">
+                <h1 class="profile_name_bottom">Bryan Ho</h1>
+                <h2 class="profile_title_bottom">CS Student, GoLang Master</h2>
+                <p class="profile_description">Bacon ipsum dolor amet shank flank short loin tenderloin. Chuck bacon tail burgdoggen, leberkas flank turducken. Shank frankfurter sirloin chislic biltong bresaola. Corned beef venison frankfurter tri-tip meatball chuck strip steak ribeye. Chuck turkey porchetta turducken sausage chicken corned beef capicola prosciutto.</p>
+                <div class="socials">
+                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\facebook.png">
+                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
+                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
+                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\twitter.png">
                 </div>
             </div>
+
+            <img src="C:\Users\Silas Tay\coding_cucumbers\resources\profile_picture_2_stock.png" class="profile_picture col-6">
+
         </div>
     </div>
 
 </div>
+
+
+
+<!-- footer -->
+<div class="container-fluid" style="background-color: black">
+
+    <!-- footer-left -->
+    <div class="row">
+        <div class="footer_left col-6">
+            <img src="C:\Users\Silas Tay\coding_cucumbers\Website\Pictures\Coding_Cucumber_Logo.png" alt="cc_logo" id="cc_logo_footer">
+            <br><br>
+            <div>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-github"></a>
+                <a href="#" class="fa fa-google"></a>
+            </div>
+
+        </div>
+
+        <!-- footer-right -->
+        <div class="col-6">
+            <div class="form-group has-feedback text-left">
+                <br><br><br><br>
+                <h6 style="color:white"> &nbsp &nbsp STAY IN TOUCH</h6>
+                <label for="email" class="col-sm-3 control-label h5" style="color:white; display: inline">Connect with us through email</label>
+
+                <div class="col">
+                    <br>
+                    <input type="text" name="email" placeholder="your email" class="form-control">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <br>
+                <div class="col">
+                    <button type="submit" name="button" class="btn btn-default">Connect</button>
+                    <br><br><br><br>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+
 
 </body>
 </html>
