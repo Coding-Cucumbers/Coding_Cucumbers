@@ -7,10 +7,14 @@
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint">
 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" type="text/css" href="C:\Users\Silas Tay\coding_cucumbers\CSS\blogpost.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 
@@ -19,7 +23,7 @@
 <div class="container">
     <!-- coding cucumber icon -->
     <div>
-        <img src="C:\Users\Silas Tay\coding_cucumbers\Website\Pictures\Coding_Cucumber_Logo.png" alt="cc_logo" id="cc_logo">
+        <img src="C:\Users\Silas Tay\coding_cucumbers\resources\coding_cucumbers_logo_v3_cropped.jpg" alt="cc_logo" id="cc_logo">
     </div>
     <!-- navbar -->
     <div class="navigation-container">
@@ -47,11 +51,11 @@
 
 <div class="container-fluid main_container_box">
     <div class="row main_row">
-        <div class="col-1"></div>
+        <div class="col-3"></div>
 
-        <div id="main_post" class="col-12">
+        <div id="main_post" class="col-6">
             <div class="title_box">
-                <h1 class="title">The best way to learn programming from scratch</h1>
+                <h1 class="title">The Best way to learn Programming from scratch</h1>
                 <p class="preamble">And change your career path for good.</p>
             </div>
 
@@ -65,14 +69,22 @@
                 </container>
 
                 <container class="socials">
-                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\facebook.png">
-                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
-                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
-                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\twitter.png">
+                    <a href="https://www.instagram.com/silas.tsl/">
+                        <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
+                    </a>
+                    <a href="https://github.com/SilasTSL">
+                        <img src="C:\Users\Silas Tay\coding_cucumbers\resources\github_icon.png" href="https://github.com/SilasTSL">
+                    </a>
+                    <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
+                        <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
+                    </a>
+                    <a>
+                        <img src="C:\Users\Silas Tay\coding_cucumbers\resources\email_icon.png">
+                    </a>
                 </container>
             </div>
 
-            <img src="C:\Users\Silas Tay\coding_cucumbers\resources\learn_programming_stock.png" class="blog_post_img">
+            <img src="C:\Users\Silas Tay\coding_cucumbers\resources\how_to_learn_programming_from_scratch_poster.png" class="blog_post_img">
 
             <container id="main_container">
                 <p class="signposting">Introduction</p>
@@ -87,11 +99,17 @@
                 <container class="content_box text">
                     <p class="content_title">Content Page</p>
                     <ol class="content_list">
-                        <li>What is your reason?</li>
+                        <a href="#first_link">
+                            <li>What is your reason?</li>
+                        </a>
 
-                        <li>Survey your options</li>
+                        <a href="#second_link">
+                            <li>Survey your options</li>
+                        </a>
 
-                        <li>Apply First Principle Thinking</li>
+                        <a href="#third_link">
+                            <li>Apply First Principle Thinking</li>
+                        </a>
 
                         <li>The First solution isn't always the Best</li>
 
@@ -102,7 +120,9 @@
                     </ol>
                 </container>
                 <container class="main_text text">
-                    <p class="signposting">What is your reason?</p>
+                    <a id="first_link">
+                        <p class="signposting">What is your reason?</p>
+                    </a>
                     <p>In pellentesque massa placerat duis ultricies lacus sed. Commodo quis imperdiet massa tincidunt nunc
                         pulvinar sapien. Orci eu lobortis elementum nibh tellus. Lacus vel facilisis volutpat est velit egestas
                         dui id ornare. Molestie nunc non blandit massa enim nec dui nunc. Aliquam etiam erat velit scelerisque.
@@ -116,7 +136,9 @@
 
                         Lectus arcu bibendum at varius.</p>
 
-                    <p class="signposting">Survey your options</p>
+                    <a id="second_link">
+                        <p class="signposting">Survey your options</p>
+                    </a>
                     <p>Aliquam ultrices sagittis orci a scelerisque. Consequat id porta nibh venenatis cras sed felis. Vel
                         fringilla est ullamcorper eget nulla facilisi. Tincidunt tortor aliquam nulla facilisi. Magna ac
                         placerat vestibulum lectus mauris ultrices.
@@ -138,7 +160,10 @@
                         Odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam.
                     </p>
 
-                    <p class="signposting">Apply First Principle Thinking</p>
+                    <a id="third_link">
+                        <p class="signposting">Apply First Principle Thinking</p>
+                    </a>
+
                     <p>Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est. In metus vulputate eu
                         scelerisque felis imperdiet proin. Neque convallis a cras semper auctor neque vitae tempus. </p>
                     <div class="inside_post_img_container">
@@ -154,6 +179,13 @@
                         massa tempor nec feugiat nisl. Eget nunc lobortis mattis aliquam faucibus purus in massa. Purus semper
                         eget duis at.
 
+                        <pre><code>
+    def first_python_function(message):
+        greeting = "Hello World!"
+        print(greeting, message)
+        return
+                        </code></pre>
+
                         Blandit massa enim nec dui nunc mattis enim. Faucibus nisl tincidunt eget nullam non nisi est sit.
                         Blandit aliquam etiam erat velit scelerisque in dictum non. Amet commodo nulla facilisi nullam vehicula
                         ipsum a arcu. Nunc aliquet bibendum enim facilisis gravida. Placerat duis ultricies lacus sed turpis.
@@ -166,8 +198,32 @@
             </container>
         </div>
 
+        <div class="col-2 email_box">
+                <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+                <div>
+                    <p class="email_box_details">
+                        Be notified of any upcoming posts or merchandise to never miss out!
+                    </p>
+                    <form class="email_box_form">
+                        <input type="text" class="email_input">
+                        <div class="socials_submit_row">
+                            <button class="submit_email">Submit</button>
+                            <div class="email_box_socials">
+                                <a href="https://www.instagram.com/coding_cucumbers/" class="email_box_social_img">
+                                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\instagram.png">
+                                </a>
+                                <a href="https://github.com/bryanhce/coding_cucumbers" class="email_box_social_img">
+                                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\github_icon.png" href="https://github.com/SilasTSL">
+                                </a>
+                                <a href="https://www.linkedin.com/in/silas-tay-97a523208/" class="email_box_social_img">
+                                    <img src="C:\Users\Silas Tay\coding_cucumbers\resources\linkedin.png">
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
         <div class="col-1"></div>
-
     </div>
 
 </div>
@@ -215,6 +271,6 @@
     </div>
 </div>
 
-<script src="js/scripts.js"></script>
+<script src="C:\Users\Silas Tay\coding_cucumbers\Website_JS\blogpost.js"></script>
 </body>
 </html>

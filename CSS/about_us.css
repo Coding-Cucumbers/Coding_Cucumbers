@@ -45,6 +45,7 @@
 .header {
     font-family: 'Ubuntu';
     font-size: 70px;
+    text-transform: uppercase;
     margin-right: 400px;
     background-color: black;
     color: white;
@@ -59,7 +60,7 @@
 
 .quote {
     font-family: 'Poppins', sans-serif;
-    font-size: 350%;
+    font-size: 370%;
     text-align: right;
     padding: 40px;
     margin-right: 40px;
@@ -72,6 +73,11 @@
     border-left: 5px solid;
 }
 
+.introduction_description {
+    font-family: 'Poppins', sans-serif;
+    padding-left: 30px;
+}
+
 .profile_container {
     margin: 40px;
     margin-left: 0px;
@@ -79,10 +85,17 @@
     margin-bottom: 100px;
 }
 
-.profile_picture {
+.profile_picture_top {
     width: 100%;
-    height: auto;
+    height: 650px;
     object-fit: cover;
+}
+
+.profile_picture_bottom {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    margin-left: -10px;
 }
 
 .profile_details_container_top {
@@ -108,7 +121,7 @@
  .profile_title_top {
      background-color: #A9A9A9;
      padding: 10px;
-     margin-left: -90px;
+     margin-left: -70px;
      margin-top: 0px;
      font-size: 100%;
      width: fit-content;
@@ -131,6 +144,10 @@
     align-items: flex-end;
 }
 
+.profile_bottom_container {
+    margin-bottom: 15%;
+}
+
 .profile_name_bottom {
     background-color: #AFE1AB;
     padding: 10px;
@@ -150,20 +167,25 @@
 .profile_title_bottom {
     background-color: #A9A9A9;
     padding: 10px;
-    margin-right: -90px;
+    margin-right: -70px;
     margin-top: 0px;
     font-size: 100%;
     width: fit-content;
     height: fit-content;
     font-family: 'Exo';
     display: relative;
-        z-index: 1;
+    z-index: 1;
 }
 
 .socials img {
     width: 40px;
     height: 40px;
+    margin: 10px;
     align-self: end;
+}
+
+.socials a:hover {
+    text-decoration: none;
 }
 
 
