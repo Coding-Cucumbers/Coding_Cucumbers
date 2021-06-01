@@ -36,9 +36,37 @@ $(".nav-item").hover( function() {
          }
 
          else {
+           SubForm();
            window.alert("Thank you for staying in touch!")
          }
+         document.getElementById("input_box").value = '';
          if(hasError == true) { return false; }
   });
+
+  //connecting form submissions to googlesheet
+  function SubForm (){
+      $.ajax({
+          url:'https://api.apispreadsheets.com/data/12899/',
+          type:'post',
+          data:$("#myForm").serializeArray()
+          //add comma back behind .serializeArray(), this a checker
+          // success: function(){
+          //   alert("Form Data Submitted")
+          // },
+          // error: function(){
+          //   alert("There was an error")
+          // }
+      });
+  }
+
+  //to allow user to submit with enter key
+  $('#input_box').keypress(function (e) {
+    if (e.which === 13) {
+      $('#submit_button').click();
+      return false;
+    }
+  });
+
+
 
 });

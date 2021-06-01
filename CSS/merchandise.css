@@ -49,6 +49,8 @@ body {
   font-family: Ubuntu;
   background-color: black;
   width: 30%;
+  padding-left: 30px;
+  padding-right: 25px;
 }
 
 .container-fluid{
@@ -67,13 +69,18 @@ body {
 }
 
 #cucumber_shades{
-  height: 100%;
-  width: 100%;
+  max-height: 80%;
+  max-width: 80%;
   margin-left: auto;
   margin-right: auto;
   display: block;
-  margin: 0;
+  margin: auto;
   z-index: 1;
+}
+
+#something_para{
+  font-family: Ubuntu;
+  font-size: 30px;
 }
 
 .hidden-text {
@@ -95,6 +102,9 @@ body {
 .flex-box-1{
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: rgba(204, 230, 211, 1);
 }
 
 .flex-box-2{
@@ -104,8 +114,69 @@ body {
   align-items: center;
   font-size: 200%;
   font-family: Ubuntu;
+  background-color: rgba(204, 230, 211, 1);
 }
 
 .flex-box-3{
+  display: flex;
+  justify-content: center;
   font-family: Ubuntu;
+  background-color: rgba(204, 230, 211, 1);
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #cc_logo{
+    width: 60%;
+    height: 40%;
+    overflow: hidden;
+  }
+
+  .container-fluid{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .mask-custom {
+    background-color: rgba(204, 230, 211, 1);
+    width: auto;
+    height: auto;
+  }
+
+  .merchandise_header{
+    width: auto;
+  }
+
+  #header{
+    width: auto;
+    font-size: 30px;
+  }
+
+  #cucumber_shades{
+    height: 200px;
+    width: 300px;
+    margin: 0;
+  }
+
+  .flex-box-1{
+    padding: 0;
+    padding-top: 20px;
+  }
+
+  .hidden-text{
+    display: none;
+  }
+
+  #something_para{
+    font-size: 20px;
+  }
+
 }
