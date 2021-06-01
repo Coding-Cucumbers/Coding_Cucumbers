@@ -76,6 +76,8 @@ body {
   font-family: Ubuntu;
   background-color: black;
   width: fit-content;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 /* cards section */
@@ -86,12 +88,48 @@ body {
 .card-body{
   background-color: rgba(107, 107, 107, 0.1);
   border: none;
+  display: none;
+  transition: 0.3s;
+}
+
+.card:hover .card-body{
+  display: block;
+  animation: fadeIn linear 0.5s;
+  -webkit-animation: fadeIn linear 0.5s;
+  -moz-animation: fadeIn linear 0.5s;
+  -o-animation: fadeIn linear 0.5s;
+  -ms-animation: fadeIn linear 0.5s;
+}
+
+/* allow same animation on various browsers */
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+​
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+​
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+​
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }
 
 .card{
   border-radius: 0;
   transition: 0.3s;
-  /* opacity: 1; */
 }
 
 
@@ -121,6 +159,28 @@ body {
   z-index: 0;
 }
 
+.footer_left{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  flex-direction:column;
+  /* border-style: solid; */
+  /* border: 20px solid white; */
+  /* border-color: rgba(107, 107, 107, 1); */
+  transition: 0.3s;
+  /* background: rgb(175, 225, 171); */
+}
+
+.promo_para{
+  font-family: Ubuntu;
+  color: white;
+}
+
+#promo_hr{
+  border-top: 1px solid white;
+}
+
 
 .footer_left{
   display: flex;
@@ -132,6 +192,17 @@ body {
 #cc_logo_footer{
   width: 100px;
   height: 100px;
+}
+
+#stay_para{
+  color: white;
+  display: inline;
+  padding-left: 30px;
+}
+
+#connect_para{
+  color: white;
+  display: inline;
 }
 
 .form-control{
@@ -167,4 +238,60 @@ body {
 
 .fa-instagram:hover{
   color: rgb(107, 107, 107);
+}
+
+.fa-github {
+  color: white;
+}
+
+.fa-github:hover{
+  color: rgb(107, 107, 107);
+}
+
+/* to make website mobile friendly */
+@media only screen and (max-width: 1024px) {
+
+  #popular_posts{
+    font-size: 32px;
+  }
+
+  .intro_p2{
+    font-size: 35px;
+  }
+
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cucumber_browser{
+    display: none;
+  }
+
+  #cc_logo{
+    width: 60%;
+    height: 40%;
+    overflow: hidden;
+  }
+
+ #input-box::placeholder{
+   font-size: 15px;
+ }
+
+ .flexbox-1{
+   padding-bottom: 10%;
+ }
+
+ #stay_para{
+   font-size: 17px;
+   display: flex;
+   justify-content: center;
+ }
+
+ #connect_para{
+   font-size: 15px;
+   display: flex;
+   justify-content: center;
+ }
+
 }

@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/Users/bryan/coding_cucumbers/Website_JS/merchandise.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="/Users/bryan/coding_cucumbers/Website_JS/merchandise.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Merchandise</title>
@@ -20,7 +21,7 @@
     <div class="container">
      <!-- coding cucumber icon -->
      <div>
-       <img src="/Users/bryan/coding_cucumbers/Website/Pictures/Coding_Cucumber_Logo.png" alt="cc_logo" id="cc_logo">
+       <img src="/Users/bryan/coding_cucumbers/Website/Pictures/Coding_Cucumber_Logo.JPEG" alt="cc_logo" id="cc_logo">
      </div>
      <!-- navbar -->
      <div class="navigation-container">
@@ -46,7 +47,7 @@
 <br>
 <!-- merchandise header -->
 <div class="merchandise_header">
-  <h2 id="header">&nbsp MERCHANDISE &nbsp</h2>
+  <h2 id="header">MERCHANDISE</h2>
 
 </div>
 
@@ -55,7 +56,7 @@
     <div class="container-fluid p-5">
         <div class="mask mask-custom">
 
-          <div class="flex-box-1 d-flex flex-column align-items-center p-3">
+          <div class="flex-box-1">
               <img src="/Users/bryan/coding_cucumbers/Website/Pictures/cucumber_shades.jpeg"
             alt="cucumber_shades" id="cucumber_shades" class="align-self-starts">
             <div class="hidden-text">
@@ -69,19 +70,21 @@
           </div>
 
           <div class="flex-box-2">
-              <strong>SOMETHING COOL IS IN THE WORKS</strong>
+              <p id="something_para"><strong>SOMETHING COOL IS IN THE WORKS</strong></p>
               <br>
             <hr class="hr_in_merch">
             <br>
             </div>
 
-          <div class="flex-box-3 d-flex justify-content-center">
+          <div class="flex-box-3">
             <div class="form-group">
-              <label for="connecting">Want to beat the crowd to our <strong>latest</strong> items?</label>
-              <br>
-              <input type="text" placeholder="your email" class="form-control" id="input_box">
-              <br><br>
-              <button type="button" name="button" class="btn btn-default" id="submit_button">Connect With Us!</button>
+              <form class="myForm" id="myForm">
+                <label for="email">Want to beat the crowd to our <strong>latest</strong> items?</label>
+                <br>
+                <input type="text" name="email" placeholder="your email" class="form-control" id="input_box">
+                <br><br>
+                <button type="button" name="button" class="btn btn-default" id="submit_button">Connect With Us!</button>
+              </form>
             </div>
           </div>
         </div>
