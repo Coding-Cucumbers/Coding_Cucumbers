@@ -1,5 +1,7 @@
 $(function(){
 
+  $("#container header").load("Website/header.html");
+
   // when user inputs an email address
 $("#submit_button").click(function(){
   $(".error").hide();
@@ -94,17 +96,6 @@ $(window).scroll( function() {
     $(".card").css({"opacity": "1"})
   }
 })
-
-//cards to fade in upon scroll
-$(window).scroll( function() {
-  if ($(this).scrollTop() < 1480) {
-    $(".footer_left").css({"opacity": "0"})
-  }
-  else {
-    $(".footer_left").css({"opacity": "1"})
-  }
-})
-
 
 //user clicks on google icon, our gmail appears
 $('.fa-google').click( function(){
