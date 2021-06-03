@@ -330,8 +330,9 @@ pre code {
 }
 
 #cc_logo_footer{
-  width: 100px;
-  height: 100px;
+    height: 100px;
+    width: 200px;
+    object-fit: cover;
 }
 
 .form-control{

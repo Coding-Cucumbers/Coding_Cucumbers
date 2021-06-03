@@ -5,7 +5,8 @@
 
 #cc_logo{
   height: 100px;
-  width: 100px;
+  width: 200px;
+  object-fit: cover;
 }
 
 .navigation-container{
@@ -276,8 +277,9 @@ label {
 }
 
 #cc_logo_footer{
-  width: 100px;
-  height: 100px;
+    height: 100px;
+    width: 200px;
+    object-fit: cover;
 }
 
 .form-control{
