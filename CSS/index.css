@@ -159,6 +159,7 @@ body {
   z-index: 0;
 }
 
+/* footer section */
 .footer_left{
   display: flex;
   justify-content: center;
