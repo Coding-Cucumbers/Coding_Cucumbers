@@ -178,6 +178,10 @@
     display: none;
 }
 
+.show {
+    display: flex;
+}
+
 .category_checkbox {
     margin: 10px;
     margin-top: 0px;
