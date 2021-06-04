@@ -1,7 +1,5 @@
 $(function(){
 
-  $("#container header").load("Website/header.html");
-
   // when user inputs an email address
 $("#submit_button").click(function(){
   $(".error").hide();
