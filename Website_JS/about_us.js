@@ -68,5 +68,13 @@ $("#submit_button").hover( function() {
     window.alert("Reach us at coding.cucumbers@gmail.com")
   });
 
+  //user clicks on google icon, our gmail appears
+  $('#silas_email').click( function(){
+    window.alert("Reach me at silastaysl@gmail.com")
+  });
+  //user clicks on google icon, our gmail appears
+  $('#bryan_email').click( function(){
+    window.alert("Reach us at ho.cheng.en.bryan@gmail.com")
+  });
 
 });
