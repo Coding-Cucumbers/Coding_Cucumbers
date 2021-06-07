@@ -69,11 +69,11 @@ $("#submit_button").hover( function() {
   });
 
   //user clicks on google icon, our gmail appears
-  $('#silas_email').click( function(){
+  $('#silas_gmail').click( function(){
     window.alert("Reach me at silastaysl@gmail.com")
   });
   //user clicks on google icon, our gmail appears
-  $('#bryan_email').click( function(){
+  $('#bryan_gmail').click( function(){
     window.alert("Reach us at ho.cheng.en.bryan@gmail.com")
   });
 
