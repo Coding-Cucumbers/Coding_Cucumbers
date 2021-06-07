@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Blog Post - Coding Cucumbers</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <script language="javascript" type="text/javascript"
+    src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">5 Best Tricks for Pandas</h1>
+                <p class="preamble">Become a data scientist pro!</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                    <img src="../resources/about_us/cutecumber.png" id="author_img">
+                    <div class="author_details">
+                        <p class="author_name">Bryan Ho</p>
+                        <p class="date">7th June 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/badboibrybryy/">
+                        <img src="../resources/socials/instagram.png">
+                    </a>
+                    <a href="https://github.com/bryanhce">
+                        <img src="../resources/socials/github_icon.png">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
+                        <img src="../resources/socials/linkedin.png">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png">
+                    </a>
+                </container>
+            </div>
+
+            <img src="../resources/post_pictures/post_posters/5 Best Tricks for Pandas.png" class="blog_post_img" id="example">
+
+            <container id="main_container">
+                <p class="signposting">Introduction</p>
+                <p class="text">
+                  If you are interested in Data engineering, Data analysis or even Machine Learning, learning how to use the Python open-source library <strong>Pandas</strong> is crucial.
+                  In this article, I will be going over some of the most useful tricks in Pandas, that I
+                  personally used when cleaning large amounts of data.
+                </p>
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>Dropping Columns</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>Finding Unique Values</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>Splitting Columns</li>
+                        </a>
+
+                        <a href="#fourth_link">
+                            <li>Checking Empty Dataframes</li>
+                        </a>
+
+
+                        <a href="#fifth_link">
+                            <li>Removing Null Data</li>
+                        </a>
+                      </ol>
+                </container>
+
+                <container class="main_text text">
+                    <a id="first_link">
+                        <p class="signposting">Dropping Columns</p>
+                    </a>
+                    <p>When managing a dataframe, I only want to use the columns that are relevant. This makes the work tidier and less overwhelming. One way is to use
+                    <pre><code>
+                    df.drop(columns=[“irrelevant_column_name"], inplace=True)
+                    </pre></code>
+                  To drop the unwanted columns. However, this method becomes verbose when the number of columns to drop increases. Thus I use this shortcut. The general code is as follows:
+                  <pre><code>
+                    df = df[["column_1", “column_2”, “column_3”]]
+                  </pre></code>
+                   Do take note that reassigning the df is necessary!
+                  For example:
+                  <pre><code>
+                  restaurants = restaurants[["Cuisine", "Personal Rating", "Name", "Must Orders/Personal Signatures"]]
+                </pre></code>
+
+                  Initial database
+
+                  Cleaned database
+
+                  As you can see, only the columns that I want are in the new table.
+                 </p>
+
+                    <a id="second_link">
+                        <p class="signposting">Finding Unique Values</p>
+                    </a>
+                    <p>When I want to find all the unique values of a column in a dataframe but the dataframe is simply too large, I would use
+                  <pre><code>
+                    df[“column_name”].unique()
+                  </pre></code>
+                  this would return an array of all the unique values in the column. This is especially useful when cleaning data and debugging data that may slightly differ as users input the same data differently.
+                  For example, I want to find out all the cuisine types in the database, I would use
+                  <pre><code>
+                  df[“Cuisine”].unique()
+                  </pre></code>
+                  And the output is:
+                  <pre><code>
+                  array(['Italian', 'Café', 'Chinese', 'Japanese', 'Taiwanese', 'Korean',
+                         '', 'Indian', 'Malaysian', 'Thai', 'Peranakan', 'Western'],
+                        dtype=object)
+                  </pre></code>
+                  </p>
+
+                    <a id="third_link">
+                        <p class="signposting">Splitting Columns</p>
+                    </a>
+
+                    <p>Splitting a column into 2 happens more often than I thought and this trick is a really convenient way to do so. For example, I want to split the “Name” column into “first_name”, “second_name” and “thrid_name”. The code is as follows:
+                    <pre><code>
+                    restaurant["first_name"] = restaurant["Name"].str.split(‘ ’,expand=True)[0]
+
+                    restaurant["second_name"] = restaurant["Name"].str.split(‘ ’,expand=True)[1]
+
+                    restaurant["third_name"] = restaurant["Name"].str.split(‘ ’,expand=True)[2]
+                  </pre></code>
+                    As you can see, there are 3 new columns that correspond to the respective positions of the Names of the restaurants.
+
+                    Breaking down how the code works: .str.split(“ ”) essentially splits the values in the column into a list of[name_1, name_2, name_3]. The indexing then selects the first, second or third number to be the input for the new column.
+                     </p>
+
+                     <a id="fourth_link">
+                         <p class="signposting">Checking Empty Dataframe</p>
+                     </a>
+
+                     <p>Checking if a dataframe is present or not is simple when we can use .head() or .tail() method to view the first or last 5 rows respectively. However, it is more difficult to check if the dataframe is empty in a conditional statement. Luckly, df.empty is all there is to that conditional check! For example, if
+                      <pre><code>
+                      Df.empty:
+                       print “this df is empty!”
+                     </pre></code>
+                      This has definitely helped me debug my code!
+
+                    </p>
+
+                    <a id="fifth_link">
+                        <p class="signposting">Removing Null Data</p>
+                    </a>
+
+                    <p>Last but not least is removing Not Application or Null data from your dataframe. Such data always messes up my end product and getting rid of them always brings a smile to my face! Here are 3 quick ways to remove such data!
+
+                      <pre><code>
+                    df = df[ df['storey_range'].notna() ]
+
+                    df.dropna( columns={‘storey_range’}, inplace=True)
+
+                    df = df[df[“storey_range”] != “”]
+                  </pre></code>
+                  Unorganised and dirty data may have empty strings as input value and .notna() function will not work on such cases as such, in order to ensure that all empty data is weeded out, remember to use the last filter.
+                  Initial table
+                  Table after the code
+                  “I Am Cafe” is removed as there was no data in the Must Order/Personal SIgnatures</p>
+                  <br>
+                <p>
+                  Well, that is all for my 5 tips on making data cleaning much easier! I hope you have learnt a lot and I guarantee they will come in handy whenever you are cleaning a table.
+                  Check out our other articles if you are interested to learn more! Stay cool Cucumbers!
+                   </p>
+
+                </container>
+            </container>
+        </div>
+
+
+
+<!-- newsletter popup -->
+        <div class="col-2 email_box">
+                <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+                <div>
+                    <p class="email_box_details">
+                        Be notified of any upcoming posts or merchandise to never miss out!
+                    </p>
+                    <form class="email_box_form" id="email_box_form">
+                        <input type="text" class="email_input" id="email_input">
+                        <div class="socials_submit_row">
+                            <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                            <div class="email_box_socials">
+                                <a href="https://www.instagram.com/coding_cucumbers/" class="email_box_social_img">
+                                    <img src="../resources/socials/instagram.png">
+                                </a>
+                                <a href="https://github.com/bryanhce/coding_cucumbers" class="email_box_social_img">
+                                    <img src="../resources/socials/github_icon.png" href="https://github.com/SilasTSL">
+                                </a>
+                                <a href="https://www.linkedin.com/in/silas-tay-97a523208/" class="email_box_social_img">
+                                    <img src="../resources/socials/linkedin.png">
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
