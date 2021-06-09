@@ -1,0 +1,85 @@
+/* footer section */
+.footer_left{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  flex-direction:column;
+  transition: 0.3s;
+}
+
+.promo_para{
+  font-family: Ubuntu;
+  color: white;
+}
+
+#promo_hr{
+  border-top: 1px solid white;
+}
+
+
+.footer_left{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction:column;
+}
+
+#cc_logo_footer{
+  width: auto;
+  height: 150px;
+}
+
+#stay_para{
+  color: white;
+  display: inline;
+  padding-left: 30px;
+}
+
+#connect_para{
+  color: white;
+  display: inline;
+}
+
+.form-control{
+  width: 60% !important;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+}
+
+.fa-google {
+  color: white;
+}
+
+.fa-google:hover{
+  color: rgb(107, 107, 107);
+}
+
+.fa-twitter {
+  color: white;
+}
+
+.fa-twitter:hover{
+  color: rgb(107, 107, 107);
+}
+
+.fa-instagram {
+  color: white;
+}
+
+.fa-instagram:hover{
+  color: rgb(107, 107, 107);
+}
+
+.fa-github {
+  color: white;
+}
+
+.fa-github:hover{
+  color: rgb(107, 107, 107);
+}
