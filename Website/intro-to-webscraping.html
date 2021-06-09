@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Introduction to Webscraping - Coding Cucumbers</title>
+    <meta name="description" content="Introduction to Webscraping">
+    <meta name="author" content="SitePoint">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<script language="javascript" type="text/javascript"
+        src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">A Beginner's guide to Webscraping</h1>
+                <p class="preamble">The beginning of the data science process.</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                    <div class="img_cropper">
+                        <img src="../resources/about_us/cutecumber.png" id="author_img">
+                    </div>
+                    <div class="author_details">
+                        <p class="author_name">Silas Tay</p>
+                        <p class="date">21st June 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/silas.tsl/">
+                        <img src="../resources/socials/instagram.png">
+                    </a>
+                    <a href="https://github.com/SilasTSL">
+                        <img src="../resources/socials/github_icon.png" href="https://github.com/SilasTSL">
+                    </a>
+                    <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
+                        <img src="../resources/socials/linkedin.png">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png">
+                    </a>
+                </container>
+            </div>
+
+            <img src="../resources/post_pictures/post_posters/what_is_webscraping_poster.jpg" class="blog_post_img" id="example">
+
+            <container id="main_container">
+                <h2 class="signposting">Introduction</h2>
+                <div class="text">
+                        <p>
+                            The internet today contains a staggering amount of data, making webscraping a powerful skill to learn. With data we gathered from the internet, we can use it for a multitude of purposes.
+                        </p>
+                        <p>
+                            For example, we can collect data on stock prices off a financial data site so that we can determine good entries into the market!
+                        </p>
+                        <p>
+                            Webscraping is often regarded as the first step to data analysis. How are can we analyse data if we don’t have any data in the first place? If you are someone that is interested in data analysis or even machine learning, webscraping is something you must understand and this article will help you do just that!
+                        </p>
+                </div>
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>What exactly is Webscraping?</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>The Data Science Process</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>How do we Webscrape?</li>
+                        </a>
+
+                        <a href="#fourth_link">
+                            <li>Basics of HTML</li>
+                        </a>
+
+                        <a href="#fifth_link">
+                            <li>Dynamic Webscraping</li>
+                        </a>
+
+                        <a href="#sixth_link">
+                            <li>What's Next?</li>
+                        </a>
+                    </ol>
+                </container>
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">What is Webscraping?</h2>
+                    </a>
+                    <p>
+                        Now, what in the world is webscraping? <mark class="highlight">Webscraping is basically “scraping” or pulling data off of websites and consolidating it in another database for analysis.</mark>
+                    </p>
+                    <p>
+                        Let’s say you are interested in buying a new Computer monitor. There are so many options available on Amazon and you are really struggling trying to find out which product gives you the best deal!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/intro_to_webscraping/amazon_monitors.png" class="inside_post_img">
+                        <p class="img_description">
+                            So many choices... How do we decide?
+                        </p>
+                    </div>
+                    <p>
+                        Here’s where webscraping can come into play. We can simply scrape all prices and ratings of each product on amazon and compare which product gives the highest rating per dollar! Of course, this is just one way of comparing the “value” of a product, but whatever metric you use, you must scrape data from the website to begin analysing it!
+                    </p>
+                    <p>
+                        In general, Web scraping is the first step of any data-driven project. We collect the data using webscraping, clean the data to fit any model we are using to analyse it, analyse the cleaned data and finally produce solutions or predictions for the future!
+                    </p>
+
+                    <a id="second_link">
+                        <h2 class="signposting">The Data Science Process</h2>
+                    </a>
+                    <p>
+                        Data Science is basically processing data from multiple sources and drawing predictions or conclusions from them. How does Webscraping fit into the Data Science puzzle?
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/intro_to_webscraping/data_science_process_cropped.png" class="inside_post_img">
+                        <p class="img_description">
+                            A brief look at the entire data science process, from start to end!
+                        </p>
+                    </div>
+                    <p>
+                        Simply put, we must have data to process data. As I’ve said, Webscraping is one method of data collection. All the data on the internet is available for us to webscrape, and thus to process. With this data, we can move on to actually analysing the data.
+                    </p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">How to Webscrape?</h2>
+                    </a>
+                    <p>
+                        Now let’s get back to our Amazon Computer Monitor problem. We have determined the website we want to scrape from and the data we want to acquire, what’s next? There are so many things happening in a website, how can we specifically pick out the product's prices and ratings?
+                    </p>
+
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/intro_to_webscraping/amazon_monitors_edited.png" class="inside_post_img">
+                        <p class="img_description">
+                            How do we pick out these prices and ratings?
+                        </p>
+                    </div>
+
+                    <p>
+                        To scrape websites, you need a little bit of knowledge about HTML and how websites are layed out. Knowing how our data is presented within the website allows us to pinpoint what we want to scrape from the website itself. With this basic knowledge of HTML, we can easily build future webscraping projects and collect data that we want. Don’t worry, we just need to know some simple basics!
+                    </p>
+
+                    <a id="fourth_link">
+                        <h2 class="signposting">Basics of HTML</h2>
+                    </a>
+                    <p>
+                        What is HTML? Every website, no matter how fancy the graphics or how intricate the animations, has a skeleton. <mark class="highlight">HTML can be seen as the skeletal backbone of every website on the internet.</mark>  Understanding HTML will take quite a long time, but lucky for us when webscraping we simply need to understand some core principles.
+                    </p>
+                    <p>
+                        Everything you see in a website is a HTML element, and every element has attributes. You can actually see these elements and the HTML code of a website simply by right-clicking the website and clicking on inspect! This is a very very important tool that we use for webscraping.
+                    </p>
+
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/intro_to_webscraping/right_click_inspect.png" class="inside_post_img">
+                        <p class="img_description">
+                            Simply right click and click on Inspect. This works on every website, go ahead and try it!
+                        </p>
+                    </div>
+
+                    <p>
+                        When we scrape information off the web, these attributes help us to differentiate between elements and pick out the specific elements we want! This is basically the backbone of most webscraping techniques, picking out elements we want to scrape using their unique attributes. You can try inspecting the page you are currently on right now! Do you realise that each element has some unique attributes that we can use to differentiate from the rest?
+                    </p>
+
+                    <a id="fifth_link">
+                        <h2 class="signposting">Dynamic Webscraping</h2>
+                    </a>
+                    <p>
+                        One thing to take note of when webscraping is that every website is different. The most interesting thing about data collection and web scraping is that although every website has roughly the same skeletal layout (HTML), every website may load their data differently!
+                    </p>
+                    <p>
+                        This means you as the programmer have to figure out which method is the most suitable way of scraping data from each specific website! This requires some exploration and experimentation, which I believe is the most interesting part about webscraping!
+                    </p>
+                    <div  class="quote">
+                        <p>Every Website loads differently, so the only way to scrape them is to explore!</p>
+                    </div>
+                    <p>
+                        I have spent most of my time during my recent internship collecting data, so I have some experience in this field. Some websites are simple static websites that are easy to scrape, while others may have dynamically loaded layouts that require a more sophisticated script to collect data! Something I learned is that the most important thing about collecting data is fully understanding how to website is built before writing any webscraping script.
+                    </p>
+
+                    <a id="sixth_link">
+                        <h2 class="signposting">What's Next?</h2>
+                    </a>
+                    <p>
+                        In upcoming articles, I will share some methods that I myself have used to scrape data from different kinds of websites, so stay tuned! I have many exciting projects lined up that will equip you with the skills necessary to scrape even the most advanced websites on the internet!
+                    </p>
+                    <p>
+                        Just a heads up, Python is the common language people use for data collection and analysis, and it’s also the language that my upcoming articles will be using.
+                    </p>
+                    <p>
+                        So brush up your Python and subscribe to our email newsletter to follow along on the upcoming Webscraping projects! Stay chill, cucumbers!
+                    </p>
+                </container>
+            </container>
+        </div>
+
+        <div class="col-2 email_box">
+            <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+            <div>
+                <p class="email_box_details">
+                    Be notified of any upcoming posts or merchandise to never miss out!
+                </p>
+                <form class="email_box_form" id="email_box_form">
+                    <input type="text" class="email_input" id="email_input">
+                    <div class="socials_submit_row">
+                        <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                        <div class="email_box_socials">
+                            <a href="https://www.instagram.com/codingcucumbers/" class="email_box_social_img">
+                                <img src="../resources/socials/instagram.png">
+                            </a>
+                            <a href="https://github.com/CodingCucumbers" class="email_box_social_img">
+                                <img src="../resources/socials/github_icon.png" href="https://github.com/SilasTSL">
+                            </a>
+                            <a>
+                                <img src="../resources/socials/email_icon.png">
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
