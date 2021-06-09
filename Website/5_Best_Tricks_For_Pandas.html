@@ -3,14 +3,16 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Blog Post - Coding Cucumbers</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
+    <title>5 Essential Git Concepts - Coding Cucumbers</title>
+    <meta name="description" content="5 Best Tips for Pandas Python">
+    <meta name="Bryan">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,7 +30,7 @@
         <div id="main_post" class="col-6">
             <div class="title_box">
                 <h1 class="title">5 Best Tricks for Pandas</h1>
-                <p class="preamble">Become a data scientist pro!</p>
+                <p class="preamble">Become a Data Scientist Pro!</p>
             </div>
 
             <div class="author">
@@ -56,7 +58,7 @@
                 </container>
             </div>
 
-            <img src="../resources/post_pictures/post_posters/5 Best Tricks for Pandas.png" class="blog_post_img" id="example">
+            <img src="../resources/post_pictures/post_posters/5 Best Tricks for Pandas.png" class="blog_post_img" id="example" alt="pandas python important basics">
 
             <container id="main_container">
                 <p class="signposting">Introduction</p>
@@ -84,113 +86,129 @@
                             <li>Checking Empty Dataframes</li>
                         </a>
 
-
                         <a href="#fifth_link">
                             <li>Removing Null Data</li>
                         </a>
+
                       </ol>
                 </container>
 
                 <container class="main_text text">
                     <a id="first_link">
-                        <p class="signposting">Dropping Columns</p>
+                        <h2 class="signposting">Removing Unnecessary Columns</h2>
                     </a>
-                    <p>When managing a dataframe, I only want to use the columns that are relevant. This makes the work tidier and less overwhelming. One way is to use
-                    <pre><code>
-                    df.drop(columns=[“irrelevant_column_name"], inplace=True)
-                    </pre></code>
-                  To drop the unwanted columns. However, this method becomes verbose when the number of columns to drop increases. Thus I use this shortcut. The general code is as follows:
-                  <pre><code>
-                    df = df[["column_1", “column_2”, “column_3”]]
-                  </pre></code>
-                   Do take note that reassigning the df is necessary!
-                  For example:
-                  <pre><code>
-                  restaurants = restaurants[["Cuisine", "Personal Rating", "Name", "Must Orders/Personal Signatures"]]
-                </pre></code>
-
-                  Initial database
-
-                  Cleaned database
-
-                  As you can see, only the columns that I want are in the new table.
-                 </p>
+                    <p>When managing a dataframe, I only want to use the columns that are relevant. This makes the work tidier and less
+                      overwhelming. One way is to use </p>
+                      <pre><code>
+df.drop(columns=[“irrelevant_column_name"], inplace=True)
+                      </pre></code>
+                      <p>To drop the unwanted columns. However, this method becomes verbose when the number of columns to drop increases.
+                        Thus I use this shortcut: </p>
+                        <pre><code>
+df = df[["column_1", “column_2”, “column_3”]]
+                        </pre></code>
+                        <p>column_1, column_2 and column_3 are columns that I want to keep. Do take note that reassigning the df is necessary!</p>
+                        <p>For exaple:</p>
+                        <pre><code>
+restaurants = restaurants
+[["Cuisine", "Personal Rating", "Name",
+"Must Orders/Personal Signatures"]]
+                        </pre></code>
+                        <img src="../resources/post_pictures/df_before_drop.png" alt="df_before_drop" class="inside_post_img">
+                        <p class="img_description">initial database</p><br>
+                        <img src="../resources/post_pictures/df_after_drop.png" alt="df_after_drop" class="inside_post_img">
+                        <p class="img_description">cleaned database</p>
 
                     <a id="second_link">
-                        <p class="signposting">Finding Unique Values</p>
+                        <h2 class="signposting">Number of Unique Values</h2>
                     </a>
-                    <p>When I want to find all the unique values of a column in a dataframe but the dataframe is simply too large, I would use
-                  <pre><code>
-                    df[“column_name”].unique()
-                  </pre></code>
-                  this would return an array of all the unique values in the column. This is especially useful when cleaning data and debugging data that may slightly differ as users input the same data differently.
-                  For example, I want to find out all the cuisine types in the database, I would use
-                  <pre><code>
-                  df[“Cuisine”].unique()
-                  </pre></code>
-                  And the output is:
-                  <pre><code>
-                  array(['Italian', 'Café', 'Chinese', 'Japanese', 'Taiwanese', 'Korean',
-                         '', 'Indian', 'Malaysian', 'Thai', 'Peranakan', 'Western'],
-                        dtype=object)
-                  </pre></code>
-                  </p>
+                    <p>When I want to find all the unique values of a column in a dataframe but the dataframe is simply too large, I would use</p>
+                    <pre><code>
+df[“column_name”].unique()
+                    </pre></code>
+                    <p>this would return an array of all the unique values in the column. This is especially useful when cleaning data and debugging data
+                      that may slightly differ as users input the same data differently.</p>
+                      <p>For example, I want to find out all the cuisine types in the database, I would use </p>
+                      <pre><code>
+df[“Cuisine”].unique()
+                      </pre></code>
+                      <p>And the output is:</p>
+                      <pre><code>
+array(['Italian', 'Café', 'Chinese', 'Japanese', 'Taiwanese',
+'Korean', 'Indian', 'Malaysian', 'Thai', 'Peranakan',
+'Western'], dtype=object)
+                      </pre></code>
 
                     <a id="third_link">
-                        <p class="signposting">Splitting Columns</p>
+                        <h2 class="signposting">Splitting Values in a Column</h2>
                     </a>
 
-                    <p>Splitting a column into 2 happens more often than I thought and this trick is a really convenient way to do so. For example, I want to split the “Name” column into “first_name”, “second_name” and “thrid_name”. The code is as follows:
-                    <pre><code>
-                    restaurant["first_name"] = restaurant["Name"].str.split(‘ ’,expand=True)[0]
-
-                    restaurant["second_name"] = restaurant["Name"].str.split(‘ ’,expand=True)[1]
-
-                    restaurant["third_name"] = restaurant["Name"].str.split(‘ ’,expand=True)[2]
-                  </pre></code>
-                    As you can see, there are 3 new columns that correspond to the respective positions of the Names of the restaurants.
-
-                    Breaking down how the code works: .str.split(“ ”) essentially splits the values in the column into a list of[name_1, name_2, name_3]. The indexing then selects the first, second or third number to be the input for the new column.
-                     </p>
-
-                     <a id="fourth_link">
-                         <p class="signposting">Checking Empty Dataframe</p>
-                     </a>
-
-                     <p>Checking if a dataframe is present or not is simple when we can use .head() or .tail() method to view the first or last 5 rows respectively. However, it is more difficult to check if the dataframe is empty in a conditional statement. Luckly, df.empty is all there is to that conditional check! For example, if
-                      <pre><code>
-                      Df.empty:
-                       print “this df is empty!”
-                     </pre></code>
-                      This has definitely helped me debug my code!
-
+                    <p>Splitting a column into 2 happens more often than I thought and this trick is a really convenient way to do so. For example,
+                       I want to split the “Name” column into “first_name”, “second_name” and “thrid_name”. The code is as follows:
                     </p>
+            <pre><code>
+restaurant["first_name"] = restaurant["Name"].str.split
+(‘ ’,expand=True)[0]
+
+restaurant["second_name"] = restaurant["Name"].str.split
+(‘ ’,expand=True)[1]
+
+restaurant["third_name"] = restaurant["Name"].str.split
+(‘ ’,expand=True)[2]
+          </pre></code>
+          <img src="../resources/post_pictures/df_splitting_columns.png" alt="df_splitting_columns" class="inside_post_img">
+          <p class="img_description">table with new columns at the end</p><br>
+                    <p>As you can see, there are 3 new columns that correspond to the respective positions of the Names of the restaurants.</p>
+                    <p>Breaking down how the code works: .str.split(“ ”) essentially splits the values in the column into a list of[name_1, name_2, name_3].
+                      The indexing then selects the first, second or third number to be the input for the new column.</p>
+
+                    <a id="fourth_link">
+                        <h2 class="signposting">Checking for Empty Dataframe</h2>
+                    </a>
+
+                    <p>Checking if a dataframe is present or not is simple when we can use .head() or .tail() method to view the first or last 5 rows respectively. However,
+                      it is more difficult to check if the dataframe is empty in a conditional statement. Luckly,
+                      df.empty is all there is to that conditional check! For example, if
+                    </p>
+                    <pre><code>
+Df.empty:
+print “this df is empty!”
+                    </pre></code>
+
+                    <p>This has definitely helped me debug my code!</p>
 
                     <a id="fifth_link">
-                        <p class="signposting">Removing Null Data</p>
+                        <h2 class="signposting">Clearing Null Data</h2>
                     </a>
 
                     <p>Last but not least is removing Not Application or Null data from your dataframe. Such data always messes up my end product and getting rid of them always brings a smile to my face! Here are 3 quick ways to remove such data!
+                      your local branch to the remote repository. Ensure that you are in the merge-receiving branch (most of the time it is master/origin). It is also important to verify that the 2 branches are updated with the latest commits,
+                       this is to prevent some past code to “fall through the cracks”.
+                    </p>
+                    <pre><code>
+df = df[ df['storey_range'].notna() ]
 
-                      <pre><code>
-                    df = df[ df['storey_range'].notna() ]
+df.dropna( columns={‘storey_range’}, inplace=True)
 
-                    df.dropna( columns={‘storey_range’}, inplace=True)
+df = df[df[“storey_range”] != “”]
 
-                    df = df[df[“storey_range”] != “”]
-                  </pre></code>
-                  Unorganised and dirty data may have empty strings as input value and .notna() function will not work on such cases as such, in order to ensure that all empty data is weeded out, remember to use the last filter.
-                  Initial table
-                  Table after the code
-                  “I Am Cafe” is removed as there was no data in the Must Order/Personal SIgnatures</p>
-                  <br>
-                <p>
-                  Well, that is all for my 5 tips on making data cleaning much easier! I hope you have learnt a lot and I guarantee they will come in handy whenever you are cleaning a table.
-                  Check out our other articles if you are interested to learn more! Stay cool Cucumbers!
-                   </p>
+                    </pre></code>
+
+                    <p>Unorganised and dirty data may have empty strings as input value and .notna() function will not work on such cases as such,
+                      in order to ensure that all empty data is weeded out, remember to use the last filter.
+                    </p>
+                    <img src="../resources/post_pictures/df_before_drop.png" alt="df_before_drop" class="inside_post_img">
+                    <p class="img_description">intial database</p><br>
+                    <img src="../resources/post_pictures/df_after_remove_na.png" alt="df_before_drop" class="inside_post_img">
+                    <p class="img_description">cleaned database without the null/empty values</p><br>
+
+                    <p>Well, that is all for my 5 tips on making data cleaning much easier! I hope you have learnt a lot and I guarantee they will come in handy whenever you are cleaning a table.
+                      Check out our other articles to learn more about coding. Stay cool Cucumbers! </p>
 
                 </container>
             </container>
+
+
         </div>
 
 

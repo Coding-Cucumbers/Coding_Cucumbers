@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>5 Essential Git Concepts - Coding Cucumbers</title>
+    <meta name="description" content="Git for beginners">
+    <meta name="Bryan">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <script language="javascript" type="text/javascript"
+    src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">5 Essential Git Concepts</h1>
+                <p class="preamble">Improve your understanding of Git!</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                    <img src="../resources/about_us/cutecumber.png" id="author_img">
+                    <div class="author_details">
+                        <p class="author_name">Bryan Ho</p>
+                        <p class="date">24th June 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/badboibrybryy/">
+                        <img src="../resources/socials/instagram.png">
+                    </a>
+                    <a href="https://github.com/bryanhce">
+                        <img src="../resources/socials/github_icon.png">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
+                        <img src="../resources/socials/linkedin.png">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png">
+                    </a>
+                </container>
+            </div>
+
+            <img src="../resources/post_pictures/post_posters/5 Essential Git Concepts.png" class="blog_post_img" id="example" alt="Git basics">
+
+            <container id="main_container">
+                <p class="signposting">Introduction</p>
+                <p class="text">
+                  Hello everyone! In this article I will be explaining more about Git and its 5 crucial concepts. Git is a version control software that helps with
+                  coordinating code among programmers. It is useful when you are working on big projects as a team, where other programmers are
+                  constantly adding new features to different parts of the project. Git helps with the tracking and integration of such changes.
+                </p><p>
+                  This will be a theoretical article, without command line inputs, for beginners to understand how git works and the general flow of how Git
+                  works. Using Git on the command line might scare away many fledgling programmers. Luckily, there are many Graphical User Interface
+                   (GUI)s available, such as SourceTree, which are much more user-friendly.
+                </p>
+                <img src="../resources/post_pictures/sourcetree_icons.png" alt="sourcetree_icons" class="inside_post_img">
+                <p class="img_description">icons of the 5 basic commands from SourceTree</p><br>
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>Clone</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>Stage and Commit</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>Push</li>
+                        </a>
+
+                        <a href="#fourth_link">
+                            <li>Pull Request</li>
+                        </a>
+
+                        <a href="#fifth_link">
+                            <li>Merge</li>
+                        </a>
+
+                      </ol>
+                </container>
+
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">What is Clone?</h2>
+                    </a>
+                    <p>Cloning a repository (essentially the entire code of a project) is usually the first thing you do when you join a project. The idea is to
+                      get a copy of all the code in the existing project and save it in your local computer.</p>
+
+                    <a id="second_link">
+                        <h2 class="signposting">What is Stage and Commit?</h2>
+                    </a>
+                    <img src="../resources/post_pictures/staging_and_adding_files.png" alt="staging and adding files" class="inside_post_img">
+                    <p class="img_description">representation of adding and staging file from SourceTree</p><br>
+                    <p>After making the necessary tweaks to your local repository, the next step is to add your changes to the repository in the cloud (the remote).
+                      Before that, there are a couple of steps. First is to stage your commits, i.e. picking the changes in your code that you want to push to the remote.
+                      Once selected, you can commit them to the branch you were working on.
+                    </p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">What is Push?</h2>
+                    </a>
+
+                    <p>The next step is Push which is to “send” the changes in your branch to the remote repository. This imports the branch into the remote and
+                      the remote will have 2 branches, the newly edited branch and the master. Note this is not merging, but we are one step closer.
+                    </p>
+
+                    <a id="fourth_link">
+                        <h2 class="signposting">What is Pull Request?</h2>
+                    </a>
+                    <img src="../resources/post_pictures/pull_request.png" alt="how to make a pull request" class="inside_post_img">
+                    <h2 class="img_description">pull requests from BitBucket</h2>
+                    <p>As a junior programmer, you would want someone to check your code and the changes you have made before merging them with the master/dev branch. This is where Pull Requests come in handy. Specify who you would like to check your code and they will receive a notification that your code needs reviewing.
+                      They can leave comments for you to work on before the last step!
+                    </p>
+
+                    <p>Do note that Pull and Pull Requests are different. If you are curious about the Pull concept, you can read more about it in this article.
+                    </p>
+
+                    <a id="fifth_link">
+                        <h2 class="signposting">What is Merge?</h2>
+                    </a>
+
+                    <p>As the name suggests, merge is finally adding your changes from your local branch to the remote repository. Ensure that you are in the merge-receiving branch (most of the time it is master/origin). It is also important to verify that the 2 branches are updated with the latest commits,
+                       this is to prevent some past code to “fall through the cracks”.
+                    </p>
+
+                    <p>And that is it! 5 main concepts on how to use Git. Git is incredibly useful and understanding it will make your life much easier.
+                      You are on your way to becoming a great programmer!
+                    </p>
+
+                    <p>Interested to learn more about making your Git life easier? Check out this article on our 5 handy tips for Git. </p>
+
+                    <p>Want to know the difference between origin, origin/master and master? Read this article!
+                    </p>
+
+                </container>
+            </container>
+
+
+        </div>
+
+
+
+<!-- newsletter popup -->
+        <div class="col-2 email_box">
+                <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+                <div>
+                    <p class="email_box_details">
+                        Be notified of any upcoming posts or merchandise to never miss out!
+                    </p>
+                    <form class="email_box_form" id="email_box_form">
+                        <input type="text" class="email_input" id="email_input">
+                        <div class="socials_submit_row">
+                            <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                            <div class="email_box_socials">
+                                <a href="https://www.instagram.com/coding_cucumbers/" class="email_box_social_img">
+                                    <img src="../resources/socials/instagram.png">
+                                </a>
+                                <a href="https://github.com/bryanhce/coding_cucumbers" class="email_box_social_img">
+                                    <img src="../resources/socials/github_icon.png" href="https://github.com/SilasTSL">
+                                </a>
+                                <a href="https://www.linkedin.com/in/silas-tay-97a523208/" class="email_box_social_img">
+                                    <img src="../resources/socials/linkedin.png">
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
