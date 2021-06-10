@@ -82,5 +82,9 @@ $("#submit_button").hover( function() {
     window.alert("Reach us at coding.cucumbers@gmail.com")
   });
 
+  $('.fa-twitter').click( function(){
+    window.alert("We are coming soon!")
+  });
+
 
 });

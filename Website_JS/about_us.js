@@ -68,6 +68,10 @@ $("#submit_button").hover( function() {
     window.alert("Reach us at coding.cucumbers@gmail.com")
   });
 
+  $('.fa-twitter').click( function(){
+    window.alert("We are coming soon!")
+  });
+
   //user clicks on google icon, our gmail appears
   $('#silas_gmail').click( function(){
     window.alert("Reach me at silastaysl@gmail.com")

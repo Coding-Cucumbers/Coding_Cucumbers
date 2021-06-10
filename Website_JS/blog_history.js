@@ -103,20 +103,6 @@ function filterSelection(filter_tag) {
 fillAll();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $(function(){
 
   // when user inputs an email address
@@ -185,6 +171,10 @@ $("#submit_button").hover( function() {
 
   $('.fa-google').click( function(){
     window.alert("Reach us at coding.cucumbers@gmail.com")
+  });
+
+  $('.fa-twitter').click( function(){
+    window.alert("We are coming soon!")
   });
 
 
