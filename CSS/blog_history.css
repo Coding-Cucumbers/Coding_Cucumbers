@@ -234,3 +234,54 @@ label {
     background-color: #A9A9A9;
     text-decoration: none;
 }
+
+@media screen and (max-width: 1600px) {
+    .post_img {
+        width: 300px;
+        height: 215px;
+    }
+    .post_title {
+        font-size: 110%;
+    }
+
+    .filters_title {
+        font-size: 130%;
+    }
+    label {
+        font-size: 85%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .post_img {
+        width: 250px;
+        height: 180px;
+    }
+    .post_title {
+        font-size: 90%;
+    }
+
+    .filters_title {
+        font-size: 110%;
+    }
+    label {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .post_img {
+        width: 200px;
+        height: 140px;
+    }
+    .post_title {
+        font-size: 75%;
+    }
+
+    .filters_title {
+        font-size: 90%;
+    }
+    label {
+        font-size: 70%;
+    }
+}
