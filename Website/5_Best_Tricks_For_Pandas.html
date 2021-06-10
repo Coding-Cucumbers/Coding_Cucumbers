@@ -35,7 +35,9 @@
 
             <div class="author">
                 <container class="author_container">
-                    <img src="../resources/about_us/cutecumber.png" id="author_img">
+                  <div class="img_cropper">
+                    <img src="../resources/about_us/bryan_coding_cucumbers_aboutus.jpg" id="author_img">
+                  </div>
                     <div class="author_details">
                         <p class="author_name">Bryan Ho</p>
                         <p class="date">7th June 2021</p>
@@ -110,13 +112,11 @@ df = df[["column_1", “column_2”, “column_3”]]
                         <p>column_1, column_2 and column_3 are columns that I want to keep. Do take note that reassigning the df is necessary!</p>
                         <p>For exaple:</p>
                         <pre><code>
-restaurants = restaurants
-[["Cuisine", "Personal Rating", "Name",
-"Must Orders/Personal Signatures"]]
+restaurants = restaurants[["Cuisine", "Personal Rating", "Name", "Must Orders/Personal Signatures"]]
                         </pre></code>
-                        <img src="../resources/post_pictures/df_before_drop.png" alt="df_before_drop" class="inside_post_img">
+                        <img src="../resources/post_pictures/inside_post_pictures/5_best_tricks_for_pandas/df_before_drop.png" alt="df_before_drop" class="inside_post_img">
                         <p class="img_description">initial database</p><br>
-                        <img src="../resources/post_pictures/df_after_drop.png" alt="df_after_drop" class="inside_post_img">
+                        <img src="../resources/post_pictures/inside_post_pictures/5_best_tricks_for_pandas/df_after_drop.png" alt="df_after_drop" class="inside_post_img">
                         <p class="img_description">cleaned database</p>
 
                     <a id="second_link">
@@ -147,16 +147,13 @@ array(['Italian', 'Café', 'Chinese', 'Japanese', 'Taiwanese',
                        I want to split the “Name” column into “first_name”, “second_name” and “thrid_name”. The code is as follows:
                     </p>
             <pre><code>
-restaurant["first_name"] = restaurant["Name"].str.split
-(‘ ’,expand=True)[0]
+restaurant["first_name"] = restaurant["Name"].str.split(‘ ’,expand=True)[0]
 
-restaurant["second_name"] = restaurant["Name"].str.split
-(‘ ’,expand=True)[1]
+restaurant["second_name"] = restaurant["Name"].str.split(‘ ’,expand=True)[1]
 
-restaurant["third_name"] = restaurant["Name"].str.split
-(‘ ’,expand=True)[2]
+restaurant["third_name"] = restaurant["Name"].str.split(‘ ’,expand=True)[2]
           </pre></code>
-          <img src="../resources/post_pictures/df_splitting_columns.png" alt="df_splitting_columns" class="inside_post_img">
+          <img src="../resources/post_pictures/inside_post_pictures/5_best_tricks_for_pandas/df_splitting_columns.png" alt="df_splitting_columns" class="inside_post_img">
           <p class="img_description">table with new columns at the end</p><br>
                     <p>As you can see, there are 3 new columns that correspond to the respective positions of the Names of the restaurants.</p>
                     <p>Breaking down how the code works: .str.split(“ ”) essentially splits the values in the column into a list of[name_1, name_2, name_3].
@@ -172,10 +169,11 @@ restaurant["third_name"] = restaurant["Name"].str.split
                     </p>
                     <pre><code>
 Df.empty:
-print “this df is empty!”
+  print “this df is empty!”
                     </pre></code>
 
-                    <p>This has definitely helped me debug my code!</p>
+                    <p>Df.empty returns a boolean, ie a True or False value. If Df is empty, the evaluation would be True and "this df is empty!" will be printed.
+                      This has definitely helped me debug my code!</p>
 
                     <a id="fifth_link">
                         <h2 class="signposting">Clearing Null Data</h2>
@@ -197,9 +195,9 @@ df = df[df[“storey_range”] != “”]
                     <p>Unorganised and dirty data may have empty strings as input value and .notna() function will not work on such cases as such,
                       in order to ensure that all empty data is weeded out, remember to use the last filter.
                     </p>
-                    <img src="../resources/post_pictures/df_before_drop.png" alt="df_before_drop" class="inside_post_img">
+                    <img src="../resources/post_pictures/inside_post_pictures/5_best_tricks_for_pandas/df_before_drop.png" alt="df_before_drop" class="inside_post_img">
                     <p class="img_description">intial database</p><br>
-                    <img src="../resources/post_pictures/df_after_remove_na.png" alt="df_before_drop" class="inside_post_img">
+                    <img src="../resources/post_pictures/inside_post_pictures/5_best_tricks_for_pandas/df_after_remove_na.png" alt="df_before_drop" class="inside_post_img">
                     <p class="img_description">cleaned database without the null/empty values</p><br>
 
                     <p>Well, that is all for my 5 tips on making data cleaning much easier! I hope you have learnt a lot and I guarantee they will come in handy whenever you are cleaning a table.
