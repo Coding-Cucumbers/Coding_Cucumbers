@@ -92,7 +92,11 @@ $("#submit_button").hover( function() {
     });
     //user clicks on google icon, our gmail appears
     $('.bryan_gmail').click( function(){
-      window.alert("Reach us at ho.cheng.en.bryan@gmail.com")
+      window.alert("Reach me at ho.cheng.en.bryan@gmail.com")
+    });
+    //user clicks on google icon, our gmail appears
+    $('.cc_gmail').click( function(){
+      window.alert("Reach us at coding.cucumbers@gmail.com")
     });
 
 });
