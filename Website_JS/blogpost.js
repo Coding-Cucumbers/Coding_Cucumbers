@@ -86,5 +86,13 @@ $("#submit_button").hover( function() {
     window.alert("We are coming soon!")
   });
 
+    //user clicks on google icon, our gmail appears
+    $('.silas_gmail').click( function(){
+      window.alert("Reach me at silastaysl@gmail.com")
+    });
+    //user clicks on google icon, our gmail appears
+    $('.bryan_gmail').click( function(){
+      window.alert("Reach us at ho.cheng.en.bryan@gmail.com")
+    });
 
 });
