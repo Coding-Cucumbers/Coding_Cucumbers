@@ -9,7 +9,7 @@ body {
 
 #cc_logo{
   height: auto;
-  width: 120px;
+  width: 100px;
   margin-top: 10px;
 }
 
@@ -28,7 +28,7 @@ body {
 .nav-item{
   padding-left: 30px;
   padding-right: 30px;
-  font-size: 24px;
+  font-size: 20px;
   font-family: Exo;
 }
 
@@ -167,11 +167,7 @@ body {
   align-items: flex-end;
   text-align: center;
   flex-direction:column;
-  /* border-style: solid; */
-  /* border: 20px solid white; */
-  /* border-color: rgba(107, 107, 107, 1); */
   transition: 0.3s;
-  /* background: rgb(175, 225, 171); */
 }
 
 .promo_para{
@@ -253,47 +249,8 @@ body {
 /* to make website mobile friendly */
 @media only screen and (max-width: 1024px) {
 
-  #popular_posts{
-    font-size: 32px;
-  }
-
-  .intro_p2{
-    font-size: 35px;
-  }
-
-  .container{
-    display: flex;
-    flex-direction: column;
-  }
-
   .cucumber_browser{
     display: none;
   }
-
-  #cc_logo{
-    width: 60%;
-    height: 40%;
-    overflow: hidden;
-  }
-
- #input-box::placeholder{
-   font-size: 15px;
- }
-
- .flexbox-1{
-   padding-bottom: 10%;
- }
-
- #stay_para{
-   font-size: 17px;
-   display: flex;
-   justify-content: center;
- }
-
- #connect_para{
-   font-size: 15px;
-   display: flex;
-   justify-content: center;
- }
 
 }
