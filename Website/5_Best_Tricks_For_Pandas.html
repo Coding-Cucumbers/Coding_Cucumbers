@@ -17,6 +17,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
 </head>
 
 <body>
@@ -180,9 +189,8 @@ Df.empty:
                         <h2 class="signposting">Clearing Null Data</h2>
                     </a>
 
-                    <p>Last but not least is removing Not Application or Null data from your dataframe. Such data always messes up my end product and getting rid of them always brings a smile to my face! Here are 3 quick ways to remove such data!
-                      your local branch to the remote repository. Ensure that you are in the merge-receiving branch (most of the time it is master/origin). It is also important to verify that the 2 branches are updated with the latest commits,
-                       this is to prevent some past code to “fall through the cracks”.
+                    <p>Last but not least is removing Not Application or Null data from your dataframe. Such data always messes up my end product and getting rid of them always brings a smile to my face!
+                      Here are 3 quick ways to remove such data!
                     </p>
                     <pre><code>
 df = df[ df['storey_range'].notna() ]
