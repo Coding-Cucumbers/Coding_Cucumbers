@@ -115,10 +115,10 @@ if (!isMobile()) {
 else {
   $(window).scroll( function() {
     if ($(this).scrollTop() < 300) {
-      $(".card").css({"opacity": "0"})
+      $(".card").css({"opacity": "1"})
     }
     else {
-      $(".card").css({"opacity": "1"})
+      $(".card").css({"opacity": "0"})
     }
   })
 }
