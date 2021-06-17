@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Webscraping with BeautifulSoup for Beginners</title>
+    <meta name="description" content="Webscraping for BeautifulSoup, explained for Beginners. Learn all about this Python Webscraping package and built your own Webscraping mini-project!">
+    <meta name="Silas">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<script language="javascript" type="text/javascript"
+        src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">Introduction to Webscraping with BeautifulSoup</h1>
+                <p class="preamble">A truly beautiful Python package</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                    <div class="img_cropper">
+                        <img src="../resources/about_us/silas_coding_cucumbers_aboutus.jpg" id="author_img" alt="Silas Author Image">
+                    </div>
+                    <div class="author_details">
+                        <p class="author_name">Silas Tay</p>
+                        <p class="date">21st June 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/silas.tsl/">
+                        <img src="../resources/socials/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://github.com/SilasTSL">
+                        <img src="../resources/socials/github_icon.png" href="https://github.com/SilasTSL" alt="Github">
+                    </a>
+                    <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
+                        <img src="../resources/socials/linkedin.png" alt="Linkedin">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png" alt="Email" class="silas_gmail">
+                    </a>
+                </container>
+            </div>
+
+            <img src="../resources/post_pictures/post_posters/beautiful_soup_poster.jpg" class="blog_post_img" id="example" alt="BeautifulSoup for Beginners">
+
+            <container id="main_container">
+                <h2 class="signposting">Introduction</h2>
+                <div class="text">
+                        <p>
+                            What exactly is BeautifulSoup? Maybe you’ve heard of it, maybe you haven’t, regardless BeautifulSoup is a very important Python package that you should learn if you want to dive into the art of Webscraping. If you are unfamiliar with the concept of Webscraping, I highly suggest you check out my other article right <a href="https://www.codingcucumbers.com/website/intro-to-webscraping">here</a> - Introduction to Webscraping.
+                        </p>
+                        <p>
+                            Anyways, BeautifulSoup is an amazing package that helps us to clean up our HTML or any other markup languages that we obtained from websites we are trying to scrape. Simply put, it makes it easier for us to separate specific elements that we want from an entire website.
+                        </p>
+                        <p>
+                            In today’s article, I will guide you through using BeautifulSoup from start to end, including a mini-project that we can code together! This will be the first coding project I guide you through on this site, and also the first Webscraping project, so let’s get started!
+                        </p>
+                </div>
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>Basics of BeautifulSoup</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>Installation</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>Requests Package</li>
+                        </a>
+
+                        <a href="#fourth_link">
+                            <li>CSS selectors</li>
+                        </a>
+
+                        <a href="#fifth_link">
+                            <li>Book Review Webscraper</li>
+                        </a>
+                    </ol>
+                </container>
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">Basics of BeautifulSoup</h2>
+                    </a>
+                    <p>
+                        How does BeautifulSoup work? It’s fairly simple! Imagine our website as a large HTML document. Some websites have very structured and easy-to-scrape HTML (or markup), while others don’t. The BeautifulSoup package basically acts as a filter and “Beautifies” the website’s content, making it easy to scrape!
+                    </p>
+                    <p>
+                        The history of the ‘BeautifulSoup’ name comes from quite some time ago. Back around 2004, websites were very poorly made and webscrapers could only extract data from very specific formats. Lots of websites had very messy HTML which made it impossible to parse. The messy HTML was commonly dubbed as ‘tag soup’, and thus BeautifulSoup was a package made for Beautifying these ‘tag soups’!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/beautifulsoup_beginners/messy.jpeg" class="inside_post_img" alt="Messy">
+                        <p class="img_description">
+                            Imagine scraping data off of messy websites... What a headache!
+                        </p>
+                    </div>
+                    <p>
+                        It’s interesting to see how far BeautifulSoup has come, and in fact the contributors to this package are still fairly active to this day! You can view the official documentation <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">here</a>.
+                    </p>
+
+                    <a id="second_link">
+                        <h2 class="signposting">Installation</h2>
+                    </a>
+                    <p>
+                        Now let’s finally get down to business. Like I’ve talked about in my previous articles, I highly encourage everyone to follow along with any programming tutorials you read online including this one, so let’s install BeautifulSoup together! The latest version of BeautifulSoup is BS4, so that’s the version we are going to download for today’s tutorial!
+                    </p>
+                    <p>
+                        Before that, let’s make sure you have Python and pip installed. For those that are unfamiliar, pip is a Python package manager that helps you to install python packages on your local machine. To check if Python is installed, simply input the following line in your commandline:
+                    </p>
+                    <pre><code>
+    python
+                    </code></pre>
+                    <p>
+                        To check if pip is installed, simply input this line:
+                    </p>
+                    <pre><code>
+    pip help
+                    </code></pre>
+                    <p>
+                        If the previous two lines produced any errors in your command line, it is highly likely that Python and pip was not properly installed on your computer. Simply follow <a href="https://www.python.org/downloads/">this</a> website to download Python and <a href="https://pypi.org/project/pip/ ">this</a> website to download pip. I know it seems like a hassle but you will definitely need these installations for the future, so you might as well cover your bases now!
+                    </p>
+                    <p>
+                        Now that Python and pip are properly installed, we can simply install BeautifulSoup through our command line, which requires you to just key in a single line in your command line:
+                    </p>
+                    <pre><code>
+    pip install beautifulsoup4
+                    </code></pre>
+                    <p>
+                        That’s it for any installation and set-up! Pretty simple so far right?
+                    </p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">Requests Package</h2>
+                    </a>
+                    <p>
+                        Before we move on to our project, we need to cover another Python package. Apart from using the BeautifulSoup Package, we must first learn to use the request package in Python.
+                    </p>
+                    <p>
+                        Simply put, the request package helps us to make HTTP requests in our Python scripts and it is automatically installed with Python. It helps us to access websites online and in our case, scrape them! To use this package, we have to import it!
+                    </p>
+                    <pre><code>
+    import requests
+                    </code></pre>
+                    <p>
+                        After importing, we simply make HTTP requests by using the .get() method!
+                    </p>
+                    <pre><code>
+    request = requests.get(url)
+                    </code></pre>
+                    <p>
+                        This will return the response code of our HTTP request (it usually returns &ltResponse [200]&gt if our request was successful). This may be useful to us in other projects, but when Webscraping we want to get the actual content of the page. We do this simply by accessing the content attribute of our request.
+                    </p>
+                    <pre><code>
+    content = request.content
+                    </code></pre>
+                    <p>
+                        Now this will return the page content itself. Mission Success! However, if you were to print this out, you would realise the page content is still pretty messy and not formatted very optimally for scraping. This is finally where BeautifulSoup comes into action.
+                    </p>
+                    <p>
+                        By converting our html content into a soup, the page’s content will be formatted into a very aesthetically pleasing format, with each element fairly neatly layed out! This makes our scraping much easier. We do this simply with the following code:
+                    </p>
+                    <pre><code>
+    soup = bs(content, ‘html.parser’)
+                    </code></pre>
+                    <p>
+                        Note that the second argument we pass in (‘html.parser’) is simply to inform our BeautifulSoup object that we are passing it content in HTML format!
+                    </p>
+                    <p>
+                        Especially for messier HTMLs, BeautifulSoup helps tremendously when trying to scrape data off of websites. Now let’s finally try and scrape some data off a website! We do this by specifying our elements using CSS selectors!
+                    </p>
+
+                    <a id="fourth_link">
+                        <h2 class="signposting">CSS selectors</h2>
+                    </a>
+                    <p>
+                        CSS selectors is a very simple concept! They are patterns and symbols used to specify which HTML elements we want to apply different CSS properties. Simply put, we use CSS selectors to select which elements we want to scrape!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/beautifulsoup_beginners/css_selector.png" class="inside_post_img" alt="CSS Selectors">
+                        <p class="img_description">
+                            Let's see how we use CSS selectors to scrape our data!
+                        </p>
+                    </div>
+                    <p>
+                        There are a plethora of CSS selectors available for all kinds of situations, the whole list can be seen on the W3schools website <a href="https://www.w3schools.com/cssref/css_selectors.asp">here</a>! In this article, I’ll cover 4 basic selectors that will be vital in our project later on.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/beautifulsoup_beginners/css_selectors_basics.jpg" class="inside_post_img" alt="CSS Selectors Basics">
+                        <p class="img_description">
+                            Some crucial CSS selectors we must master - Classes, tags and IDs!
+                        </p>
+                    </div>
+                    <p>
+                        Firstly, we can use the . symbol  to specify the <mark class="highlight">class name</mark> of an element. For example if we want to specify all classes with the name “container”, we can use the CSS selector “.container”. Basically, to specify any class name, we use the . symbol followed by the class name itself!
+                    </p>
+                    <p>
+                        In addition, we can also use the # symbol to specify the <mark class="highlight">ID</mark> of an element. This is especially useful because in a HTML document, there can only be one element with the same ID! This means that if we use ID to specify which element we want, we will definitely get that exact element as long as it actually has that ID we specified. For example, to specify an element withj id of “main_post”, we use the CSS selector “#main_post”. Basically, to specify any element with an ID, we use the # symbol followed by the ID of that element!
+                    </p>
+                    <p>
+                        Another important basic is selecting <mark class="highlight">child</mark> elements using CSS selectors! A child element is basically an element that is within another element. If you were to inspect this particular website, you would see many elements that are childs of another (for example, our “.title_box” element is a child of our “#main_post” element!). We do this by simply using a space. For example, if we want to specify our “.title_box” element, we can use the CSS selector “#main_post .title_box”!
+                    </p>
+                    <p>
+                        Lastly, we can use CSS selectors to specify the <mark class="highlight">tag name</mark> of an element. For example, if we want to specify all &ltdiv&gt tags, we can just use “div” as the CSS selector! No special symbols or patterns, simple as that! This may not be as useful since there can be so many elements of the same tag in a HTML document. However, we can stack CSS selectors to specify exactly what pieces of HTML we want!
+                    </p>
+                    <p>
+                        We do this simply by putting CSS selectors back-to-back! For example, if I wan to be super specific and pick out an element of tag &ltdiv&gt and class “title-box”, I can use the CSS selector “div.title_box”!
+                    </p>
+
+                    <a id="fifth_link">
+                        <h2 class="signposting">Book Review Webscraper</h2>
+                    </a>
+                    <p>
+                        For this project, we will build a scraper that can help us map out all the titles, price and star ratings of our books! We will do this by simply scraping from a Webscraping sandbox website, https://books.toscrape.com/, which is a place that was built for people to practice Webscraping.                    </p>
+                    <p>
+                        Do take note that it is illegal to webscrape from some websites and it is a good practice to view a page’s terms and conditions before scraping its data.
+                    </p>
+                    <p>
+                        First things first, let’s import our packages! Exactly like we did in the previous section, import our requests and BeautifulSoup packages!
+                    </p>
+                    <pre><code>
+    import requests
+    from bs4 import BeautifulSoup as bs
+                    </code></pre>
+                    <p>
+                        Then, again like before, request the content from our page and convert it into a BeautifulSoup soup object!
+                    </p>
+                    <pre><code>
+    url = “https://books.toscrape.com/”
+    raw_html = requests.get(url).content
+    soup = bs(raw_html, ‘html.parser’)
+                    </code></pre>
+                    <p>
+                        Now let’s get to actual data collection! For our scraper, we would need each books title, price and number of star ratings! It would help if we could identify each book element in the html. If you were to inspect the page’s html using Google Chrome’s inspect tool (right click and hit inspect!), you would see that each of our book’s elements have a class “product-pod”! This means we can specify all book elements by picking out all elements with the class name of “product-pod”! We do this by using BeautifulSoup’s select method.
+                    </p>
+                    <p>
+                        Using the select method is very simple! Simply input the CSS selector as an argument and it will return a list of all elements that match that CSS selector! You can also use the method .select_one() to return only the first element that matches the CSS selector.
+                    </p>
+                    <pre><code>
+    book_elements = soup.select(“.product-pod”)
+                    </code></pre>
+                    <p>
+                        This will return us a list of all elements with the product_pod class name (All our book elements!).
+                    </p>
+                    <p>
+                        With this, we can simply loop through all the products and extract all the book titles, book star ratings and price! One important thing to note when using BeautifulSoup is that we can even use our CSS selector methods on portions of our soup (I like calling them “sub-soups”). For example, each one of our book elements can be treated as a sub-soup, and we can treat them as full HTML documents individually and extract data from each of them directly!
+                    </p>
+                    <p>
+                        With this knowledge, let us loop through our book elements and make a list of book titles, star ratings and prices! Note that we want to extract out the data itself, not the element! This means we want the .text attribute of our elements! (Try it yourself! Print out a full element and the .text attribute of an element! Looks very different huh?)
+                    </p>
+                    <pre><code>
+    for book_element in book_elements:
+        title_element = book_element.select_one("h3 a")
+        title =  title_element.get("title")
+        price = book_element.select_one(".price_color").text
+        ratings_element = book_element.select_one(".star-rating")
+        ratings = ratings_element.get("class")[1]
+                    </code></pre>
+                    <p>
+                        Ok that was a lot of code at once… Let’s run through it line by line. So we used a for loop to loop through each book element in our list of book elements! This allows us to extract data from each book element at once.
+                    </p>
+                    <p>
+                        Now for our first piece of data - our Price! We simply get this by specifying the class name “price_color” and getting its .text attribute.
+                    </p>
+                    <p>
+                        We just need to do that for the next Title and the Ratings right? Well, not exactly… If you were to inspect the page yourself, you would notice that the title elements .text attribute sometimes don’t show the full title name! This does not look like complete data to scrape, but lucky for us the element’s title attribute shows it’s full title! We can get an element’s attribute by using the .get() method, while specifying the attribute name. So in this case, we use .get(“title”) on our title elements to scrape their title names!
+                    </p>
+                    <p>
+                        Next we have Star Ratings. Similarly to the title, we specify the element with class name “star-rating”, then we have to scrape its class tag to get the star rating, but that’s not enough! If we were to save that, it would leave us with a … list? This is because the star rating element actually has multiple classes (separated by spaces), thus we need to specify the second class name (index of 1) to attain the actual star rating of the book!
+                    </p>
+                    <p>
+                        Lastly, we print our data in a nice manner and voila! We have built our very own Webscraping project. Congratulations!
+                    </p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>
+                        Seeing your data flow out smoothly in your console must feel great, but don’t let your imagination stop you! Scrape more data, see how you can analyse your data to draw interesting findings!
+                    </p>
+                    <p>
+                        Now you can understand the effectiveness of Webscraping and the BeautifulSoup Python package. Imagine yourself before reading this article, unequipped with the skills of Webscraping. If you wanted to attain all these book information, you would probably need to manually scroll through the page and input the data yourself.                    </p>
+                    <p>
+                        Lucky for you, you are now a webscraper and by harnessing your BeautifulSoup capabiulities, no website is protected from your wrath! (Ok I might be exaggerating, some websites may be able to escape just a little..)
+                    </p>
+                    <p>
+                        I sincerely hope you enjoyed the article and the mini-project we built! If you learned something from reading this, please subscribe to the Coding Cucumbers email newsletter and follow me on any of my socials! Stay tuned for more Webscraping or programming related articles that will be rolling out on this site really soon! Stay cool cucumbers!
+                    </p>
+                </container>
+            </container>
+        </div>
+
+        <div class="col-2 email_box">
+            <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+            <div>
+                <p class="email_box_details">
+                    Be notified of any upcoming posts or merchandise to never miss out!
+                </p>
+                <form class="email_box_form" id="email_box_form">
+                    <input type="text" class="email_input" id="email_input">
+                    <div class="socials_submit_row">
+                        <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                        <div class="email_box_socials">
+                            <a href="https://www.instagram.com/codingcucumbers/" class="email_box_social_img">
+                                <img src="../resources/socials/instagram.png" alt="Instagram">
+                            </a>
+                            <a href="https://github.com/CodingCucumbers" class="email_box_social_img">
+                                <img src="../resources/socials/github_icon.png" alt="Github">
+                            </a>
+                            <a>
+                                <img src="../resources/socials/email_icon.png" alt="Email" class="cc_gmail">
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
