@@ -85,15 +85,16 @@ $(".more").hover( function() {
   $(this).css("background-color", "rgba(107, 107, 107, 0.1)");
   });
 
+
 //cards to fade in upon scroll
-$(window).scroll( function() {
-  if ($(this).scrollTop() < 300) {
-    $(".card").css({"opacity": "0"})
-  }
-  else {
-    $(".card").css({"opacity": "1"})
-  }
-})
+//   $(window).scroll( function() {
+//     if ($(this).scrollTop() < 300) {
+//       $(".card").css({"opacity": "0"})
+//     }
+//     else {
+//       $(".card").css({"opacity": "1"})
+//     }
+// })
 
 //user clicks on google icon, our gmail appears
 $('.fa-google').click( function(){
@@ -104,5 +105,22 @@ $('.fa-twitter').click( function(){
   window.alert("We are coming soon!")
 });
 
+function isMobile() {
+   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+if (isMobile()) {
+  $(".card").css({"opacity": "1"})
+}
+else {
+  $(window).scroll(function user_scroll() {
+    if ($(this).scrollTop() < 300) {
+      $(".card").css({"opacity": "0"})
+    }
+    else {
+      $(".card").css({"opacity": "1"})
+    }
+  })
+}
 
 });
