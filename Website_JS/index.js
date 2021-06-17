@@ -87,14 +87,14 @@ $(".more").hover( function() {
 
 
 //cards to fade in upon scroll
-  $(window).scroll( function() {
-    if ($(this).scrollTop() < 300) {
-      $(".card").css({"opacity": "0"})
-    }
-    else {
-      $(".card").css({"opacity": "1"})
-    }
-})
+//   $(window).scroll( function() {
+//     if ($(this).scrollTop() < 300) {
+//       $(".card").css({"opacity": "0"})
+//     }
+//     else {
+//       $(".card").css({"opacity": "1"})
+//     }
+// })
 
 //user clicks on google icon, our gmail appears
 $('.fa-google').click( function(){
@@ -113,7 +113,7 @@ if (isMobile()) {
   $(".card").css({"opacity": "1"})
 }
 else {
-  $(window).scroll( function() {
+  $(window).scroll(function user_scroll() {
     if ($(this).scrollTop() < 300) {
       $(".card").css({"opacity": "0"})
     }
@@ -122,6 +122,5 @@ else {
     }
   })
 }
-
 
 });
