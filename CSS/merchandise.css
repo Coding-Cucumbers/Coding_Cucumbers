@@ -92,44 +92,8 @@ body {
 
 @media only screen and (max-width: 1024px) {
 
-  .container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  #cc_logo{
-    width: 60%;
-    height: 40%;
-    overflow: hidden;
-  }
-
-  .container-fluid{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .mask-custom {
-    background-color: rgba(204, 230, 211, 1);
-    width: auto;
-    height: auto;
-  }
-
   .merchandise_header{
-    width: auto;
-  }
-
-  #header{
-    width: auto;
-    font-size: 30px;
-  }
-
-  #cucumber_shades{
-    height: 200px;
-    width: 300px;
-    margin: 0;
+    width: 140%;
   }
 
   .flex-box-1{
@@ -141,8 +105,12 @@ body {
     display: none;
   }
 
-  #something_para{
-    font-size: 20px;
+  .flex-box-2{
+    padding: 30px;
+    text-align: center;
   }
 
+  #want_para{
+    size: 44px;
+  }
 }
