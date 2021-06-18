@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>5 Python tips & tricks - Coding Cucumbers</title>
+    <meta name="description" content="Take your Python skills to the next level! Whether it be speed or elegance you crave, these Python tips and tricks are sure to improve your Python development skills!">
+    <meta name="Silas">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<script language="javascript" type="text/javascript"
+        src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">5 Python<br>Tips & tricks</h1>
+                <p class="preamble">To take your Python skills to the next level!</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                    <div class="img_cropper">
+                        <img src="../resources/about_us/silas_coding_cucumbers_aboutus.jpg" id="author_img" alt="Silas Author Image">
+                    </div>
+                    <div class="author_details">
+                        <p class="author_name">Silas Tay</p>
+                        <p class="date">23rd June 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/silas.tsl/">
+                        <img src="../resources/socials/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://github.com/SilasTSL">
+                        <img src="../resources/socials/github_icon.png" href="https://github.com/SilasTSL" alt="Github">
+                    </a>
+                    <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
+                        <img src="../resources/socials/linkedin.png" alt="Linkedin">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png" alt="Email" class="silas_gmail">
+                    </a>
+                </container>
+            </div>
+
+            <img src="../resources/post_pictures/post_posters/5_python_tips_poster.jpg" class="blog_post_img" id="example" alt="BeautifulSoup for Beginners">
+
+            <container id="main_container">
+                <h2 class="signposting">Introduction</h2>
+                <div class="text">
+                        <p>
+                            It seems everyone is a Python expert nowadays. With the popularity of the language hitting an all-time high, it’s important to be extremely refined in terms of your Python capabilities. Python has always been marketed as a very simple programming language to pick up, and I definitely agree that it’s fairly simple to pick up! I even recommended Python as one of the first language a beginner programmer should pick up in <a href="https://www.codingcucumbers.com/website/best-languages-to-learn-as-a-beginner">this</a> article that I wrote sometime back.
+                        </p>
+                        <p>
+                            However, don’t let the simplicity of Python fool you. The language has lots of advanced techniques that I’m sure most of you are not utilizing enough.
+                        </p>
+                        <p>
+                            Whether you are a beginner Python developer or an experienced Python engineer, I’m sure the tips and tricks I share in this article will be very useful in your Python coding adventures. While everyone is throwing for loops left and right, you will shock the world with the sheer speed and elegance of your code!
+                        </p>
+                </div>
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>List & Dictionary Comprehension</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>Enumerate</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>Multiple variable assignment</li>
+                        </a>
+
+                        <a href="#fourth_link">
+                            <li>Unpacking variables</li>
+                        </a>
+
+                        <a href="#fifth_link">
+                            <li>Zip</li>
+                        </a>
+                    </ol>
+                </container>
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">List & Dictionary Comprehension</h2>
+                    </a>
+                    <p>
+                        I’m sure every Python developer worth their salt has heard of list comprehension, but are you utilizing it enough? I guess the more important question is - Why exactly are list comprehensions preferred over plain-old for loops? There are generally 2 reasons for this.                    </p>
+                    <p>
+                        Firstly, it’s more readable! A for loop often takes up multiple lines of unnecessary code, code that can be written in one neat line using a list comprehension! Readability may not be on the top of your priorities as a beginner programmer for now, but trust me it’s important! As you progress in your programming career, it’s inevitable that you find yourself working on code in a team. This means sloppy and unreadable code will be a huge eyesore for you and your teammates. List comprehensions prevent that!
+                    </p>
+                    <pre><code>
+    #Without List Comprehension!
+    old_lst = [1,2,3,4,5]
+    new_lst = []
+    for element in old_lst:
+        new_element = old_element * 2
+        new_lst.append(new_element)
+
+    #With List Comprehension!
+    old_lst = [1,2,3,4,5]
+    new_lst = [element * 2 for element in old_lst]
+                    </code></pre>
+                    <p>
+                        Just compare the 2 blocks of code! Using a list comprehension makes it look much more elegant, while doing exactly the same thing!
+                    </p>
+                    <br>
+                    <p>
+                        Secondly, it’s much faster! In terms of speed, using a list comprehension is on average twice as fast as using a for loop (when dealing with simple functions). This is huge in terms of runtime and that’s always important as a developer. The speed of your code often defines your skills as a programmer. No programmer with self-respect would want to accept slower code right?
+                    </p>
+                    <p>
+                        However, there are cases where list comprehensions are limited in its applicability. Unfortunately, there is no way to break out of a list comprehension, unlike a for loop. If your code requires you to have a break condition, the “traditional” for loop will still be your better bet.
+                    </p>
+                    <br>
+                    <p>
+                        Now let’s talk about something maybe less known - Dictionary comprehensions! Now I’m certain way less people have heard of dictionary comprehensions, but they are actually pretty easy to use too! It’s basically the same syntax as a list comprehension! Let me demonstrate:
+                    </p>
+                    <pre><code>
+    new_dictionary = {key:value for (key,value) in old_dictonary.items()}
+                    </code></pre>
+                    <p>
+                        Much like our beloved list comprehensions, dictionary comprehensions are much more aesthetically pleasing and fast!
+                    </p>
+                    <pre><code>
+    #Without Dictionary Comprehension!
+    old_dictionary = {“one” : 1, “two” : 2}
+    new_dictionary = {}
+    for key, value in old_dictionary.items():
+        new_dictionary[key] = value * 2
+
+
+    #With Dictionary Comprehension!
+    old_dictionary = {“one”:1, “two:2}
+    new_dictionary = {key : value * 2 for (key, value) in old_dictionary.items()}
+                    </code></pre>
+                    <p>
+                        Again, look at the difference! Doesn’t the dictionary comprehension just look so much more elegant and impressive?
+                    </p>
+
+                    <a id="second_link">
+                        <h2 class="signposting">Enumerate</h2>
+                    </a>
+                    <p>
+                        Let’s talk about enumerate next! Sounds complicated, but it’s surprisingly super simple and very useful too! Basically, enumerates accepts an iterable as a parameter and returns an enumerate object.
+                    </p>
+                    <p>
+                        This enumerate object is essentially just the same iterable but with a counter (index) for each element. We can convert it into a list object, a tuple object or even iterate over it as an enumerate object!
+                    </p>
+                    <p>
+                        To convert it into a list or tuple, we simply use:
+                    </p>
+                    <pre><code>
+    list(enumerate_object)
+    tuple(enumerate_object)
+                    </code></pre>
+                    <p>
+                        And to iterate over it, we treat it almost like looping over a dictionary’s items:
+                    </p>
+                    <pre><code>
+    for count, item in enumerate_object:
+        print(count, item)
+        #This will output the index of the item in an enumerate object!
+                    </code></pre>
+                    <p>
+                        Furthermore, enumerate also accepts a second parameter, which defines at which value the first element counts from (default is 0). For example:
+                    </p>
+                    <pre><code>
+    fruits = [“apple”, “pear”, “mango”]
+    enumerate_fruits = enumerate(fruits, 10)
+    for count, item in enumerate_fruits:
+        print(count, item)
+        #This will output the same as before, but starting from 10, 11, …!
+                    </code></pre>
+                    <p>
+                        Without enumerate, we will need a lot more lines of code to produce the same output! Enumerate offers us a very elegant and clean way of looping through iterables with indexing!
+                    </p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">Multiple variable assignment</h2>
+                    </a>
+                    <p>
+                        Another thing that can make your Python code more palatable is assigning multiple variables in a single line! It’s super simple and surprisingly saves a lot of unnecessary lines of code as well! To do this, we simply use commas (,) to assign multiple variables:
+                    </p>
+                    <pre><code>
+    a, b, c = 1, 2, 3
+    #This assigns three different variables with three different values!
+                    </code></pre>
+                    <p>
+                        This again makes our code neat and faster as well! If you were to think oh how many times we declare and assign variables in Python, you can just imagine how much time we will save using multiple variables assignment! It all adds up!
+                    </p>
+                    <p>
+                        It’s also possible to assign multiples variables to the same value in one line! It’ll look something like this:
+                    </p>
+                    <pre><code>
+    a = b = c = 5
+    #This assigns three different variabl;es with the same value!
+                    </code></pre>
+                    <p>
+                        Another interesting thing we can do is swap variable values! Using commas, we can assign the value of one variable to another variable, something like this:
+                    </p>
+                    <pre><code>
+    a, b = b, a
+    #This assigns the value of a to b, and b to a!
+                    </code></pre>
+                    <p>
+                        Without using multiple variable assignment, we would need to assign the values into a temporary variable that would not only add unnecessary lines of code, but also waste computer memory!
+                    </p>
+
+                    <a id="fourth_link">
+                        <h2 class="signposting">Unpacking variables</h2>
+                    </a>
+                    <p>
+                        Unpacking variables is actually a very simple concept that's very similar to multiple variable assignment. It involves assigning multiple variables values from an iterable! Whether it be lists or tuples, sets or dictionaries, unpacking variables is a very efficient method of extracting extracting values into multiple variables.
+                    </p>
+                    <p>
+                        Exactly like multiple variable assignment, we use commas when unpacking variables. Let me demonstrate:
+                    </p>
+                    <pre><code>
+    a, b, c = [1, 2, 3]
+                    </code></pre>
+                    <p>
+                        You can do this with tuples, sets and dictionaries as well! As for dictionaries, you can unpack the variables as the dictionary's keys, values or items (as tuples). We simply use the dictionary's .keys(), .values() or .items() methods!
+                    </p>
+                    <p>
+                        One more thing to take note of for unpacking variables is the * operator. Don't mistake this for the multiply operator! When unpacking variables, the * operator helps us to store multiple values into one variable! This means that if we have more values in our iterable than our variables, we can determine which variable will store the extra values! Let's see how that works!
+                    </p>
+                    <pre><code>
+    a, b* = [1, 2, 3]
+    #This will result in a = 1, b = [2, 3]
+                    </code></pre>
+
+                    <a id="fifth_link">
+                        <h2 class="signposting">Zip</h2>
+                    </a>
+                    <p>
+                        The Zip() function in Python is extremely underused. I'm sure most beginner Python developers won't even know of its existence, let alone use it in their own code. This is a huge mistake! The Zip() function is an  extremely valuable and time-saving function that you must have in your Python arsenal.                     <p>
+                    </p>
+                    <p>
+                        The Zip() function helps us to combine iterables together. In simpler terms, it takes multiple iterables as arguments and returns one iterator object (NOT list!) with the elements from the iterables combined in a series of tuples! This should make things clearer:
+                    </p>
+                    <pre><code>
+    fruits = ["apples", "pears", "oranges"]
+    colours = ["red", "green", "orange"]
+    iterator = zip(fruits, colours)
+    #This will produce an iterator object that looks like this:
+    #[("apples", "red"), ("pears", "green"), ("oranges", "orange")]
+                    </code></pre>
+                    <p>
+                        Now how can we manipulate this iterator object into something useful? It's fairly easy! If you want it as a list object, simply use the python function list()!
+                    </p>
+                    <pre><code>
+    iterator_list = list(iterator)
+                    </code></pre>
+                    <p>
+                        You can even return it as a dictionary, with the values of the first iterable as keys and the values of the second as values!
+                    </p>
+                    <pre><code>
+    iterator_dictionary = dict(iterator)
+                    </code></pre>
+                    <p>
+                        One important thing to take note of is what iterables you are passing into the Zip() function! Due to the "combining" functionality of the Zip() function, the order of your iterable elements matter. This in turn also means if you pass in iterables that are unordered (e.g. sets), the resulting iterator object will be jumbled and that's highly unlikely to be what you intended. So as a general rule of thumb, don't pass in any unordered iterables!
+                    </p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>
+                        That pretty much sums up all my Python tips and tricks for anyone aspiring to hone their Python development skills. Of course there are plenty more advanced Python functions/techniques that I have not covered today but I hope you have at least learnt one new skill that you can implement when coding!
+                    </p>
+                    <p>
+                        I have merely touched the surface of what some of these Python functions can do, so please read up more about them if you want to truly be a master Python programmer!
+                    </p>
+                    <p>
+                        I sincerely hope you found the article interesting, and if you want to be notified of any new upcoming posts please subscribe to our email newsletter! I will be posting many more Python posts so stay tuned! Hope your Python skills have improved and remember to stay chill cucumbers!
+                    </p>
+
+                </container>
+            </container>
+        </div>
+
+        <div class="col-2 email_box">
+            <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+            <div>
+                <p class="email_box_details">
+                    Be notified of any upcoming posts or merchandise to never miss out!
+                </p>
+                <form class="email_box_form" id="email_box_form">
+                    <input type="text" class="email_input" id="email_input">
+                    <div class="socials_submit_row">
+                        <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                        <div class="email_box_socials">
+                            <a href="https://www.instagram.com/codingcucumbers/" class="email_box_social_img">
+                                <img src="../resources/socials/instagram.png" alt="Instagram">
+                            </a>
+                            <a href="https://github.com/CodingCucumbers" class="email_box_social_img">
+                                <img src="../resources/socials/github_icon.png" alt="Github">
+                            </a>
+                            <a>
+                                <img src="../resources/socials/email_icon.png" alt="Email" class="cc_gmail">
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
