@@ -33,3 +33,17 @@
   width: 95%;
   border-top: 1px solid black;
 }
+
+/* to make website mobile friendly */
+@media only screen and (max-width: 1024px) {
+
+  .navigation-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    text-align: justify;
+    padding: 0px;
+    padding-bottom: 30px;
+  }
+
+}
