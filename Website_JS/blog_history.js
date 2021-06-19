@@ -14,7 +14,8 @@ function extract_data_from_row(row) {
     let date = row[1].gs$cell.$t;
     let tag = row[2].gs$cell.$t;
     let picture_link = row[3].gs$cell.$t;
-    return [title, date, tag, picture_link];
+    let post_link = row[4].gs$cell.$t;
+    return [title, date, tag, picture_link, post_link];
 }
 
 function fit_data(dictionary_of_entries) {
@@ -22,14 +23,16 @@ function fit_data(dictionary_of_entries) {
     for (post_thumbnail of post_thumbnails){
         post_thumbnail.classList.add("hidden");
     }
+    let post_links = document.getElementsByClassName("post_thumbnail_link");
     console.log(post_thumbnails);
     for (let i=0; i < max_post_per_page; i++) {
         let entry = dictionary_of_entries[i];
-        let [title, date, tag, picture_link] = extract_data_from_row(entry);
+        let [title, date, tag, picture_link, post_link] = extract_data_from_row(entry);
         post_thumbnails[i].getElementsByClassName("post_title")[0].innerHTML = title;
         post_thumbnails[i].getElementsByClassName("post_img")[0].src = picture_link;
         post_thumbnails[i].getElementsByClassName("post_date")[0].innerHTML = date;
         post_thumbnails[i].getElementsByClassName("post_tag")[0].innerHTML = tag;
+        post_links[i].setAttribute("href", post_link);
         post_thumbnails[i].classList.remove("hidden");
         post_thumbnails[i].classList.add("show");
     }
@@ -45,8 +48,8 @@ function fillAll() {
     loadData().then(response => {
         let data = response.feed.entry;
         let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/4); i++) {
-            dictionary_of_entries[i] = data.slice(i * 4, (i+1) * 4)
+        for (let i=0; i < (data.length/5); i++) {
+            dictionary_of_entries[i] = data.slice(i * 5, (i+1) * 5)
         }
         //Swapping order of entries
         let number_of_entries = Object.keys(dictionary_of_entries).length;
@@ -65,6 +68,7 @@ function fillAll() {
 function filterSelection(filter_tag) {
     console.log("Filtering based on: "+filter_tag);
     let post_thumbnails = document.getElementsByClassName("post_thumbnail");
+    let post_links = document.getElementsByClassName("post_thumbnail_link");
 
     if (filter_tag === "all") {
         console.log("Filling everthing!");
@@ -79,8 +83,8 @@ function filterSelection(filter_tag) {
     loadData().then(response => {
         let data = response.feed.entry;
         let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/4); i++) {
-            dictionary_of_entries[i] = data.slice(i * 4, (i+1) * 4)
+        for (let i=0; i < (data.length/5); i++) {
+            dictionary_of_entries[i] = data.slice(i * 5, (i+1) * 5)
         }
         //Swapping order of entries
         let number_of_entries = Object.keys(dictionary_of_entries).length;
@@ -100,13 +104,14 @@ function filterSelection(filter_tag) {
         thumbnail_number = 0;
         for (let i=0; i < Object.keys(dictionary_of_entries).length; i++) {
             let entry = dictionary_of_entries[i];
-            let [title, date, tag, picture_link] = extract_data_from_row(entry);
+            let [title, date, tag, picture_link, post_link] = extract_data_from_row(entry);
             if (tag === filter_tag) {
                 console.log("Success");
                 post_thumbnails[thumbnail_number].getElementsByClassName("post_title")[0].innerHTML = title;
                 post_thumbnails[thumbnail_number].getElementsByClassName("post_img")[0].src = picture_link;
                 post_thumbnails[thumbnail_number].getElementsByClassName("post_date")[0].innerHTML = date;
                 post_thumbnails[thumbnail_number].getElementsByClassName("post_tag")[0].innerHTML = tag;
+                post_links[thumbnail_number].setAttribute("href", post_link);
                 thumbnail_number++;
             } else {continue;}
         }
@@ -145,8 +150,8 @@ function loadPageData(){
             let data = response.feed.entry;
             let dictionary_of_entries = {};
             let dictionary_of_entries_filtered = {};
-            for (let i=0; i < (data.length/4); i++) {
-                dictionary_of_entries[i] = data.slice(i * 4, (i+1) * 4)
+            for (let i=0; i < (data.length/5); i++) {
+                dictionary_of_entries[i] = data.slice(i * 5, (i+1) * 5)
             }
             //Swapping order of entries
             let number_of_entries = Object.keys(dictionary_of_entries).length;
@@ -159,7 +164,7 @@ function loadPageData(){
             //Extract only specific filter entries
             let index = 0;
             for (let i=0; i < Object.keys(dictionary_of_entries).length; i++) {
-                let [title, date, tag, picture_link] = extract_data_from_row(dictionary_of_entries[i]);
+                let [title, date, tag, picture_link, post_link] = extract_data_from_row(dictionary_of_entries[i]);
                 if (tag.toLowerCase() == current_filter.value) {
                     console.log("count");
                     dictionary_of_entries_filtered[index] = dictionary_of_entries[i];
@@ -194,6 +199,8 @@ function loadPageData(){
             //Fill data
             let current_page_entries_filtered = filtered_entries_split_by_page[page_number-1];
             let post_thumbnails = document.getElementsByClassName("post_thumbnail");
+            let post_links = document.getElementsByClassName("post_thumbnail_link");
+
             for (post_thumbnail of post_thumbnails){
                 post_thumbnail.classList.remove("show");
                 post_thumbnail.classList.add("hidden");
@@ -205,11 +212,12 @@ function loadPageData(){
                     break;
                 }
                 let entry = current_page_entries_filtered[i];
-                let [title, date, tag, picture_link] = extract_data_from_row(entry);
+                let [title, date, tag, picture_link, post_link] = extract_data_from_row(entry);
                 post_thumbnails[i].getElementsByClassName("post_title")[0].innerHTML = title;
                 post_thumbnails[i].getElementsByClassName("post_img")[0].src = picture_link;
                 post_thumbnails[i].getElementsByClassName("post_date")[0].innerHTML = date;
                 post_thumbnails[i].getElementsByClassName("post_tag")[0].innerHTML = tag;
+                post_links[i].setAttribute("href", post_link);
                 post_thumbnails[i].classList.remove("hidden");
                 post_thumbnails[i].classList.add("show");
             }
@@ -220,8 +228,8 @@ function loadPageData(){
     loadData().then(response => {
         let data = response.feed.entry;
         let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/4); i++) {
-            dictionary_of_entries[i] = data.slice(i * 4, (i+1) * 4)
+        for (let i=0; i < (data.length/5); i++) {
+            dictionary_of_entries[i] = data.slice(i * 5, (i+1) * 5)
         }
         //Swapping order of entries
         let number_of_entries = Object.keys(dictionary_of_entries).length;
@@ -257,6 +265,8 @@ function loadPageData(){
         let current_page_entries_length = current_page_entries.length;
         console.log("Current page entries: "+ entries_by_page[page_number - 1] + ", total number of entries: " + current_page_entries_length);
         let post_thumbnails = document.getElementsByClassName("post_thumbnail");
+        let post_links = document.getElementsByClassName("post_thumbnail_link");
+
         for (let i=0; i < max_post_per_page; i++) {
             if (i >= current_page_entries_length){
                 post_thumbnails[i].classList.remove("show");
@@ -264,11 +274,12 @@ function loadPageData(){
                 continue;
             }
             let entry = current_page_entries[i];
-            let [title, date, tag, picture_link] = extract_data_from_row(entry);
+            let [title, date, tag, picture_link, post_link] = extract_data_from_row(entry);
             post_thumbnails[i].getElementsByClassName("post_title")[0].innerHTML = title;
             post_thumbnails[i].getElementsByClassName("post_img")[0].src = picture_link;
             post_thumbnails[i].getElementsByClassName("post_date")[0].innerHTML = date;
             post_thumbnails[i].getElementsByClassName("post_tag")[0].innerHTML = tag;
+            post_links[i].setAttribute("href", post_link)
             post_thumbnails[i].classList.remove("hidden");
             post_thumbnails[i].classList.add("show");
         }
@@ -284,8 +295,8 @@ function loadPages() {
     loadData().then(response => {
         let data = response.feed.entry;
         let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/4); i++) {
-            dictionary_of_entries[i] = data.slice(i * 4, (i+1) * 4)
+        for (let i=0; i < (data.length/5); i++) {
+            dictionary_of_entries[i] = data.slice(i * 5, (i+1) * 5)
         }
         //Swapping order of entries
         let number_of_entries = Object.keys(dictionary_of_entries).length;
@@ -323,8 +334,8 @@ function loadPagesIfFiltered(filter) {
         let data = response.feed.entry;
         let dictionary_of_entries = {};
         let dictionary_of_entries_filtered = {};
-        for (let i=0; i < (data.length/4); i++) {
-            dictionary_of_entries[i] = data.slice(i * 4, (i+1) * 4)
+        for (let i=0; i < (data.length/5); i++) {
+            dictionary_of_entries[i] = data.slice(i * 5, (i+1) * 5)
         }
         //Swapping order of entries
         let number_of_entries = Object.keys(dictionary_of_entries).length;
@@ -337,7 +348,7 @@ function loadPagesIfFiltered(filter) {
         //Extract only specific filter entries
         let index = 0;
         for (let i=0; i < Object.keys(dictionary_of_entries).length; i++) {
-            let [title, date, tag, picture_link] = extract_data_from_row(dictionary_of_entries[i]);
+            let [title, date, tag, picture_link, post_link] = extract_data_from_row(dictionary_of_entries[i]);
             if (tag == filter) {
                 dictionary_of_entries_filtered[index] = dictionary_of_entries[i];
                 index++;
@@ -382,6 +393,8 @@ function loadPagesIfFiltered(filter) {
         //Load data
         let first_page_filtered_entries = filtered_entries_split_by_page[0];
         let post_thumbnails = document.getElementsByClassName("post_thumbnail");
+        let post_links = document.getElementsByClassName("post_thumbnail_link");
+
         for (post_thumbnail of post_thumbnails){
             post_thumbnail.classList.remove("show");
             post_thumbnail.classList.add("hidden");
@@ -393,11 +406,12 @@ function loadPagesIfFiltered(filter) {
                 break;
             }
             let entry = filtered_entries_split_by_page[0][i];
-            let [title, date, tag, picture_link] = extract_data_from_row(entry);
+            let [title, date, tag, picture_link, post_link] = extract_data_from_row(entry);
             post_thumbnails[i].getElementsByClassName("post_title")[0].innerHTML = title;
             post_thumbnails[i].getElementsByClassName("post_img")[0].src = picture_link;
             post_thumbnails[i].getElementsByClassName("post_date")[0].innerHTML = date;
             post_thumbnails[i].getElementsByClassName("post_tag")[0].innerHTML = tag;
+            post_links[i].setAttribute("href", post_link);
             post_thumbnails[i].classList.remove("hidden");
             post_thumbnails[i].classList.add("show");
         }

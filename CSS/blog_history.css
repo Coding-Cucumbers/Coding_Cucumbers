@@ -34,6 +34,10 @@
     margin-left: 0px;
 }
 
+.post_thumbnail_link {
+    color: black;
+}
+
 .post_thumbnail {
     flex-direction: column;
     align-items: center;
