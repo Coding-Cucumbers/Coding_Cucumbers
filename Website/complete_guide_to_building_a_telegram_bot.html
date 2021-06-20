@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Complete Guide to Building a Telegram Bot [Part 1] - Coding Cucumbers</title>
+    <meta name="description" content="Tutorial on building a telegram bot [part 1]">
+    <meta name="Bryan">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+</head>
+
+<body>
+
+  <script language="javascript" type="text/javascript"
+    src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">Complete Guide to Building a Telegram Bot [Part 1]</h1><br>
+                <p class="preamble">How I created my own Telebot!</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                  <div class="img_cropper">
+                    <img src="../resources/about_us/bryan_coding_cucumbers_aboutus.jpg" id="author_img">
+                  </div>
+                    <div class="author_details">
+                        <p class="author_name">Bryan Ho</p>
+                        <p class="date">20th June 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/badboibrybryy/">
+                        <img src="../resources/socials/instagram.png">
+                    </a>
+                    <a href="https://github.com/bryanhce">
+                        <img src="../resources/socials/github_icon.png">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
+                        <img src="../resources/socials/linkedin.png">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png" class="bryan_gmail">
+                    </a>
+                </container>
+            </div>
+            <img src="../resources/post_pictures/post_posters/complete_guide_to_telebot_p1-min.jpg" alt="complete guide to telebot" class="inside_post_img"><br>
+
+            <container id="main_container">
+                <p class="signposting">Introduction</p>
+                <p class="text">
+                  In this article, I will be going through the basics of creating a simple telegram bot. Building a telebot is a great project for aspiring programmers as it isn’t too complicated and it is also lots of fun!</p>
+                  <p class="text">
+                    In this telebot tutorial, having a basic understanding of python 3 will be extremely useful. All the code is written in python,
+                    but I will summarise the concepts for those who would just like to read more about its theory or for
+                    those who wish to build the bot in a different language.
+                </p>
+
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>Introduction to Telebots</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>Creating an "empty" Bot</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>Configuring your Bot</li>
+                        </a>
+
+                        <a href="#fourth_link">
+                            <li>How Bots Send Messages</li>
+                        </a>
+
+                      </ol>
+                </container>
+
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">What are Telebots</h2>
+                    </a>
+                    <img src="../resources/post_pictures/inside_post_pictures/telegram_bot_p1/telebot-pic1-part1-min.jpg" alt="Building a telegram bot" class="inside_post_img"> <br><br>
+                    <p>Telegram Bots are one of the most popular platforms for creating chat bots. Chat bots can be used for various purposes, including but not
+                      limited to notifications about the latest news (webhooks), customer support for businesses to answer basic queries (increase savings!) or even used as
+                      a food picker when you are unsure of where to eat! </p>
+
+                    <p>More specifically, some interesting telebots you can check out are @nushcatbot (for NUS freshmen to interact anonymously with other freshmen) or @werewolf
+                      moderator (to play werewolf with your friends). Some telebots can even be used in group chats! The functions of your telebot are as far as your imagination takes you! Let’s start by understanding the
+                      basics.</p>
+
+                    <a id="second_link">
+                        <h2 class="signposting">Using BotFather</h2>
+                    </a>
+                    <img src="../resources/post_pictures/inside_post_pictures/telegram_bot_p1/telebot-pic2-part1-min.jpg" alt="How to use BotFather in telegram" class="inside_post_img"> <br><br>
+                    <p>For starters, we have to create the shell of a bot that is functionless. Search @BotFather in your telegram search bar (this would require you to have an
+                      existing telegram account first) and engage with the bot by typing “/start” or clicking on the “start” button at the
+                      bottom.
+                    </p><p>
+                      The bot would return a list of all the functions that BotFather can execute. Click “/newbot” to create your new bot. Name your bot -- this will appear as the name in the chat list. Following, type in the username, this is how users can search for your bot in the search bar. It has to end with a ‘bot’, as such
+                      codingcucumbersbot.
+                    </p>
+                    <p>Instantly, you will receive a message that contains your token. Keep it secure as it can be used to control your bot! It is unique to your bot and we will be using it later on in this article. And that is it! You have just built an empty bot! You can actually search it up in the telegram search
+                      box.</p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">Configure Your Bot</h2>
+                    </a>
+
+                    <p>While we are at it, let’s go through some of the other BotFather commands that you can use to personalise your bot to your
+                       liking.</p>
+
+                       <container class="content_box text">
+                           <p class="content_title">Customise</p>
+                           <ol class="content_list">
+                                   <li>“/mybots” command is used to edit your existing bots, which is the first thing you should do to enable the editing of your bots. BotFather will prompt you to select the specific bot.</li>
+                                   <li>“/setdescription” command is used to edit the description of the bot, this text is seen in the background when users first click into the bot.</li>
+                                   <li>“/setabouttext” command is used to edit the about info of the bot, this is the text found under the info section when you click into the bot header.</li>
+                                   <li>“/setuserpic” command is used to edit the profile picture of the bot.</li>
+                             </ol>
+                       </container>
+
+                       <a id="fourth_link">
+                           <h2 class="signposting">How Do Telebots Work</h2>
+                       </a>
+                       <p>By sending HTTP requests to the web, we can control how the telegram bot functions. We have to <mark>build different URLs to instruct the bot to carry out various features</mark>. One such feature is to view the status of your bot -- send this URL in any
+                         browser:</p>
+                         <pre><code>
+https://api.telegram.org/bot{token}/getme
+                         </pre></code>
+                         <p>{token} is replaced by the token of your bot. </p>
+                         <p>What the URL means is that you are interacting with telegram’s api (api.telegram.org/), you are specifically communicating with your bot (bot{token}/) and the command (getme) is to return some basic information about the
+                           bot</p>
+                          <p>The return data, as seen in the browser, is a simple JSON body. JSON refers to Javascript Object Notation and it is how users/ bots communicate over the web. Data is stored in a JSON body and sent over the web that is also readable by humans. Notice how its structure is strikingly similar to a python
+                            dictionary!</p>
+                          <p>This is how the return JSON body should look like once you have sent that above URL:</p>
+                          <pre><code>
+{"ok":true,"result":{"id":xxxxxxx,"first_name":"testing","username":”testbot"}}
+                          </pre></code>
+                          <p>For every message that is sent to your bot, you can use this URL to retrieve the message:</p>
+                          <pre><code>
+https://api.telegram.org/bot{token}/getUpdates
+                          </pre></code>
+                          <p>The “/getUpdates” command returns a JSON response of all the messages that have been sent to your bot. Test that this is working by sending a simple “hello world” message to your telebot. The response in your browser should look something like
+                            this:</p>
+                            <pre><code>
+{"ok":true,"result":[{"update_id":xxxxxxx, "message":{"message_id":1,"from":{"id":xxxxxxx,
+"first_name":"Bryan","last_name":"Ho","username":"koolkid"},"chat":{"id":xxxxxxx,
+"first_name":"Bryan","last_name":"Ho","username":"koolkid","type":"private"},
+"date":1478087624,"text":"hello world"}}]}
+                            </pre></code>
+                            <p>Chat id is a unique number that identifies the user who sent the message to the telebot. In order to send a message back to the same user, we need to use the same unique chat id. Update id is another unique number to keep track of the order in which messages come in to know which is the latest message. The latest update id has the largest number. Date is in epoch time, click here to convert the datetime to human readable form. Text is the message that the user sent, we can use this message to trigger specific replies.</p>
+                            <p>The “/sendMessage” command is used to send a message from the bot to the user. The URL is as follows:</p>
+                            <pre><code>
+  https://api.telegram.org/bot{token}/sendMessage?chat_id={chat-id}&text=Hey!
+                            </pre></code>
+                            <p>The command “/sendMessage” takes in 2 arguments, “chat_id” and “text” which is used to direct the text to the target user. This is indicated by the ? after the command sendMessage, signposting that following the ? are the url parameters. Try this URL out and the message “Hey!” should appear in your conversation with the telebot. Congratulations, you have just sent your first message as a
+                              telebot!</p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>
+                      I hope this first article of 3 has succinctly summarised what a telegram bot is and how it can be used to carry out various functions. In the second part of this step-by-step guide, I will be going through building functions using python, and you can check out that <a href="../Website/how_to_create_a_telebot.html" target="_blank">article here</a>! If you thought this article was useful, feel free to connect with us below! It really means a lot to us. Stay cool
+                      Cucumbers!
+                    </p>
+                </container>
+            </container>
+
+
+        </div>
+
+
+
+<!-- newsletter popup -->
+        <div class="col-2 email_box">
+                <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+                <div>
+                    <p class="email_box_details">
+                        Be notified of any upcoming posts or merchandise to never miss out!
+                    </p>
+                    <form class="email_box_form" id="email_box_form">
+                        <input type="text" class="email_input" id="email_input">
+                        <div class="socials_submit_row">
+                            <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                            <div class="email_box_socials">
+                                <a href="https://www.instagram.com/coding_cucumbers/" class="email_box_social_img">
+                                    <img src="../resources/socials/instagram.png">
+                                </a>
+                                <a href="https://github.com/bryanhce/coding_cucumbers" class="email_box_social_img">
+                                    <img src="../resources/socials/github_icon.png">
+                                </a>
+                                <a class="email_box_social_img">
+                                    <img src="../resources/socials/email_icon.png" class="cc_gmail">
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
