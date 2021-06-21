@@ -81,6 +81,16 @@ body {
   padding-right: 50px;
 }
 
+#latest_posts {
+    font-size: 70px;
+    color: white;
+    font-family: Ubuntu;
+    background-color: black;
+    width: fit-content;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
 /* cards section */
 .card-title{
   font-family: Ubuntu;
