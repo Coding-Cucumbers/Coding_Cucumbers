@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>How to Migrate Data from One Database to Another - Coding Cucumbers</title>
+    <meta name="description" content="Data Migration from one database to another one">
+    <meta name="Bryan">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+</head>
+
+<body>
+
+  <script language="javascript" type="text/javascript"
+    src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">How To Migrate Data From One Database To Another</h1><br>
+                <p class="preamble">And do it efficiently</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                  <div class="img_cropper">
+                    <img src="../resources/about_us/bryan_coding_cucumbers_aboutus.jpg" id="author_img">
+                  </div>
+                    <div class="author_details">
+                        <p class="author_name">Bryan Ho</p>
+                        <p class="date">25th June 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/badboibrybryy/">
+                        <img src="../resources/socials/instagram.png">
+                    </a>
+                    <a href="https://github.com/bryanhce">
+                        <img src="../resources/socials/github_icon.png">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
+                        <img src="../resources/socials/linkedin.png">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png" class="bryan_gmail">
+                    </a>
+                </container>
+            </div>
+            <img src="../resources/post_pictures/post_posters/how-to-migrate-data-efficiently-min.jpg" alt="how-to-migrate-data-efficiently" class="blog_post_img">
+
+            <container id="main_container">
+                <p class="signposting">Introduction</p>
+                <p class="text">
+                  Data migration is the process of moving data between locations, formats, or systems. Data can be in the form of a table, schema or even a whole database. There are many ways to move data from one location to another. On the other hand, there are multiple data storage platforms such as Postgres, mySQL, Amazon S3 etc. to migrate the data to. Migration between these all require slightly different
+                  methods.</p>
+                  <p class="text">
+                    It is also crucial to precisely transfer the data, less some data gets lost in the process or duplicate entries are created. As such, finding a method that is efficient and effective is
+                    important.</p>
+                <p class="text">In this article, I will share with you some of the methods I used to migrate varying volumes of data. Of course, these are not cookie cutter methods that can be reapplied anywhere, but I will try my best to explain the theory behind the migrations and hopefully it would be applicable to your data migration
+                  situation.</p>
+
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>Hevo</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>Writing A Script</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>Import And Export</li>
+                        </a>
+                      </ol>
+                </container>
+
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">Migration With Hevo</h2>
+                    </a>
+                    <img src="../resources/post_pictures/inside_post_pictures/How_To_Migrate_Data_From_One_Database_To_Another/hevo_function-min.png" alt="how hevo functions" class="inside_post_img">
+                    <div class="img_description">Image from <a href="https://hevodata.com/" title="Hevo">Hevo</a>, pictorial representation of how hevo functions</div>
+                 <br><br>
+                    <p>Starting off simple, we can use Hevo for data migration and transformation. Click on this <a href="https://hevodata.com/" target="_blank">link to access</a> the official Hevo page.  It is by far the best data migration tool I have used and it is also very efficient. It took me less than 20 minutes to migrate 5 million rows of data! Cross platform migration has never been easier, data sources to migrate from include Amazon Redshift, MongoDB, Postgres, Google Drive, Shopify and a ton more.</p><br>
+                    <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/p0XGLDgvCo8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="img_description">Video from Youtube by Hevo Data, an introductory video to the overview of Hevo</div>
+                    <br><br>
+
+                    <p>The steps are straightforward. 1. Set up a destination, which is the new location of your data store. Fill in the credentials and they will be verified. This includes IP address, database, schema etc. 2. Create a pipeline. There are a few ways to migrate and depending on your needs, select the appropriate pipeline mode. Key in the credentials, be verified and you are good to
+                      go!</p>
+                    <p>My only gripe with hevo is that it cannot accommodate extensively large table migration. Previously, I had to migrate a single table of 68 million rows from one postgres server to another. However, I could not use hevo as it’s limit was at 5 million
+                      rows.</p>
+                    <p>There was a feature to replicate the entire database, but that included tables that I did not want. I found it too cumbersome to replicate everything and then waste more time deleting 95% of it. Luckily, I managed to figure out a cost-effective (free) way to migrate huge data, relatively quickly. I’ll link the article here if you are
+                      interested.</p>
+                    <p>Do note that hevo is not free, but there are free trials, which comes in very helpful if you are doing the bulk of the data migration in a short time
+                      span.</p>
+
+
+                    <a id="second_link">
+                        <h2 class="signposting">Writing A Script</h2>
+                    </a>
+                    <p>Writing a script is appropriate when transferring moderately large amounts of data. Transferring data in batches is recommended as it not only speeds up the time taken but you are also able to log the progress of the
+                      transfer.</p>
+                      <p>
+                        During my internship, I was assigned to integrate 2 tables and migrate it to another location. However, my script crashed mid-way through. It could be because of an extreme case that I failed to consider when I was integrating 2 tables or because there was a timeout with the database connection. Luckily, as I did the migration in batches, I knew where the migration last stopped and picked up from that same spot accordingly. This would be impossible if I had migrated the entire chunk at once.
+                    </p>
+                    <p>In the example below, I wrote a python script to transfer some data from postgres. This is only the logic of the script and not the full
+                      code.</p>
+                  <pre><code>
+start = 0
+limit = 100000
+for i in range(1, 5):
+    try:
+        holder = (i*10000)
+        query = """SELECT * FROM api_log OFFSET {} LIMIT {}""".format(start, limit)
+        df = pd.read_sql(query, engine_dataDump)
+        df.to_sql('api_log_testing', con = engine_public, if_exists = 'append', index=False)
+        start = holder
+        print(f"completed transfer till row {start}")
+    except Exception as e:
+        print(e)
+                  </pre></code>
+                  <p>Breaking down the code, I am transferring the data in 4 batches so the code block will loop 4 times indicated by the for loop. In the SQL query, I am selecting specific chunks of data from the table api_log with the help of offset and limit commands. Limit is fixed as it is the number of rows you want to transfer per loop. Offset changes every loop as it is based on the number of rows I transferred in the previous
+                    loop.</p>
+                  <p>pd.read_sql executes the query and engine_dataDump is the database I am connected to. df.to_sql then sends the queried rows to the new database (engine_public) and the table is titled
+                    api_log_testing.</p>
+                  <p>Then, I reassign the “holder” to the “start” variable so that the offset for the next loop will be at the specified bulk of data that I have yet to
+                    upload.</p>
+                  <p>The print statement is to log my progress. The try and except statements are for the error logging to capture any errors that can be fixed in the future. If I had done my logging in during my migration at my internship, I would have been able to catch the error and avoid it in the
+                    future!</p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">Import And Export</h2>
+                    </a>
+                    <img src="../resources/post_pictures/inside_post_pictures/How_To_Migrate_Data_From_One_Database_To_Another/import_export_pgadmin-min.png" alt="how to import and export with pgAdmin" class="inside_post_img">
+                    <div class="img_description">Image from <a href="https://www.postgresqltutorial.com/import-csv-file-into-posgresql-table/" title="postgrestutorials">postgrestutorials</a>, finding the import/export option</div><br><br>
+                    <p>This method is very useful if you have less than a million rows of data. In its essence, you are downloading all the data from your source into your local computer. Then uploading all that data into the new
+                      location.</p>
+                    <p>For example, if you are in pgAdmin, just right click on the table you want to migrate (1) and pick export (2). Alternatively, locate the download icon which serves the same purpose. Name the files with the appropriate extension such as .csv. Following, navigate into the location where you would like your new table to be. Right click again and choose import, pick the csv file and you are
+                      done!</p>
+
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>
+                      These are the 3 ways I did my data migration that I felt were efficient and reliable. It is important to know the size of your data as you want to select the appropriate method -- one that doesn't waste unnecessary resources while has high efficacy. I hope this article is useful and that it will help speed up your mundane task of migrating. Stay cool
+                      Cucumbers!
+                    </p>
+                </container>
+            </container>
+
+
+        </div>
+
+
+
+<!-- newsletter popup -->
+        <div class="col-2 email_box">
+                <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+                <div>
+                    <p class="email_box_details">
+                        Be notified of any upcoming posts or merchandise to never miss out!
+                    </p>
+                    <form class="email_box_form" id="email_box_form">
+                        <input type="text" class="email_input" id="email_input">
+                        <div class="socials_submit_row">
+                            <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                            <div class="email_box_socials">
+                                <a href="https://www.instagram.com/coding_cucumbers/" class="email_box_social_img">
+                                    <img src="../resources/socials/instagram.png">
+                                </a>
+                                <a href="https://github.com/bryanhce/coding_cucumbers" class="email_box_social_img">
+                                    <img src="../resources/socials/github_icon.png">
+                                </a>
+                                <a class="email_box_social_img">
+                                    <img src="../resources/socials/email_icon.png" class="cc_gmail">
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>

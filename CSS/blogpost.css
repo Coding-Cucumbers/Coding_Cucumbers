@@ -134,6 +134,12 @@ h1.title{
     color: rgba(0,0,0,0.5);
 }
 
+.video{
+  margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 pre code {
   display: block;
   background-color: whitesmoke;
