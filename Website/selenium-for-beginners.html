@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Webscraping with Selenium for Beginners - Coding Cucumbers</title>
+    <meta name="description" content="Webscraping with Selenium, explained for Beginners. Learn all about this Automation Python Webscraping package and built your own Webscraping mini-project!">
+    <meta name="Silas">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+</head>
+
+<body>
+
+<script language="javascript" type="text/javascript"
+        src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">Introduction to Webscraping with Selenium</h1>
+                <p class="preamble">Create your first ever automation bot.</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                    <div class="img_cropper">
+                        <img src="../resources/about_us/silas_coding_cucumbers_aboutus.jpg" id="author_img" alt="Silas Author Image">
+                    </div>
+                    <div class="author_details">
+                        <p class="author_name">Silas Tay</p>
+                        <p class="date">25th June 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/silas.tsl/">
+                        <img src="../resources/socials/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://github.com/SilasTSL">
+                        <img src="../resources/socials/github_icon.png" href="https://github.com/SilasTSL" alt="Github">
+                    </a>
+                    <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
+                        <img src="../resources/socials/linkedin.png" alt="Linkedin">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png" alt="Email" class="silas_gmail">
+                    </a>
+                </container>
+            </div>
+
+            <img src="../resources/post_pictures/post_posters/selenium_introduction_poster-min.jpg" class="blog_post_img" id="example" alt="Selenium for Beginners">
+
+            <container id="main_container">
+                <h2 class="signposting">Introduction</h2>
+                <div class="text">
+                        <p>
+                            Selenium is another useful package that we can use for Webscraping. In a previous article (link <a href="https://www.codingcucumbers.com/website/beautifulsoup-for-beginners">here</a>), I talked about how we can use the BeautifulSoup package to scrape data off of websites, but unfortunately for us BeautifulSoup is far from a one-size-fits-all when it comes to Webscraping.
+                        </p>
+                        <p>
+                            As you advance into the field of Webscraping, there comes a point where using requests and BeautifulSoup simply does not load the page source. The data seems to be hidden and no matter how you request the page, the page source you receive just doesn’t match the data that you want to receive. This is because the webpage is <strong>dynamically loaded</strong>.
+                        </p>
+                        <p>
+                            Don’t be too worried though, because in today’s article I will introduce another lifesaving package to help you overcome this headache - Selenium! By the end of the article, you will also be able to code your first automation bot scraper with Selenium, which is sure to give you a good understanding of how to use Selenium for Webscraping. With Selenium, these pesky Javascript loaded websites will not be able to evade your Webscraping grasp!
+                        </p>
+                </div>
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>What is Selenium</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>Dynamically Loaded Websites</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>Installation</li>
+                        </a>
+
+                        <a href="#fourth_link">
+                            <li>Basics of Selenium</li>
+                        </a>
+
+                        <a href="#fifth_link">
+                            <li>Hockey Stats Scraper</li>
+                        </a>
+                    </ol>
+                </container>
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">What is Selenium</h2>
+                    </a>
+                    <p>
+                        How does this magical package work? Selenium is a package used for automation testing purposes, and was primarily built for unit-testing web applications. However, it is also used for Webscraping purposes, especially for dynamically-loaded websites (which I will discuss later).
+                    </p>
+                    <p>
+                        Simply put, Selenium is a package that allows us to imitate a real human interacting with a website. Whether it be clicking buttons, searching for things or logging into accounts, Selenium can help us do just about anything a human can! Our Python script will be a bot that works automatically, while acting like a real person visiting the website the whole time!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/selenium_introduction/selenium_spy-min.jpeg" class="inside_post_img" alt="Spy">
+                        <p class="img_description">
+                            Selenium helps our scripts act as spies! Our automated bots act as real humans surfing the web!
+                        </p>
+                    </div>
+                    <p>
+                        This is extremely useful because with this power, dynamically loaded websites will naturally load the data that we want to access! With the data loaded, we can then begin our Webscraping process.
+                    </p>
+
+                    <a id="second_link">
+                        <h2 class="signposting">Dynamically Loaded Websites</h2>
+                    </a>
+                    <p>
+                        I’ve been using this term “Dynamically Loaded Website” pretty often so far, but what exactly does it mean? A Dynamic website is a website that loads differently every time you or another user visits the page. It is in contrast to a Static website, which I’m pretty sure you can guess, loads the same every time someone visits it. Simply put, a Dynamic website is one that is constantly updating and changing, thus it is “Dynamic”!
+                    </p>
+                    <p>
+                        A really great example is Facebook. If you were to visit your Facebook page, you will probably see posts on your feed, some sidebar information and a navigation bar. Now if your friend were to visit Facebook, will the page load the exact same webpage? I highly doubt it. This is because facebook is dynamically loaded. It understands who is loading the website, and feeds data from a server to load a website that is specific to your account! This is clearly a dynamic website!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/selenium_introduction/facebook_feed-min.png" class="inside_post_img" alt="Facebook feed">
+                        <p class="img_description">
+                            Everyon'es Facebook feed is different!
+                        </p>
+                    </div>
+                    <p>
+                        In contrast, a website like ours is considered Static! This is because if you and your friend were to visit this blog, it loads the same content for both your computers! The content and website is constant, making it very much a static website!
+                    </p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">Installation</h2>
+                    </a>
+                    <p>
+                        Now let’s get to the nitty-gritty. Just like the BeautifulSoup article, I’ll begin with the installation process for Selenium. Now that you have pip installed, simply input the following line to download the Selenium package:
+                    </p>
+                    <pre><code>
+    pip install selenium
+                    </code></pre>
+                    <p>
+                        Another thing we need for Selenium to function is a web driver. I’ll script is going to act like a human surfing the web, thus we also need a browser for our bot to surf! In this article, I’ll be using the chromedriver because I believe it has many great chrome options that are simple to implement and are also extremely useful when it comes to Webscraping, but using other drivers also have many benefits too!
+                    </p>
+                    <p>
+                        To download the chromedriver, simply click <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">here</a>. Now before you choose a random download location, please take note of where you download this chromedriver executable. We will need it later in the code, so it’s a good idea to keep track of where your chromedriver is located!
+                    </p>
+                    <p>
+                        With that, you’re pretty much done with the Selenium Installation setup!
+                    </p>
+                    <a id="fourth_link">
+                        <h2 class="signposting">Basics of Selenium</h2>
+                    </a>
+                    <p>
+                        Before we get into the project, let’s go through some basic syntax and understand how using the Selenium Python package will really work. As I’ve said before, Selenium is actually primarily used for unit-testing, which is simply running automated tests on portions of web applications to make sure they work as intended. The entire unit-testing portion of Selenium is pretty complicated, but lucky for us Webscraping with Selenium is pretty streamlined. It all has to do with the Web Driver!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/selenium_introduction/bot_click-min.jpg" class="inside_post_img" alt="Searching the web">
+                        <p class="img_description">
+                            Our driver is very much the core of our automation process!
+                        </p>
+                    </div>
+                    <p>
+                        A Web Driver is the most important object when it comes to using Selenium. To oversimplify things, think of it like a browser! Through the Driver object, we can interact with web pages on the internet! Using the Web Driver object, we can also find elements from Webpages just like how we did with BeautifulSoup, with CSS selectors!
+                    </p>
+                    <p>
+                        With the Web Driver, it is actually slightly easier to use our CSS selectors! The Web Driver object actually has methods that specify elements based on tag names, class names and IDs, thus not needing us to use the special symbols used in CSS selectors! It also does have methods that allow you to use CSS selectors, so don’t be afraid if you need an element that is very specific!
+                    </p>
+                    <p>
+                        The Web Driver object also has many methods that allow us to interact with the page. From clicking buttons to scrolling, filling up search fields or hovering, the Web Driver object acts just like a human (but of course we will be instructing it with code). This makes Selenium an extremely useful package, regardless of if you are using it to Webscrape or not!
+                    </p>
+                    <p>
+                        Enough talking, let’s get to actual coding shall we?
+                    </p>
+
+                    <a id="fifth_link">
+                        <h2 class="signposting">Hockey Stats Scraper</h2>
+                    </a>
+                    <p>
+                        For today’s project, we will be building a script that scrapes data off a Hockey Statistics webpage, consolidating data of our favourite team! The website we will be scraping from is right <a href="https://www.scrapethissite.com/pages/forms/">here</a>, and is another Webscraping sandbox website that was built to encourage users to practice Webscraping. Like I said in my previous BeautifulSoup article <a href="https://www.codingcucumbers.com/website/beautifulsoup-for-beginners">here</a>, not all websites allow Webscraping so please do your research before building your scripts!
+                    </p>
+                    <p>
+                        Our Webscraper should search the statistics of our favourite Hockey team (for today’s purposes, the ‘Boston Bruins’) and scrape all winning seasons of the Boston Bruins!
+                    </p>
+                    <p>
+                        First things first let’s import our packages! For Selenium projects, there are quite a few things to import so copy and paste the code if necessary!
+                    </p>
+                    <pre><code>
+    from selenium import webdriver
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.support.ui import WebDriverWait
+    from selenium.webdriver.support import expected_conditions as EC
+                    </code></pre>
+                    <p>
+                        These imports look scary, so let’s go through them briefly.
+                    </p>
+                    <p>
+                        The first line, importing ‘webdriver’, simply allows us to use the webdriver object! As I’ve discussed in the previous section, the webdriver object is the core object of all our selenium scripts so it is vital that we import it to use later on!
+                    </p>
+                    <p>
+                        The next 3 lines involve importing ‘By’, ‘WebDriverWait’ and ‘expected_conditions’. Basically, we will use these 3 elements together to ensure our webpage is loaded properly before scraping! This is important because sometimes, our script moves too fast and before any HTML element on the webpage is loaded, I’ll code will try and scrape data off of it! This is obviously less than ideal and will undoubtedly throw errors when we try to run our code! These three elements work in harmony to prevent this.
+                    </p>
+                    <p>
+                        After importing what we need, the next thing we should do with every Selenium script is to set up our driver! Remember when I asked you to take note of the location of your chromedriver executable? This is when we need it!
+                    </p>
+                    <pre><code>
+    PATH = "C:\Program Files (x86)\chromedriver.exe"
+    driver = webdriver.Chrome(PATH)
+                    </code></pre>
+                    <p>
+                        As for me, I store my chromedriver executable in my C drive, but just replace PATH with the path that you have stored your chromedriver executable in your computer!
+                    </p>
+                    <p>
+                        Now that the driver is set up, let’s visit the webpage! We use the webdriver’s simple .get() method to visit a webpage!
+                    </p>
+                    <pre><code>
+    url = “https://www.scrapethissite.com/pages/forms/”
+    driver.get(url)
+    time.sleep(3)
+    #We sleep the script here just so we can see the browser pop up!
+                    </code></pre>
+                    <p>
+                        If you were to run your code now, you will see a chrome browser pop up and visit the specified url! Congratulations, you have created your first automated bot! Isn’t it so cool? It looks just like any human using a computer and searching the web!
+                    </p>
+                    <p>
+                        Now let’s move on to actually interacting with the webpage itself! As I’ve wrote about before, Selenium also uses CSS selectors when it comes to picking elements off a HTML page!                    </p>
+                    <p>
+                        So the first thing we need to do is search for our favourite team, and for today’s article let’s just say that team is the Boston Bruins! We first have to find the searchbar in the middle of the screen. If you were to Inspect the page (right click, Inspect), you would realise the searchbar element has an ID of “q”. Let’s use that to pick out the searchbar element!
+                    </p>
+                    <p>
+                        Before that, let’s ensure the searchbar element has loaded. We use the three imports that we talked about earlier in this code to ensure that the searchbar has loaded before we try and pick it out!
+                    </p>
+                    <pre><code>
+    wait = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.ID, "q")))
+    searchbar = driver.find_element_by_id('q')
+                    </code></pre>
+                    <p>
+                        I know that looks complicated, but it’s actually real simple! The first line actually just ensures that the searchbar has loaded, by searching for an element with the id of “q”! WebDriverWait takes in 2 parameters in this case, the webdriver we are using (int this case the variable driver that we defined before), and the number of seconds it waits for the element to load before crashing (in this case, we specified 3 seconds!). After that, just use expected_conditions (EC) to find the element of the searchbar! It does this using the By object, and in this case since we are using the ID to find our searchbar, we use By.ID! The By object also has many different kinds of ways to locate other elements, like Class Names and CSS selectors!                    </p>
+                    <p>
+                        Now if you were to run this code without the WebDriverWait it would still work, but in some cases with slower webpages, if you try and locate an element without first ensuring it loads, your script will crash! That would make your script pretty inconsistent and useless.
+                    </p>
+                    <p>
+                        Let’s move on! Now that we located our searchbar, let’s type in our favorite team and search for their statistics! We type in the searchbar simply by using the .send_keys() method!
+                    </p>
+                    <pre><code>
+    searchbar.send_keys(“Boston Bruins”)
+                    </code></pre>
+                    <p>
+                        This will input the string “Boston Bruins” within the searchbar! To search, we just find the search button and click it with the .click() method!
+                    </p>
+                    <pre><code>
+    button = driver.find_element_by_class_name(‘btn-primary’)
+    button.click()
+    time.sleep(3)
+    #Again sleeping to see browser results!
+                    </code></pre>
+                    <p>
+                        If you run your code now, you will see that your script searched for boston Bruins on the webpage! How cool, now we are actually interacting with the website like a normal user!
+                    </p>
+                    <p>
+                        Now that we’ve accessed the page we want, the history of statistics of our favourite team - the Boston Bruins, let’s get down to scraping!
+                    </p>
+                    <p>
+                        Let’s first get the table element, and then a list of each row in the table.
+                    </p>
+                    <pre><code>
+    table = driver.find_element_by_class_name('table')
+    rows = table.find_elements_by_class_name('team')
+                    </code></pre>
+                    <p>
+                        After obtaining the list of table rows, let’s just loop through them and check if for that year, our team had a wining percentage of greater than 50%! If yes, let’s print that out in our console!
+                    </p>
+                    <pre><code>
+    for row in rows:
+        win_rate = float(row.find_element_by_class_name("pct").text)
+        if win_rate > 0.5:
+            year = row.find_element_by_class_name("year").text
+            print("The Boston Bruins had a winning year in " + year + " with a winrate of " + str(win_rate))
+                    </code></pre>
+                    <p>
+                        Now run your code! If you’ve followed my code diligently, watch as the browser searches for our team, clicks the enter button and scrape all our beautiful data into our console! Isn’t that satisfying?
+                    </p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>
+                        Now you can add Selenium into your bag of tricks! No more fumbling over Dynamic Websites any longer! With the use of Selenium, it opens up so many new websites that you can now scrape. Go wild! Explore pages that load dynamically and use selenium to interact with them and scrape data off them!
+                    </p>
+                    <p>
+                        Selenium isn’t only limited to webscraping! Try using it to play browser games like cookie clickers, or even use it to automate some daily processes you do everyday! For example, I’ve heard of people using selenium to automate their grocery shopping! When they need to buy groceries, they run a Selenium script and it helps them to go the the supermarket’s website, click on all the items they regularly buy and checkout! The uses of selenium are truly endless.
+                    </p>
+                    <p>
+                        I hope today’s article was a good introduction to this amazing package. If you enjoyed it and learnt something, please consider subscribing to our Email Newsletter and follow us on social media! Stay cool, cucumbers!
+                    </p>
+                </container>
+            </container>
+        </div>
+
+        <div class="col-2 email_box">
+            <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+            <div>
+                <p class="email_box_details">
+                    Be notified of any upcoming posts or merchandise to never miss out!
+                </p>
+                <form class="email_box_form" id="email_box_form">
+                    <input type="text" class="email_input" id="email_input">
+                    <div class="socials_submit_row">
+                        <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                        <div class="email_box_socials">
+                            <a href="https://www.instagram.com/codingcucumbers/" class="email_box_social_img">
+                                <img src="../resources/socials/instagram.png" alt="Instagram">
+                            </a>
+                            <a href="https://github.com/CodingCucumbers" class="email_box_social_img">
+                                <img src="../resources/socials/github_icon.png" alt="Github">
+                            </a>
+                            <a>
+                                <img src="../resources/socials/email_icon.png" alt="Email" class="cc_gmail">
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
