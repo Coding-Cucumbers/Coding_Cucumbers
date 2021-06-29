@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Introduction to Regex Python - Coding Cucumbers</title>
+    <meta name="description" content="Learn about the dynamic Regular Expressions (Regex) package in Python! String manipulation is something that every Python programmer should learn, and the Regex package helps us with just that!">
+    <meta name="Silas">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+</head>
+
+<body>
+
+<script language="javascript" type="text/javascript"
+        src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">An Introduction to Regular Expressions in Python</h1>
+                <p class="preamble">Learn some basic methods and patterns.</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                    <div class="img_cropper">
+                        <img src="../resources/about_us/silas_coding_cucumbers_aboutus.jpg" id="author_img" alt="Silas Author Image">
+                    </div>
+                    <div class="author_details">
+                        <p class="author_name">Silas Tay</p>
+                        <p class="date">29th June 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/silas.tsl/">
+                        <img src="../resources/socials/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://github.com/SilasTSL">
+                        <img src="../resources/socials/github_icon.png" href="https://github.com/SilasTSL" alt="Github">
+                    </a>
+                    <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
+                        <img src="../resources/socials/linkedin.png" alt="Linkedin">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png" alt="Email" class="silas_gmail">
+                    </a>
+                </container>
+            </div>
+
+            <img src="../resources/post_pictures/post_posters/regex-python-poster-min.jpg" class="blog_post_img" id="example" alt="BeautifulSoup for Beginners">
+
+            <container id="main_container">
+                <h2 class="signposting">Introduction</h2>
+                <div class="text">
+                        <p>
+                            In today’s article, I will be introducing another extremely useful Python Package - Regular Expressions (Regex)! The Regex package involves using specified search patterns to pick out portions of characters within strings. Think of the Regex package as the ultimate “string manipulator” package in Python! With this package, we can ensure that our strings keep to a common format, which is really useful in Python programming!
+                        </p>
+                        <p>
+                            For example, if you had different strings of different phone numbers, they can look like this - “+65 9123 4567”, or like this “91234567”. If you want all your numbers to be in a common format, you probably need an overly-complicated script to sieve through all the phone number strings and slice them into the format you want. However, with the use of Regex, it’s very simple to ensure that your strings follow the same standard. This makes processing the data a much cleaner process!
+                        </p>
+                </div>
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>Introduction to Search Patterns</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>Common Regex Methods</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>Using Regex</li>
+                        </a>
+                    </ol>
+                </container>
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">Introduction to Search Patterns</h2>
+                    </a>
+                    <p>
+                        Let’s talk about search patterns. Using Regex requires you to be extremely familiar with search patterns. The whole point of using Regex is to make sure our strings fit a certain format, so it is imperative that we know how to clean our strings to fit the same standard.
+                    </p>
+                    <p>
+                        Let’s go back to our phone numbers example. You have strings that have included the country code and some that don’t. How can you standardise these strings to fit a common format? You have to either remove the “+65” from all phone numbers with the country code, or add the “+65” to those that don’t. This requires you to use search patterns to search for the country code in our phone number strings!
+                    </p>
+                    <p>
+                        Enough talking, let’s get down to the actual search patterns. Search patterns involve a series of special characters that form a certain search pattern. Before we get into creating actual search patterns, we have to go through important meta-characters in Regex.
+                    </p>
+                    <br>
+                    <h4><strong>1.) ^ and $</strong></h4>
+                    <p>
+                        The <strong>^</strong> symbol searches from the start of the string. This means that it will first find characters that match the search pattern from the start of the string.
+                    </p>
+                    <p>
+                        The <strong>$</strong> symbol searches from the end of the string. This means that it will first find characters that match the search pattern from the end of the string.
+                    </p>
+                    <br>
+                    <h4><strong>2.) .</strong></h4>
+                    <p>
+                        The <strong>.</strong> symbol represents any single character.
+                    </p>
+                    <br>
+                    <p>
+                        With these three basic symbols introduced, let’s see how search patterns actually work, before I introduce some more basic Regex symbols.
+                    </p>
+                    <p>
+                        I can combine the use of these three characters to form search patterns to find portions of my string that I want.
+                    </p>
+                    <p>
+                        For example, if I want to pick out the first letter of any string, I can simply use the search pattern - “^.” This search pattern would search from the start of the string, and pick out one character from it (ANY character)! If I wanted to pick out the last two letters of any string, I can use the search pattern - “..$”. This search pattern would search from the back of the string, and pickout two characters from it (ANY characters)!
+                    </p>
+                    <p>
+                        This is the beauty of search patterns! It searches strings for a specific pattern and then either pick it out or removes them (we will discuss Regex methods later on).
+                    </p>
+                    <p>
+                        If you have very specific characters you want to search for, you can also use that character to search for them! For example, the search pattern “^a” will pick out the first “a” character in a string!
+                    </p>
+                    <p>
+                        Let’s go through a few more basic Regex symbols that you will use!
+                    </p>
+                    <br>
+                    <h4><strong>3.) *</strong></h4>
+                    <p>
+                        The <strong>*</strong> symbol will search for any number of characters that matches the search pattern that precedes it.
+                    </p>
+                    <p>
+                        For example:
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/python_regex/regex-examples-min-3.jpg" class="inside_post_img" alt="regex example 1">
+                        <p class="img_description">
+                            Search pattern: “c*” (Picks out any number of “c” characters!)
+                        </p>
+                    </div>
+                    <br>
+                    <h4><strong>4.) + and ?</strong></h4>
+                    <p>
+                        The <strong>+</strong> symbol will search for characters that match the search pattern that precedes it at least once.
+                    </p>
+                    <p>
+                        For example:
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/python_regex/regex-examples-min-2.jpg" class="inside_post_img" alt="regex example 2">
+                        <p class="img_description">
+                            Search pattern: “cu+” (Picks out any “c” characters that either precedes the “u” character at least once)
+                        </p>
+                    </div>
+                    <p>
+                        The <strong>?</strong> symbol will search for characters that match the search pattern that precedes it either once or not at all.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/python_regex/regex-examples-min-3.jpg" class="inside_post_img" alt="regex example 3">
+                        <p class="img_description">
+                            Search pattern: “cu?” (Picks out any “c” characters that precedes the “u” character once or none at all)
+                        </p>
+                    </div>
+                    <br>
+                    <h4><strong>5.) |</strong></h4>
+                    <p>
+                        The <strong>|</strong> symbol acts as an or operator. This means that we can use it to search for multiple search patterns.
+                    </p>
+                    <p>
+                        For example:
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/python_regex/regex-examples-min-4.jpg" class="inside_post_img" alt="regex example 4">
+                        <p class="img_description">
+                            Search pattern :”cu+|.$” (Picks out either any “c” character that precedes the “u” character at least once OR the last character of the string)
+                        </p>
+                    </div>
+                    <br>
+                    <h4><strong>6.) \</strong></h4>
+                    <p>
+                        The <strong>\</strong> symbol simply acts as an escape. Much like in Python, it is just used to escape the functionality of other symbols.
+                    </p>
+                    <p>
+                        For example, the search pattern “\$” will search a string for the actual “$” character, instead of the $’s function of searching a string from the back.
+                    </p>
+                    <br>
+                    <p>
+                        Using these common patterns, you can go very far in building powerful search patterns that can help format your strings nicely! There are plenty more meta-characters in Regex that have very unique use cases as well, so please do search them up! One resource I find extremely useful is the W3schools tutorial on Regex, link <a href="https://www.w3schools.com/python/python_regex.asp">here</a>.
+                    </p>
+
+                    <a id="second_link">
+                        <h2 class="signposting">Common Regex Methods</h2>
+                    </a>
+                    <p>
+                        Now that we understand search patterns, let’s get to actually manipulating our strings! It’s great that we can pick out specific portions of our strings, but what can we do with them? This is where our Regex methods come into play. In today’s article I will outline the 4 Regex methods that everyone uses, namely findall, search, split and sub. Before we get into the methods and some examples, we must always remember to import our Regex pattern. For convenience, many import the Regex package with the alias “re”, and that is what I’ll be doing in today’s examples.
+                    </p>
+                    <pre><code>
+    import regex as re
+                    </code></pre>
+                    <br>
+                    <h4>
+                        <strong>Findall</strong>
+                    </h4>
+                    <p>
+                        The Regex Findall() method helps to return a list of characters that matches the specified search pattern. It takes in 2 parameters - the search pattern and the string we are searching.
+                    </p>
+                    <p>
+                        For example:
+                    </p>
+                    <pre><code>
+    string = “coding cucumbers”
+    new_string = re.findall(“c”, string)
+    print(new_string)
+    #Output: [“c”, “c”, “c”]
+                    </code></pre>
+                    <p>
+                        The findall method is extremely useful when we want to pick out specific pieces of information from strings!
+                    </p>
+                    <p>
+                        Imagine you need to find out how many times a certain search pattern exists within a string, you can use Findall() to get a list of all matches and simply find its length!
+                    </p>
+                    <br>
+                    <p>
+                        <strong>Search</strong>
+                    </p>
+                    <p>
+                        The Regex Search() method helps to return a Match object of the search pattern specified. It takes in the same 2 parameters as the Findall method, the search pattern and the string we are searching.
+                    </p>
+                    <p>
+                        You must be wondering what in the world is a <strong>Match object</strong>? A Match object is unique to Regex and contains information about our Regex result. There are generally 3 key pieces of information you can retrieve from the Match object.
+                    </p>
+                    <p>
+                        Firstly, you can access the .string attribute to find the full string that was searched.
+                    </p>
+                    <p>
+                        Secondly, you can use the .span() method to find the start and end position (index) of the search pattern found in the string!
+                    </p>
+                    <p>
+                        Lastly, you can use the .group() method to find the portion of the string that matched the search pattern.
+                    </p>
+                    <p>
+                        It’s important to take note that the Search() method only returns the first match case of the search pattern! This means that even if there are multiple matches of the search pattern, the Match object will only represent the first match.
+                    </p>
+                    <p>
+                        Another thing to take note of is that with the Search() method, if the specified search pattern could not be found, a None value will be returned instead of a Match object!
+                    </p>
+                    <p>
+                        For example:
+                    </p>
+                    <pre><code>
+    string = “coding cucumbers”
+    match_object = re.search(“c”, string)
+
+    print(match_object.string)
+    #Output: “coding cucumbers”
+
+    print(match_object.span())
+    #Output: (0, 1)
+    #Note that even though there are multiple matches of the search pattern, the match object returned only represents the first match!
+
+    print(match_object.group())
+    #Output: “c”
+
+    match_object_2 = re.search(“z”, string)
+    print(match_object_2)
+    #Output: None
+    #This will not return a Match object since there were no matches of the search pattern “z” in the string!
+                    </code></pre>
+                    <p>
+                        The Search method in Regex is especially helpful when you need to determine if a certain search pattern exists within strings!
+                    </p>
+                    <p>
+                        Imagine you have lots of strings that represent prices, and you want to check if they are in USD$, you can simply use Search() to find out if that pattern is present!
+                    </p>
+                    <br>
+                    <h4>
+                        <strong>Split</strong>
+                    </h4>
+                    <p>
+                        The Regex Split() method helps to return a list of the string, split by each match of the search pattern. It takes in the same 2 parameters as the previous 2 methods, the search pattern and the string we are searching.
+                    </p>
+                    <p>
+                        For example:
+                    </p>
+                    <pre><code>
+    string = “coding cucumbers”
+    string_split = re.split(“u”, string)
+    print(string_split)
+    #Output: [“coding c”, “c” “mbers”]
+    #Note that the split string does NOT include the actual search pattern itself!
+                    </code></pre>
+                    <p>
+                        The Split() method is another extremely useful method to use when dealing with strings. It helps us to pick out specific pieces of strings that we know is separated by a common pattern.
+                    </p>
+                    <p>
+                        Imagine you have lots of strings that represent dates that look something like this - “29/06/2021”. If you wanted to separate the day, month and year of the date, you can use Split()and split using the “/” character!
+                    </p>
+                    <br>
+                    <h4>
+                        <strong>Sub</strong>
+                    </h4>
+                    <p>
+                        Lastly, we have the Sub() method. It helps us to search for the specified search pattern and substitute any matches with another specified string. For this, we need 3 parameters - the search pattern, the string we want to replace any matches with, and the string we are manipulating.
+                    </p>
+                    <p>
+                        Personally, I use this method the most in my data collection scripts, because it is very simple to format strings properly with the Sub() method!
+                    </p>
+                    <p>
+                        For example:
+                    </p>
+                    <pre><code>
+    string = “coding cucumbers”
+    new_string = re.sub(“c”, “C”, string)
+    print(new_string)
+    #Output: “Coding CuCumbers”
+                    </code></pre>
+                    <p>
+                        You can very easily use the Sub() method to ensure that your strings are formatted correctly! In data collection, there is bound to be pieces of data that are formatted incorrectly, and using this Sub() method allows us to clean up all our data and congregate them into a neat format!
+                    </p>
+                    <p>
+                        Imagine again you are scraping prices off a financial website, where the prices are represented in strings that look like this - “$500”. If you wanted to do some calculations, you would probably need to convert all these strings to integers, but with the “$” character, that would be impossible! We can use the Sub() method and substitute all “$” characters with “” (an empty string), thereby removing them before converting the prices to integers!
+                    </p>
+                    <br>
+                    <p>
+                        These Regex methods all have their own specific use cases. Getting a good grasp of how to use each and every one of them will make you extremely proficient in manipulating strings! More importantly, you must understand how each of them function and in which scenarios do you use each method!
+                    </p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">Using Regex</h2>
+                    </a>
+                    <p>
+                        To cap off this Regex article, let’s try solving the issue I proposed in the beginning of the article! The problem is that we have phone number strings that are formatted differently. Some look like this - “+65 9123 4567”, others look like this “91234567”. How can we standardise how they look?
+                    </p>
+                    <p>
+                        In this scenario, there’s 2 possible routes we can take. Either we keep the area codes and the spaces or we remove them. Let’s just say for the sake of this article we want to remove all country code and all spaces from our strings! Which method do you think we should use?
+                    </p>
+                    <p>
+                        After some thought, you probably would realise that the Sub() method will be especially relevant to solve our issue! We can use the Sub() method to replace all country codes and spaces with empty strings, thereby removing them!
+                    </p>
+                    <p>
+                        Now let’s think about search patterns. What search pattern can I formulate to find all country codes and spaces within my phone number strings? (HINT: You can assume that all country codes are 2 digits long!)
+                    </p>
+                    <p>
+                        Firstly we must remove all country codes! Assuming that all our phone number strings have 2 digit area codes, we can use a search pattern that looks something like this - "\+..” to find all area codes! Notice how we used the escape key to find the actual character “+” and not using the actual symbol of “+”.
+                    </p>
+                    <p>
+                        Alternatively, you can also just find the first 3 characters of the string, in which case you would not need to use the escape character at all!
+                    </p>
+                    <p>
+                        We also must remove the spaces between our phone number digits! We can simply use this special search pattern “\s”, which is used to represent a whitespace character.
+                    </p>
+                    <p>
+                        Alternatively, you can also just use “ “ to find whitespace characters, but it is way more common to use the special “\s” search pattern.
+                    </p>
+                    <p>
+                        Now that we have solved both our problems, how can we combine them into one search pattern? You should be thinking about using the “|” character to combine our search patterns! Using this “|” character, we can finally form our overall search pattern - "\+..| ".
+                    </p>
+                    <p>
+                        The overall code should look something like this:
+                    </p>
+                    <pre><code>
+    phone_numbers = [“+65 9123 4567”, “91234567”]
+    clean_phone_numbers = [re.sub("\+..| ", “”, phone_number) for phone_number in phone_numbers]
+    print(clean_phone_numbers)
+    #Output: [“91234567”, “91234567”]
+                    </code></pre>
+                    <p>
+                        Beautiful! Now we have all our phone numbers in the same format, how nice! Now, if some of you are a little irked that we assumed that the area codes will only be 2 digits long, go explore more search patterns! For this article, due to the limited number of special symbols I went through, our search patterns were pretty basic, but I assure you that with the use of the Regex package, almost anything within strings can be found!
+                    </p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>
+                        I sincerely hope that today’s article helped introduce the amazing package of Regex to many of you. I can’t say how many times I have used this package in my Python projects and how many times it has saved me from writing long lines of if...else code to format my strings properly. Even if you feel it is pretty useful for now, I assure you further down your Python development journey, you will be grateful that you learned this package here today!
+                    </p>
+                    <p>
+                        Also, don’t just read today’s article and go about your merry way. Try it out! I always recommend anyone learning new code to try it out yourself! Search patterns is one especially challenging concept in Regex that needs much practice to truly be a master at.
+                    </p>
+                    <p>
+                        That brings me to the end of today’s article on the dynamic Regular Expressions Python package. I really hope you guys enjoyed reading the article and learned something today! If so, please subscribe to our newsletter to keep up to date with everything Coding Cucumbers! Stay chill, cucumbers!
+                    </p>
+
+                </container>
+            </container>
+        </div>
+
+        <div class="col-2 email_box">
+            <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+            <div>
+                <p class="email_box_details">
+                    Be notified of any upcoming posts or merchandise to never miss out!
+                </p>
+                <form class="email_box_form" id="email_box_form">
+                    <input type="text" class="email_input" id="email_input">
+                    <div class="socials_submit_row">
+                        <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                        <div class="email_box_socials">
+                            <a href="https://www.instagram.com/codingcucumbers/" class="email_box_social_img">
+                                <img src="../resources/socials/instagram.png" alt="Instagram">
+                            </a>
+                            <a href="https://github.com/CodingCucumbers" class="email_box_social_img">
+                                <img src="../resources/socials/github_icon.png" alt="Github">
+                            </a>
+                            <a>
+                                <img src="../resources/socials/email_icon.png" alt="Email" class="cc_gmail">
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
