@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>How to Migrate Huge Data For Free Efficiently - Coding Cucumbers</title>
+    <meta name="description" content="Huge Data Migration Postgres server efficiently">
+    <meta name="Bryan">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+</head>
+
+<body>
+
+  <script language="javascript" type="text/javascript"
+    src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">How to Migrate Huge Data For Free Efficiently</h1><br>
+                <p class="preamble">Let's speed up this boring process</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                  <div class="img_cropper">
+                    <img src="../resources/about_us/bryan_coding_cucumbers_aboutus.jpg" id="author_img">
+                  </div>
+                    <div class="author_details">
+                        <p class="author_name">Bryan Ho</p>
+                        <p class="date">1st July 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/badboibrybryy/">
+                        <img src="../resources/socials/instagram.png">
+                    </a>
+                    <a href="https://github.com/bryanhce">
+                        <img src="../resources/socials/github_icon.png">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
+                        <img src="../resources/socials/linkedin.png">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png" class="bryan_gmail">
+                    </a>
+                </container>
+            </div>
+            <img src="../resources/post_pictures/post_posters/how-to-migrate-huge-data-for-free-efficiently-min.jpg" alt="how-to-migrate-huge-data-free-and-efficiently" class="blog_post_img">
+
+            <container id="main_container">
+                <p class="signposting">Introduction</p>
+                <p class="text">
+                  Hello Cucumbers! Having worked with Go for a few months, I wanted to share out of my thoughts on it. In this article, I hope to give an unbiased analysis of the strengths and weaknesses of
+                  Go.</p>
+                <p class="text">Of course, there may be other better techniques to migrate large tables but that would be at a cost. And if you are a student, or your company doesn’t want to pay for AWS migration service, I believe this method would be a great
+                  alternative.</p>
+                <p class="text">If your data set to migrate is not extremely large (estimate of  less than 5 million rows in a table), you may want to consider other methods proposed in <a href="https://www.codingcucumbers.com/website/how-to-migrate-data-from-one-database-to-another" target="_blank">this article</a>. Those methods are more suitable to migrate smaller data sets compared to this
+                  method.</p>
+
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>Bash Script</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>Breakdown of Code</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>Notes</li>
+                        </a>
+                      </ol>
+                </container>
+
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">Bash Script</h2>
+                    </a>
+                    <img src="../resources/post_pictures/inside_post_pictures/huge-data-migration-free-efficiently/postgres-to-postgres-min.jpg" alt="migrate from one postgres server to another" class="inside_post_img">
+                 <br><br>
+                    <p>Hello Cucumbers! During my internship, I was tasked to migrate an extremely large SQL table from one Postgres server to another. In this article, I will be sharing how I did that cost free at a relatively fast
+                      speed.</p>
+                    <p>Here is the full bash script that I wrote. I ran it for less than 2 hours till the migration was completed.</p>
+                  <pre><code>
+#! /bin/bash
+
+ST=0
+LT=1000000
+for (( k = 1; k < 35; k++ )); do
+  HOLDER=$(( k*1000000 ))
+
+  PGPASSWORD='pw1' psql -h 35.000.111.22 -U backend -d dump -c '''CREATE TABLE api_log_temp_'$k' AS (SELECT * FROM api_log ORDER BY _created ASC OFFSET '$ST' LIMIT '$LT')'''
+
+  PGPASSWORD='pw2' psql -h 22.111.888.99 -U backend_development -d development -c '''CREATE TABLE backend.api_log_temp_'$k' AS ( SELECT * FROM api_log_temp LIMIT 0)'''
+
+  PGPASSWORD='pw1' pg_dump -U backend -h 35.000.111.22 -p 5432 -a -t '"api_log_temp_'$k'"' dump | PGPASSWORD='pw2' psql -h 22.111.888.99 -p 5432 -U backend_development development
+
+  echo "update till $ST"
+  ST=$HOLDER
+done
+                  </pre></code>
+
+                    <a id="second_link">
+                        <h2 class="signposting">Breakdown of Code</h2>
+                    </a>
+                    <pre><code>
+#! /bin/bash
+                    </pre></code><br>
+                    <p>First thing to note is that the extension of the file is .sh, so save the file something like data-migrate.sh. ‘#!’ Is known as she-bang or sha-bang. That first line of the script instructs the Operating System to invoke the specified shell and execute the script
+                      below.</p><br>
+                      <pre><code>
+ST=0
+LT=1000000
+...
+HOLDER=$(( k*1000000 ))
+                      </pre></code><br>
+                      <p>I am declaring the variables, ‘ST’ for ‘start’ and ‘LT’ for ‘limit’. The convention of shell scripts is to use capitalised letters to declare variables, but small letters work fine too. $ is used to reference a pre-declared variable. After the variable declaration, everytime the variable is referenced, you must add a preceding $. This can be seen when I am assigning ‘HOLDER’ the value stored in variable
+                        ‘k’.</p><br>
+                        <pre><code>
+for (( k = 1; k < 35; k++ )); do
+…
+done
+                        </pre></code>
+                    <br><p>This is a For loop that will execute a total of 34 times. k variable is initialised and equated to 1. k is checked to be less than 35, if true, run the code after the ‘do’ clause. Once done, increase the value of k by 1 and check that ‘k’ is still less than 35 and rerun the code
+                      block.</p><br>
+                      <pre><code>
+PGPASSWORD='pw1' psql -h 35.000.111.22 -U backend -d dump -c '''CREATE TABLE api_log_temp_'$k' AS (SELECT * FROM api_log ORDER BY _created ASC OFFSET '$ST' LIMIT '$LT')'''
+                      </pre></code>
+                <br>  <p>Here starts the bulk of the script. ‘psql’ is a PostgreSQL command that is used in the terminal. It allows you to type in queries at the terminal and see the query results, instead of using pgAdmin to execute the query. ‘-h’ option refers to the host of the database. ‘-U’ option refers to the username. ‘-d’ option refers to the database name. ‘-c’ option refers to the command, which is essentially the SQL
+                    query.</p>
+                  <p>The SQL query is encapsulated between ‘’’ and it simply creates a new table called api_log_temp_1 (the number at the end of the table name changes for every loop). The data inserted into the api_log_temp_1 comes from the api_log table. The rows in api_log table are first rearranged in ascending order based on the created date. This is to ensure that the rows are fixed in that position at every loop. If not there may be missing or duplicated rows in the new
+                    table.</p>
+                  <p>A specific chunk of the table is then selected as pointed out by the OFFSET and LIMIT commands. OFFSET refers to the number of rows you want to skip from the top. In the case of the first loop, 0 rows are skipped, as such the rows are table from the top of the table. LIMIT refers to how many rows you want to select. For all the iterations of the loop, the value of ‘LT’ remains constant. The 2 commands combined allow for you to isolate specific chunks of rows in the table and copy them to another table.</p>
+                  <img src="../resources/post_pictures/inside_post_pictures/huge-data-migration-free-efficiently/time-saver-migration-min.jpg" alt="how migrating in batches saves time" class="inside_post_img"><br><br>
+                  <p>You might also be wondering, why am I creating a temporary table that is a subset of the table I want to migrate. This is because I want to migrate the table in batches, which is a big life-saver step. If the code were to crash unexpectedly, I would know where the migration last stopped and picked up from that same spot accordingly. This would be impossible if I had migrated the entire chunk at once. I also won’t have to waste the same amount of time to redo the migration from scratch.</p>
+                  <p>The PGPASSWORD at the beginning of the line is to “force” input the password of the database. This is because normally after the ‘psql’ command, the terminal will prompt for the password, but as we want this script to run by itself, with no human intervention, we have to “force” enter the password. Another alternative to non-interactively passing the database password is by using the .pgpass file. You can read more about the functionality of the
+                    <a href="https://sleeplessbeastie.eu/2014/03/23/how-to-non-interactively-provide-password-for-the-postgresql-interactive-terminal/" target="_blank">pgfile
+                    here.</a></p><br>
+                    <pre><code>
+PGPASSWORD='pw2' psql -h 22.111.888.99 -U backend_development -d development -c '''CREATE TABLE backend.api_log_temp_'$k' AS ( SELECT * FROM api_log_temp LIMIT 0)'''
+                    </pre></code>
+                    <br><p>This next line works similarly to the previous line of code. Here in the other database called ‘development’ (which is the destination of your data migration), I am setting up an empty table that has the same properties as the table made in ‘dump’. This would allow for a full replica of the
+                      table.</p><br>
+                      <pre><code>
+PGPASSWORD='pw1' pg_dump -U backend -h 35.000.111.22 -p 5432 -a -t '"api_log_temp_'$k'"' dump | PGPASSWORD='pw2' psql -h 22.111.888.99 -p 5432 -U backend_development development
+                      </pre></code>
+                    <br>  <p>The options and PGPASSWORD theory from the above sections apply in this command as well. But this time, the ‘psql’ command is replaced with ‘pg_dump’. It is a backup database command for Postgres. Do note that it is different from ‘pg_dumpall’, which is the command to create a backup for all the databases. If you are interested to know more about the differences, you can check
+                        out <a href="https://backup.ninja/news/postgresql-backups-what-is-pgdumpall" target="_blank">this article.</a></p>
+                      <p>‘pg_dump” command works by exporting the data and it can be saved into a file on your local computer. However, in this case, instead of downloading the file we are directly piping the file to a destination, which is the other postgres
+                        server.</p>
+                      <p>‘|’ is the piping command. Piping is a feature of the terminal and as you can see it is very helpful, it saves you the time from actually writing the data into a file. The concept is that the standard output of the command on the left of the ‘|’ is piped to the standard input of the command on the right. I linked a resource here if you are interested to learn more about
+                        <a href="https://www.geeksforgeeks.org/piping-in-unix-or-linux/" target="_blank">piping.</a></p><br>
+                        <pre><code>
+  echo "update till $ST"
+  ST=$HOLDER
+done
+                        </pre></code>
+                      <br>  <p>Last but not least, the ‘echo’ command is the “print” function of python. This would give you the status update of which row the data migration is at. And as I mentioned above, to enable you to pick up from where you left in the unfortunate event of the code crashing. I then reassign the value of ‘ST’ to HOLDER so that the OFFSET command would increase in every iteration of the loop and thus select the appropriate chunks. ‘done’ command is to signify the end of the loop.</p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">Additional Notes About This Method</h2>
+                    </a>
+                    <img src="../resources/post_pictures/inside_post_pictures/huge-data-migration-free-efficiently/additional-notes-migration-min.jpg" alt="notes about this method" class="inside_post_img"><br><br>
+                    <p>That sums up the breakdown of the code. A tip I would recommend is splitting the number of rows into 2. Open 2 terminals and run the 2 scripts that migrate 2 different segments of the table and that would significantly reduce the time taken. In the ideal case, it would cut down the time taken by
+                      half.</p>
+                    <p>At times, the connection to the database might time out so do check the script every now and then. And if the connection does break, just change the ‘k’ variable in the loop to the last value that was echoed
+                      out.</p>
+                    <p>You might notice that for this script, there might be many temporary tables and that they are not consolidated into one table in the new database. This is one major drawback of this method as the command ‘pg_dump’ does not have an option to select the specific table to import the data into. The data will just be imported into the table in the new server which has the same name as the old table. You can spend some time copying the data from the temporary tables into the localised table. You can simply do it using pgAdmin instead of writing a script.</p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>This is the way I used to migrate huge data for free efficiently. I hope it will be useful for you too and simplify your migration. Stay cool cucumbers! If you do find a more efficient method, please do share it with me at the coding cucumber email below. I am very interested to learn ways to improve this
+                      process!</p>
+                </container>
+            </container>
+
+
+        </div>
+
+
+
+<!-- newsletter popup -->
+        <div class="col-2 email_box">
+                <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+                <div>
+                    <p class="email_box_details">
+                        Be notified of any upcoming posts or merchandise to never miss out!
+                    </p>
+                    <form class="email_box_form" id="email_box_form">
+                        <input type="text" class="email_input" id="email_input">
+                        <div class="socials_submit_row">
+                            <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                            <div class="email_box_socials">
+                                <a href="https://www.instagram.com/coding_cucumbers/" class="email_box_social_img">
+                                    <img src="../resources/socials/instagram.png">
+                                </a>
+                                <a href="https://github.com/bryanhce/coding_cucumbers" class="email_box_social_img">
+                                    <img src="../resources/socials/github_icon.png">
+                                </a>
+                                <a class="email_box_social_img">
+                                    <img src="../resources/socials/email_icon.png" class="cc_gmail">
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
