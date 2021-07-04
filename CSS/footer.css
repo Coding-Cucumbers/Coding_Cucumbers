@@ -8,16 +8,6 @@
   transition: 0.3s;
 }
 
-.promo_para{
-  font-family: Ubuntu;
-  color: white;
-}
-
-#promo_hr{
-  border-top: 1px solid white;
-}
-
-
 .footer_left{
   display: flex;
   justify-content: center;
