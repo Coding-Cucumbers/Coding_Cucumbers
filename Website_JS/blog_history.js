@@ -420,19 +420,6 @@ function loadPagesIfFiltered(filter) {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 $(function(){
 
   // when user inputs an email address
