@@ -97,11 +97,11 @@ $(".more").hover( function() {
 // })
 
 //user clicks on google icon, our gmail appears
-$('.fa-google').click( function(){
+$('.email').click( function(){
   window.alert("Reach us at coding.cucumbers@gmail.com")
 });
 
-$('.fa-twitter').click( function(){
+$('.twitter').click( function(){
   window.alert("We are coming soon!")
 });
 
