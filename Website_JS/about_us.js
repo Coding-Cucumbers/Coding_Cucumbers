@@ -64,11 +64,11 @@ $("#submit_button").hover( function() {
   $(this).css("background-color", "white");
   });
 
-  $('.fa-google').click( function(){
+  $('.email').click( function(){
     window.alert("Reach us at coding.cucumbers@gmail.com")
   });
 
-  $('.fa-twitter').click( function(){
+  $('.twitter').click( function(){
     window.alert("We are coming soon!")
   });
 
@@ -78,7 +78,7 @@ $("#submit_button").hover( function() {
   });
   //user clicks on google icon, our gmail appears
   $('#bryan_gmail').click( function(){
-    window.alert("Reach us at ho.cheng.en.bryan@gmail.com")
+    window.alert("Reach me at ho.cheng.en.bryan@gmail.com")
   });
 
 });

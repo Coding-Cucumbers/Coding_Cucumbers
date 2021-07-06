@@ -420,19 +420,6 @@ function loadPagesIfFiltered(filter) {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 $(function(){
 
   // when user inputs an email address
@@ -499,11 +486,11 @@ $("#submit_button").hover( function() {
   $(this).css("background-color", "white");
   });
 
-  $('.fa-google').click( function(){
+  $('.email').click( function(){
     window.alert("Reach us at coding.cucumbers@gmail.com")
   });
 
-  $('.fa-twitter').click( function(){
+  $('.twitter').click( function(){
     window.alert("We are coming soon!")
   });
 

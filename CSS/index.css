@@ -143,7 +143,6 @@ body {
   transition: 0.3s;
 }
 
-
 /* more section */
 .container-more{
   display: flex;
@@ -158,6 +157,7 @@ body {
   z-index: 1;
   padding: 2px;
   padding-left: 4px;
+  padding-right: 4px;
 }
 
 #arrow{
@@ -180,23 +180,6 @@ body {
   transition: 0.3s;
 }
 
-.promo_para{
-  font-family: Ubuntu;
-  color: white;
-}
-
-#promo_hr{
-  border-top: 1px solid white;
-}
-
-
-.footer_left{
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  flex-direction:column;
-}
-
 #cc_logo_footer{
   width: auto;
   height: 150px;
@@ -217,43 +200,32 @@ body {
   width: 60%;
 }
 
-.fa {
-  padding: 20px;
-  font-size: 30px;
+.social{
+  display: block;
+  padding-left: 63%
+}
+
+.insta{
   width: 50px;
-  text-align: center;
+  height: 50px;
+  margin-right: 2%;
 }
 
-.fa-google {
-  color: white;
+.twitter{
+  width: 50px;
+  height: 50px;
 }
 
-.fa-google:hover{
-  color: rgb(107, 107, 107);
+.email{
+  width: 65px;
+  height: 65px;
+  margin-left: -3%;
+  margin-right: -3%;
 }
 
-.fa-twitter {
-  color: white;
-}
-
-.fa-twitter:hover{
-  color: rgb(107, 107, 107);
-}
-
-.fa-instagram {
-  color: white;
-}
-
-.fa-instagram:hover{
-  color: rgb(107, 107, 107);
-}
-
-.fa-github {
-  color: white;
-}
-
-.fa-github:hover{
-  color: rgb(107, 107, 107);
+.github{
+  width: 65px;
+  height: 65px;
 }
 
 /* to make website mobile friendly */

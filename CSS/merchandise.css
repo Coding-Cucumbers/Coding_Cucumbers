@@ -1,13 +1,6 @@
 body {
   background-color: white;
 }
-
-/* for merchandise title */
-
-.merchandise_header{
-  /* margin-bottom: -2%; */
-}
-
 #header {
   font-size: 70px;
   color: white;
@@ -24,7 +17,6 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* margin-top: -1%; */
 }
 
 .mask-custom {
