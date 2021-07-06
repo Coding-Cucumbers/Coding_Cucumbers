@@ -8,13 +8,6 @@
   transition: 0.3s;
 }
 
-.footer_left{
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  flex-direction:column;
-}
-
 #cc_logo_footer{
   width: auto;
   height: 150px;
@@ -35,41 +28,30 @@
   width: 60% !important;
 }
 
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
+.social{
+  display: block !important;
+  padding-left: 63% !important;
 }
 
-.fa-google {
-  color: white;
+.insta{
+  width: 50px !important;
+  height: 50px !important;
+  margin-right: 2% !important;
 }
 
-.fa-google:hover{
-  color: rgb(107, 107, 107);
+.twitter{
+  width: 50px !important;
+  height: 50px !important;
 }
 
-.fa-twitter {
-  color: white;
+.email{
+  width: 65px !important;
+  height: 65px !important;
+  margin-left: -3% !important;
+  margin-right: -3% !important;
 }
 
-.fa-twitter:hover{
-  color: rgb(107, 107, 107);
-}
-
-.fa-instagram {
-  color: white;
-}
-
-.fa-instagram:hover{
-  color: rgb(107, 107, 107);
-}
-
-.fa-github {
-  color: white;
-}
-
-.fa-github:hover{
-  color: rgb(107, 107, 107);
+.github{
+  width: 65px !important;
+  height: 65px !important;
 }
