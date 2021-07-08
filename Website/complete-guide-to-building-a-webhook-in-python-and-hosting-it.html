@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Complete Guide To Building A Webhook In Python And Hosting It - Coding Cucumbers</title>
+    <meta name="description" content="Build webhooks in python and host on GCP">
+    <meta name="Bryan">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+</head>
+
+<body>
+
+  <script language="javascript" type="text/javascript"
+    src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">Complete Guide To Building A Webhook In Python</h1><br>
+                <p class="preamble">And Host It On Google Cloud Function</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                  <div class="img_cropper">
+                    <img src="../resources/about_us/bryan_coding_cucumbers_aboutus.jpg" id="author_img">
+                  </div>
+                    <div class="author_details">
+                        <p class="author_name">Bryan Ho</p>
+                        <p class="date">8th July 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/badboibrybryy/">
+                        <img src="../resources/socials/instagram.png">
+                    </a>
+                    <a href="https://github.com/bryanhce">
+                        <img src="../resources/socials/github_icon.png">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
+                        <img src="../resources/socials/linkedin.png">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png" class="bryan_gmail">
+                    </a>
+                </container>
+            </div>
+            <img src="../resources/post_pictures/post_posters/webhook-poster-min.jpg" alt="how-to-migrate-huge-data-free-and-efficiently" class="blog_post_img">
+
+            <container id="main_container">
+                <p class="signposting">Introduction</p>
+                <p class="text">
+                  Webhooks are insanely useful! They have been growing in popularity over the past few years. They are a way for an application to send information to another application, much like communicating between apps. I know that this sounds abstract so in this article I will be sharing more about what webhooks are, how to build them and where to host them. Let's jump right
+                  in!</p>
+
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>Introduction</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>How to build an endpoint in Python</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>How to use GCP</li>
+                        </a>
+
+                        <a href="#fourth_link">
+                            <li>How to create a webhook on Github</li>
+                        </a>
+                      </ol>
+                </container>
+
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">What are webhooks and their uses</h2>
+                    </a>
+                    <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/weather-eg-min.jpg" alt="weather data visualisation example" class="inside_post_img">
+                    <p class="img_description">
+                        You as the data engineer for the weather company
+                    </p>
+                 <br><br>
+                    <p>What better way to explain the usefulness of webhooks than with an example. Imagine you are a Data Engineer and you built this database of weather information. The data is (legally) scraped from a few websites and appended to your database daily. As this database is crucial to your company’s function, you want to ensure that the daily weather data is updated without
+                      fail.</p>
+                    <p>Of course, one way to verify the web-scraping script execution is to fire up your database manager, navigate to the exact table and check the number of rows in the database. How troublesome it is to repeat the same process
+                      everyday!</p>
+                    <p>Webhooks are a more hand-free way to go about ensuring the data is being collected everyday. At the end of the web scraping script, add a webhook function that sends a notification to your Slack channel, indicating that the web-scraping is completed. Now just sit back, relax and let the notifications flow in. If no message is sent to the channel, you would know that the script didn't run properly and the weather database is not updated. Time to
+                      investigate!</p>
+                    <p>On the more theoretical side of things, webhooks are a way for an application to provide other applications with real-time information. Through an event trigger, a webhook immediately delivers data to the target application, meaning the target app gets notified in real
+                      time.</p>
+                      <p>When I first heard of webhooks, I wondered about the difference between webhooks and Application Programming Interface (API)s. On one level, they seem to do similar things -- facilitate information transfer between 2 apps.</p><br>
+                      <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/polling-vs-webhooks-min.jpg" alt="polling vs webhook concepts" class="inside_post_img">
+                      <p class="img_description">
+                          The difference between webhook and polling
+                      </p><br>
+                      <p>On a more detailed level, APIs function by requesting data to a server and in turn receive a response (polling). There are many APIs available for free such as Onemap API that gives you data about locations in Singapore. On the other hand, webhooks are much more resource savvy as the server is doing the updating and sending information to the client instead when there is an update or when the event condition is fulfilled. No requesting for data is
+                        needed.</p>
+                      <p>As mentioned above, the uses of webhooks revolve around sending data to apps. Returning to our previous example, whenever new data is added to the database (the trigger), a slack message is sent to you (the event). Taking this automation step further, we can change the event to allow for a cascade of functions to happen. Instead of sending a slack message, we can configure the webhook to send data to our business intelligence tool to generate an updated dashboard of weather trends and send a mobile notification to all our users about the latest weather forecast. The best part is that everything is automated, no human intervention at all!</p>
+                      <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/how-webhook-works-min.jpg" alt="how webhooks work" class="inside_post_img">
+                      <p class="img_description">
+                        What we are going to build in this blog post
+                      </p><br>
+                      <p>In the subsequent parts of this blog post, I will be sharing more about how I built a Github webhook that sends notifications to Telegram chat via a telebot using Google Cloud Functions. Of course, this is a basic webhook function but it sets the foundation to build any webhook you
+                        want!</p>
+
+                    <a id="second_link">
+                        <h2 class="signposting">Building a webhook endpoint in Python</h2>
+                    </a>
+
+                    <p>I think of the endpoint as a sort of the medium between the 2 applications that are interacting. The server sends a webhook, the endpoint receives it, parses the data and in turn executes the
+                      event.</p>
+                    <p>Here is the full code of the endpoint that I used for testing on my local. Do note we need to make minor edits to the code before transferring it to the console in Cloud Functions. This webhook endpoint aims to send a notification to my telegram chat (event) when someone stars my Github repository or when someone makes a pull request
+                      (trigger).</p><br>
+                      <pre><code>
+  from flask import Flask, request
+  import requests
+
+  app = Flask(__name__)
+
+  @app.route("/webhook", methods=["POST"])
+  def webHook():
+      body = request.get_json()
+      event = request.headers.get("X-Github-Event")
+      if event == "star":  # check if the event is a star
+          nos_stars = body["repository"]["stargazers_count"]
+          starrer_username = body["sender"]["login"]
+          repo_url = body["repository"]["html_url"]
+          repo_name = body["repository"]["name"]
+          message = "{} has starred the [{}]({}). \n\n The Total Stars are {}".format(starrer_username, repo_name, repo_url, nos_stars)
+          sendTeleMessage(message)
+      elif event == "pull_request":  # check if event is a pull request
+          pr_number = body["number"]
+          pr_title = body["pull_request"]["title"]
+          pr_desc = body["pull_request"]["body"]
+          pr_login = body["sender"]["login"]
+          pr_login_url = body["sender"]["html_url"]
+          pr_url = body["pull_request"]["html_url"]
+          message = "Pull Request([{}]({})) {} by ({}).\n\n Title: {} \n\n Description: {}".format(pr_number, pr_url, pr_login, pr_login_url, pr_title, pr_desc)
+          sendTeleMessage(message)
+
+
+
+  def sendTeleMessage(message):
+      tg_msg = {"chat_id": "<your chat id>", "text": message, "parse_mode": "Markdown"}
+      API_URL = "https://api.telegram.org/bot<your tele token>/sendMessage"
+      requests.post(API_URL, data=tg_msg)
+
+  if __name__ == "__main__":
+      app.run(debug=True, port=5000)
+                      </pre></code><br>
+                      <p>Alright, let’s break down the code section by section.</p><br>
+                        <pre><code>
+from flask import Flask, request
+import requests
+                        </pre></code>
+                    <br><p>We are importing the necessary 3rd party packages, flask and requests. Flask is a package that allows us to build web applications while requests is a HTTP library that makes sending HTTP requests over the web
+                      simple.</p><br>
+                      <pre><code>
+app = Flask(__name__)
+                      </pre></code>
+                <br>  <p>We are creating an instance of an application by passing “__name__” as an argument. Python sets the “__name__” variable to the script name. Don’t worry too much about fully understanding this part, it is not crucial for building the
+                  webhook.</p> <br>
+                  <pre><code>
+@app.route("/webhook", methods=["POST"])
+def webHook():
+    body = request.get_json()
+    event = request.headers.get("X-Github-Event")
+    if event == "star":  # check if the event is a star
+        nos_stars = body["repository"]["stargazers_count"]
+        starrer_username = body["sender"]["login"]
+        repo_url = body["repository"]["html_url"]
+        repo_name = body["repository"]["name"]
+        message = "{} has starred the [{}]({}). \n\n The Total Stars are {}".format(starrer_username, repo_name, repo_url, nos_stars)
+                  </pre></code><br>
+                  <p>The first line with the @ is a decorator that is used to modify the function below it. You can think of decorators as a wrapper that extends the functionality of a function or class without permanently modifying it. In essence, it is passing a function (webHook) into another function (app.route). If you want to find out more about decorators, check out this <a href="https://www.programiz.com/python-programming/decorator" target="_blank">article.</a></p>
+                  <p>Next, we have the function declaration webHook(). “get_json()” is a method from the flask module which parses the incoming data as JSON; if data is not “application/json” type, the method returns
+                    None.</p>
+                  <p>Then we grab the event with the “.get()” method from the request header (FYI this is different from the response header). Subsequently, we traverse the JSON body and assemble the data that we want such as the name of the repository and the number of times the repo was starred. Lastly, we string all the variables together to create the message we would like to send to our telegram chat. Do note that you can look through the response body by printing it as a python dictionary with “json.loads({request body})” and choosing the data you would like to be in your message, you don’t have to follow this code
+                    strictly.</p><br>
+                    <pre><code>
+elif event == "pull_request":  # check if event is a pull request
+        pr_number = body["number"]
+        pr_title = body["pull_request"]["title"]
+        pr_desc = body["pull_request"]["body"]
+        pr_login = body["sender"]["login"]
+        pr_login_url = body["sender"]["html_url"]
+        pr_url = body["pull_request"]["html_url"]
+        message = "Pull Request([{}]({})) {} by ({}).\n\n Title: {} \n\n Description: {}".format(pr_number, pr_url, pr_login, pr_login_url, pr_title, pr_desc)
+                    </pre></code>
+                    <br><p>The logic for this elif block is similar to the if block above. Basically, if the event is not starring the repo but creating a pull request, organise the necessary data from the JSON post body and format it into a
+                      message.</p><br>
+                      <pre><code>
+sendTeleMessage(message)
+                      </pre></code>
+                    <br> <p>At the end of the 2 conditional blocks, you would have noticed this function. Its purpose is to send the message we created to the telegram
+                      chat.</p>
+                      <pre><code>
+def sendTeleMessage(message):
+    tg_msg = {"chat_id": "<your chat id>", "text": message, "parse_mode": "Markdown"}
+    API_URL = "https://api.telegram.org/bot<your tele token>/sendMessage"
+    requests.post(API_URL, data=tg_msg)
+                        </pre></code>
+                      <br>  <p>We are defining the function here. In brief, we are sending a HTTP Post request to the telegram server using a url we created. In order to get your chat id, you have to first send a message to your telebot and print out the json response to locate your unique chat id. Your tele token must also be obtained from BotFather when you create the bot. If this seems all too foreign, do breeze through this
+                        <a href="https://www.codingcucumbers.com/website/complete_guide_to_building_a_telegram_bot" target="_blank">other post I wrote about telegram bots</a>. It covers everything you need to know about creating a telebot.</p>
+                      <br> <pre><code>
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
+                      </pre></code><br>
+                      <p>Finally, we come to the last part of the script. Using the “.run()” method, we get our application up and running. In the terminal, by executing the command ‘python webhook.py run’, a message directing you to a local port would appear in your terminal, something like
+                        this</p><br>
+                        <pre><code>
+http://127.0.0.1:5000/
+                        </pre></code><br>
+                        <p>You can think of this as the place your webhook is waiting to receive the post request. Don’t forget to add “/webhook” at the end of the url. Now, since this is in our local, Github notifications will not be able to reach this url. One way to overcome this problem is by <a href="https://ngrok.com/" target="_blank">downloading ngrok</a>. ngrok exposes our local development server to the Internet by creating a tunnel. ngrok is used for testing purposes and if you want to read more about it, you can check out <a href="https://www.twilio.com/docs/usage/tutorials/how-use-ngrok-windows-and-visual-studio-test-webhooks" target="_blank">this article</a>. As this code already runs smoothly, this step isn’t necessary for us.</p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">Google Cloud Functions</h2>
+                    </a>
+                    <p>PHEW! We are finally done with the script and you must be wondering, where is the url that the trigger sends to post the data. Well, this is where Google Cloud Platform (GCP) comes in. We are going to host the code on the cloud and it will generate a url for the trigger to send data
+                      to.</p>
+                    <p>Create a GCP account with your google account and click on the “console” button. Google will ask for your credit/debit card account, but don’t worry, you don’t have to pay a cent. GCP has $300 worth of free credit and Cloud Function allows for <mark class="highlight">2 million free requests per month</mark> (at least at the time of writing this article, please do check the latest regulations). But even if somehow you exceed that 2 million requests in a month AND use up that $300 credit (you a hardcore cucumber), subsequent requests are charged at a per-unit rate of $0.0000004 per invocation. TLDR, it's almost free to use GCP Cloud
+                      Function.</p>
+                    <p> It might seem intimidating at first with so many features but we will just be focusing on the Cloud Function
+                      feature.</p>
+                      <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/GCP-project-min.png" alt="GCP creating a project" class="inside_post_img">
+                      <p class="img_description">
+                        Creating a new project in GCP
+                      </p><br>
+                      <p>Before that you have to create a project, name it whatever you like but you can’t alter it later. Ignore the organisation, unless you are creating a webhook for your company that already has existing
+                        projects.</p>
+                        <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/GCP-hamburger-min.png" alt="GCP navigation to cloud function" class="inside_post_img">
+                        <p class="img_description">
+                          GCP side navigation bar
+                        </p><br><br>
+                      <p>Next at the home page, click on the hamburger navigation icon on the top left and locate the Cloud
+                        Function.</p>
+                        <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/GCP-create-function-min.png" alt="GCP creating a function" class="inside_post_img">
+                        <p class="img_description">
+                          GCP Cloud Function Overview panel
+                        </p><br><br>
+                        <p>Click on the Create Function button.</p><br>
+                        <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/GCP-config1-min.png" alt="GCP configuring the function" class="inside_post_img"><p class="img_description">
+                          GCP create function panel
+                        </p><br><br>
+                        <p>Name your function and select a location of the server, preferably somewhere near to your country of residence. Click on the radio button “allow unauthenticated invocation”, click “save” and then the “next” button.</p>
+                        <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/GCP-IDE-min.png" alt="GCP inline editor" class="inside_post_img">
+                        <p class="img_description">
+                          GCP Function inline editor
+                        </p><br><br>
+                        <p>First, under the “runtime” select your python version or the language you built your webhook in. Next copy and paste the code we wrote above in the Inline Editor, replacing the example hello_world function.</p>
+                        <p>Secondly, add the argument “request” as a parameter in the webHook() function. This is a requirement of a cloud function to take in a request param.</p>
+                        <br><pre><code>
+@app.route("/webhook", methods=["POST"])
+def webHook(request):
+    body = request.get_json()
+                        </pre></code><br>
+                        <p>You might have noticed that since the hello_world() function is replace with the webHook() function, we also need to change the Entry point.</p>
+                        <p>Thirdly, in Requirements.txt, we must specify the version of the 3rd party modules that we imported so that GCP knows which version to download and thus use. We do not need to include any standard library packages in Requirements.txt. Paste this code below for our script.</p>
+                        <br><pre><code>
+Flask == 2.0.1
+requests == 2.25.1
+                        </pre></code><br>
+                        <p>In the future, if you want to add more packages to your Cloud Function, you can find out the latest version of the package from this <a href="https://pypi.org/" target="_blank">Python Package Index website</a>.</p>
+                        <p>Finally, click on the “deploy” button and let the function load. If a green tick appears next to the function, it means that the deployment was successful and that there are no errors with the code.</p>
+                        <p>I cannot stress this enough -- remember to test your code out in your local before deploying it on GCP as if there are any errors with the script, the script will revert back to the last working version. This would mean that all the changes you made to your code on the GCP Inline Editor will be gone. For safety, do double check that you have done the 3 steps I mentioned above, as those are steps that usually slip our minds.</p><br>
+                        <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/GCP-log-min.png" alt="GCP logging and url" class="inside_post_img">
+                        <p class="img_description">
+                          GCP function logging panel
+                        </p><br><br>
+                        <p>When you click into the function, you can see a dashboard of invocation seconds, memory utilisation of the function. Click on the logs tab and you can find out more about the error that occurred. I know there are a lot of tiny words and it is a pain to read them, but just find the last few lines of the log and that is probably the error.</p>
+                        <p>On the “trigger” tab, you will find your treasure! That is, lo and behold, the url that the HTTP Post request will send to.</p>
+
+                        <a id="fourth_link">
+                            <h2 class="signposting">Creating Github webhook</h2>
+                        </a>
+                        <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/github-webhook-min.png" alt="github adding a webhook on github" class="inside_post_img">
+                        <p class="img_description">
+                          Github settings panel
+                        </p>
+                        <br><br><p>Another PHEW! This is our final step, actually creating the webhook. Go to your github repo, click on “Settings” and then the “Webhooks” at the left menu panel. Then click on the “add webhook”
+                          button.</p><br>
+                          <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/github-webhook2-min.png" alt="github configuring webhook" class="inside_post_img">
+                          <p class="img_description">
+                            Github webhook panel
+                          </p>
+                        <br><br><p>At payload url, copy and paste your url from the trigger tab from GCP. For content type, select “application/json” and you can ignore the secret. Regarding the webhook trigger, select the radio button for “Let me select individual events” and proceed to tick “Pull Request” and “Stars”. Click on the “Add webhook” button and we are finally done!</p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>Our webhook is up and our cloud function is running, idly. Do test out the 2 trigger events and check if you received the notifications in your telegram chat. Hopefully this article will get you hooked on webhooks! Once you have understood the basics, building webhooks just gets easier and easier. And soon, we will be able to reach the stage of automation like in the weather forecast example.</p>
+                    <p>If you found this article helpful, please do share it with your friends who are interested in learning about webhooks too. It would really mean a lot to us at Coding Cucumbers! Well, stay cool, Cucumbers!</p>
+                </container>
+            </container>
+
+
+        </div>
+
+
+
+<!-- newsletter popup -->
+        <div class="col-2 email_box">
+                <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+                <div>
+                    <p class="email_box_details">
+                        Be notified of any upcoming posts or merchandise to never miss out!
+                    </p>
+                    <form class="email_box_form" id="email_box_form">
+                        <input type="text" class="email_input" id="email_input">
+                        <div class="socials_submit_row">
+                            <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                            <div class="email_box_socials">
+                                <a href="https://www.instagram.com/coding_cucumbers/" class="email_box_social_img">
+                                    <img src="../resources/socials/instagram.png">
+                                </a>
+                                <a href="https://github.com/bryanhce/coding_cucumbers" class="email_box_social_img">
+                                    <img src="../resources/socials/github_icon.png">
+                                </a>
+                                <a class="email_box_social_img">
+                                    <img src="../resources/socials/email_icon.png" class="cc_gmail">
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
