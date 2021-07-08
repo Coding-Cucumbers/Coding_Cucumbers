@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Conflict Resolution In Git - Coding Cucumbers</title>
+    <meta name="description" content="How to resolve git merge conflicts">
+    <meta name="Bryan">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+</head>
+
+<body>
+
+  <script language="javascript" type="text/javascript"
+    src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">Conflict Resolution In Git</h1><br>
+                <p class="preamble">Find the compromise!</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                  <div class="img_cropper">
+                    <img src="../resources/about_us/bryan_coding_cucumbers_aboutus.jpg" id="author_img">
+                  </div>
+                    <div class="author_details">
+                        <p class="author_name">Bryan Ho</p>
+                        <p class="date">7th July 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/badboibrybryy/">
+                        <img src="../resources/socials/instagram.png">
+                    </a>
+                    <a href="https://github.com/bryanhce">
+                        <img src="../resources/socials/github_icon.png">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
+                        <img src="../resources/socials/linkedin.png">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png" class="bryan_gmail">
+                    </a>
+                </container>
+            </div>
+            <img src="../resources/post_pictures/post_posters/conflict-resolution-in-git-poster-min.jpg" alt="conflict resolution in git" class="blog_post_img">
+
+            <container id="main_container">
+                <p class="signposting">Introduction</p>
+                <p class="text">
+                  When working with Git, I think that one of the most intimidating features to master is managing git merge conflicts. Unsurprisingly, when many developers contribute to the same project, there will be different versions of the same code and conflicts will arise. Git being a version control software has allowed for developers to quickly resolve
+                  conflicts.</p>
+
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>How Conflicts Arises</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>How To Resolve Conflicts</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>Additional Notes</li>
+                        </a>
+                      </ol>
+                </container>
+
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">How Conflicts Arises</h2>
+                    </a>
+                    <p>Take for instance, when merging your local branch into master, if all the changes in the code occur at different locations (different files or same file different line of code), Git will automatically merge commits
+                      seamlessly.</p>
+                    <p>However, when working in big groups, there is a higher probability of 2 or more developers editing the exact same part of the code. This is how merge conflicts crop up. If Git recognises a piece of code (exactly in the same line) that is changed in both branches, it will not be able to intuitively integrate them. Git doesn’t know which of the edits to use as the new master. As such, Git will require user intervention in order to
+                      proceed.</p>
+                    <p>Let’s replicate an error so that we can document how to resolve the conflicts one step at a time. Assume that I have just made changes to the same line of code in my local as with the remote version. I execute the
+                      command</p>
+                    <pre><code>
+git fetch origin
+                    </pre></code>
+                    <p>Which fetches the origin branch from remote. Now I will attempt to merge the 2 branches with the command</p>
+                    <pre><code>
+git merge origin/master
+                    </pre></code>
+                    <p>And as we planned, this error pops up in the terminal</p>
+                    <pre><code>
+Auto-merging main.py
+CONFLICT (content): merge conflict in main.py
+Automatic merge failed; fix conflicts and then commit the result.
+                    </pre></code>
+                    <p>You can double check the files that have conflicts by executing the command</p>
+                    <pre><code>
+git status
+                    </pre></code>
+                    <p>And the output should look something like this</p>
+                    <pre><code>
+On branch main
+You have unmerged paths.
+(fix conflicts and run "git commit")
+(use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+(use "git add <file>..." to mark resolution)
+
+both modified:   main.py
+                    </pre></code>
+
+
+                    <a id="second_link">
+                        <h2 class="signposting">How to Resolve Conflict</h2>
+                    </a>
+                    <p>As seen above, Git will highlight the conflicted file. The rough outline to fix this problem is to first open your favourite code editor, locate the file and the conflicted code block. Ask yourself which code block you would like to retain as part of the merge. After picking “mine” or “theirs” code to keep, commit the changes and proceed with the merge. “Mine” refers to the code block in your current working branch and “theirs” refers to the branch you would like to merge with.</p>
+                    <img src="../resources/post_pictures/inside_post_pictures/conflict-resolution-in-git/resolve-conflict-min.jpg" alt="how to resolve conflicts" class="inside_post_img"><br><br>
+                    <p>Still feeling unsure? Worry not let’s continue with our example to get a better understanding of what is happening and the particular steps to
+                      take.</p>
+                    <p>I am sure the first question to ask in this case is “where is the conflict?”. In your editor, you will find <mark class="highlight">conflict markers</mark> which indicate where the conflict is and to differentiate between the 2
+                      versions.</p>
+                      <pre><code>
+<<<<<<< HEAD
+print(“coding cucumbers icon is so cute!”)
+=======
+print(“coding cucumbers icon looks like a creep!”)
+>>>>>>> origin/master
+                      </pre></code>
+                  <p>The code chunk between <<<<<< and ====== refers to ‘mine’. You can also tell that it is your code (not only because it looks like the code you wrote haha) but because of the “HEAD” which refers to your local branch, that is at the head of the commit. The code chunk between ====== and >>>>>> refers to ‘theirs’ and is also indicated by
+                    “origin/master”.</p>
+                  <p>The next step is to decide which code chunk you would like to keep. If you realise that the code written by your fellow developer is more efficient, you would discard your changes and keep his. But in this case, I think that the Coding Cucumber icon is cute, as such I will delete the 3 conflict markers and the unwanted line of code
+                    (print(“coding cucumbers icon looks like a creep!”)).</p>
+                  <p>If you realise that by combining the 2 code blocks, you can write an even better code block, you can also incorporate changes from <mark class="highlight">both</mark> code chunks. For the example you can replace the code
+                    with</p>
+                    <pre><code>
+print(“coding cucumbers icon is creepy but somehow cute!”)
+                    </pre></code>
+                    <p>Repeat these steps for all subsequent conflicts in the file. Don’t forget to stage and commit the new changes to the branch and that is it! We resolved our git merge
+                      conflict.</p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">Additional Notes</h2>
+                    </a>
+                    <img src="../resources/post_pictures/inside_post_pictures/conflict-resolution-in-git/gui-min.jpg" alt="GUI" class="inside_post_img"><br><br>
+                    <p>In order to make this conflict resolution even easier, there are software tools to help such as <a href="https://www.gitkraken.com/" target="_blank">GitKraken</a> or <a href="https://www.sourcetreeapp.com/" target="_blank">SourceTree</a>. SourceTree is free to download but GitKraken will cost you. Do note that these 2 softwares are actually Graphical User Interface (GUI)s for Git that have built in conflict resolver tools, which might be more intuitive to use compared. Switching to SourceTree or GitKraken also means you won’t be using the command line for Git features but rather their designed
+                      platform.</p>
+                    <p>At times, when the conflict resolution gets too complicated and you are just confused and stupefied, you can always use the
+                      command</p>
+                      <pre><code>
+git merge --abort
+                      </pre></code>
+                      <p>This will reverse the changes made to the file and return it to the state before the merge. With this command in mind, you don’t have to worry about breaking anything and you can try to merge the 2 branches
+                        again!</p>
+                    <p>Here is one more command that might come in handy</p>
+                    <pre><code>
+git reset --hard
+                    </pre></code>
+                    <p>This command resets the code to the version of the latest commit. In the event that you resolved the merge conflict and have yet to commit code but suddenly realised that you made a mistake, you can still easily undo it and start again.  Please note that this command throws away all your other uncommitted changes as
+                      well.</p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>I hope this article came in useful, especially if you are trying to put out the fires of a merge conflict right now. All in all, I think merge conflicts are not a bad thing, they allow for you to figure out the code that is most appropriate for your project and only serves to improve it! Personally, I am quite conflict averse (not limited to git merge conflicts haha), but I am starting to learn that conflicts can be settled in a calm and civilised manner. Slowly but surely, I am tearing down the frightening image of conflict and embracing it as part of life (or part of the development process)! Stay cool
+                      Cucumbers!</p>
+                </container>
+            </container>
+
+
+        </div>
+
+
+
+<!-- newsletter popup -->
+        <div class="col-2 email_box">
+                <h2 class="email_box_header">Sign up to our Email Newsletter!</h2>
+                <div>
+                    <p class="email_box_details">
+                        Be notified of any upcoming posts or merchandise to never miss out!
+                    </p>
+                    <form class="email_box_form" id="email_box_form">
+                        <input type="text" class="email_input" id="email_input">
+                        <div class="socials_submit_row">
+                            <button type="submit" class="submit_email btn btn-default" id="submit_email">Connect</button>
+                            <div class="email_box_socials">
+                                <a href="https://www.instagram.com/coding_cucumbers/" class="email_box_social_img">
+                                    <img src="../resources/socials/instagram.png">
+                                </a>
+                                <a href="https://github.com/bryanhce/coding_cucumbers" class="email_box_social_img">
+                                    <img src="../resources/socials/github_icon.png">
+                                </a>
+                                <a class="email_box_social_img">
+                                    <img src="../resources/socials/email_icon.png" class="cc_gmail">
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
