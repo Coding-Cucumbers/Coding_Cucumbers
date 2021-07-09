@@ -19,6 +19,7 @@ $("#submit_button").click(function(){
 
        else {
          SubForm(); //function to submit to google sheets
+         TeleNoti(); //send message to telegrp
          window.alert("Thank you for staying in touch!");
        }
        //ensures that email text space is cleared
@@ -48,6 +49,14 @@ function SubForm (){
         //   alert("There was an error")
         // }
     });
+}
+
+function TeleNoti(){
+  $.ajax({
+    url: 'https://asia-southeast1-cc-webhooks.cloudfunctions.net/subscriber',
+    type: 'post',
+    data: $("#myForm").serializeArray()
+  });
 }
 
 //when user hovers over nav-items

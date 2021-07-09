@@ -37,6 +37,7 @@ $(".nav-item").hover( function() {
 
          else {
            SubForm();
+           TeleNoti();
            window.alert("Thank you for staying in touch!")
          }
          document.getElementById("input_box").value = '';
@@ -57,6 +58,14 @@ $(".nav-item").hover( function() {
           //   alert("There was an error")
           // }
       });
+  }
+
+function TeleNoti(){
+    $.ajax({
+      url: 'https://asia-southeast1-cc-webhooks.cloudfunctions.net/subscriber',
+      type: 'post',
+      data: $("#myForm").serializeArray()
+    });
   }
 
   //to allow user to submit with enter key
