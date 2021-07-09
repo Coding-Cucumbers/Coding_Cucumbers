@@ -68,6 +68,7 @@ $(".submit_email").click(function(){
 
        else {
          SubForm(); //function to submit to google sheets
+         TeleNoti();
          window.alert("Thank you for staying in touch!");
        }
        //ensures that email text space is cleared
