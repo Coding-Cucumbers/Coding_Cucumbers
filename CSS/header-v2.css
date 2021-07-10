@@ -19,15 +19,33 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
+}
+
+#header_nav_bar a {
+    text-decoration: none;
 }
 
 .header_nav_item {
     margin-left: 35px;
     margin-right: 35px;
+    border-bottom: 4px solid transparent;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    transition: font-size 0.4s;
+}
+
+.header_nav_item:hover {
+    border-color: #48cfae;
+    transition: border-color 1s, font-size 0.4s, color 0.4s;
+    font-size: 160%;
+    color: #48cfae;
 }
 
 #header_line {
     border-top: 2px solid black;
     width: 60%;
 }
+
 
