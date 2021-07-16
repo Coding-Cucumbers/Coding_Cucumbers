@@ -170,7 +170,8 @@ function fit_data(dictionary_of_entries) {
         post_thumbnails[i].getElementsByClassName("latest_post_poster")[0].src = post_poster;
         post_thumbnails[i].getElementsByClassName("post_author")[0].innerHTML = post_author;
         post_thumbnails[i].getElementsByClassName("latest_post_date")[0].innerHTML = date;
-        post_links[i].setAttribute("href", post_link);
+        post_links[i * 2].setAttribute("href", post_link);
+        post_links[i * 2 + 1].setAttribute("href", post_link);
     }
 }
 
