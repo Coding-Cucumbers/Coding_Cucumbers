@@ -1,13 +1,14 @@
+body {
+    background-color: #fef9c7 !important;
+}
+
 .header {
-    font-family: 'Ubuntu';
+    font-family: 'Livvic', sans-serif;
     font-size: 70px;
-    background-color: black;
-    text-transform: uppercase;
-    color: white;
+    color: #026770;
     padding: 0px;
-    padding-left: 11%;
-    padding-right: 35px;
-    margin-bottom: 60px;
+    margin-left: 19%;
+    margin-bottom: 0px;
     width: fit-content;
 }
 
@@ -52,7 +53,7 @@
 }
 
 .post_thumbnail:hover {
-    box-shadow: 10px 10px 5px #D3D3D3;
+    box-shadow: 10px 10px 5px #888888;
 }
 
 .img_container {
@@ -113,9 +114,9 @@
 }
 
 .filters_title {
-    font-family: 'Exo';
+    font-family: 'Livvic', sans-serif;
     font-size: 150%;
-    background-color: #A9A9A9;
+    background-color: #48cfae;
     padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
@@ -153,6 +154,7 @@
     margin: 10px;
     margin-top: 0px;
     margin-bottom: 0px;
+    background-color: #fef9c7 !important;
 }
 
 label {
@@ -225,6 +227,7 @@ label {
 
 #pagination {
     width: fit-content;
+    background-color: #fef9c7;
 }
 
 @media screen and (max-width: 1600px) {

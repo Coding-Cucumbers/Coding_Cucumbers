@@ -1,7 +1,7 @@
 $(function(){
 
   // when user inputs an email address
-$("#submit_button").click(function(){
+$("#submit_email_button").click(function(){
   $(".error").hide();
        var hasError = false;
        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
@@ -16,7 +16,6 @@ $("#submit_button").click(function(){
            $("#input_box").after('<span class="error" style="color: red">Enter a valid email address.</span>');
            hasError = true;
        }
-
        else {
          SubForm(); //function to submit to google sheets
          TeleNoti(); //send message to telegrp
@@ -80,20 +79,6 @@ $("#submit_button").hover( function() {
   $(this).css("background-color", "white");
   });
 
-//when user hovers over card
-$(".card").hover(function() {
-   $(this).css('box-shadow', '10px 10px 5px #888');
-    }, function() {
-   $(this).css('box-shadow', '0 0 0 0');
-});
-
-//when user hovers over more link
-$(".more").hover( function() {
-  $(this).css("background-color", "rgba(107, 107, 107, 0.5)");
-  }, function() {
-  $(this).css("background-color", "rgba(107, 107, 107, 0.1)");
-  });
-
 
 //cards to fade in upon scroll
 //   $(window).scroll( function() {
@@ -134,7 +119,7 @@ else {
 
 });
 
-max_post_per_page = 6;
+max_post_per_page = 7;
 
 async function loadData() {
     const response = await fetch("https://spreadsheets.google.com/feeds/cells/1RYNXbxtIeqSmtzJhNca459t8I9Kg_waQRJl-6jBezRc/1/public/full?alt=json").then(response => {return response});
@@ -146,8 +131,8 @@ function fillAll() {
     loadData().then(response => {
         let data = response.feed.entry;
         let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/7); i++) {
-            dictionary_of_entries[i] = data.slice(i * 7, (i+1) * 7)
+        for (let i=0; i < (data.length/8); i++) {
+            dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
         }
         //Swapping order of entries
         let number_of_entries = Object.keys(dictionary_of_entries).length;
@@ -170,21 +155,72 @@ function extract_data_from_row(row) {
     let post_link = row[4].gs$cell.$t;
     let preamble = row[5].gs$cell.$t;
     let post_poster = row[6].gs$cell.$t;
-    return [title, date, tag, picture_link, post_link, preamble, post_poster];
+    let post_author = row[7].gs$cell.$t;
+    return [title, date, tag, picture_link, post_link, preamble, post_poster, post_author];
 }
 
 function fit_data(dictionary_of_entries) {
-    let post_thumbnails = document.getElementsByClassName("popular_post_card");
-    let post_links = document.getElementsByClassName("popular_post_link");
+    let post_thumbnails = document.getElementsByClassName("latest_post_thumbnail");
+    let post_links = document.getElementsByClassName("latest_post_link");
     console.log(post_thumbnails);
     for (let i=0; i < max_post_per_page; i++) {
         let entry = dictionary_of_entries[i];
-        let [title, date, tag, picture_link, post_link, preamble, post_poster] = extract_data_from_row(entry);
-        post_thumbnails[i].getElementsByClassName("card-title")[0].innerHTML = title;
-        post_thumbnails[i].getElementsByClassName("card-text")[0].innerHTML = preamble;
-        post_thumbnails[i].getElementsByClassName("card-img-top")[0].src = post_poster;
+        let [title, date, tag, picture_link, post_link, preamble, post_poster, post_author] = extract_data_from_row(entry);
+        post_thumbnails[i].getElementsByClassName("post_title")[0].innerHTML = title;
+        post_thumbnails[i].getElementsByClassName("latest_post_poster")[0].src = post_poster;
+        post_thumbnails[i].getElementsByClassName("post_author")[0].innerHTML = post_author;
+        post_thumbnails[i].getElementsByClassName("latest_post_date")[0].innerHTML = date;
         post_links[i].setAttribute("href", post_link);
     }
 }
 
+
 fillAll();
+
+
+
+
+
+function fadeIn(element, opacity_increment, callback) {
+    element.style.opacity = "0";
+    let timer = setInterval(() => {
+        let new_opacity = parseFloat(element.style.opacity) + opacity_increment;
+        element.style.opacity = new_opacity.toString();
+        if (parseInt(element.style.opacity) >= 1) {
+            clearInterval(timer)
+            console.log("Fade finish!")
+            if (callback) {
+                callback();
+            }
+        }
+    }, 50)
+}
+
+const opacity_increment_global = 0.1;
+
+function fadeMain() {
+    fadeIn(document.getElementById("first_post_container"), opacity_increment_global, fadeSidebar);
+}
+
+function fadeBody() {
+    fadeIn(document.getElementById("main_body"), opacity_increment_global, fadeSeries)
+}
+
+function fadeSidebar() {
+    fadeIn(document.getElementById("sidebar_container"), opacity_increment_global, fadeBody);
+}
+
+function fadeSeries() {
+    fadeIn(document.getElementById("main_series_container"), opacity_increment_global, false);
+}
+
+function fadeSaying() {
+    fadeIn(document.getElementById("saying_container"), opacity_increment_global, fadeMain);
+}
+
+function fadeHeader() {
+    fadeIn(document.getElementById("header"), opacity_increment_global, fadeSaying);
+}
+
+
+fadeHeader();

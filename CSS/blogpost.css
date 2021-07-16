@@ -2,6 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    background-color: #fef9c7 !important;
+}
+
 .container_fluid {
     height: 1000px;
 }
@@ -46,7 +50,7 @@ html {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: #AFE1AB;
+    background-color: #48cfae;
     font-family: 'Exo';
 }
 
@@ -86,7 +90,8 @@ h1.title{
     margin-left: -50px;
     padding-left: 10px;
     padding-right: 10px;
-    background-color: #A9A9A9;
+    background-color: #026770;
+    color: white;
     display: inline-block;
 
 }
@@ -106,9 +111,10 @@ h1.title{
 }
 
 .highlight {
-    padding: 1.1px;
+    padding-left: 6px;
+    padding-right: 6px;
     margin: 0px;
-    background-color: rgba(0,0,0,0.35);
+    background-color: #48cfae;
 }
 
 .inside_post_img_container {
@@ -204,7 +210,7 @@ pre code {
     padding: 10px;
     position: relative;
     z-index: 1;
-    background-color: #AFE1AB;
+    background-color: #48cfae;
 }
 
 .content_list {
@@ -298,6 +304,8 @@ pre code {
 .submit_email {
     margin-top: 5px;
     margin-bottom: 5px;
+    background-color: #026770;
+    color: white;
 }
 
 .email_input {

@@ -1,18 +1,7 @@
 /* start of main */
-.header_container {
-    display: flex;
-    justify-content: start;
-}
-
-.header {
-    font-family: 'Ubuntu';
-    font-size: 70px;
-    text-transform: uppercase;
-    margin-right: 400px;
-    background-color: black;
-    color: white;
-    margin-left: 0px;
-    padding-left: 8%;
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #fef9c7 !important;
 }
 
 .introduction_container {
@@ -21,8 +10,9 @@
 }
 
 .quote {
-    font-family: 'Poppins', sans-serif;
-    font-size: 370%;
+    font-family: 'Livvic', sans-serif;
+    color: #026770;
+    font-size: 5vw;
     text-align: right;
     padding: 40px;
     margin-right: 40px;
@@ -32,11 +22,12 @@
 
 
 .introduction_description_container {
-    border-left: 5px solid;
+    border-left: 5px solid black;
+    font-family: 'Raleway', sans-serif;
 }
 
 .introduction_description {
-    font-family: 'Poppins', sans-serif;
+    font-size: 1.2vw;
     padding-left: 30px;
 }
 
@@ -81,18 +72,26 @@
  }
 
  .profile_title_top {
-     background-color: #A9A9A9;
      padding: 10px;
      margin-left: -70px;
      margin-top: 0px;
      font-size: 100%;
      width: fit-content;
      height: fit-content;
-     font-family: 'Exo';
+ }
+
+ .profile_name {
+    background-color: #48cfae;
+    font-family: 'Livvic', sans-serif;
+ }
+
+ .profile_title {
+    background-color: #026770;
+    color: #F0F0F0;
  }
 
 .profile_description {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
     margin: 30px;
     padding-bottom: 10px;
     border-right: 2px solid;
@@ -111,7 +110,6 @@
 }
 
 .profile_name_bottom {
-    background-color: #AFE1AB;
     padding: 10px;
     padding-left: 20px;
     padding-right: 50px;
@@ -121,20 +119,17 @@
     margin-bottom: 0px;
     width: fit-content;
     height: fit-content;
-    font-family: 'Exo';
     display: relative;
     z-index: 1;
 }
 
 .profile_title_bottom {
-    background-color: #A9A9A9;
     padding: 10px;
     margin-right: -70px;
     margin-top: 0px;
     font-size: 100%;
     width: fit-content;
     height: fit-content;
-    font-family: 'Exo';
     display: relative;
     z-index: 1;
 }
