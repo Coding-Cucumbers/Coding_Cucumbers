@@ -6,10 +6,6 @@ body {
     align-items: center;
 }
 
-#header {
-    opacity: 0;
-}
-
 #index_container {
     display: flex;
     flex-direction: column;

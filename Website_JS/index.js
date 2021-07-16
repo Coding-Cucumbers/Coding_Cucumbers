@@ -223,4 +223,4 @@ function fadeHeader() {
 }
 
 
-fadeHeader();
+fadeSaying();
