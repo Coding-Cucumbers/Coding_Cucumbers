@@ -1,5 +1,5 @@
 body {
-    background-color: #fef9c7;
+    background-color: #fef9c7 !important;
     font-family: 'Raleway', sans-serif;
     display: flex;
     flex-direction: column;
@@ -437,5 +437,3 @@ body {
     border-bottom: 4px solid transparent;
     width: fit-content;
 }
-
-

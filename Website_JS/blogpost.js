@@ -101,11 +101,11 @@ function SubForm (){
 }
 
 function TeleNoti(){
-  $.ajax({
-    url: 'https://asia-southeast1-cc-webhooks.cloudfunctions.net/subscriber',
-    type: 'post',
-    data: $("#myForm").serializeArray()
-  });
+    $.ajax({
+      url: 'https://asia-southeast1-cc-webhooks.cloudfunctions.net/subscriber',
+      type: 'post',
+      data: $("#myForm").serializeArray()
+    });
 }
 
 //when user hovers over nav-items

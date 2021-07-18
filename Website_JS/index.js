@@ -178,10 +178,6 @@ function fit_data(dictionary_of_entries) {
 
 fillAll();
 
-
-
-
-
 function fadeIn(element, opacity_increment, callback) {
     element.style.opacity = "0";
     let timer = setInterval(() => {
