@@ -5,14 +5,17 @@
     <title>Coding Cucumbers</title>
     <link rel="stylesheet" type="text/css" href="CSS/index.css">
     <link rel="stylesheet" type="text/css" href="CSS/header.css">
+    <link rel="stylesheet" type="text/css" href="CSS/footer.css">
     <link rel="icon" href="resources/logos/CC_logo_no_words.png">
     <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@700&family=Raleway&display=swap&family=Abril+Fatface" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<div id="header"><img src="resources/logos/Logo_CC_V3-removebg_cropped.png" id="header_logo"><div id="header_nav_bar"><a href="https://www.codingcucumbers.com/"><h2 class="header_nav_item">Home</h2></a><a href="https://www.codingcucumbers.com/website/blog_history"><h2 class="header_nav_item">Articles</h2></a><a href="https://www.codingcucumbers.com/website/about_us.html"><h2 class="header_nav_item">About Us</h2></a><a href="https://www.codingcucumbers.com/website/merchandise.html"><h2 class="header_nav_item">Merchandise</h2></a></div><hr id="header_line"></div>
+<div id="header"><img src="resources/logos/Logo_CC_V3-removebg_cropped.png" id="header_logo"><div id="header_nav_bar"><a href="https://www.codingcucumbers.com/"><h2 class="header_nav_item">Home</h2></a><a href="https://www.codingcucumbers.com/website/blog_history"><h2 class="header_nav_item">Articles</h2></a><a href="https://www.codingcucumbers.com/website/about_us.html">
+  <h2 class="header_nav_item">About Us</h2></a><a href="https://www.codingcucumbers.com/website/merchandise.html"><h2 class="header_nav_item">Merchandise</h2></a></div><hr id="header_line"></div>
 
 <div id="index_container">
     <div id="saying_container">
@@ -259,6 +262,36 @@
 <a href="https://www.codingcucumbers.com/website/blog_history" class="more_articles_link">
     <h1 class="more_articles">More Articles...</h1>
 </a>
+
+<div class="container-fluid" style="background-color: black">
+   <div class="row">
+      <div class="footer_left col-6">
+         <img src="resources/logos/CC_logo_no_words.png" alt="cc_logo" id="cc_logo_footer">
+         <br>
+         <div class="container social"><a href="https://www.instagram.com/codingcucumbers"><img src="resources/socials/insta-white.jpeg" class="insta"></a><a href="">
+            <img src="resources/socials/twitter-white.jpeg" class="twitter"></a><a href=""><img src="resources/socials/email-white.jpeg" class="email"></a>
+            <a href="https://github.com/CodingCucumbers"><img src="resources/socials/github-white.png" class="github"></a>
+         </div>
+      </div>
+      <div class="col-6">
+         <div class="form-group has-feedback text-left">
+            <br>
+            <br><br><br>
+            <h6 id="stay_para">STAY IN TOUCH</h6>
+            <div class="col">
+               <form class="myForm" id="myForm">
+                  <label for="email" class="col-sm-3 control-label h5" id="connect_para">Connect with us through email</label>
+                  <br><br>
+                  <input type="text" name="email" placeholder="your email" class="form-control" id="input_box"><br>
+               </form>
+               <div class="col"><button type="submit" name="button" class="btn btn-default" id="submit_button">Connect</button></div>
+            </div>
+            <br><br><br><br>
+         </div>
+      </div>
+   </div>
+</div>
+
 
 
 <script type="text/javascript" src="Website_JS/index.js"></script>
