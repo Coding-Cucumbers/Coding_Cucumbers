@@ -2,15 +2,28 @@ email_box = document.getElementsByClassName("email_box")[0];
 function stickyEmailBox() {
     spawnBoxMargin = 500;
     if (document.body.scrollTop > spawnBoxMargin|| document.documentElement.scrollTop > spawnBoxMargin) {
-        email_box.classList.add("show")
-        email_box.classList.remove("hidden")
+        email_box.classList.add("show");
+        email_box.classList.remove("hidden");
     } else {
-        email_box.classList.add("hidden")
-        email_box.classList.remove("show")
+        email_box.classList.add("hidden");
+        email_box.classList.remove("show");
     }
 }
 
 window.onscroll = stickyEmailBox
+main_row = document.getElementById("main_post");
+function resize() {
+  if (window.innerWidth < 960) {
+    main_row.classList.remove("col-6");
+    main_row.classList.add("col-12");
+  } else {
+    main_row.classList.add("col-6");
+    main_row.classList.remove("col-12");
+  }
+}
+
+window.onresize = resize
+
 
 $(function(){
 
@@ -33,7 +46,7 @@ $("#submit_button").click(function(){
 
        else {
          SubForm(); //function to submit to google sheets
-         teleNoti();
+         TeleNoti();
          window.alert("Thank you for staying in touch!");
        }
        //ensures that email text space is cleared
@@ -50,31 +63,32 @@ $('#input_box').keypress(function (e) {
 });
 
   // when user inputs an email address
-$(".submit_email").click(function(){
-  $(".error").hide();
-       var hasError = false;
-       var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+  $("#submit_email").click(function(){
+    $(".error").hide();
+         var hasError = false;
+         var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
-       var emailVal = $("#email_input").val();
-       if(emailVal == '') {
-           $("#email_input").after('<span class="error"  style="color: red">Please enter your email address.</span>');
-           hasError = true;
-       }
+         var emailVal = $("#email_input").val();
+         if(emailVal == '') {
+             $("#email_input").after('<span class="error"  style="color: red">Please enter your email address.</span>');
+             hasError = true;
+         }
 
-       else if(!emailReg.test(emailVal)) {
-           $("#email_input").after('<span class="error" style="color: red">Enter a valid email address.</span>');
-           hasError = true;
-       }
+         else if(!emailReg.test(emailVal)) {
+             $("#email_input").after('<span class="error" style="color: red">Enter a valid email address.</span>');
+             hasError = true;
+         }
 
-       else {
-         SubForm(); //function to submit to google sheets
-         TeleNoti();
-         window.alert("Thank you for staying in touch!");
-       }
-       //ensures that email text space is cleared
-       document.getElementById("email_input").value = '';
-       if(hasError == true) { return false; }
-});
+         else {
+           SubForm(); //function to submit to google sheets
+           TeleNoti();
+           window.alert("Thank you for staying in touch!");
+         }
+         //ensures that email text space is cleared
+         document.getElementById("email_input").value = '';
+         if(hasError == true) { return false; }
+  });
+
 
 //to allow user to submit with enter key
 $('#input_box').keypress(function (e) {
@@ -89,7 +103,7 @@ function SubForm (){
     $.ajax({
         url:'https://api.apispreadsheets.com/data/12899/',
         type:'post',
-        data:$("#myForm").serializeArray()
+        data:$(".formdata").serializeArray()
         //add comma back behind .serializeArray(), this a checker
         // success: function(){
         //   alert("Form Data Submitted")
@@ -104,7 +118,7 @@ function TeleNoti(){
     $.ajax({
       url: 'https://asia-southeast1-cc-webhooks.cloudfunctions.net/subscriber',
       type: 'post',
-      data: $("#myForm").serializeArray()
+      data: $(".formdata").serializeArray()
     });
 }
 
