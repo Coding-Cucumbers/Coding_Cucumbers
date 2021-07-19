@@ -55,3 +55,33 @@
   width: 65px !important;
   height: 65px !important;
 }
+
+@media only screen and (max-width: 960px) {
+
+  #cc_logo_footer{
+    width: auto;
+    height: 80px;
+    padding-right: 15%;
+  }
+
+  .form-control{
+    width: 80% !important;
+  }
+
+  .social{
+    display: block !important;
+    padding-left: 8% !important;
+  }
+
+  #stay_para{
+    font-size: 15px;
+    display: block;
+  }
+
+  #connect_para{
+    font-size: 18px;
+    display: block;
+  }
+
+
+}

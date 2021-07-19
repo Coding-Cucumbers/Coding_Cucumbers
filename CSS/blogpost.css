@@ -8,7 +8,7 @@ body {
 }
 
 .container_fluid {
-    height: 1000px;
+    width: 100%;
 }
 
 #main_post {
@@ -318,5 +318,17 @@ pre code {
 }
 
 .hidden {
-    opacity: 0;
+    display: none;
+}
+
+ @media only screen and (max-width: 960px) {
+
+   .email_box{
+     display: none;
+   }
+
+   .img_cropper{
+     display: none;
+   }
+
 }
