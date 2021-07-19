@@ -27,6 +27,10 @@
     text-decoration: none;
 }
 
+#header_nav_bar a h2.header_nav_item {
+    font-family: 'Raleway', sans-serif !important;
+}
+
 .header_nav_item {
     margin-left: 35px;
     margin-right: 35px;
