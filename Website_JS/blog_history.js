@@ -40,7 +40,7 @@ function fit_data(dictionary_of_entries) {
 
 async function loadData() {
     const response = await fetch("https://spreadsheets.google.com/feeds/cells/1RYNXbxtIeqSmtzJhNca459t8I9Kg_waQRJl-6jBezRc/1/public/full?alt=json").then(response => {return response});
-    const json = await response.json();
+    const json = response.json();
     return json
 }
 
