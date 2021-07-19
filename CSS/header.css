@@ -23,11 +23,11 @@
     align-items: center;
 }
 
-#header_nav_bar a {
+#header_nav_bar a:hover {
     text-decoration: none;
 }
 
-#header_nav_bar a h2.header_nav_item {
+#header_nav_bar a h1.header_nav_item {
     font-family: 'Raleway', sans-serif !important;
 }
 

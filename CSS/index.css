@@ -10,6 +10,14 @@ body {
     opacity: 0;
 }
 
+#header h1 {
+    display: inline;
+}
+
+#header a:hover {
+    text-decoration: none;
+}
+
 #index_container {
     display: flex;
     flex-direction: column;
