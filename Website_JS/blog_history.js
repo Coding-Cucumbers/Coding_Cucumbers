@@ -83,8 +83,8 @@ function filterSelection(filter_tag) {
     loadData().then(response => {
         let data = response.feed.entry;
         let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/7); i++) {
-            dictionary_of_entries[i] = data.slice(i * 7, (i+1) * 7)
+        for (let i=0; i < (data.length/8); i++) {
+            dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
         }
         //Swapping order of entries
         let number_of_entries = Object.keys(dictionary_of_entries).length;
@@ -150,8 +150,8 @@ function loadPageData(){
             let data = response.feed.entry;
             let dictionary_of_entries = {};
             let dictionary_of_entries_filtered = {};
-            for (let i=0; i < (data.length/7); i++) {
-                dictionary_of_entries[i] = data.slice(i * 7, (i+1) * 7)
+            for (let i=0; i < (data.length/8); i++) {
+                dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
             }
             //Swapping order of entries
             let number_of_entries = Object.keys(dictionary_of_entries).length;
@@ -228,8 +228,8 @@ function loadPageData(){
     loadData().then(response => {
         let data = response.feed.entry;
         let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/7); i++) {
-            dictionary_of_entries[i] = data.slice(i * 7, (i+1) * 7)
+        for (let i=0; i < (data.length/8); i++) {
+            dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
         }
         //Swapping order of entries
         let number_of_entries = Object.keys(dictionary_of_entries).length;
@@ -295,8 +295,8 @@ function loadPages() {
     loadData().then(response => {
         let data = response.feed.entry;
         let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/7); i++) {
-            dictionary_of_entries[i] = data.slice(i * 7, (i+1) * 7)
+        for (let i=0; i < (data.length/8); i++) {
+            dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
         }
         //Swapping order of entries
         let number_of_entries = Object.keys(dictionary_of_entries).length;
@@ -334,8 +334,8 @@ function loadPagesIfFiltered(filter) {
         let data = response.feed.entry;
         let dictionary_of_entries = {};
         let dictionary_of_entries_filtered = {};
-        for (let i=0; i < (data.length/7); i++) {
-            dictionary_of_entries[i] = data.slice(i * 7, (i+1) * 7)
+        for (let i=0; i < (data.length/8); i++) {
+            dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
         }
         //Swapping order of entries
         let number_of_entries = Object.keys(dictionary_of_entries).length;

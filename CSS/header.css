@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Raleway', sans-serif !important;
 }
 
 #header_logo_container {
@@ -22,8 +23,12 @@
     align-items: center;
 }
 
-#header_nav_bar a {
+#header_nav_bar a:hover {
     text-decoration: none;
+}
+
+#header_nav_bar a h1.header_nav_item {
+    font-family: 'Raleway', sans-serif !important;
 }
 
 .header_nav_item {
