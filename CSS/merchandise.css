@@ -1,105 +1,35 @@
 body {
-  background-color: #fef9c7;
-
-}
-#header_1{
-  font-family: 'Livvic', sans-serif;
-  color: #026770;
-  font-size: 5vw;
-}
-
-.container-fluid{
-  background-image: url('https://image.freepik.com/free-vector/cute-seamless-background-with-sketch-cucumbers_257845-410.jpg');
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.mask-custom {
-  background-color: rgba(204, 230, 211, 1);
-  width: 60%;
-  height: 60%;
-}
-
-#cucumber_shades{
-  max-height: 80%;
-  max-width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  margin: auto;
-  z-index: 1;
-}
-
-#something_para{
-  font-family: Ubuntu;
-  font-size: 30px;
-}
-
-.hidden-text {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  padding: 5%;
-  font-size: 17px;
-}
-
-.hr_in_merch {
-  margin: auto;
-  width: 40%;
-}
-
-.flex-box-1{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  background-color: rgba(204, 230, 211, 1);
-}
-
-.flex-box-2{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 200%;
-  font-family: Ubuntu;
-  background-color: rgba(204, 230, 211, 1);
-}
-
-.flex-box-3{
-  display: flex;
-  justify-content: center;
-  font-family: Ubuntu;
-  background-color: rgba(204, 230, 211, 1);
-}
-
-@media only screen and (max-width: 1024px) {
-
-  .merchandise_header{
-    width: 140%;
-  }
-
-  .flex-box-1{
-    padding: 0;
-    padding-top: 20px;
-  }
-
-  .hidden-text{
-    display: none;
-  }
-
-  .flex-box-2{
-    padding: 30px;
+    background-color: #fef9c7 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-  }
+    font-family: 'Livvic', sans-serif;
+}
 
-  #want_para{
-    size: 44px;
-  }
+#main_body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#header_merchandise {
+    margin-top: 5%;
+    font-size: 150px;
+    color: #026770;
+}
+
+.description_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.description {
+    font-size: 35px;
+    color: #48cfae;
+    margin-bottom: 15%;
 }
