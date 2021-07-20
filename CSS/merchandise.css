@@ -15,6 +15,7 @@ body {
 }
 
 #header_merchandise {
+    margin-top: 15%;
     font-size: 150px;
     color: #026770;
 }
@@ -30,4 +31,5 @@ body {
 .description {
     font-size: 35px;
     color: #48cfae;
+    margin-bottom: 15%;
 }
