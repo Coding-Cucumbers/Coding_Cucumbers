@@ -1,6 +1,6 @@
 body {
-    background-color: #fef9c7;
-    font-family: 'Raleway', sans-serif;
+    background-color: #fef9c7 !important;
+    font-family: 'Raleway', sans-serif !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,6 +8,14 @@ body {
 
 #header {
     opacity: 0;
+}
+
+#header h1 {
+    display: inline;
+}
+
+#header a:hover {
+    text-decoration: none;
 }
 
 #index_container {
@@ -83,6 +91,7 @@ body {
 .post_title {
     font-size: 1.5vw;
     transition: color 0.2s;
+    font-weight: 900;
 }
 
 .post_title:hover {
@@ -109,7 +118,7 @@ body {
     opacity: 0;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 900px) {
     #sidebar_container {
         display: none;
     }
@@ -162,9 +171,17 @@ body {
     font-size: 1.2vw;
 }
 
-#input_box {
+.input_email_row {
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#input_box {
     width: 100%;
+    margin-right: 10px;
 }
 
 
@@ -180,6 +197,8 @@ body {
 .social_media_container {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
 }
 
 #submit_email_button {
@@ -191,27 +210,29 @@ body {
     padding: 8px;
     text-align: center;
     align-self: center;
+    height: 100%;
 }
 
 .social_media_container img {
-    height: 20px;
+    height: 35px;
     width: auto;
     margin-right: 5px;
     margin-left: 5px;
 }
 
+.social_media_container a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 @media only screen and (max-width: 1000px) {
     .social_media_container img {
-        height: 15px;
+        height: 30px;
         width: auto;
         margin-right: 3px;
         margin-left: 3px;
     }
-}
-
-.more_articles:hover {
-    border-color: #48cfae;
-    transition: border-color 1s;
 }
 
 #popular_posts_container {
@@ -232,7 +253,7 @@ body {
     padding-left: 0px;
 }
 
-.popular_posts_list a {
+.popular_posts_list a:hover{
     text-decoration: none;
 }
 
@@ -305,6 +326,10 @@ body {
 .post_link {
     text-decoration: none;
     color: black;
+}
+
+.post_link:hover {
+    text-decoration: none;
 }
 
 .post_poster:hover {
@@ -423,7 +448,6 @@ body {
 
 
 .more_articles_link {
-    text-decoration: none;
     width: 65%;
     justify-self: center;
 }
@@ -432,10 +456,19 @@ body {
     font-size: 350%;
     margin-top: 7%;
     margin-bottom: 7%;
+    font-weight: 900;
     color: black;
     text-decoration: none;
     border-bottom: 4px solid transparent;
     width: fit-content;
 }
 
+.more_articles:hover {
+    border-color: #48cfae;
+    color: #48cfae;
+    transition: border-color 1s, color 0.5s;
+}
 
+.more_articles_link:hover {
+    text-decoration: none;
+}

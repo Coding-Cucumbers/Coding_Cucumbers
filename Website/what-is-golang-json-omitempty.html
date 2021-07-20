@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>What Is json:,omitempty In Go - Coding Cucumbers</title>
+    <meta name="description" content="Find out more about the omitempty tag in Go - how to use them, when to use them and more about tags in general">
+    <meta name="Bryan">
+    <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+</head>
+
+<body>
+
+  <script language="javascript" type="text/javascript"
+    src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">What Is json:,omitempty In Go?</h1><br>
+                <p class="preamble">Learn how and when to use them!</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                  <div class="img_cropper">
+                    <img src="../resources/about_us/bryan_coding_cucumbers_aboutus.jpg" id="author_img" alt="author bryan image">
+                  </div>
+                    <div class="author_details">
+                        <p class="author_name">Bryan Ho</p>
+                        <p class="date">17th July 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/badboibrybryy/">
+                        <img src="../resources/socials/instagram-no-bg.png" alt="instagram icon">
+                    </a>
+                    <a href="https://github.com/bryanhce">
+                        <img src="../resources/socials/github_icon.png" alt="github icon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
+                        <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
+                    </a>
+                    <a>
+                        <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
+                    </a>
+                </container>
+            </div>
+            <img src="../resources/post_pictures/post_posters/json-omitempty-go-post-min.jpg" alt="json omit empty poster image" class="blog_post_img">
+
+            <container id="main_container">
+                <p class="signposting">Introduction</p>
+                <p class="text">
+                  Structs are Go’s way of creating our own classes or piecing together information in one unit. No doubt, you would have chanced upon this `json:,omitempty` line before. In this article, I will share more about what this tag is and how we can use
+                  it.</p>
+
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>What is omitempty tag?</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>When does it not work?</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>What are tags?</li>
+                        </a>
+                      </ol>
+                </container>
+
+                <container class="main_text text">
+                    <a id="first_link">
+                        <h2 class="signposting">Omitempty tag</h2>
+                    </a>
+                    <p>You must be curious what is this `json:,omitempty` annotation that is found after a struct field declaration like
+                      this</p>
+                    <pre><code>
+  type fruit struct {
+    Name   string
+    Length int    `json:,omitempty`
+  }
+                    </pre></code>
+                    <p>`json:,omitempty` is a json tag for a field in a struct. When unmarshalling json data into a struct, if that particular field is empty, the field would be ignored. Without the omitempty tag, a default value will be
+                      used.</p>
+                    <p>In the example above, without the omitempty tag, the length field would be populated with the int 0. If the type of the empty field is string, “” (empty string) would be the default value. Similarly, the default value of a boolean type is false and nil for pointer, interface, slice and
+                      map.</p><br>
+                      <img src="../resources/post_pictures/inside_post_pictures/omitempty-tag-go/json-farmer-min.jpg" alt="farmer example" class="inside_post_img"><p class="img_description">
+                        farmer who wishes to document his inventory
+                      </p><br><br>
+                      <p>Let us continue with the example to better elaborate on the omitempty tag and the use cases. Take for instance I am a fruit farmer and I would like to document the different types of fruits in my inventory. I would use this
+                        code</p>
+                    <pre><code>
+  package main
+
+  import (
+  	“log”
+      "encoding/json"
+      "fmt"
+    )
+
+  type fruit struct{
+    Name   string `json: "name"`
+    Length int    `json: "length,omitempty”`
+  }
+
+  func main() {
+    cucumber := fruit {
+        Name: "cucumber",
+        Length: 10,
+    }
+
+    data, err := json.Marshal(&cucumber)
+    if err != nil{
+      log.Println("unable to marshal data")
+    }
+    fmt.Println(string(data))
+  }
+                    </pre></code>
+                    <p>In this case, the output would be {“name”: “cucumber”, “length”: 10}. A brief explanation of the code, from the json package, I marshal the cucumber variable into a json body and store it in the variable data as type slice of byte. In order to see the human-readable form of data, I need to convert the slice of byte into string using the string() function. I also did an error check and logged the error if any. It is always good practice to log errors to quickly pinpoint where the code might have faults.</p>
+                    <p>Back to the example! Unfortunately, I lost my ruler and can no longer measure the length of my fruits. I decided to leave the length field empty. I continue to document my fruits
+                      with</p>
+                    <pre><code>
+  pear := fruit {
+      Name: "pear",
+    }
+                    </pre></code>
+                    <p>And the output is {“name”: “pear”}. Notice how the length field is absent. In the event that I left out the omitempty tag, the output would instead be {“name”: “pear”, “length”: 0}. It doesn’t make sense that a pear would be 0cm and that might mess up subsequent code that makes use of the length of the
+                      fruits.</p>
+                      <p>This simple example is a reflection of the nature of data that is sent across the web, there are a variety of ways data can come in and at times not all the fields will be populated. As such, if I know that the field may not always be filled, with the help of the omitempty tag, I can have cleaner
+                        data.</p>
+                    <p>In addition to the omitempty tag, an alternative tag to use is “-” as such</p>
+                    <pre><code>
+  type fruit struct {
+    Name   string
+    Length int    `json:,“-”`
+  }
+                    </pre></code>
+                    <p>It does the same function as the omitempty tag, which is to exclude marshalling or unmarshalling that specific
+                      field.</p>
+
+                    <a id="second_link">
+                        <h2 class="signposting">Special Case</h2>
+                    </a>
+                    <p>In some instances, the omitempty tag will not work, like in the case of an embedded struct. Returning back the fruit farmer
+                      example</p>
+                      <pre><code>
+  type colour struct{
+    Red   int
+    Blue  int
+    Green int
+  }
+
+  type fruit struct{
+    Name        string `json: "name"`
+    Length      int    `json: "length,omitempty”`
+    FruitColour colour `json: "fruitColour,omitempty”`
+  }
+
+  func main() {
+
+    apple := fruit {
+      Name: "apple",
+    }
+                      </pre></code>
+                  <p>I decided that in the future I want to document the colours of the fruits but I will leave them blank for now. In the fruit struct, I added a new field called “FruitColour”, which is of a customised type “colour”, that is based on the RGB colour system. The output in this case for apple would be {“Name”: “apple”, “FruitColour”: {“red”: 0, “blue”: 0, “green”: 0} }. This is not what we expected as the FruitColour field should be
+                    empty.</p>
+                  <p>Well, this is because in Go, the embedded struct does not have an empty value. As such, to overcome this problem, we need to change the type of FruitColour from colour to *colour (pointer to a colour
+                    instance)</p>
+                    <pre><code>
+  type fruit struct{
+    Name        string `json: “name”`
+    Length      int    `json: “length,omitempty”`
+    FruitColour *colour `json: “fruitColour,omitempty”`
+  }
+                    </pre></code>
+                    <p>Yes, just a simple asterisk will fix the problem and the output is back to what we want, {“name”:
+                      “apple”}.</p>
+
+                    <a id="third_link">
+                        <h2 class="signposting">What are tags</h2>
+                    </a>
+                    <img src="../resources/post_pictures/inside_post_pictures/omitempty-tag-go/go-struct-tag-min.jpg" alt="json tags" class="inside_post_img">
+                    <p class="img_description">
+                      different types of json tags
+                    </p><br><br>
+                    <p>Taking a step back to see a better overview, we can explore the use of tags in general and their use cases. Struct tags control how data from databases or HTTP requests are assigned to the field of the
+                      struct.</p>
+                    <p>Much like the omitempty tags, struct tags are enclosed in backticks ` `, not single or double inverted commas. By convention, the tag is a key:”value” pair as such. The key is the package that the value is used for. In this
+                      case</p>
+                      <pre><code>
+    Name        string `json: "name" xml:“name,omitempty”`
+                      </pre></code>
+                      <p>The xml key refers to the encoding/xml package while json refers to the encoding/json package. To pass more than 1 <mark class="highlight">tag</mark>, just separate the key-value pairs with a space. To pass more than 1 <mark class="highlight">value</mark>, separate the values with
+                        commas.</p>
+                    <p>These tags are not referenced in the main code or script. For example, if we want to access the name variable in the apple fruit instance, we would use the
+                      code</p>
+                    <pre><code>
+  apple_name := apple.Name
+                    </pre></code>
+                    <p>And not</p>
+                    <pre><code>
+  apple_name := apple.name
+                    </pre></code>
+                    <p>Pay attention to the capitalisation of the “name”. The fruit struct field has “Name” while the json tag uses “name”. Since the tags have no implication on our script, if we were to use the lowercase “name” an error occurs as there is no such
+                      value.</p>
+                    <h2 class="signposting">Examples of Tags</h2>
+                    <p>One popular example of tags is the json tag. JSON (JavaScript Object Notation) is a way for applications to interact and send data to each other. It is widely used in API (Application Programming Interface)
+                      communication.</p>
+                  <p>One reason to use json tags is because of how we name the fields. In Go, for the field to be globally accessible throughout the code, we have to capitalise the first letter of the struct as seen in the
+                    example</p>
+                    <pre><code>
+  type fruit struct{
+    Name        string `json: "name"`
+    Length      int    `json: "length,omitempty”`
+    FruitColour colour `json: "fruitColour,omitempty”`
+  }
+                    </pre></code>
+                    <p>But if the application that we are engaging with sends us data where the key is not capitalised, there would be an unmarshalling error. The data is unable to find the fields to populate as it is case-sensitive. Thus, with the use of json struct tag metadata, it provides instructions to the json data and better facilitates its interaction with Go
+                      code.</p>
+
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>Indeed struct tags are very useful and they are very common in Go code, especially for backend engineering where applications would require a ton of internal and external APIs to function. I hope this article was insightful and helped with your understanding of omitempty and tags. Stay Cool
+                      Cucumbers!</p>
+                </container>
+            </container>
+
+
+        </div>
+
+
+
+<!-- newsletter popup -->
+<script language="javascript" type="text/javascript" src="newsletter.txt"></script>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>

@@ -4,10 +4,11 @@ html {
 
 body {
     background-color: #fef9c7 !important;
+    font-family: 'Raleway', sans-serif !important;
 }
 
 .container_fluid {
-    height: 1000px;
+    width: 100%;
 }
 
 #main_post {
@@ -119,6 +120,7 @@ h1.title{
 
 .inside_post_img_container {
     width: 90%;
+    height: auto;
     display: flex;
     flex-direction: column;
     margin: 50px;
@@ -129,6 +131,7 @@ h1.title{
 
 .inside_post_img {
     width: 100%;
+    height: auto;
 }
 
 .img_description {
@@ -161,6 +164,7 @@ pre code {
     margin: 20px;
     margin-bottom: 0px;
     width: 90%;
+    height: auto;
 }
 
 #author_img {
@@ -317,5 +321,17 @@ pre code {
 }
 
 .hidden {
-    opacity: 0;
+    display: none;
+}
+
+ @media only screen and (max-width: 960px) {
+
+   .email_box{
+     display: none;
+   }
+
+   .img_cropper{
+     display: none;
+   }
+
 }

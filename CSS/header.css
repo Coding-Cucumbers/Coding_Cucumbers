@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Raleway', sans-serif !important;
 }
 
 #header_logo_container {
@@ -22,8 +23,12 @@
     align-items: center;
 }
 
-#header_nav_bar a {
+#header_nav_bar a:hover {
     text-decoration: none;
+}
+
+#header_nav_bar a h1.header_nav_item {
+    font-family: 'Raleway', sans-serif !important;
 }
 
 .header_nav_item {
@@ -49,4 +54,18 @@
     width: 60%;
 }
 
+@media only screen and (max-width: 960px) {
 
+  .header_nav_item {
+      font-size: 4vw;
+      margin-left: 15px;
+      margin-right: 15px;
+  }
+
+  #header_logo {
+      object-fit: contain;
+      height: 50px;
+      width: 50px;
+  }
+
+}
