@@ -185,4 +185,8 @@ body {
   .profile_title_bottom {
       margin-right: 0;
   }
+
+  .profile_detials_container_bottom{
+    margin-top: 10px;
+  }
 }

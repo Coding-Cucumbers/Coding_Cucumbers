@@ -22,6 +22,11 @@ function resize() {
   }
 }
 
+if (window.innerWidth < 960) {
+  main_row.classList.remove("col-6");
+  main_row.classList.add("col-12");
+}
+
 window.onresize = resize
 
 

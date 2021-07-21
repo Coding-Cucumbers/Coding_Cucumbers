@@ -33,3 +33,14 @@ body {
     color: #48cfae;
     margin-bottom: 15%;
 }
+
+@media only screen and (max-width: 960px) {
+
+  #header_merchandise {
+      font-size: 16vw;
+  }
+  .description {
+      font-size: 10vw;
+  }
+
+}
