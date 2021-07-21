@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Complete Guide To Building A Webhook In Python And Hosting It</title>
     <meta name="description" content="Create github webhooks, build the endpoints in python and host on the webhook endpoint on Google Cloud Platform GCP">
@@ -200,7 +201,7 @@ def webHook():
         repo_name = body["repository"]["name"]
         message = "{} has starred the [{}]({}). \n\n The Total Stars are {}".format(starrer_username, repo_name, repo_url, nos_stars)
                   </pre></code><br>
-                  <p>The first line with the @ is a decorator that is used to modify the function below it. You can think of decorators as a wrapper that extends the functionality of a function or class without permanently modifying it. In essence, it is passing a function (webHook) into another function (app.route). If you want to find out more about decorators, check out this <a href="https://www.programiz.com/python-programming/decorator" target="_blank">article.</a></p>
+                  <p>The first line with the @ is a decorator that is used to modify the function below it. You can think of decorators as a wrapper that extends the functionality of a function or class without permanently modifying it. In essence, it is passing a function (webHook) into another function (app.route). Check out this article if you want to  <a href="https://www.programiz.com/python-programming/decorator" target="_blank">find out more about decorators.</a></p>
                   <p>Next, we have the function declaration webHook(). “get_json()” is a method from the flask module which parses the incoming data as JSON; if data is not “application/json” type, the method returns
                     None.</p>
                   <p>Then we grab the event with the “.get()” method from the request header (FYI this is different from the response header). Subsequently, we traverse the JSON body and assemble the data that we want such as the name of the repository and the number of times the repo was starred. Lastly, we string all the variables together to create the message we would like to send to our telegram chat. Do note that you can look through the response body by printing it as a python dictionary with “json.loads({request body})” and choosing the data you would like to be in your message, you don’t have to follow this code
@@ -239,7 +240,8 @@ if __name__ == "__main__":
                         <pre><code>
 http://127.0.0.1:5000/
                         </pre></code><br>
-                        <p>You can think of this as the place your webhook is waiting to receive the post request. Don’t forget to add “/webhook” at the end of the url. Now, since this is in our local, Github notifications will not be able to reach this url. One way to overcome this problem is by <a href="https://ngrok.com/" target="_blank">downloading ngrok</a>. ngrok exposes our local development server to the Internet by creating a tunnel. ngrok is used for testing purposes and if you want to read more about it, you can check out <a href="https://www.twilio.com/docs/usage/tutorials/how-use-ngrok-windows-and-visual-studio-test-webhooks" target="_blank">this article</a>. As this code already runs smoothly, this step isn’t necessary for us.</p>
+                        <p>You can think of this as the place your webhook is waiting to receive the post request. Don’t forget to add “/webhook” at the end of the url. Now, since this is in our local, Github notifications will not be able to reach this url. One way to overcome this problem is by <a href="https://ngrok.com/" target="_blank">downloading ngrok</a>. ngrok exposes our local development server to the Internet by creating a tunnel. ngrok is used for testing purposes and
+                           check out this article if you want to read more about <a href="https://www.twilio.com/docs/usage/tutorials/how-use-ngrok-windows-and-visual-studio-test-webhooks" target="_blank">ngrok testing</a>. As this code already runs smoothly, this step isn’t necessary for us.</p>
 
                     <div id="third_link">
                         <h2 class="signposting">Google Cloud Functions</h2>

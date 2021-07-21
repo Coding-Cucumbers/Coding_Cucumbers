@@ -264,7 +264,12 @@ label {
     }
 }
 
-@media screen and (max-width: 1300px) {
+@media only screen and (max-width: 960px) {
+
+  .header{
+    margin-left: 13%;
+  }
+
     .post_img {
         width: 200px;
         height: 140px;
@@ -278,5 +283,9 @@ label {
     }
     label {
         font-size: 70%;
+    }
+
+    .filters_checkbox {
+    margin-right: 10px;
     }
 }
