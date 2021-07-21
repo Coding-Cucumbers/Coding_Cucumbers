@@ -114,8 +114,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 26%;
+    width: 25%;
     opacity: 0;
+    margin-left: 40px;
 }
 
 #contact_us_quote {
