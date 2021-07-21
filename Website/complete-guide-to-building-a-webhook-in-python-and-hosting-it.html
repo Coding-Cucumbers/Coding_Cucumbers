@@ -65,9 +65,9 @@
                     <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
-                    </a>
+                    </div>
                 </container>
             </div>
             <img src="../resources/post_pictures/post_posters/webhook-poster-min.jpg" alt="how-to-migrate-huge-data-free-and-efficiently" class="blog_post_img">
@@ -100,9 +100,9 @@
                 </container>
 
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">What are webhooks and their uses</h2>
-                    </a>
+                    </div>
                     <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/weather-eg-min.jpg" alt="weather data visualisation example" class="inside_post_img">
                     <p class="img_description">
                         You as the data engineer for the weather company
@@ -131,9 +131,9 @@
                       <p>In the subsequent parts of this blog post, I will be sharing more about how I built a Github webhook that sends notifications to Telegram chat via a telebot using Google Cloud Functions. Of course, this is a basic webhook function but it sets the foundation to build any webhook endpoint you
                         want!</p>
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Building a webhook endpoint in Python</h2>
-                    </a>
+                    </div>
 
                     <p>I think of the endpoint as a sort of the medium between the 2 applications that are interacting. The server sends a webhook, the endpoint receives it, parses the data and in turn executes the
                       event.</p>
@@ -241,9 +241,9 @@ http://127.0.0.1:5000/
                         </pre></code><br>
                         <p>You can think of this as the place your webhook is waiting to receive the post request. Don’t forget to add “/webhook” at the end of the url. Now, since this is in our local, Github notifications will not be able to reach this url. One way to overcome this problem is by <a href="https://ngrok.com/" target="_blank">downloading ngrok</a>. ngrok exposes our local development server to the Internet by creating a tunnel. ngrok is used for testing purposes and if you want to read more about it, you can check out <a href="https://www.twilio.com/docs/usage/tutorials/how-use-ngrok-windows-and-visual-studio-test-webhooks" target="_blank">this article</a>. As this code already runs smoothly, this step isn’t necessary for us.</p>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">Google Cloud Functions</h2>
-                    </a>
+                    </div>
                     <p>PHEW! We are finally done with the script and you must be wondering, where is the url that the trigger sends to post the data. Well, this is where Google Cloud Platform (GCP) comes in. We are going to host the code on the cloud and it will generate a url for the trigger to send data
                       to.</p>
                     <p>Create a GCP account with your google account and click on the “console” button. Google will ask for your credit/debit card account, but don’t worry, you don’t have to pay a cent. GCP has $300 worth of free credit and Cloud Function allows for <mark class="highlight">2 million free requests per month</mark> (at least at the time of writing this article, please do check the latest regulations). But even if somehow you exceed that 2 million requests in a month AND use up that $300 credit (you a hardcore cucumber), subsequent requests are charged at a per-unit rate of $0.0000004 per invocation. TLDR, it's almost free to use GCP Cloud
@@ -298,9 +298,9 @@ requests == 2.25.1
                         <p>When you click into the function, you can see a dashboard of invocation seconds, memory utilisation of the function. Click on the logs tab and you can find out more about the error that occurred. I know there are a lot of tiny words and it is a pain to read them, but just find the last few lines of the log and that is probably the error.</p>
                         <p>On the “trigger” tab, you will find your treasure! That is, lo and behold, the url that the HTTP Post request will send to.</p>
 
-                        <a id="fourth_link">
+                        <div id="fourth_link">
                             <h2 class="signposting">Creating Github webhook</h2>
-                        </a>
+                        </div>
                         <img src="../resources/post_pictures/inside_post_pictures/complete-guide-to-building-webhooks/github-webhook-min.png" alt="github adding a webhook on github" class="inside_post_img">
                         <p class="img_description">
                           Github settings panel
