@@ -420,6 +420,35 @@ function loadPagesIfFiltered(filter) {
 
 }
 
+var col_2 = document.getElementsByClassName("col-2")[0];
+var all_posts = document.getElementById('all_posts');
+var sidebar = document.getElementById('sidebar');
+function resize() {
+ if (window.innerWidth < 960) {
+   col_2.classList.remove("col-2");
+   all_posts.classList.remove("col-7");
+   all_posts.classList.add("col-8");
+   sidebar.classList.remove("col-3");
+   sidebar.classList.add("col-4");
+ } else {
+   col_2.classList.add("col-2");
+   all_posts.classList.add("col-7");
+   all_posts.classList.remove("col-8");
+   sidebar.classList.add("col-3");
+   sidebar.classList.remove("col-4");
+ }
+}
+
+window.onresize = resize
+
+if (window.innerWidth < 960) {
+  col_2.classList.remove("col-2");
+  all_posts.classList.remove("col-7");
+  all_posts.classList.add("col-8");
+  sidebar.classList.remove("col-3");
+  sidebar.classList.add("col-4");
+}
+
 $(function(){
 
   // when user inputs an email address

@@ -1,14 +1,14 @@
 $(function(){
 
   // when user inputs an email address
-$("#submit_email_button").click(function(){
+$("#submit_button").click(function(){
   $(".error").hide();
        var hasError = false;
        var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 
        var emailVal = $("#input_box").val();
-       if(emailVal == '') {
-           $("#input_box").after('<span class="error"  style="color: red">Please enter your email address.</span>');
+       if (emailVal == '') {
+           $("#input_box").after('<span class="error" style="color: red">Please enter your email address.</span>');
            hasError = true;
        }
 
@@ -26,10 +26,42 @@ $("#submit_email_button").click(function(){
        if(hasError == true) { return false; }
 });
 
+$("#submit_email_button").click(function(){
+  $(".error").hide();
+       var hasError = false;
+       var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+       var emailVal = $("#email_input").val();
+       if (emailVal == '') {
+           $("#email_input").after('<span class="error" style="color: red">Please enter your email address.</span>');
+           hasError = true;
+       }
+
+       else if(!emailReg.test(emailVal)) {
+           $("#email_input").after('<span class="error" style="color: red">Enter a valid email address.</span>');
+           hasError = true;
+       }
+       else {
+         SubForm_1(); //function to submit to google sheets
+         TeleNoti_1(); //send message to telegrp
+         window.alert("Thank you for staying in touch!");
+       }
+       //ensures that email text space is cleared
+       document.getElementById("#email_input").value = '';
+       if(hasError == true) { return false; }
+});
+
 //to allow user to submit with enter key
 $('#input_box').keypress(function (e) {
   if (e.which === 13) {
     $('#submit_button').click();
+    return false;
+  }
+});
+
+$('#email_input').keypress(function (e) {
+  if (e.which === 13) {
+    $('#submit_email_button').click();
     return false;
   }
 });
@@ -39,7 +71,7 @@ function SubForm (){
     $.ajax({
         url:'https://api.apispreadsheets.com/data/12899/',
         type:'post',
-        data:$("#myForm").serializeArray()
+        data:$("#input_box").serializeArray()
         //add comma back behind .serializeArray(), this a checker
         // success: function(){
         //   alert("Form Data Submitted")
@@ -54,7 +86,23 @@ function TeleNoti(){
   $.ajax({
     url: 'https://asia-southeast1-cc-webhooks.cloudfunctions.net/subscriber',
     type: 'post',
-    data: $("#myForm").serializeArray()
+    data: $("#input_box").serializeArray()
+  });
+}
+
+function SubForm_1 (){
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/12899/',
+        type:'post',
+        data:$("#email_input").serializeArray()
+    });
+}
+
+function TeleNoti_1(){
+  $.ajax({
+    url: 'https://asia-southeast1-cc-webhooks.cloudfunctions.net/subscriber',
+    type: 'post',
+    data: $("#email_input").serializeArray()
   });
 }
 

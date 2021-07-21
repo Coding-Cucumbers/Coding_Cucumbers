@@ -91,3 +91,58 @@ $("#submit_button").hover( function() {
   });
 
 });
+
+var quote = document.getElementsByClassName('quote')[0];
+var introDesc = document.getElementsByClassName('introduction_description_container')[0];
+var profilePicST = document.getElementsByClassName('profile_picture_top')[0];
+var profileDetailsST = document.getElementsByClassName('profile_details_container_top')[0];
+var profilePicBH = document.getElementsByClassName('profile_picture_bottom')[0];
+var profileDetailsBH = document.getElementsByClassName('profile_details_container_bottom')[0];
+
+function resize() {
+  if (window.innerWidth < 960) {
+    quote.classList.remove("col-6");
+    quote.classList.add("col-4");
+    introDesc.classList.remove("col-5");
+    introDesc.classList.add("col-8");
+    profilePicST.classList.remove("col-6");
+    profilePicST.classList.add("col-12");
+    profileDetailsST.classList.remove("col-6");
+    profileDetailsST.classList.add("col-12");
+    profilePicBH.classList.remove("col-6");
+    profilePicBH.classList.add("col-12");
+    profileDetailsBH.classList.remove("col-6");
+    profileDetailsBH.classList.add("col-12");
+
+  } else {
+    quote.classList.add("col-6");
+    quote.classList.remove("col-4");
+    introDesc.classList.add("col-5");
+    introDesc.classList.remove("col-8");
+    profilePic.classList.add("col-6");
+    profilePic.classList.remove("col-12");
+    profileDetails.classList.add("col-6");
+    profileDetails.classList.remove("col-12");
+    profilePicBH.classList.add("col-6");
+    profilePicBH.classList.remove("col-12");
+    profileDetailsBH.classList.add("col-6");
+    profileDetailsBH.classList.remove("col-12");
+  }
+}
+
+window.onresize = resize
+
+if (window.innerWidth < 960) {
+  quote.classList.remove("col-6");
+  quote.classList.add("col-4");
+  introDesc.classList.remove("col-5");
+  introDesc.classList.add("col-8");
+  profilePicST.classList.remove("col-6");
+  profilePicST.classList.add("col-12");
+  profileDetailsST.classList.remove("col-6");
+  profileDetailsST.classList.add("col-12");
+  profilePicBH.classList.remove("col-6");
+  profilePicBH.classList.add("col-12");
+  profileDetailsBH.classList.remove("col-6");
+  profileDetailsBH.classList.add("col-12");
+}
