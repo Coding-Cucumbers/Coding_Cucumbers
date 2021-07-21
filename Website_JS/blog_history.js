@@ -441,6 +441,14 @@ function resize() {
 
 window.onresize = resize
 
+if (window.innerWidth < 960) {
+  col_2.classList.remove("col-2");
+  all_posts.classList.remove("col-7");
+  all_posts.classList.add("col-8");
+  sidebar.classList.remove("col-3");
+  sidebar.classList.add("col-4");
+}
+
 $(function(){
 
   // when user inputs an email address

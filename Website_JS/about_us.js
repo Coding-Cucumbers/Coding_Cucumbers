@@ -110,13 +110,9 @@ function resize() {
     profileDetailsST.classList.remove("col-6");
     profileDetailsST.classList.add("col-12");
     profilePicBH.classList.remove("col-6");
-    profilePicBH.classList.remove("profile_picture_bottom");
     profilePicBH.classList.add("col-12");
-    profilePicBH.classList.add("profile_details_container_bottom");
     profileDetailsBH.classList.remove("col-6");
-    profileDetailsBH.classList.remove("profile_detials_container_bottom");
     profileDetailsBH.classList.add("col-12");
-    profileDetailsBH.classList.add("profile_picture_bottom");
 
   } else {
     quote.classList.add("col-6");
@@ -128,14 +124,25 @@ function resize() {
     profileDetails.classList.add("col-6");
     profileDetails.classList.remove("col-12");
     profilePicBH.classList.add("col-6");
-    profilePicBH.classList.add("profile_picture_bottom");
     profilePicBH.classList.remove("col-12");
-    profilePicBH.classList.remove("profile_details_container_bottom");
     profileDetailsBH.classList.add("col-6");
-    profileDetailsBH.classList.add("profile_detials_container_bottom");
     profileDetailsBH.classList.remove("col-12");
-    profileDetailsBH.classList.remove("profile_picture_bottom");
   }
 }
 
 window.onresize = resize
+
+if (window.innerWidth < 960) {
+  quote.classList.remove("col-6");
+  quote.classList.add("col-4");
+  introDesc.classList.remove("col-5");
+  introDesc.classList.add("col-8");
+  profilePicST.classList.remove("col-6");
+  profilePicST.classList.add("col-12");
+  profileDetailsST.classList.remove("col-6");
+  profileDetailsST.classList.add("col-12");
+  profilePicBH.classList.remove("col-6");
+  profilePicBH.classList.add("col-12");
+  profileDetailsBH.classList.remove("col-6");
+  profileDetailsBH.classList.add("col-12");
+}
