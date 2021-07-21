@@ -122,7 +122,7 @@ article. </p>
 import json
 import requests
 import urllib
-                    </pre></code>
+                    </code></pre>
                     <p>Import the packages that will be needed to build this telegram bot. “requests” library allows you to easily make HTTP requests over the web. “json” library helps with parsing JSON type into a Python dictionary type, which makes the data from our HTTP requests python “readable”. I see it as a translator of sorts. But of course, the descriptions were an oversimplification of what these packages can actually
                       do.</p>
                       <pre><code>
@@ -130,7 +130,7 @@ import urllib
 token = '{your token}’
 # Basic URL for created Telegram bot
 URL = "https://api.telegram.org/bot{}/".format(token)
-                      </pre></code>
+                      </code></pre>
 
                     <p>This declares some important variables that are used to construct a variety of URLs for the many functions of our telegram bot.</p>
 
@@ -144,7 +144,7 @@ def get_updates():
     decode_response = response.content.decode("utf8")
     updates = json.loads(decode_response)
     return updates
-                    </pre></code>
+                    </code></pre>
                     <p>This function builds the get updates URL, by adding the “getUpdates” behind our base url. In the 3rd line, we send a HTTP GET request and the response is stored in the “response” variable that is then decoded. The decoded response which is stored in the “decoded_response” variable is then parsed (you can think of it as being transformed) from json type into python dictionary type and finally returned as “updates”. Just to clarify, the updates in this case are all the messages that all users have sent to the telegram bot in the past 24 hours.
                     </p>
 
