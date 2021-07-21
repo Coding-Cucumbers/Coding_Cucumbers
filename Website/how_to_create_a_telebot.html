@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>How to Create a Telebot With Python [Part 2] - Coding Cucumbers</title>
+    <title>How to Create a Telebot With Python [Part 2]</title>
     <meta name="description" content="Tutorial on building a telegram bot with python, deep dive into the fundamental codes that will allow your bot to function, explanations at every step">
     <meta name="Bryan">
     <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
@@ -65,9 +66,9 @@
                     <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
-                    </a>
+                    </div>
                 </container>
             </div>
             <img src="../resources/post_pictures/post_posters/how_to_create_telebot_p2-min.jpg" alt="How to Create a telebot with python" class="blog_post_img"><br>
@@ -75,7 +76,7 @@
             <container id="main_container">
                 <p class="signposting">Introduction</p>
                 <p class="text">
-Welcome back to the 2nd iteration of this 3 part series on building your very own telegram bot! We will be building on the existing knowledge from the <a href="../Website/complete_guide_to_building_a_telegram_bot.html" target="_blank">previous article</a>, so check it out before proceeding on to better understand the contents of this
+Welcome back to the 2nd iteration of this 3 part series on building your very own telegram bot! We will be building on the existing knowledge from the previous article about <a href="../Website/complete_guide_to_building_a_telegram_bot.html" target="_blank">interacting with BotFather</a>, so check it out before proceeding on to better understand the contents of this
 article. </p>
                 <p class="text">
                     In this article, I will be sharing some key functions that will cement the foundation of your bot. These functions below help to construct the URLs to execute specific functions. Although the succeeding lines of code are in python, I will extract the logic of the code for others who would like to build a bot in another language. Well, let’s jump right in with python
@@ -85,43 +86,50 @@ article. </p>
                 <container class="content_box text">
                     <p class="content_title">Content Page</p>
                     <ol class="content_list">
-                        <a href="#first_link">
-                            <li>Imports and Constants</li>
-                        </a>
-
-                        <a href="#second_link">
-                            <li>Receive Updates</li>
-                        </a>
-
-                        <a href="#third_link">
-                            <li>Get Chat ID</li>
-                        </a>
-
-                        <a href="#fourth_link">
-                            <li>Get Text Message</li>
-                        </a>
-
-                        <a href="#fifth_link">
-                            <li>Send Message</li>
-                        </a>
-
-                        <a href="#sixth_link">
-                            <li>Bringing It Together</li>
-                        </a>
+                        <li>
+                            <a href="#first_link">
+                            Imports and Constants
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#second_link">
+                            Receive Updates
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#third_link">
+                                Get Chat ID
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#fourth_link">
+                                Get Text Message
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#fifth_link">
+                                Send Message
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#sixth_link">
+                                Bringing It Together
+                            </a>
+                        </li>
 
                       </ol>
                 </container>
                 <img src="../resources/post_pictures/inside_post_pictures/telegram_bot_p2/telebot-pic1-part2-min.jpg" alt="Python and Telegram Bot" class="inside_post_img"> <br><br>
 
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">Imports and Constants</h2>
-                    </a>
+                    </div>
                     <pre><code>
 import json
 import requests
 import urllib
-                    </pre></code>
+                    </code></pre>
                     <p>Import the packages that will be needed to build this telegram bot. “requests” library allows you to easily make HTTP requests over the web. “json” library helps with parsing JSON type into a Python dictionary type, which makes the data from our HTTP requests python “readable”. I see it as a translator of sorts. But of course, the descriptions were an oversimplification of what these packages can actually
                       do.</p>
                       <pre><code>
@@ -129,13 +137,13 @@ import urllib
 token = '{your token}’
 # Basic URL for created Telegram bot
 URL = "https://api.telegram.org/bot{}/".format(token)
-                      </pre></code>
+                      </code></pre>
 
                     <p>This declares some important variables that are used to construct a variety of URLs for the many functions of our telegram bot.</p>
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Get Updates Function</h2>
-                    </a>
+                    </div>
                     <pre><code>
 def get_updates():
     url = URL + "getUpdates"
@@ -143,13 +151,13 @@ def get_updates():
     decode_response = response.content.decode("utf8")
     updates = json.loads(decode_response)
     return updates
-                    </pre></code>
+                    </code></pre>
                     <p>This function builds the get updates URL, by adding the “getUpdates” behind our base url. In the 3rd line, we send a HTTP GET request and the response is stored in the “response” variable that is then decoded. The decoded response which is stored in the “decoded_response” variable is then parsed (you can think of it as being transformed) from json type into python dictionary type and finally returned as “updates”. Just to clarify, the updates in this case are all the messages that all users have sent to the telegram bot in the past 24 hours.
                     </p>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">Get Chat ID Function</h2>
-                    </a>
+                    </div>
                     <pre><code>
 def get_last_chat_id(updates):
     num_updates = len(updates["result"])
@@ -189,9 +197,9 @@ def get_last_chat_id(updates):
                     <p> For pictorial representation, here is the dictionary. FYI I used a JSON beautifier, which is immensely helpful when you want to get a clear representation of a dictionary which has many embedded dictionaries such as the
                       below.</p>
 
-                       <a id="fourth_link">
+                       <div id="fourth_link">
                            <h2 class="signposting">Get Last Text Function</h2>
-                       </a>
+                       </div>
                        <pre><code>
  def get_last_text(updates):
      num_updates = len(updates["result"])
@@ -202,9 +210,9 @@ def get_last_chat_id(updates):
                        <p>The logic behind get_last_text function is almost identical to that of get_last_chat_id function. Instead of grabbing the chat_id, we are taking the text. This logic can be applied to any field you would like to use such as the “first_name” and “last_name”
                          fields.</p>
 
-                         <a id="fifth_link">
+                         <div id="fifth_link">
                              <h2 class="signposting">Send Message Function</h2>
-                         </a>
+                         </div>
                          <pre><code>
 def send_message(text, chat_id):
    url = URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
@@ -213,9 +221,9 @@ def send_message(text, chat_id):
                          <p>This function sends a message back to a specified user via the telebot by once again building the specific URL with the parameters. It takes in 2 parameters, text which is the message that you would like the telebot to send and the chat_id of the
                            user.</p>
 
-                           <a id="sixth_link">
+                           <div id="sixth_link">
                                <h2 class="signposting">Main Function</h2>
-                           </a>
+                           </div>
                            <pre><code>
  def main():
      updates = get_updates()

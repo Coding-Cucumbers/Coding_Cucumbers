@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://www.codingcucumbers.com/</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/blog_history</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/merchandise</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/about_us</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/introduction-to-string-encoding</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/complete-guide-to-building-a-webhook-in-python-and-hosting-it</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/introduction-to-regex-python</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/complete_guide_to_building_a_telegram_bot</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/first-hackathon-experience</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/how_to_create_a_telebot</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/5_Best_Tricks_For_Pandas</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/5_Essential_Git_Concepts</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/5-python-tips-and-tricks</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/beautifulsoup-for-beginners</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/best-languages-to-learn-as-a-beginner</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/conflict-resolution-in-git</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/Git_VS_Github</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/How-I-Started_Learning-Golang</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/how-to-learn-programming</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/How-To-Migrate-Data-From-One-Database-To-Another</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/How-To-Migrate-Huge-Data-For-Free-Efficiently</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/intro-to-oop</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/intro-to-webscraping</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/Is-Go-The-Best-Programming-Language</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/my-internship-at-singapore-first-proptech-company</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/selenium-for-beginners</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/writing-reading-appending-csv-files</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/what-is-golang-json-omitempty</loc>
+  <lastmod>2021-07-19T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+
+</urlset>

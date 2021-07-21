@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>How to Migrate Data from One Database to Another</title>
     <meta name="description" content="Data Migration from one database to another one, 3 different ways to move varying amounts of data">
@@ -65,9 +66,9 @@
                     <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
-                    </a>
+                    </div>
                 </container>
             </div>
             <img src="../resources/post_pictures/post_posters/how-to-migrate-data-efficiently-min.jpg" alt="how-to-migrate-data-efficiently" class="blog_post_img">
@@ -101,13 +102,13 @@
                 </container>
 
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">Migration With Hevo</h2>
-                    </a>
+                    </div>
                     <img src="../resources/post_pictures/inside_post_pictures/How_To_Migrate_Data_From_One_Database_To_Another/hevo_function-min.png" alt="how hevo functions" class="inside_post_img">
                     <div class="img_description">Image from <a href="https://hevodata.com/" title="Hevo">Hevo</a>, pictorial representation of how hevo functions</div>
                  <br><br>
-                    <p>Starting off simple, we can use Hevo for data migration and transformation. Click on this <a href="https://hevodata.com/" target="_blank">link to access</a> the official Hevo page.  It is by far the best data migration tool I have used and it is also very efficient. It took me less than 20 minutes to migrate 5 million rows of data! Cross platform migration has never been easier, data sources to migrate from include Amazon Redshift, MongoDB, Postgres, Google Drive, Shopify and a ton more.</p><br>
+                    <p>Starting off simple, we can use Hevo for data migration and transformation. Click on this <a href="https://hevodata.com/" target="_blank">link to access the official Hevo page</a>. It is by far the best data migration tool I have used and it is also very efficient. It took me less than 20 minutes to migrate 5 million rows of data! Cross platform migration has never been easier, data sources to migrate from include Amazon Redshift, MongoDB, Postgres, Google Drive, Shopify and a ton more.</p><br>
                     <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/p0XGLDgvCo8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="img_description">Video from Youtube by Hevo Data, an introductory video to the overview of Hevo</div>
                     <br><br>
@@ -116,15 +117,15 @@
                       go!</p>
                     <p>My only gripe with hevo is that it cannot accommodate extensively large table migration. Previously, I had to migrate a single table of 68 million rows from one postgres server to another. However, I could not use hevo as it’s limit was at 5 million
                       rows.</p>
-                    <p>There was a feature to replicate the entire database, but that included tables that I did not want. I found it too cumbersome to replicate everything and then waste more time deleting 95% of it. Luckily, I managed to figure out a cost-effective (free) way to migrate huge data, relatively quickly. I’ll <a href="https://www.codingcucumbers.com/website/how-to-migrate-huge-data-for-free-efficiently" target="_blank">link the article here</a> if you are
-                      interested.</p>
+                    <p>There was a feature to replicate the entire database, but that included tables that I did not want. I found it too cumbersome to replicate everything and then waste more time deleting 95% of it. Luckily, I managed to figure out a cost-effective (free) way to migrate huge data, relatively quickly. If you are interested, check out the
+                       <a href="https://www.codingcucumbers.com/website/how-to-migrate-huge-data-for-free-efficiently"  target="_blank">data migration article here.</a></p>
                     <p>Do note that hevo is not free, but there are free trials, which comes in very helpful if you are doing the bulk of the data migration in a short time
                       span.</p>
 
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Writing A Script</h2>
-                    </a>
+                    </div>
                     <p>Writing a script is appropriate when transferring moderately large amounts of data. Transferring data in batches is recommended as it not only speeds up the time taken but you are also able to log the progress of the
                       transfer.</p>
                       <p>
@@ -155,9 +156,9 @@ for i in range(1, 5):
                   <p>The print statement is to log my progress. The try and except statements are for the error logging to capture any errors that can be fixed in the future. If I had done my logging in during my migration at my internship, I would have been able to catch the error and avoid it in the
                     future!</p>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">Import And Export</h2>
-                    </a>
+                    </div>
                     <img src="../resources/post_pictures/inside_post_pictures/How_To_Migrate_Data_From_One_Database_To_Another/import_export_pgadmin-min.png" alt="how to import and export with pgAdmin" class="inside_post_img">
                     <div class="img_description">Image from <a href="https://www.postgresqltutorial.com/import-csv-file-into-posgresql-table/" title="postgrestutorials">postgrestutorials</a>, finding the import/export option</div><br><br>
                     <p>This method is very useful if you have less than a million rows of data. In its essence, you are downloading all the data from your source into your local computer. Then uploading all that data into the new

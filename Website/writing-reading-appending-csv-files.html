@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Reading, Writing and Appending to CSV Files</title>
     <meta name="description" content="Learn the basics of reading, writing and appending to CSV files in Python! Get familiar with using the CSV module in Python!">
@@ -65,9 +66,9 @@
                     <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="Linkedin">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" alt="Email" class="silas_gmail">
-                    </a>
+                    </div>
                 </container>
             </div>
 
@@ -107,9 +108,9 @@
                     </ol>
                 </container>
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">What is a CSV file?</h2>
-                    </a>
+                    </div>
                     <p>
                         First up, let’s discuss what exactly is a CSV file. As the name suggests, a CSV file is a Comma-Separated Values file, which means the values are separated by commas (duh). The first row of the file normally contains headers, which help give clarity to what the row data represents. Basically, think of a CSV file as an excel file, with commas separating all the values in the excel file.
                     </p>
@@ -132,9 +133,9 @@
                         Another important concept to learn is delimiters. A delimiter is a character that is used to separate strings in a data file. In the case of CSV files, as you can guess, the delimiter is a comma character (,). In data management, it’s common to meet files with a variety of delimiters, most commonly commas, tabs and colons. Take note of the delimiter used in your files before beginning to process them.
                     </p>
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Reading and Writing</h2>
-                    </a>
+                    </div>
                     <p>
                         Now that we are familiar with what a CSV file is, let’s get to opening them in Python! To open any file (not limited to CSV files), Python has the open() function. The open() function helps us to access data within any file and returns it as a file object. To use it, we simply assign the opened file as a variable, and then access the data within it with separate methods.
                     </p>
@@ -212,9 +213,9 @@
     #As soon as we exit indentation, the file will close!
                     </code></pre>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">CSV writer and reader</h2>
-                    </a>
+                    </div>
                     <p>
                         Now that I’ve introduced you to opening files and reading, writing and appending to files, let’s finally tackle the CSV module in Python. Actually, there’s nothing much that’s new! The CSV module provides us with some objects that help make reading, writing and appending to CSV files a little bit more straightforward, but you can do almost everything with the methods you’ve already learnt from the previous section!
                     </p>
@@ -250,9 +251,9 @@
         #This adds the row into the bottom of the current “fruits.csv” file!
                     </code></pre>
 
-                    <a id="fourth_link">
+                    <div id="fourth_link">
                         <h2 class="signposting">CSV DictReader and DictWriter</h2>
-                    </a>
+                    </div>
                     <p>
                         The CSV module also introduces the Dictreader and Dictwriter objects. These objects help us to read and write data into CSV files as dictionaries! They require a little bit more understanding and input, but in certain cases they provide much needed specificity when it comes to data management.
                     </p>

@@ -11,7 +11,7 @@ function stickyEmailBox() {
 }
 
 window.onscroll = stickyEmailBox
-main_row = document.getElementById("main_post");
+ var main_row = document.getElementById("main_post");
 function resize() {
   if (window.innerWidth < 960) {
     main_row.classList.remove("col-6");
@@ -20,6 +20,11 @@ function resize() {
     main_row.classList.add("col-6");
     main_row.classList.remove("col-12");
   }
+}
+
+if (window.innerWidth < 960) {
+  main_row.classList.remove("col-6");
+  main_row.classList.add("col-12");
 }
 
 window.onresize = resize
@@ -62,6 +67,13 @@ $('#input_box').keypress(function (e) {
   }
 });
 
+$('#email_input').keypress(function (e) {
+  if (e.which === 13) {
+    $('#submit_email').click();
+    return false;
+  }
+});
+
   // when user inputs an email address
   $("#submit_email").click(function(){
     $(".error").hide();
@@ -80,8 +92,8 @@ $('#input_box').keypress(function (e) {
          }
 
          else {
-           SubForm(); //function to submit to google sheets
-           TeleNoti();
+           SubForm_1(); //function to submit to google sheets
+           TeleNoti_1();
            window.alert("Thank you for staying in touch!");
          }
          //ensures that email text space is cleared
@@ -89,28 +101,12 @@ $('#input_box').keypress(function (e) {
          if(hasError == true) { return false; }
   });
 
-
-//to allow user to submit with enter key
-$('#input_box').keypress(function (e) {
-  if (e.which === 13) {
-    $('#submit_button').click();
-    return false;
-  }
-});
-
 //connecting form submissions to googlesheet
 function SubForm (){
     $.ajax({
         url:'https://api.apispreadsheets.com/data/12899/',
         type:'post',
-        data:$(".formdata").serializeArray()
-        //add comma back behind .serializeArray(), this a checker
-        // success: function(){
-        //   alert("Form Data Submitted")
-        // },
-        // error: function(){
-        //   alert("There was an error")
-        // }
+        data:$("#input_box").serializeArray()
     });
 }
 
@@ -118,7 +114,23 @@ function TeleNoti(){
     $.ajax({
       url: 'https://asia-southeast1-cc-webhooks.cloudfunctions.net/subscriber',
       type: 'post',
-      data: $(".formdata").serializeArray()
+      data: $("#input_box").serializeArray()
+    });
+}
+
+function SubForm_1 (){
+    $.ajax({
+        url:'https://api.apispreadsheets.com/data/12899/',
+        type:'post',
+        data:$("#email_input").serializeArray()
+    });
+}
+
+function TeleNoti_1(){
+    $.ajax({
+      url: 'https://asia-southeast1-cc-webhooks.cloudfunctions.net/subscriber',
+      type: 'post',
+      data: $("#email_input").serializeArray()
     });
 }
 

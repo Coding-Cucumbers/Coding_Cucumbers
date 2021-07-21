@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>How to Migrate Huge Data For Free Efficiently</title>
     <meta name="description" content="Huge Data Migration from one Postgres server to another, completely for free">
@@ -65,9 +66,9 @@
                     <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
-                    </a>
+                    </div>
                 </container>
             </div>
             <img src="../resources/post_pictures/post_posters/how-to-migrate-huge-data-for-free-efficiently-min.jpg" alt="how-to-migrate-huge-data-free-and-efficiently" class="blog_post_img">
@@ -79,7 +80,7 @@
                   Go.</p>
                 <p class="text">Of course, there may be other better techniques to migrate large tables but that would be at a cost. And if you are a student, or your company doesn’t want to pay for AWS migration service, I believe this method would be a great
                   alternative.</p>
-                <p class="text">If your data set to migrate is not extremely large (estimate of  less than 5 million rows in a table), you may want to consider other methods proposed in <a href="https://www.codingcucumbers.com/website/how-to-migrate-data-from-one-database-to-another" target="_blank">this article</a>. Those methods are more suitable to migrate smaller data sets compared to this
+                <p class="text">If your data set to migrate is not extremely large (estimate of less than 5 million rows in a table), you may want to consider other methods proposed in <a href="https://www.codingcucumbers.com/website/how-to-migrate-data-from-one-database-to-another" target="_blank">this article about different ways to migrate data</a>. Those methods are more suitable to migrate smaller data sets compared to this
                   method.</p>
 
                 <container class="content_box text">
@@ -100,9 +101,9 @@
                 </container>
 
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">Bash Script</h2>
-                    </a>
+                    </div>
                     <img src="../resources/post_pictures/inside_post_pictures/huge-data-migration-free-efficiently/postgres-to-postgres-min.jpg" alt="migrate from one postgres server to another" class="inside_post_img">
                  <br><br>
                     <p>Hello Cucumbers! During my internship, I was tasked to migrate an extremely large SQL table from one Postgres server to another. In this article, I will be sharing how I did that cost free at a relatively fast
@@ -127,9 +128,9 @@ for (( k = 1; k < 35; k++ )); do
 done
                   </pre></code>
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Breakdown of Code</h2>
-                    </a>
+                    </div>
                     <pre><code>
 #! /bin/bash
                     </pre></code><br>
@@ -160,8 +161,8 @@ PGPASSWORD='pw1' psql -h 35.000.111.22 -U backend -d dump -c '''CREATE TABLE api
                   <p>A specific chunk of the table is then selected as pointed out by the OFFSET and LIMIT commands. OFFSET refers to the number of rows you want to skip from the top. In the case of the first loop, 0 rows are skipped, as such the rows are table from the top of the table. LIMIT refers to how many rows you want to select. For all the iterations of the loop, the value of ‘LT’ remains constant. The 2 commands combined allow for you to isolate specific chunks of rows in the table and copy them to another table.</p>
                   <img src="../resources/post_pictures/inside_post_pictures/huge-data-migration-free-efficiently/time-saver-migration-min.jpg" alt="how migrating in batches saves time" class="inside_post_img"><br><br>
                   <p>You might also be wondering, why am I creating a temporary table that is a subset of the table I want to migrate. This is because I want to migrate the table in batches, which is a big life-saver step. If the code were to crash unexpectedly, I would know where the migration last stopped and picked up from that same spot accordingly. This would be impossible if I had migrated the entire chunk at once. I also won’t have to waste the same amount of time to redo the migration from scratch.</p>
-                  <p>The PGPASSWORD at the beginning of the line is to “force” input the password of the database. This is because normally after the ‘psql’ command, the terminal will prompt for the password, but as we want this script to run by itself, with no human intervention, we have to “force” enter the password. Another alternative to non-interactively passing the database password is by using the .pgpass file. You can read more about the functionality of the
-                    <a href="https://sleeplessbeastie.eu/2014/03/23/how-to-non-interactively-provide-password-for-the-postgresql-interactive-terminal/" target="_blank">pgfile
+                  <p>The PGPASSWORD at the beginning of the line is to “force” input the password of the database. This is because normally after the ‘psql’ command, the terminal will prompt for the password, but as we want this script to run by itself, with no human intervention, we have to “force” enter the password. Another alternative to non-interactively passing the database password is by using the .pgpass file. You can read more about
+                    <a href="https://sleeplessbeastie.eu/2014/03/23/how-to-non-interactively-provide-password-for-the-postgresql-interactive-terminal/" target="_blank">the functionality of the pgfile
                     here.</a></p><br>
                     <pre><code>
 PGPASSWORD='pw2' psql -h 22.111.888.99 -U backend_development -d development -c '''CREATE TABLE backend.api_log_temp_'$k' AS ( SELECT * FROM api_log_temp LIMIT 0)'''
@@ -171,12 +172,12 @@ PGPASSWORD='pw2' psql -h 22.111.888.99 -U backend_development -d development -c 
                       <pre><code>
 PGPASSWORD='pw1' pg_dump -U backend -h 35.000.111.22 -p 5432 -a -t '"api_log_temp_'$k'"' dump | PGPASSWORD='pw2' psql -h 22.111.888.99 -p 5432 -U backend_development development
                       </pre></code>
-                    <br>  <p>The options and PGPASSWORD theory from the above sections apply in this command as well. But this time, the ‘psql’ command is replaced with ‘pg_dump’. It is a backup database command for Postgres. Do note that it is different from ‘pg_dumpall’, which is the command to create a backup for all the databases. If you are interested to know more about the differences, you can check
-                        out <a href="https://backup.ninja/news/postgresql-backups-what-is-pgdumpall" target="_blank">this article.</a></p>
+                    <br>  <p>The options and PGPASSWORD theory from the above sections apply in this command as well. But this time, the ‘psql’ command is replaced with ‘pg_dump’. It is a backup database command for Postgres. Do note that it is different from ‘pg_dumpall’, which is the command to create a backup for all the databases.
+                      Check out this article if you are interested to know more about <a href="https://backup.ninja/news/postgresql-backups-what-is-pgdumpall" target="_blank">the differences between pg_dump and pg_dumpall.</a></p>
                       <p>‘pg_dump” command works by exporting the data and it can be saved into a file on your local computer. However, in this case, instead of downloading the file we are directly piping the file to a destination, which is the other postgres
                         server.</p>
-                      <p>‘|’ is the piping command. Piping is a feature of the terminal and as you can see it is very helpful, it saves you the time from actually writing the data into a file. The concept is that the standard output of the command on the left of the ‘|’ is piped to the standard input of the command on the right. I linked a resource here if you are interested to learn more about
-                        <a href="https://www.geeksforgeeks.org/piping-in-unix-or-linux/" target="_blank">piping.</a></p><br>
+                      <p>‘|’ is the piping command. Piping is a feature of the terminal and as you can see it is very helpful, it saves you the time from actually writing the data into a file. The concept is that the standard output of the command on the left of the ‘|’ is piped to the standard input of the command on the right. I linked a resource here if you are interested to 
+                        <a href="https://www.geeksforgeeks.org/piping-in-unix-or-linux/" target="_blank">learn more about the concept of piping.</a></p><br>
                         <pre><code>
   echo "update till $ST"
   ST=$HOLDER
@@ -184,9 +185,9 @@ done
                         </pre></code>
                       <br>  <p>Last but not least, the ‘echo’ command is the “print” function of python. This would give you the status update of which row the data migration is at. And as I mentioned above, to enable you to pick up from where you left in the unfortunate event of the code crashing. I then reassign the value of ‘ST’ to HOLDER so that the OFFSET command would increase in every iteration of the loop and thus select the appropriate chunks. ‘done’ command is to signify the end of the loop.</p>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">Additional Notes About This Method</h2>
-                    </a>
+                    </div>
                     <img src="../resources/post_pictures/inside_post_pictures/huge-data-migration-free-efficiently/additional-notes-migration-min.jpg" alt="notes about this method" class="inside_post_img"><br><br>
                     <p>That sums up the breakdown of the code. A tip I would recommend is splitting the number of rows into 2. Open 2 terminals and run the 2 scripts that migrate 2 different segments of the table and that would significantly reduce the time taken. In the ideal case, it would cut down the time taken by
                       half.</p>

@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
-    <title>5 Best Tricks For Pandas - Coding Cucumbers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Best Tricks For Pandas</title>
     <meta name="description" content="5 Best Tips for Pandas in Python such as dropping columns, finding unique values, removing null data">
     <meta name="Bryan">
     <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
@@ -65,9 +65,9 @@
                     <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
-                    </a>
+                    </div>
                 </container>
             </div>
 
@@ -107,9 +107,9 @@
                 </container>
 
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">Removing Unnecessary Columns</h2>
-                    </a>
+                    </div>
                     <p>When managing a dataframe, I only want to use the columns that are relevant. This makes the work tidier and less
                       overwhelming. One way is to use </p>
                       <pre><code>
@@ -130,9 +130,9 @@ restaurants = restaurants[["Cuisine", "Personal Rating", "Name", "Must Orders/Pe
                         <img src="../resources/post_pictures/inside_post_pictures/5_best_tricks_for_pandas/df_after_drop.png" alt="df_after_drop" class="inside_post_img">
                         <p class="img_description">cleaned database</p>
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Number of Unique Values</h2>
-                    </a>
+                    </div>
                     <p>When I want to find all the unique values of a column in a dataframe but the dataframe is simply too large, I would use</p>
                     <pre><code>
 df[“column_name”].unique()
@@ -150,9 +150,9 @@ array(['Italian', 'Café', 'Chinese', 'Japanese', 'Taiwanese',
 'Western'], dtype=object)
                       </pre></code>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">Splitting Values in a Column</h2>
-                    </a>
+                    </div>
 
                     <p>Splitting a column into 2 happens more often than I thought and this trick is a really convenient way to do so. For example,
                        I want to split the “Name” column into “first_name”, “second_name” and “thrid_name”. The code is as follows:
@@ -170,9 +170,9 @@ restaurant["third_name"] = restaurant["Name"].str.split(‘ ’,expand=True)[2]
                     <p>Breaking down how the code works: .str.split(“ ”) essentially splits the values in the column into a list of[name_1, name_2, name_3].
                       The indexing then selects the first, second or third number to be the input for the new column.</p>
 
-                    <a id="fourth_link">
+                    <div id="fourth_link">
                         <h2 class="signposting">Checking for Empty Dataframe</h2>
-                    </a>
+                    </div>
 
                     <p>Checking if a dataframe is present or not is simple when we can use .head() or .tail() method to view the first or last 5 rows respectively. However,
                       it is more difficult to check if the dataframe is empty in a conditional statement. Luckly,
@@ -186,9 +186,9 @@ Df.empty:
                     <p>Df.empty returns a boolean, ie a True or False value. If Df is empty, the evaluation would be True and "this df is empty!" will be printed.
                       This has definitely helped me debug my code!</p>
 
-                    <a id="fifth_link">
+                    <div id="fifth_link">
                         <h2 class="signposting">Clearing Null Data</h2>
-                    </a>
+                    </div>
 
                     <p>Last but not least is removing Not Application or Null data from your dataframe. Such data always messes up my end product and getting rid of them always brings a smile to my face!
                       Here are 3 quick ways to remove such data!

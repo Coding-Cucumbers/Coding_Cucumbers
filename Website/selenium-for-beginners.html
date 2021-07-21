@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Webscraping with Selenium for Beginners</title>
     <meta name="description" content="Webscraping with Selenium, explained for Beginners. Learn all about this Automation Python Webscraping package and built your own Webscraping mini-project!">
@@ -65,9 +66,9 @@
                     <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="Linkedin">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" alt="Email" class="silas_gmail">
-                    </a>
+                    </div>
                 </container>
             </div>
 
@@ -111,9 +112,9 @@
                     </ol>
                 </container>
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">What is Selenium</h2>
-                    </a>
+                    </div>
                     <p>
                         How does this magical package work? Selenium is a package used for automation testing purposes, and was primarily built for unit-testing web applications. However, it is also used for Webscraping purposes, especially for dynamically-loaded websites (which I will discuss later).
                     </p>
@@ -130,9 +131,9 @@
                         This is extremely useful because with this power, dynamically loaded websites will naturally load the data that we want to access! With the data loaded, we can then begin our Webscraping process.
                     </p>
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Dynamically Loaded Websites</h2>
-                    </a>
+                    </div>
                     <p>
                         I’ve been using this term “Dynamically Loaded Website” pretty often so far, but what exactly does it mean? A Dynamic website is a website that loads differently every time you or another user visits the page. It is in contrast to a Static website, which I’m pretty sure you can guess, loads the same every time someone visits it. Simply put, a Dynamic website is one that is constantly updating and changing, thus it is “Dynamic”!
                     </p>
@@ -149,9 +150,9 @@
                         In contrast, a website like ours is considered Static! This is because if you and your friend were to visit this blog, it loads the same content for both your computers! The content and website is constant, making it very much a static website!
                     </p>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">Installation</h2>
-                    </a>
+                    </div>
                     <p>
                         Now let’s get to the nitty-gritty. Just like the BeautifulSoup article, I’ll begin with the installation process for Selenium. Now that you have pip installed, simply input the following line to download the Selenium package:
                     </p>
@@ -167,9 +168,10 @@
                     <p>
                         With that, you’re pretty much done with the Selenium Installation setup!
                     </p>
-                    <a id="fourth_link">
+
+                    <div id="fourth_link">
                         <h2 class="signposting">Basics of Selenium</h2>
-                    </a>
+                    </div>
                     <p>
                         Before we get into the project, let’s go through some basic syntax and understand how using the Selenium Python package will really work. As I’ve said before, Selenium is actually primarily used for unit-testing, which is simply running automated tests on portions of web applications to make sure they work as intended. The entire unit-testing portion of Selenium is pretty complicated, but lucky for us Webscraping with Selenium is pretty streamlined. It all has to do with the Web Driver!
                     </p>
@@ -192,9 +194,9 @@
                         Enough talking, let’s get to actual coding shall we?
                     </p>
 
-                    <a id="fifth_link">
+                    <div id="fifth_link">
                         <h2 class="signposting">Hockey Stats Scraper</h2>
-                    </a>
+                    </div>
                     <p>
                         For today’s project, we will be building a script that scrapes data off a Hockey Statistics webpage, consolidating data of our favourite team! The website we will be scraping from is another <a href="https://www.scrapethissite.com/pages/forms/">Webscraping sandbox website</a> that was built to encourage users to practice Webscraping. Like I said in my previous <a href="https://www.codingcucumbers.com/website/beautifulsoup-for-beginners">BeautifulSoup article</a>, not all websites allow Webscraping so please do your research before building your scripts!
                     </p>

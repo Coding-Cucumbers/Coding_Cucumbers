@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>What Is json:,omitempty In Go - Coding Cucumbers</title>
+    <title>What Is json:,omitempty In Go?</title>
     <meta name="description" content="Find out more about the omitempty tag in Go - how to use them, when to use them and more about tags in general">
     <meta name="Bryan">
     <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
@@ -65,9 +66,9 @@
                     <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
-                    </a>
+                    </div>
                 </container>
             </div>
             <img src="../resources/post_pictures/post_posters/json-omitempty-go-post-min.jpg" alt="json omit empty poster image" class="blog_post_img">
@@ -96,9 +97,9 @@
                 </container>
 
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">Omitempty tag</h2>
-                    </a>
+                    </div>
                     <p>You must be curious what is this `json:,omitempty` annotation that is found after a struct field declaration like
                       this</p>
                     <pre><code>
@@ -165,9 +166,9 @@
                     <p>It does the same function as the omitempty tag, which is to exclude marshalling or unmarshalling that specific
                       field.</p>
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Special Case</h2>
-                    </a>
+                    </div>
                     <p>In some instances, the omitempty tag will not work, like in the case of an embedded struct. Returning back the fruit farmer
                       example</p>
                       <pre><code>
@@ -203,9 +204,9 @@
                     <p>Yes, just a simple asterisk will fix the problem and the output is back to what we want, {“name”:
                       “apple”}.</p>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">What are tags</h2>
-                    </a>
+                    </div>
                     <img src="../resources/post_pictures/inside_post_pictures/omitempty-tag-go/go-struct-tag-min.jpg" alt="json tags" class="inside_post_img">
                     <p class="img_description">
                       different types of json tags

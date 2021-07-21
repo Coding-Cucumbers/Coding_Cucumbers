@@ -145,3 +145,48 @@ body {
 .socials a:hover {
     text-decoration: none;
 }
+
+@media only screen and (max-width: 960px) {
+  .quote {
+      font-size: 5vw;
+      text-align: right;
+      padding: 0;
+      margin-right: 5%;
+      margin-top: 0;
+      margin-bottom: 0;
+  }
+
+  .introduction_container {
+    margin-top: -10%;
+  }
+
+  .introduction_description {
+      font-size: 3.5vw;
+      padding-left: 15px;
+  }
+
+  .profile_container{
+    display: inline;
+  }
+
+  .profile_name_top {
+      margin-left: 0;
+  }
+
+  .profile_title_top {
+      margin-left: 0;
+  }
+
+  .profile_name_bottom {
+      margin-right: 0;
+      padding-right: 10px;
+  }
+
+  .profile_title_bottom {
+      margin-right: 0;
+  }
+
+  .profile_detials_container_bottom{
+    margin-top: 10px;
+  }
+}
