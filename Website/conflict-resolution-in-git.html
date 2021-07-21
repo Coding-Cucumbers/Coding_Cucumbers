@@ -27,6 +27,7 @@
 
       gtag('config', 'G-9WZBXGQYRN');
     </script>
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/conflict-resolution-in-git" />
 </head>
 
 <body>
@@ -65,9 +66,9 @@
                     <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
-                    </a>
+                    </div>
                 </container>
             </div>
             <img src="../resources/post_pictures/post_posters/conflict-resolution-in-git-poster-min.jpg" alt="conflict resolution in git" class="blog_post_img">
@@ -96,9 +97,9 @@
                 </container>
 
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">How Conflicts Arises</h2>
-                    </a>
+                    </div>
                     <p>Take for instance, when merging your local branch into master, if all the changes in the code occur at different locations (different files or same file different line of code), Git will automatically merge commits
                       seamlessly.</p>
                     <p>However, when working in big groups, there is a higher probability of 2 or more developers editing the exact same part of the code. This is how merge conflicts crop up. If Git recognises a piece of code (exactly in the same line) that is changed in both branches, it will not be able to intuitively integrate them. Git doesn’t know which of the edits to use as the new master. As such, Git will require user intervention in order to
@@ -136,9 +137,9 @@ both modified:   main.py
                     </pre></code>
 
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">How to Resolve Conflict</h2>
-                    </a>
+                    </div>
                     <p>As seen above, Git will highlight the conflicted file. The rough outline to fix this problem is to first open your favourite code editor, locate the file and the conflicted code block. Ask yourself which code block you would like to retain as part of the merge. After picking “mine” or “theirs” code to keep, commit the changes and proceed with the merge. “Mine” refers to the code block in your current working branch and “theirs” refers to the branch you would like to merge with.</p>
                     <img src="../resources/post_pictures/inside_post_pictures/conflict-resolution-in-git/resolve-conflict-min.jpg" alt="how to resolve conflicts" class="inside_post_img"><br><br>
                     <p>Still feeling unsure? Worry not let’s continue with our example to get a better understanding of what is happening and the particular steps to
@@ -164,9 +165,9 @@ print(“coding cucumbers icon is creepy but somehow cute!”)
                     <p>Repeat these steps for all subsequent conflicts in the file. Don’t forget to stage and commit the new changes to the branch and that is it! We resolved our git merge
                       conflict.</p>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">Additional Notes</h2>
-                    </a>
+                    </div>
                     <img src="../resources/post_pictures/inside_post_pictures/conflict-resolution-in-git/gui-min.jpg" alt="GUI" class="inside_post_img"><br><br>
                     <p>In order to make this conflict resolution even easier, there are software tools to help such as <a href="https://www.gitkraken.com/" target="_blank">GitKraken</a> or <a href="https://www.sourcetreeapp.com/" target="_blank">SourceTree</a>. SourceTree is free to download but GitKraken will cost you. Do note that these 2 softwares are actually Graphical User Interface (GUI)s for Git that have built in conflict resolver tools, which might be more intuitive to use compared. Switching to SourceTree or GitKraken also means you won’t be using the command line for Git features but rather their designed
                       platform.</p>

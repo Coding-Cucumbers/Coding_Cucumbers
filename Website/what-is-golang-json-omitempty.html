@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
     <link rel="stylesheet" type="text/css" href="../CSS/header.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
@@ -27,6 +27,7 @@
 
       gtag('config', 'G-9WZBXGQYRN');
     </script>
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/what-is-golang-json-omitempty" />
 </head>
 
 <body>
@@ -65,9 +66,9 @@
                     <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
-                    </a>
+                    </div>
                 </container>
             </div>
             <img src="../resources/post_pictures/post_posters/json-omitempty-go-post-min.jpg" alt="json omit empty poster image" class="blog_post_img">
@@ -96,9 +97,9 @@
                 </container>
 
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">Omitempty tag</h2>
-                    </a>
+                    </div>
                     <p>You must be curious what is this `json:,omitempty` annotation that is found after a struct field declaration like
                       this</p>
                     <pre><code>
@@ -165,9 +166,9 @@
                     <p>It does the same function as the omitempty tag, which is to exclude marshalling or unmarshalling that specific
                       field.</p>
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Special Case</h2>
-                    </a>
+                    </div>
                     <p>In some instances, the omitempty tag will not work, like in the case of an embedded struct. Returning back the fruit farmer
                       example</p>
                       <pre><code>
@@ -203,9 +204,9 @@
                     <p>Yes, just a simple asterisk will fix the problem and the output is back to what we want, {“name”:
                       “apple”}.</p>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">What are tags</h2>
-                    </a>
+                    </div>
                     <img src="../resources/post_pictures/inside_post_pictures/omitempty-tag-go/go-struct-tag-min.jpg" alt="json tags" class="inside_post_img">
                     <p class="img_description">
                       different types of json tags

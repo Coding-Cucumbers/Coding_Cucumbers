@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Webscraping with BeautifulSoup for Beginners - Coding Cucumbers</title>
+    <title>Webscraping with BeautifulSoup for Beginners</title>
     <meta name="description" content="Webscraping with BeautifulSoup, explained for Beginners. Learn all about this Python Webscraping package and built your own Webscraping mini-project!">
     <meta name="Silas">
     <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
@@ -27,6 +27,7 @@
 
       gtag('config', 'G-9WZBXGQYRN');
     </script>
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/beautifulsoup-for-beginners" />
 </head>
 
 <body>
@@ -65,9 +66,9 @@
                     <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="Linkedin">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" alt="Email" class="silas_gmail">
-                    </a>
+                    </div>
                 </container>
             </div>
 
@@ -77,7 +78,7 @@
                 <h2 class="signposting">Introduction</h2>
                 <div class="text">
                         <p>
-                            What exactly is BeautifulSoup? Maybe you’ve heard of it, maybe you haven’t, regardless BeautifulSoup is a very important Python package that you should learn if you want to dive into the art of Webscraping. If you are unfamiliar with the concept of Webscraping, I highly suggest you check out my other article right <a href="https://www.codingcucumbers.com/website/intro-to-webscraping">here</a> - Introduction to Webscraping.
+                            What exactly is BeautifulSoup? Maybe you’ve heard of it, maybe you haven’t, regardless BeautifulSoup is a very important Python package that you should learn if you want to dive into the art of Webscraping. If you are unfamiliar with the concept of Webscraping, I highly suggest you check out my other article - <a href="https://www.codingcucumbers.com/website/intro-to-webscraping">Introduction to Webscraping</a>.
                         </p>
                         <p>
                             Anyways, BeautifulSoup is an amazing package that helps us to clean up our HTML or any other markup languages that we obtained from websites we are trying to scrape. Simply put, it makes it easier for us to separate specific elements that we want from an entire website.
@@ -111,9 +112,9 @@
                     </ol>
                 </container>
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">Basics of BeautifulSoup</h2>
-                    </a>
+                    </div>
                     <p>
                         How does BeautifulSoup work? It’s fairly simple! Imagine our website as a large HTML document. Some websites have very structured and easy-to-scrape HTML (or markup), while others don’t. The BeautifulSoup package basically acts as a filter and “Beautifies” the website’s content, making it easy to scrape!
                     </p>
@@ -127,12 +128,12 @@
                         </p>
                     </div>
                     <p>
-                        It’s interesting to see how far BeautifulSoup has come, and in fact the contributors to this package are still fairly active to this day! You can view the official documentation <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">here</a>.
+                        It’s interesting to see how far BeautifulSoup has come, and in fact the contributors to this package are still fairly active to this day! You can even view the <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">official BeautifulSoup documentation</a> .
                     </p>
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Installation</h2>
-                    </a>
+                    </div>
                     <p>
                         Now let’s finally get down to business. Like I’ve talked about in my previous articles, I highly encourage everyone to follow along with any programming tutorials you read online including this one, so let’s install BeautifulSoup together! The latest version of BeautifulSoup is BS4, so that’s the version we are going to download for today’s tutorial!
                     </p>
@@ -149,7 +150,7 @@
     pip help
                     </code></pre>
                     <p>
-                        If the previous two lines produced any errors in your command line, it is highly likely that Python and pip was not properly installed on your computer. Simply follow <a href="https://www.python.org/downloads/">this</a> website to download Python and <a href="https://pypi.org/project/pip/ ">this</a> website to download pip. I know it seems like a hassle but you will definitely need these installations for the future, so you might as well cover your bases now!
+                        If the previous two lines produced any errors in your command line, it is highly likely that Python and pip was not properly installed on your computer. Simply follow the <a href="https://www.python.org/downloads/">Python installation webpage</a> to download Python and the <a href="https://pypi.org/project/pip/ ">Pip installation webpage</a> to download pip. I know it seems like a hassle but you will definitely need these installations for the future, so you might as well cover your bases now!
                     </p>
                     <p>
                         Now that Python and pip are properly installed, we can simply install BeautifulSoup through our command line, which requires you to just key in a single line in your command line:
@@ -161,9 +162,9 @@
                         That’s it for any installation and set-up! Pretty simple so far right?
                     </p>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">Requests Package</h2>
-                    </a>
+                    </div>
                     <p>
                         Before we move on to our project, we need to cover another Python package. Apart from using the BeautifulSoup Package, we must first learn to use the request package in Python.
                     </p>
@@ -201,9 +202,9 @@
                         Especially for messier HTMLs, BeautifulSoup helps tremendously when trying to scrape data off of websites. Now let’s finally try and scrape some data off a website! We do this by specifying our elements using CSS selectors!
                     </p>
 
-                    <a id="fourth_link">
+                    <div id="fourth_link">
                         <h2 class="signposting">CSS selectors</h2>
-                    </a>
+                    </div>
                     <p>
                         CSS selectors is a very simple concept! They are patterns and symbols used to specify which HTML elements we want to apply different CSS properties. Simply put, we use CSS selectors to select which elements we want to scrape!
                     </p>
@@ -214,7 +215,7 @@
                         </p>
                     </div>
                     <p>
-                        There are a plethora of CSS selectors available for all kinds of situations, the whole list can be seen on the W3schools website <a href="https://www.w3schools.com/cssref/css_selectors.asp">here</a>! In this article, I’ll cover 4 basic selectors that will be vital in our project later on.
+                        There are a plethora of CSS selectors available for all kinds of situations, the whole list can be seen on the <a href="https://www.w3schools.com/cssref/css_selectors.asp">W3schools website</a>! In this article, I’ll cover 4 basic selectors that will be vital in our project later on.
                     </p>
                     <div class="inside_post_img_container">
                         <img src="../resources/post_pictures/inside_post_pictures/beautifulsoup_beginners/css_selectors_basics.jpg" class="inside_post_img" alt="CSS Selectors Basics">
@@ -238,9 +239,9 @@
                         We do this simply by putting CSS selectors back-to-back! For example, if I wan to be super specific and pick out an element of tag &ltdiv&gt and class “title-box”, I can use the CSS selector “div.title_box”!
                     </p>
 
-                    <a id="fifth_link">
+                    <div id="fifth_link">
                         <h2 class="signposting">Book Review Webscraper</h2>
-                    </a>
+                    </div>
                     <p>
                         For this project, we will build a scraper that can help us map out all the titles, price and star ratings of our books! We will do this by simply scraping from a Webscraping sandbox website, https://books.toscrape.com/, which is a place that was built for people to practice Webscraping.                    </p>
                     <p>

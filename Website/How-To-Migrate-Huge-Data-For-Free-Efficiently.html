@@ -27,6 +27,7 @@
 
       gtag('config', 'G-9WZBXGQYRN');
     </script>
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/how-to-migrate-huge-data-for-free-efficiently" />
 </head>
 
 <body>
@@ -65,9 +66,9 @@
                     <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
-                    </a>
+                    </div>
                 </container>
             </div>
             <img src="../resources/post_pictures/post_posters/how-to-migrate-huge-data-for-free-efficiently-min.jpg" alt="how-to-migrate-huge-data-free-and-efficiently" class="blog_post_img">
@@ -100,9 +101,9 @@
                 </container>
 
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">Bash Script</h2>
-                    </a>
+                    </div>
                     <img src="../resources/post_pictures/inside_post_pictures/huge-data-migration-free-efficiently/postgres-to-postgres-min.jpg" alt="migrate from one postgres server to another" class="inside_post_img">
                  <br><br>
                     <p>Hello Cucumbers! During my internship, I was tasked to migrate an extremely large SQL table from one Postgres server to another. In this article, I will be sharing how I did that cost free at a relatively fast
@@ -127,9 +128,9 @@ for (( k = 1; k < 35; k++ )); do
 done
                   </pre></code>
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Breakdown of Code</h2>
-                    </a>
+                    </div>
                     <pre><code>
 #! /bin/bash
                     </pre></code><br>
@@ -184,9 +185,9 @@ done
                         </pre></code>
                       <br>  <p>Last but not least, the ‘echo’ command is the “print” function of python. This would give you the status update of which row the data migration is at. And as I mentioned above, to enable you to pick up from where you left in the unfortunate event of the code crashing. I then reassign the value of ‘ST’ to HOLDER so that the OFFSET command would increase in every iteration of the loop and thus select the appropriate chunks. ‘done’ command is to signify the end of the loop.</p>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">Additional Notes About This Method</h2>
-                    </a>
+                    </div>
                     <img src="../resources/post_pictures/inside_post_pictures/huge-data-migration-free-efficiently/additional-notes-migration-min.jpg" alt="notes about this method" class="inside_post_img"><br><br>
                     <p>That sums up the breakdown of the code. A tip I would recommend is splitting the number of rows into 2. Open 2 terminals and run the 2 scripts that migrate 2 different segments of the table and that would significantly reduce the time taken. In the ideal case, it would cut down the time taken by
                       half.</p>

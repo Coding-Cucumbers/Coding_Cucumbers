@@ -27,6 +27,7 @@
 
       gtag('config', 'G-9WZBXGQYRN');
     </script>
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/how_to_create_a_telebot" />
 </head>
 
 <body>
@@ -65,9 +66,9 @@
                     <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
                         <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
                     </a>
-                    <a>
+                    <div>
                         <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
-                    </a>
+                    </div>
                 </container>
             </div>
             <img src="../resources/post_pictures/post_posters/how_to_create_telebot_p2-min.jpg" alt="How to Create a telebot with python" class="blog_post_img"><br>
@@ -114,9 +115,9 @@ article. </p>
                 <img src="../resources/post_pictures/inside_post_pictures/telegram_bot_p2/telebot-pic1-part2-min.jpg" alt="Python and Telegram Bot" class="inside_post_img"> <br><br>
 
                 <container class="main_text text">
-                    <a id="first_link">
+                    <div id="first_link">
                         <h2 class="signposting">Imports and Constants</h2>
-                    </a>
+                    </div>
                     <pre><code>
 import json
 import requests
@@ -133,9 +134,9 @@ URL = "https://api.telegram.org/bot{}/".format(token)
 
                     <p>This declares some important variables that are used to construct a variety of URLs for the many functions of our telegram bot.</p>
 
-                    <a id="second_link">
+                    <div id="second_link">
                         <h2 class="signposting">Get Updates Function</h2>
-                    </a>
+                    </div>
                     <pre><code>
 def get_updates():
     url = URL + "getUpdates"
@@ -147,9 +148,9 @@ def get_updates():
                     <p>This function builds the get updates URL, by adding the “getUpdates” behind our base url. In the 3rd line, we send a HTTP GET request and the response is stored in the “response” variable that is then decoded. The decoded response which is stored in the “decoded_response” variable is then parsed (you can think of it as being transformed) from json type into python dictionary type and finally returned as “updates”. Just to clarify, the updates in this case are all the messages that all users have sent to the telegram bot in the past 24 hours.
                     </p>
 
-                    <a id="third_link">
+                    <div id="third_link">
                         <h2 class="signposting">Get Chat ID Function</h2>
-                    </a>
+                    </div>
                     <pre><code>
 def get_last_chat_id(updates):
     num_updates = len(updates["result"])
@@ -189,9 +190,9 @@ def get_last_chat_id(updates):
                     <p> For pictorial representation, here is the dictionary. FYI I used a JSON beautifier, which is immensely helpful when you want to get a clear representation of a dictionary which has many embedded dictionaries such as the
                       below.</p>
 
-                       <a id="fourth_link">
+                       <div id="fourth_link">
                            <h2 class="signposting">Get Last Text Function</h2>
-                       </a>
+                       </div>
                        <pre><code>
  def get_last_text(updates):
      num_updates = len(updates["result"])
@@ -202,9 +203,9 @@ def get_last_chat_id(updates):
                        <p>The logic behind get_last_text function is almost identical to that of get_last_chat_id function. Instead of grabbing the chat_id, we are taking the text. This logic can be applied to any field you would like to use such as the “first_name” and “last_name”
                          fields.</p>
 
-                         <a id="fifth_link">
+                         <div id="fifth_link">
                              <h2 class="signposting">Send Message Function</h2>
-                         </a>
+                         </div>
                          <pre><code>
 def send_message(text, chat_id):
    url = URL + "sendMessage?text={}&chat_id={}".format(text, chat_id)
@@ -213,9 +214,9 @@ def send_message(text, chat_id):
                          <p>This function sends a message back to a specified user via the telebot by once again building the specific URL with the parameters. It takes in 2 parameters, text which is the message that you would like the telebot to send and the chat_id of the
                            user.</p>
 
-                           <a id="sixth_link">
+                           <div id="sixth_link">
                                <h2 class="signposting">Main Function</h2>
-                           </a>
+                           </div>
                            <pre><code>
  def main():
      updates = get_updates()

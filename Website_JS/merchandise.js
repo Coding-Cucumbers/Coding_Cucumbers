@@ -1,8 +1,5 @@
 $(function () {
 
-// draggable image to reveal promo code
-$("#cucumber_shades").draggable({
-  revert: true});
 
   //when user hovers over nav-items
 $(".nav-item").hover( function() {
