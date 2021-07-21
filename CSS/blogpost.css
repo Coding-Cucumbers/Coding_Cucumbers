@@ -319,11 +319,11 @@ pre code {
 }
 
 .show {
-    opacity: 100;
+    opacity: 1;
 }
 
 .hidden {
-    display: none;
+    opacity: 0;
 }
 
  @media only screen and (max-width: 960px) {
