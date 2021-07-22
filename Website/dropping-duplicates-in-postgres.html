@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dropping Duplicates In Postgres Table</title>
+    <meta name="description" content="Learn more about dropping duplicates in a postgres table with an SQL query, which is way faster than using pandas in python">
+    <meta name="Bryan">
+    <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/what-is-golang-json-omitempty" />
+</head>
+
+<body>
+
+  <script language="javascript" type="text/javascript"
+    src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">Dropping Duplicates In Postgres Table</h1><br>
+                <p class="preamble">With one well-explained SQL query!</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                  <div class="img_cropper">
+                    <img src="../resources/about_us/bryan_coding_cucumbers_aboutus.jpg" id="author_img" alt="author bryan image">
+                  </div>
+                    <div class="author_details">
+                        <p class="author_name">Bryan Ho</p>
+                        <p class="date">22nd July 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/badboibrybryy/">
+                        <img src="../resources/socials/instagram-no-bg.png" alt="instagram icon">
+                    </a>
+                    <a href="https://github.com/bryanhce">
+                        <img src="../resources/socials/github_icon.png" alt="github icon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
+                        <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
+                    </a>
+                    <div>
+                        <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
+                    </div>
+                </container>
+            </div>
+            <img src="../resources/post_pictures/post_posters/dropping-duplicates-postgres-poster-min.jpg" alt="dropping duplicates in postgres poster" class="blog_post_img">
+
+            <container id="main_container">
+                <p class="signposting">Introduction</p>
+                <p class="text">
+                  Hey! In this article, I will be sharing more about how I dropped duplicates in a Postgres table. I found a few articles online that simply give the code without much explanation of what is happening. As such, I am writing this article to explain the drop duplicate SQL query’s inner
+                  workings!</p>
+
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>Breakdown of Code</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>The Actual Code</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>Why drop duplicates at a SQL level?</li>
+                        </a>
+                      </ol>
+                </container>
+
+                <container class="main_text text">
+                    <div id="first_link">
+                        <h2 class="signposting">Breakdown of code</h2>
+                    </div>
+                    <p>This is the code I used. It might seem a little daunting, but don’t worry, we will go through them step by
+                      step.</p>
+                    <pre><code>
+  (SELECT *
+  FROM
+  	(SELECT *,
+  	 ROW_NUMBER()
+
+  	 OVER( PARTITION BY restaurant, price, rating, cuisine
+  		ORDER BY price ) AS row_num
+
+  	FROM public.restaurants_df ) AS table
+  WHERE table.row_num <= 1 )
+                    </code></pre>
+                    <p>As we can see, there is a subquery, because of the 2 “SELECT * FROM”. In order to deconstruct the code and make it easier to understand, we will start from the innermost query and proceed
+                      outwards.</p>
+                      <pre><code>
+  (SELECT *,
+  	 ROW_NUMBER()
+
+  	 OVER( PARTITION BY restaurant, price, rating, cuisine
+  		ORDER BY price ) AS row_num
+
+  FROM public.restaurants_df ) AS table
+                      </code></pre>
+                    <p>This is the inner query. We are selecting everything and the new column that is generated by the ROW_NUMBER() function. ROW_NUMBER() function assigns a sequential integer to each row in a result set. For a pictorial example, this is what is
+                      happening</p><br>
+                      <img src="../resources/post_pictures/inside_post_pictures/dropping-duplicates-postgres/initial-df-sql-min.png" alt="initial table" class="inside_post_img">
+                      <p class="img_description">
+                        initial table with duplicates
+                      </p><br><br>
+                      <p>This is our initial table before the ROW_NUMBER() function.</p><br>
+                      <img src="../resources/post_pictures/inside_post_pictures/dropping-duplicates-postgres/row-number-df-min.png" alt="table with new row_num column" class="inside_post_img">
+                      <p class="img_description">
+                        new table with the new column row_num
+                      </p><br><br>
+                    <p>As we can see, there is a new column called row_num. The default name is row_number but we named it row_num with the keyword “AS”. It is optional to do so, but naming so will help with clarity if you are doing this function multiple times in a single query where other similar columns will be
+                      created.</p>
+                    <p>“OVER (PARTITION BY your_columns)” allows you to choose the columns which you want to check for duplicates. In the example, if you wish to check for duplicate restaurants only, you will partition by restaurant column only. However, if you wish to check for duplicates in restaurant, price and location, you would need to partition by <mark class="highlight">all those columns only</mark>. You can also ignore the partition by clause if you want to check for duplicate entries, i.e. duplicates for all the columns. In that case, ROW_NUMBER() function considers the whole result set as a
+                      partition.</p>
+                    <p>“ORDER BY” is used to arrange the database, it is optional for this query. “public.restaurant_df” is used to specifically target the table (restaurant_df) in the schema (public). There may be another table named restaurant_df in another schema and Postgres might drop duplicates in the other tables instead of the table we want. That would be
+                      disastrous!</p>
+                      <p>We also rename the new table from the subquery as “table” so that it can be referenced in the other
+                        query.</p>
+                    <pre><code>
+  (SELECT *
+  FROM
+      ...
+
+  WHERE table.row_num <= 1 )
+                    </code></pre>
+                    <p>Moving a level out, we are placing a WHERE clause on the newly created table, filtering out rows where row_num is greater than 1. Rows that are greater than 1 indicate that there is a duplicate for that entry. Here is the resultant
+                      table.</p>
+                      <img src="../resources/post_pictures/inside_post_pictures/dropping-duplicates-postgres/final-df-sql-min.png" alt="table without duplicates" class="inside_post_img">
+                      <p class="img_description">
+                        table without duplicates
+                      </p><br><br>
+                    <p>Finally, we are selecting everything from the newly filtered table and returning it as the output. There we go! That is the table without any
+                      duplicates.</p>
+                    <p>But wait! You might notice that the changes to the table are not actually permanent. We merely returned a table without the duplicates but did not “commit” it to the actual database. Do be very careful with this dropping duplicate query because there is no retrieving the lost data after executing
+                      it.</p>
+
+                    <div id="second_link">
+                        <h2 class="signposting">Actual Code</h2>
+                    </div>
+                      <pre><code>
+  DELETE FROM original_table
+  WHERE id IN
+      (SELECT id
+      FROM
+          (SELECT id,
+           ROW_NUMBER() OVER( PARTITION BY column_names
+          ORDER BY id ) AS row_num
+
+          FROM original_table ) table
+          WHERE table.row_num > 1 )
+                              </code></pre>
+                  <p>Don’t worry, I am not pulling your leg, this code will drop duplicates permanently this time. I just wanted to make sure you don’t accidentally drop all duplicates and mess up your
+                    data.</p>
+                  <p>There are some minor changes to make to the previous code. By adding a “DELETE FROM” clause, you will be deleting the duplicates from the table where the row_num is greater than 1. Column “id” can be replaced with any column that uniquely identifies each
+                    row.</p>
+                  <p>Do note, in the previous code, I used <mark class="highlight">“table.row_num <= 1”</mark> to return the non-duplicate table but in this case, I used <mark class="highlight">“table.row_num > 1”</mark> because we want to return the table with the duplicates so that we can delete them
+                      off.</p>
+
+                    <div id="third_link">
+                        <h2 class="signposting">Why Drop Duplicates At SQL Level</h2>
+                    </div>
+                    <p>When I was creating new databases in my previous job as a Data Analyst, much of the data that makes up the new databases came from existing ones. Instinctively, 2 methods to transform the data come to mind. First would be Pandas dataframe methods and other is Postgres
+                      queries.</p>
+                    <p>The script is run everyday and I wanted it to be as efficient as possible. Considering the amount of data getting larger and larger with each day, I was afraid that when the amount of data exceeds a certain point, the software running the script will time out and that would result in incomplete data being appended to the new
+                      table.</p>
+                      <p>The xml key refers to the encoding/xml package while json refers to the encoding/json package. To pass more than 1 <mark class="highlight">tag</mark>, just separate the key-value pairs with a space. To pass more than 1 <mark class="highlight">value</mark>, separate the values with
+                        commas.</p>
+                    <p>It is no surprise that I chose to use SQL queries instead of Pandas methods as SQL queries are much faster. No doubt, Pandas methods are way simpler to understand and use. A “df.drop_duplicates()” would suffice compared to those 7 lines of SQL code, but it is at the expense of efficiency. I am proud to say that the script runs well everyday and there hasn’t been a timeout
+                      yet!</p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>I hope this in depth explanation of the SQL query was helpful and has made your script a little faster! I can’t emphasise this enough but this drop duplicate query has the potential to ruin a whole table of data if not used correctly. Do proceed with caution! I would advise to use the first code chunk to check if the returned table is what you actually want before using the second chunk of code to make the changes
+                      permanent.</p>
+                    <p>How I wish Postgres had a command to do drop duplicates but I guess until then, we have to continue using that chunk of code. Stay Cool,
+                      Cucumbers!</p>
+                </container>
+            </container>
+
+
+        </div>
+
+
+
+<!-- newsletter popup -->
+<script language="javascript" type="text/javascript" src="newsletter.txt"></script>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
