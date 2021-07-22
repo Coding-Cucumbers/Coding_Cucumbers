@@ -56,12 +56,12 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.codingcucumbers.com/website/5_Best_Tricks_For_Pandas</loc>
+  <loc>https://www.codingcucumbers.com/website/5_best_tricks_for_pandas</loc>
   <lastmod>2021-07-19T08:35:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.codingcucumbers.com/website/5_Essential_Git_Concepts</loc>
+  <loc>https://www.codingcucumbers.com/website/5_essential_git_concepts</loc>
   <lastmod>2021-07-19T08:35:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -86,12 +86,12 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.codingcucumbers.com/website/Git_VS_Github</loc>
+  <loc>https://www.codingcucumbers.com/website/git_vs_github</loc>
   <lastmod>2021-07-19T08:35:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.codingcucumbers.com/website/How-I-Started_Learning-Golang</loc>
+  <loc>https://www.codingcucumbers.com/website/how-i-started_learning-golang</loc>
   <lastmod>2021-07-19T08:35:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -101,12 +101,12 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.codingcucumbers.com/website/How-To-Migrate-Data-From-One-Database-To-Another</loc>
+  <loc>https://www.codingcucumbers.com/website/how-to-migrate-data-from-one-database-to-another</loc>
   <lastmod>2021-07-19T08:35:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.codingcucumbers.com/website/How-To-Migrate-Huge-Data-For-Free-Efficiently</loc>
+  <loc>https://www.codingcucumbers.com/website/how-to-migrate-huge-data-for-free-efficiently</loc>
   <lastmod>2021-07-19T08:35:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -121,7 +121,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.codingcucumbers.com/website/Is-Go-The-Best-Programming-Language</loc>
+  <loc>https://www.codingcucumbers.com/website/is-go-the-best-programming-language</loc>
   <lastmod>2021-07-19T08:35:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -153,6 +153,16 @@
 <url>
   <loc>https://www.codingcucumbers.com/website/connecting-google-sheets-with-javascript</loc>
   <lastmod>2021-07-20T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/dropping-duplicates-in-postgres</loc>
+  <lastmod>2021-07-22T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/how-i-built-my-telegram-bot</loc>
+  <lastmod>2021-07-22T08:35:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How I built my Telegram Bot [Part 3]</title>
+    <meta name="description" content="Learn more about improvements to the telegram bot, how to use 3rd party paackages and a simple introduction to them.">
+    <meta name="Bryan">
+    <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/what-is-golang-json-omitempty" />
+</head>
+
+<body>
+
+  <script language="javascript" type="text/javascript"
+    src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">How I built my Telegram Bot [Part 3]</h1><br>
+                <p class="preamble">Find out more about Telegram-Python-Bot Library</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                  <div class="img_cropper">
+                    <img src="../resources/about_us/bryan_coding_cucumbers_aboutus.jpg" id="author_img" alt="author bryan image">
+                  </div>
+                    <div class="author_details">
+                        <p class="author_name">Bryan Ho</p>
+                        <p class="date">23rd July 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/badboibrybryy/">
+                        <img src="../resources/socials/instagram-no-bg.png" alt="instagram icon">
+                    </a>
+                    <a href="https://github.com/bryanhce">
+                        <img src="../resources/socials/github_icon.png" alt="github icon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
+                        <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
+                    </a>
+                    <div>
+                        <img src="../resources/socials/email_icon.png" class="bryan_gmail" alt="email icon">
+                    </div>
+                </container>
+            </div>
+            <img src="../resources/post_pictures/post_posters/how-i-built-my-telebot-poster-min.jpg" alt="telebot part 3 poster" class="blog_post_img">
+
+            <container id="main_container">
+                <p class="signposting">Introduction</p>
+                <p class="text">
+                  Welcome back! This is our 3rd and final part of how I built my own telegram bot. If you have yet to read the previous article on <a href="https://www.codingcucumbers.com/website/complete_guide_to_building_a_telegram_bot" target="_blank">forming the foundation of the telegram bot</a>, do check it out to keep up with the contents of this article. I hope to share more about how to improve our telebot and some tips about hosting
+                  it.</p>
+
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <a href="#first_link">
+                            <li>Improvements to Bot</li>
+                        </a>
+
+                        <a href="#second_link">
+                            <li>Exploring 3rd party packages</li>
+                        </a>
+
+                        <a href="#third_link">
+                            <li>How to use Telegram Python Bot</li>
+                        </a>
+                      </ol>
+                </container>
+
+                <container class="main_text text">
+                    <div id="first_link">
+                        <h2 class="signposting">Improvements to Bot</h2>
+                    </div>
+                    <p>Continuing on from the previous post, our telegram bot is not as functional as we would like it to be. The first problem is that everytime get_updates() function is being called, the entire json with all past messages (even messages that have been “read”) are being processed and this is not an efficient way to retrieve the latest message. As such, we can make changes to the following
+                      function:</p>
+                    <pre><code>
+    def get_updates(offset=None):
+      url = URL + "getUpdates"
+      if offset:
+              url += "?offset={}".format(offset)
+      response = requests.get(url)
+      decode_response = response.content.decode("utf8")
+      updates = json.loads(decode_response)
+      return updates
+                    </code></pre>
+                    <p>The 'offset' parameter allows you to retrieve the message after a certain number which is indicated by the offset. For example, you would like to process text messages after the 5th result, the offset in this case would be
+                      5.</p>
+                    <p>‘offset=None’ in the get_updates() function ensures that if there is no offset argument being passed, the default value is None (which is Python’s nil value). If the value of offset is left completely blank, the url formed will not
+                      work.</p>
+                      <p>If you are also curious about the ‘?’ found before the “offset={}” in the url variable, it is actually how we pass query parameters in a HTTP Get request. The key-value pairs following the ? are the params and if there are 2 or more params, they are connected with a ‘&’. For example, www.codingcucumbers.com?language=python&version=3 is a url with 2 query params -- language and
+                        version.</p>
+                    <p>For clarification, the result that I am referring to is the result list from the return json body after the HTTP request is made, check out the second blog posts in the series if you are still
+                      unsure.</p>
+                    <p>Following, we need to write a new function to get the index of the latest message, which will help figure out what the value of offset in get_updates function would
+                      be.</p>
+                    <pre><code>
+  def get_last_update_id(updates):
+    return updates["result"][-1]["update_id"]
+                    </code></pre>
+                    <p>It simply traverses the dictionary to locate the latest update_id.</p>
+                    <p>Finally, bringing it all together again. Change your main function to the one
+                      below.</p>
+
+                    <pre><code>
+  def main():
+      last_update_id = None
+      while True:
+          updates = get_updates(last_update_id)
+          if len(updates["result"]) > 0:
+              last_update_id = get_last_update_id(updates) + 1
+          time.sleep(0.5)
+                    </code></pre>
+                    <p>time.sleep(0.5) allows the script to receive the most recent messages from every 0.5 second. Don’t forget to import the time package! Finally, our bot is able to sieve out past messages and duplicated messages being processed is not a
+                      worry.</p>
+
+                    <div id="second_link">
+                        <h2 class="signposting">Exploring Telegram Bot Library</h2>
+                    </div>
+                    <img src="../resources/post_pictures/inside_post_pictures/telebot-part-3/telebot-python.jpg" alt="python and telegram picture" class="inside_post_img">
+                  <br><br>
+                  <p>Despite being able to create our own telebot with our very own functions, I am sure you can start to see that it is a little repetitive and time consuming to be starting from scratch every time. Therefore, I highly recommend using functions that were built previously by professional developers to make our lives much
+                    easier.</p>
+                  <p>On top of that, the code written in the 3rd party package is optimised hence the bot replies will be much faster than that of the custom function we built. I get that it might seem like a waste to throw away all the functions we have built above, but the way I see it, creating those functions forms a strong understanding of how telegram bots
+                    work!</p>
+                  <p>Check out the <a href="https://python-telegram-bot.readthedocs.io/en/stable/" target="_blank">documentation of the package here</a>! It contains all the features that you can implement on your bot. This <a href="https://github.com/python-telegram-bot/python-telegram-bot/tree/master/examples" target="_blank"> github contains examples to learn</a> from which is super helpful considering that the documentation can be quite dry. If you scroll down to the readme section of the github page, there is an <a href="https://github.com/python-telegram-bot/python-telegram-bot" target="_blank">installation guide</a> as well. I am sure that with your existing knowledge of the inner workings of a telegram bots, you will be able to navigate this package well and readily develop the bot of your
+                    choice.</p>
+
+                    <div id="third_link">
+                        <h2 class="signposting">How to use Python Telegram Bot Package</h2>
+                    </div>
+                    <p>For my own personal bot, I used the Python Telegram Bot Package. Here is a snippet of my code and I’ll walk through the
+                      code.</p>
+                    <pre><code>
+  from telegram.ext import Updater, CommandHandler
+
+  def start(update, context):
+      context.bot.send_message(chat_id=update.effective_chat.id, text=“hello!”)
+
+  def help(update, context):
+      context.bot.send_message(chat_id=update.effective_chat.id, text= “please contact me at codingcucmbers@gmail.com”)
+
+  def main():
+      updater = Updater(token='yout_token', use_context=True)
+      dispatcher = updater.dispatcher
+
+      start_handler = CommandHandler('start', start)
+      help_handler = CommandHandler('help', help)
+
+      dispatcher.add_handler(start_handler)
+      dispatcher.add_handler(help_handler)
+
+      updater.start_polling()
+      updater.idle()
+
+
+  if __name__ == "__main__":
+      main()
+                    </code></pre>
+                    <p>After importing the necessary packages, I start defining my command handlers. There are only 2 for now, “/start” and “/help”. Upon receiving the “/start” message from the user, send a message to that chat_id of the user with the text “hello!”. This is what the function is essentially doing. Similarly, upon receiving “/help” from the user, reply to that specific user with the text predefined in the help
+                      function.</p>
+                      <p>Next, in the main function, we declare our “updater” and “dispatcher” objects. The Updater class continuously fetches new updates from telegram and passes them on to the Dispatcher class. Following, we register our start and help handlers, with the user of the CommandHandler function. We also need to add the handlers to the dispatcher
+                        object.</p>
+                    <p>Lastly, we start polling the bot, which means that the bot is constantly asking if there are new messages. We let the bot idle so as not to waste too much resources when there are no new updates. Now test out the bot! You will be amazed at how fast this bot is compared to the previous bot we built from
+                      scratch.</p>
+                    <p>Of course, this is just the foundation of how to use the package, there are many more features such as inlinekeyboard which creates those buttons to select options from. You can even create games with telegram bot like
+                      Werewolf!</p>
+                    <p>The next step after building the telebot is to actually host it so that the bot will function without you needing to run the code from your local. Some platforms to host your code include Google Cloud Functions, Google Cloud Run or Heroku. You can check those platforms out to host your code for free. I think it would be a bit intimidating to figure out those platforms on your own. I will be writing another article on using those platforms soon, so stay
+                      tuned!</p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>I hope you have enjoyed this short 3 part series on building your own telegram bot. Writing a telegram bot program is definitely lots of fun and we would love to hear more about the telegram bot you have built. Feel free to share it with us coding.cucumbers@gmail.com.
+                      Stay cool Cucumbers!.</p>
+                </container>
+            </container>
+
+
+        </div>
+
+
+
+<!-- newsletter popup -->
+<script language="javascript" type="text/javascript" src="newsletter.txt"></script>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>

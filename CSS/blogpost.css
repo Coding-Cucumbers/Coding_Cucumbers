@@ -336,4 +336,8 @@ pre code {
      display: none;
    }
 
+   h1.title{
+     font-size: 10vw;
+   }
+
 }
