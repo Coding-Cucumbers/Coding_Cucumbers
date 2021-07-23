@@ -280,6 +280,7 @@ label {
 
     .filters_title {
         font-size: 90%;
+        margin-left: -8px;
     }
     label {
         font-size: 70%;
@@ -287,5 +288,14 @@ label {
 
     .filters_checkbox {
     margin-right: 10px;
+    margin-left: -20px;
+    padding: 0;
+    }
+
+    .post_thumbnail {
+        padding: 0px;
+        padding-bottom: 0px;
+        margin: 0px;
+        margin-bottom: 20px;
     }
 }
