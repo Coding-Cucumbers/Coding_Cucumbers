@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Connecting to Google Sheets with Javascript</title>
+    <title>My Experience as a Data Intern in Singapore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Load Data from a Database by connecting Google Sheets to your website with just JavaScript! An easy-to-implement way of loading Dynamic content!">
+    <meta name="description" content="What it was like working in Singapore's first proptech company - Ohmyhome. Learn about the concepts of Data Collection and Cloud Computing.">
     <meta name="Silas">
     <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
 
@@ -28,7 +28,7 @@
 
       gtag('config', 'G-9WZBXGQYRN');
     </script>
-    <link rel="canonical" href="https://www.codingcucumbers.com/website/connecting-google-sheets-with-javascript" />
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/data-intern-experience" />
 </head>
 
 <body>
@@ -42,8 +42,8 @@
 
         <div id="main_post" class="col-6">
             <div class="title_box">
-                <h1 class="title">Connecting to Google Sheets with Javascript</h1>
-                <p class="preamble">Using Google Sheets as a database for your website.</p>
+                <h1 class="title">My Experience as a Data Intern in Singapore</h1>
+                <p class="preamble">What it was like in Ohmyhome.</p>
             </div>
 
             <div class="author">
@@ -53,7 +53,7 @@
                     </div>
                     <div class="author_details">
                         <p class="author_name">Silas Tay</p>
-                        <p class="date">20th July 2021</p>
+                        <p class="date">23rd July 2021</p>
                     </div>
                 </container>
 
@@ -73,19 +73,16 @@
                 </container>
             </div>
 
-            <img src="../resources/post_pictures/post_posters/connecting-google-sheets-javascript-poster-min.jpg" class="blog_post_img" id="example" alt="Connecting to Google Sheets with JavaScript">
+            <img src="../resources/post_pictures/post_posters/data-intern-experience-poster-min.jpg" class="blog_post_img" id="example" alt="Connecting to Google Sheets with JavaScript">
 
             <container id="main_container">
                 <h2 class="signposting">Introduction</h2>
                     <div class="text">
                             <p>
-                                For those of you that want to start making websites, learning proper backend may take a very long time. Servers, databases and PHP, learning backend will take you quite a decent amount of time. A great alternative is to use Google Sheets!
+                                I recently ended my internship at Singapore’s first proptech company - Ohmyhome. It was an amazing 3-month journey, through which I had learned a lot of technical and soft skills. During my time there, I was blessed to be under great mentors who taught me a lot about the world of programming. Being my first foray into the tech industry, I was extremely excited yet nervous about applying for the role since I was unsure of my own competence. However, after these 3 months, I have gained a rewarding experience and I hope to share it with you all in today’s article!
                             </p>
                             <p>
-                                Fortunately for us, it is actually extremely simple to link Google Sheets to our website using Javascript. This allows us to use Google Sheets as a “pseudo-database”, giving us the option to load dynamic content in our websites without having a fully developed back-end system!
-                            </p>
-                            <p>
-                                In today’s article, I will talk about why exactly we need to link Google Sheets to our Javascript and how to do it!
+                                If you realise that Ohmyhome sounds familiar, it’s probably because you read Bryan’s article on his internship there! We were both interns at Ohmyhome but were part of different parts of the tech team during our time there. Bryan mostly spent his time in the Backend team, while I spent most of my time in the Data team. I mostly spent time building data collection systems and working with cloud computing (Google Cloud Console), so most of my article will be about these topics!
                             </p>
                     </div>
                 <container class="content_box text">
@@ -93,176 +90,196 @@
                     <ol class="content_list">
                         <li>
                         <a href="#first_link">
-                            Dynamic Content
+                            My Background
                         </a>
                         </li>
 
                         <li>
                         <a href="#second_link">
-                            <li>Publishing your Google Sheet</li>
+                            Ohmyhome
                         </a>
                         </li>
 
                         <li>
                         <a href="#third_link">
-                            <li>Reading your Google Sheet</li>
+                            Data Collection
                         </a>
                         </li>
 
                         <li>
                         <a href="#fourth_link">
-                            <li>Extracting Data from Google Sheet</li>
+                            Cloud Computing
                         </a>
                         </li>
                     </ol>
                 </container>
                 <container class="main_text text">
                     <div id="first_link">
-                        <h2 class="signposting">Dynamic Content</h2>
+                        <h2 class="signposting">My Background</h2>
                     </div>
                     <p>
-                        Why do we want to connect our website with Google Sheets, or have any form of backend in our website? It’s so our website is able to load Dynamic Content. This means that our website’s content will load each time a user comes to our website! I’ve talked about the difference between Dynamic and Static web pages before in my other article on <a href="https://www.codingcucumbers.com/website/selenium-for-beginners">Selenium</a>.
+                        Firstly, a little bit about my background before the internship. I had just finished my 2 years of National Service and was delighted to be able to find an internship role in Ohmyhome. During my time in National Service, I often dabbled with programming, learning some programming languages and building some passion projects. However, joining a proper tech company felt like such a huge step and I didn’t feel like I was ready.
+                    </p>
+                    <p>
+                        Everything I had programmed before then was mostly for fun. It was a hobby! I often started projects I didn’t finish, and my code was extremely messy and unrefined. Most of my programming knowledge was attained through online courses, such as Web Development and Game Development courses. Lucky for me, I had a huge interest in programming, and having the opportunity to intern for a tech company sounded like a great chance to test my abilities.
                     </p>
                     <div class="inside_post_img_container">
-                        <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/social_media_feed-min.png" class="inside_post_img" alt="social media feed">
+                        <img src="../resources/post_pictures/inside_post_pictures/data-itern-experience/unity_udemy.png" class="inside_post_img" alt="Game development course Udemy">
                         <p class="img_description">
-                            Social Media platforms like Facebook fill your feed with Dynamic content.
+                            One of the game development courses I took on Udemy.
                         </p>
                     </div>
                     <p>
-                        Simply put, by connecting our website to Google Sheets, it allows us to load data from Google Sheets itself. This means that making changes in our Google Sheets will thereby affect how our website will load! This is very useful because it means we can use Google Sheets as a database to store all kinds of information.
-                    </p>
-                    <div class="inside_post_img_container">
-                        <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/database-min.jpg" class="inside_post_img" alt="Database">
-                        <p class="img_description">
-                            Read on to learn how to use Google Sheets as a Database!
-                        </p>
-                    </div>
-                    <p>
-                        For example, our website uses Google Sheets to store a history of all our articles. By connecting Google Sheets to our website using only Javascript, we are able to update our website with the latest articles posted very efficiently without ever needing to change any lines of code in our HTML file! All we have to do is add a new entry in our Google Sheets, and everything will load automatically!
+                        I was also informed that most of my tasks required me to be coding in Python. This led me to try improving Python as much as I could before I began the internship. For anyone trying to get a good grasp of the Python language, I strongly recommend following <a href="https://www.w3schools.com/python/">W3Schools Python tutorial</a>. It covers very basic yet essential Python topics, from Variables to Classes. I will also be releasing a series of articles on Python basics soon, which will cover everything you need to know to be a competent Python engineer, so do stay tuned!
                     </p>
                     <p>
-                        Ideally, a more robust backend system should be built if your website requires faster querying and loading of larger chunks of data, but Google Sheets provides a much simpler method of loading data while also being relatively efficient!
-                    </p>
-                    <p>
-                        I can think of a few other types of websites that can use Google Sheets as a database with relative ease. For example:
-                    </p>
-                    <ul>
-                        <li>Blogs accessing a record of all past articles</li>
-                        <li>E-commerce site accessing a record of all current products</li>
-                        <li>Photography site accessing a record of different types of photos</li>
-                    </ul>
-                    <p>
-                        But that’s enough talking, let’s get to how we use Google Sheets in our Javascript!
+                        Anyways, I was also informed that I was going to build some <a href="https://www.codingcucumbers.com/website/intro-to-webscraping">Web Scraping</a> projects, something I had touched on in the past but had mostly forgotten at that time. This also led me to feel a little anxious before my first day of work.
                     </p>
 
                     <div id="second_link">
-                        <h2 class="signposting">Publishing your Google Sheets</h2>
+                        <h2 class="signposting">Ohmyhome</h2>
+                    </div>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/my-first-internship-omh/ohmyhome-pic-min.jpeg" class="inside_post_img" alt="Ohmyhome">
                     </div>
                     <p>
-                        The first step to accessing your Google Sheets through Javascript is to publish your Google Sheet. This is a very simple process which will make your Google Sheet available to the internet, therefore allowing us to access it through our Javascript later on. However, publishing your Google Sheet does have some security concerns.
+                        Now, what type of company is Ohmyhome? <a href="https://omh.sg/">Ohmyhome</a> is Singapore’s first proptech company and helps to streamline the property transaction system with the use of technology. In this article, I won’t go too in-depth into the operations of Ohmyhome, but I will mostly talk about the working environment. As an intern, I was grateful to be under great mentors that were super welcoming and friendly. Being a part of the data team, everyone was extremely well-knit and it was easy to ask for assistance. Anytime I was struggling with my tasks, my peers would often lend me a helping hand.
                     </p>
                     <p>
-                        If your Google Sheet contains very sensitive information, I will highly discourage publishing your Google Sheet online. This is because anyone on the internet will be able to view your Google Sheet the moment you publish it! For example, if you have information about client details, bank account numbers etc. stored in your Google Sheet, you may want to look into more secure methods of loading your Dynamic Content.
+                        Furthermore, I felt that our team had a very clear direction, allowing us to focus on our tasks while also being able to give suggestions to improve anything that we felt was inefficient. Even as an intern, I felt that my voice was always heard and respected, which gave me the confidence to push for more responsibilities and harder tasks.
                     </p>
                     <div class="inside_post_img_container">
-                        <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/internet_security-min.jpg" class="inside_post_img" alt="Internet Security">
+                        <img src="../resources/post_pictures/inside_post_pictures/data-itern-experience/leader-min.jpg" class="inside_post_img" alt="Great Team Direction">
                         <p class="img_description">
-                            Please be conscious of the sensitivity of your Google Sheet!
+                            A clear time direction helps everyone focus!
                         </p>
                     </div>
                     <p>
-                        However, people will not be able to edit your data whatsoever. This is assuring because it means that our Google Sheet will not be meddled with and our website will not load any wrong information.
+                        It was also my first time programming as a team. Although most of my tasks were only appointed to me, it was a very different experience programming while being able to ask for help. I felt the urge to always keep my code clean and concise so that my team members would not have a hard time debugging my code!
                     </p>
                     <p>
-                        Anyways, here’s how to publish your Google Sheet:
+                        Another thing I was introduced to was Version Control. Previously, I had never felt that Version Control was necessary. I always coded for myself and never needed to let anyone else view it. My projects were all also relatively small, which meant I never felt the need to do go back to a previous version of my code. To anyone that is looking to intern in the tech industry, I strongly encourage you to pick up Git. <a href="https://www.udacity.com/">Udacity</a> has a great Git course that is free!
                     </p>
-                    <ol>
-                        <li>Go to the Google Sheet you want to link to your website</li>
-                        <li>Click on File > Publish to the Web</li>
-                        <div class="inside_post_img_container">
-                            <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/google_sheets1.jpg" class="inside_post_img" alt="File and then Publish to Web">
-                        </div>
-                        <li>Click Publish</li>
-                        <div class="inside_post_img_container">
-                            <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/google_sheets2.jpg" class="inside_post_img" alt="Click to Publish to Web">
-                        </div>
-                        <li>Google Sheets will automatically publish all changes you make instantly. If you want to change that, click on Published content & settings and uncheck the “Automatically republish when changes are made” option</li>
-                        <div class="inside_post_img_container">
-                            <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/google_sheets3.jpg" class="inside_post_img" alt="Automatically republish when changes are made option">
-                        </div>
-                    </ol>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/data-itern-experience/github_picture-min.png" class="inside_post_img" alt="Git">
+                        <p class="img_description">
+                            One example of VCS is Git!
+                        </p>
+                    </div>
                     <p>
-                        Instantly publishing any changes may seem good, but it also means that any mistakes when inputting data into your Google Sheets will directly be displayed on your website! If this is an issue, you may want to uncheck this option and only re-publish the Google Sheet after proper changes were made.
-                    </p>
-                    <br>
-                    <p>
-                        That’s all! Your Google Sheet is published on the internet and we are ready to access it with our Javascript!
+                        It was also a great feeling when I realised people in other departments were using my data. It made me feel like my work was actually useful to the company and that I wasn't wasting my time writing useless code. Data was something that I never appreciated before my internship, but seeing how the company used the data for a multitude of reasons made me realise the value of having data!
                     </p>
 
                     <div id="third_link">
-                        <h2 class="signposting">Reading your Google Sheet</h2>
+                        <h2 class="signposting">Data Collection</h2>
                     </div>
                     <p>
-                        Now all it takes to read our Google Sheet with Javascript is to request it! Using JavaScript, all we have to do is to fetch the Google Sheet and locate our data before using it! In this article, we will be fetching our Google Sheet data in the form of JSON, which will make things easier when we want to locate our data.
+                        My main role in ohmyhome was <span class="highlight">Data Collection</span> - specifically Web Scraping. Over the 3 months I spent there, I built many Web Scrapers to help collect data for the company, which allowed me to get familiar with some of Python’s most popular modules, namely <a href="https://www.codingcucumbers.com/website/selenium-for-beginners">Selenium</a> and <a href="https://www.codingcucumbers.com/website/beautifulsoup-for-beginners">BeautifulSoup</a> (which I both wrote articles on). One thing I learnt from my Web Scraping experience is that with the power of these two modules (and Python’s request module), you can pretty much scrape anything off the internet!
                     </p>
                     <p>
-                        Before fetching our Google Sheet data, we must first know the ID of our Google Sheet. Go to your Google Sheet and take note of its url. We can simply get our ID to our Google Sheet from that url! The link will be from “d/” to “/edit#gid=0”, for example:
+                        I’m not kidding! After experimenting with lots of websites online, Selenium and BeautifulSoup provided most of what I needed to scrape data. BeautifulSoup helped to scrape simpler, static websites while Selenium helped to cover websites that loaded Dynamic content or websites that require a bit of user intervention (e.g. logging in). Just by mastering these 2 modules, it’s pretty much the same code for any website you want to scrape!
                     </p>
                     <p>
-                        For a Google Sheet that looks like this:
+                        In fact, the difficult part of Web scraping isn’t the actual scraping, it’s trying not to get blocked! I learnt a great deal about IP addresses and even dabbled with using Docker containers to hide my script’s automation, which was super interesting to me.
                     </p>
-                    <pre><code>
-    https://docs.google.com/spreadsheets/d/1D60gB7e9k1wLAficSZFLTjZtzHfOxY5lS4u41CWuXlw/edit#gid=0
-                    </code></pre>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/data-itern-experience/evade_defenses.png" class="inside_post_img" alt="Hacker">
+                        <p class="img_description">
+                            Web scraping can sometimes make you feel like a hacker!
+                        </p>
+                    </div>
                     <p>
-                        The ID for this Google Sheet is:
-                    </p>
-                    <pre><code>
-    1D60gB7e9k1wLAficSZFLTjZtzHfOxY5lS4u41CWuXlw
-                    </code></pre>
-                    <p>
-                        With this ID, we can now fetch our data in JSON format. The code should look something like this:
-                    </p>
-                    <pre><code>
-    const response = await fetch("https://spreadsheets.google.com/feeds/cells/”YOUR ID HERE”/1/public/full?alt=json").then(response => {return response});
-    const json = response.json();
-    console.log(json);
-                    </code></pre>
-                    <p>
-                        Simply input your ID in place of “YOUR ID HERE”, and you should be able to fetch the data from your Google Sheet in your JavaScript!
+                        Learning about how some websites try to protect their information and how I can “evade” their defenses was something I never thought I would learn! Playing this “cat-and-mouse” game of scraping and getting blocked was really exciting, and when I finally was able to make a script robust enough to prevent getting blocked, it was extremely satisfying!
                     </p>
                     <p>
-                        However, viewing your console, you may realise that the json printed is less than ideal. Our data is actually hidden behind many layers of unnecessary properties!
+                        Of course, you should only scrape websites that allow for Web scraping :)
+                    </p>
+                    <br>
+                    <p>
+                        Another thing I learnt is about <span class="highlight">Threading</span>! When using Python, it’s important to learn about the Global Interpreter Lock (GIL). Python’s GIL makes it so that at any one point of time, only one thread can be executed (in other words, only one thing can happen at one time!). This may be a small concern for most Python programmers, but when dealing with Data Collection, speed is often a big issue.
+                    </p>
+                    <p>
+                        Python Threading allows us to “evade” this GIL, allowing your threads to run in parallel. This is extremely useful because it cuts down the time required for our script to finish by a ton! Especially for tasks that require little CPU processing and involve a lot of waiting (Web Scraping), Threading is extremely effective!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/data-itern-experience/threading-min.jpg" class="inside_post_img" alt="Threading">
+                        <p class="img_description">
+                            Threading in Python helps speed our processes up!
+                        </p>
+                    </div>
+                    <p>
+                        For example, imagine we are trying to scrape a 100-page website that takes 1 second per page. A normal Python script that has not implemented Threading will require 100 seconds! However, if we were able to run 10 Python threads that each scraped 10 pages (e.g. Thread 1 scrapes pages 1 - 10, Thread 2 scrapes pages 11 - 20 …), we would be done in just 10 seconds! That’s the power of Threading!
+                    </p>
+                    <p>
+                        I will be writing another article that will cover Python Threading more comprehensively, while also going through how to actually implement it so please stay tuned!
+                    </p>
+                    <br>
+                    <p>
+                        Additionally, I also learnt about Python <span class="highlight">Scheduling</span>. Basically, Schedulers in Python allows us to set a specific time/interval at which our functions will trigger! It’s fairly simple and very useful too! For my Web Scraping scripts, I had to keep my data constantly updated, which also meant that I had to continually be scraping data off of the websites as long as there are changes. The Python Scheduler module really helps with this!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/data-itern-experience/scheduler-min.jpg" class="inside_post_img" alt="Scheduler">
+                        <p class="img_description">
+                            Python Scheduler helps us to time when our functions run.
+                        </p>
+                    </div>
+                    <p>
+                        I can simply key in what time (or after every set amount of time) I want my function to run, and the Scheduler will trigger my function! For example, if I realise that my data is updated every Monday at 8am in the morning, I can simply set my scraper to scrape every Monday at 8:05am every Monday! This will ensure my Database will always have the most updated information!
+                    </p>
+                    <p>
+                        However, one thing about the Python Scheduler module is that it requires your script to be constantly running. This may not be the smartest way of triggering your Python scripts and many cloud computing services (such as Google Cloud Platform) offers much more efficient alternatives!
                     </p>
 
                     <div id="fourth_link">
-                        <h2 class="signposting">Extracting Data from Google Sheet</h2>
+                        <h2 class="signposting">Cloud Computing</h2>
                     </div>
                     <p>
-                        To access our data, we need to access the “feed” property, then the “entry” property. This will return us a list of each cell in the Google Sheet.
+                        During the internship, I was also fortunate enough to use Google Cloud Platform (GCP) and the suite of services they provided. Before I go into the details, what exactly is GCP? This was a question I was struggling with when I was first introduced to the platform. Verbatim from the <a href="https://cloud.google.com/docs/overview">GCP website</a>, Google Cloud consists of a set of physical assets, such as computers and hard disk drives, and virtual resources, such as virtual machines (VMs), that are contained in Google's data centers around the globe. Simply put, GCP (and any cloud computing platform) is a service that offers a large range of tools for companies to use!
                     </p>
-                    <pre><code>
-    let list_of_cells = json.feed.entry;
-                    </code></pre>
                     <p>
-                        Then, to extract the values out of each cell, we have to access the “gs$cell” property, followed by the “$t” property. If we wanted to print out each cell value in our Google Sheet, it may look something like this:
+                        For example, if you needed a place to store all your data, GCP offers Cloud Storage! If you need a Virtual Machine to run your processes, GCP offers Compute Engine! It’s just a place where you can use all the tools that the platform offers, but of course at a price.
                     </p>
-                    <pre><code>
-    for (cell of list_of_cells) {
-        console.log(cell.gs$cell.$t);
-    }
-                    </code></pre>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/data-itern-experience/gcp-min.png" class="inside_post_img" alt="GCP">
+                        <p class="img_description">
+                            Google Cloud Platform
+                        </p>
+                    </div>
                     <p>
-                        That’s about it! This was a complete step-by-step guide to using Google Sheets as a “pseudo-database” with JavaScript! It’s pretty simple, and I highly urge anyone that needs to make their website load Dynamic content to try using Google Sheets as their database!
+                        The services that I dealt with during my internship were Compute Engine and Apache Airflow! I’ll just briefly go through them all:
+                    </p>
+                    <p>
+                        <span class="highlight">Compute Engine</span> is simply a place for you to spin up Virtual Machines. Virtual Machine is basically like a computer without any hardware (imagine a computer but *VIRTUAL*)! Virtual Machines and Virtualisation has a ton of benefits, including running multiple operating systems or handling potential malware software. Personally, I used VMs because I wanted to keep my local IP address hidden, ensuring that I can smoothly Web Scrape without a hitch!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/data-itern-experience/virtualisation.jpg" class="inside_post_img" alt="Virtualisation">
+                        <p class="img_description">
+                            Virtualisation is an amazing advancement in the programming world!
+                        </p>
+                    </div>
+                    <br>
+                    <p>
+                        <span class="highlight">Apache Airflow</span> is a platform to build workflows for any of your operations. Simply put, it’s a place where you can lay out tasks that can be carried out one after another. Tasks can be Python functions, SQL Actions etc. Imagine your Airflow like a factory pipeline churning out Toys, with each task being one stop in your pipeline. You may start of with a task to build the toy, then another task to colour the toy, then a task to package the toy and lastly a task to send it off to shipping!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/data-itern-experience/factory-min.jpg" class="inside_post_img" alt="Virtualisation">
+                        <p class="img_description">
+                            Building your Airflow is like building a factory Pipeline!
+                        </p>
+                    </div>
+                    <p>
+                        One of the main reasons why people use Airflow is because of the Operators and Hooks that Apache Airflow provides. These Operators and Hooks are almost like your modules, such that they are pre-written code that you can use to more efficiently finish tasks. For example, one very useful Operator is the Postgres Operator, which allows you to execute Postgres Queries within one of your tasks!
+                    </p>
+                    <p>
+                        Another reason why people use Airflow is because it provides a very convenient visual representation of your processes. After defining your Airflow, you can view all your tasks in a Tree view, which gives you lots of information like whether the task has failed or whether the task is running! This is extremely useful because without this Tree view, we have to constantly be logging information about the status of our tasks which can be hard to read and extremely difficult to manage.
                     </p>
 
                     <h2 class="signposting">Conclusion</h2>
                     <p>
-                        Fetching Google Sheets with JavaScript may not be something that popular, but I sincerely believe that it is a very apt way of retrieving data from a database for smaller scale websites! It is relatively simple and it also requires minimal effort to update the Google Sheet!
+                        Overall, I thoroughly enjoyed my time in Ohmyhome. Thinking back, I’m amazed by how much I was able to learn from my internship! I was introduced to concepts I didn’t even know existed and built projects that the old me wouldn’t have been able to comprehend! The mentorship and guidance I had in Ohmyhome was also something I greatly appreciated. Ohmyhome truly provided a safe space for me to hone my software development skills.
                     </p>
                     <p>
-                        I hope that you have learned something from today’s article, and if so, please subscribe to our email newsletter! We provide interesting and useful content about all things programming, so do stay tuned! Stay cool, cucumbers!
+                        If you are someone thinking of starting a software internship in a tech company, please do! However, I do feel it is important that you do your own research into the company you are applying for, because not all companies have the same working environment. Remember that as an intern, your job is to soak up as much knowledge and skills as you can! If you need any tips for your tech internship or are feeling a little anxious, feel free to contact me! Stay cool, cucumbers!
                     </p>
 
                 </container>
