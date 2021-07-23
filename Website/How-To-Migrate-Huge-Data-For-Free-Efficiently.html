@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
     <link rel="stylesheet" type="text/css" href="../CSS/header.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
@@ -182,7 +182,7 @@ PGPASSWORD='pw1' pg_dump -U backend -h 35.000.111.22 -p 5432 -a -t '"api_log_tem
                       Check out this article if you are interested to know more about <a href="https://backup.ninja/news/postgresql-backups-what-is-pgdumpall" target="_blank">the differences between pg_dump and pg_dumpall.</a></p>
                       <p>‘pg_dump” command works by exporting the data and it can be saved into a file on your local computer. However, in this case, instead of downloading the file we are directly piping the file to a destination, which is the other postgres
                         server.</p>
-                      <p>‘|’ is the piping command. Piping is a feature of the terminal and as you can see it is very helpful, it saves you the time from actually writing the data into a file. The concept is that the standard output of the command on the left of the ‘|’ is piped to the standard input of the command on the right. I linked a resource here if you are interested to 
+                      <p>‘|’ is the piping command. Piping is a feature of the terminal and as you can see it is very helpful, it saves you the time from actually writing the data into a file. The concept is that the standard output of the command on the left of the ‘|’ is piped to the standard input of the command on the right. I linked a resource here if you are interested to
                         <a href="https://www.geeksforgeeks.org/piping-in-unix-or-linux/" target="_blank">learn more about the concept of piping.</a></p><br>
                         <pre><code>
   echo "update till $ST"
