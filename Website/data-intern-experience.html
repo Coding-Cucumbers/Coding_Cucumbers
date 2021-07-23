@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Connecting to Google Sheets with Javascript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Load Data from a Database by connecting Google Sheets to your website with just JavaScript! An easy-to-implement way of loading Dynamic content!">
+    <meta name="Silas">
+    <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/connecting-google-sheets-with-javascript" />
+</head>
+
+<body>
+
+<script language="javascript" type="text/javascript"
+        src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">Connecting to Google Sheets with Javascript</h1>
+                <p class="preamble">Using Google Sheets as a database for your website.</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                    <div class="img_cropper">
+                        <img src="../resources/about_us/silas_coding_cucumbers_aboutus.jpg" id="author_img" alt="Silas Author Image">
+                    </div>
+                    <div class="author_details">
+                        <p class="author_name">Silas Tay</p>
+                        <p class="date">20th July 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/silas.tsl/">
+                        <img src="../resources/socials/instagram-no-bg.png" alt="Instagram">
+                    </a>
+                    <a href="https://github.com/SilasTSL">
+                        <img src="../resources/socials/github_icon.png" href="https://github.com/SilasTSL" alt="Github">
+                    </a>
+                    <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
+                        <img src="../resources/socials/linkedin-no-bg.png" alt="Linkedin">
+                    </a>
+                    <div>
+                        <img src="../resources/socials/email_icon.png" alt="Email" class="silas_gmail">
+                    </div>
+                </container>
+            </div>
+
+            <img src="../resources/post_pictures/post_posters/connecting-google-sheets-javascript-poster-min.jpg" class="blog_post_img" id="example" alt="Connecting to Google Sheets with JavaScript">
+
+            <container id="main_container">
+                <h2 class="signposting">Introduction</h2>
+                    <div class="text">
+                            <p>
+                                For those of you that want to start making websites, learning proper backend may take a very long time. Servers, databases and PHP, learning backend will take you quite a decent amount of time. A great alternative is to use Google Sheets!
+                            </p>
+                            <p>
+                                Fortunately for us, it is actually extremely simple to link Google Sheets to our website using Javascript. This allows us to use Google Sheets as a “pseudo-database”, giving us the option to load dynamic content in our websites without having a fully developed back-end system!
+                            </p>
+                            <p>
+                                In today’s article, I will talk about why exactly we need to link Google Sheets to our Javascript and how to do it!
+                            </p>
+                    </div>
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <li>
+                        <a href="#first_link">
+                            Dynamic Content
+                        </a>
+                        </li>
+
+                        <li>
+                        <a href="#second_link">
+                            <li>Publishing your Google Sheet</li>
+                        </a>
+                        </li>
+
+                        <li>
+                        <a href="#third_link">
+                            <li>Reading your Google Sheet</li>
+                        </a>
+                        </li>
+
+                        <li>
+                        <a href="#fourth_link">
+                            <li>Extracting Data from Google Sheet</li>
+                        </a>
+                        </li>
+                    </ol>
+                </container>
+                <container class="main_text text">
+                    <div id="first_link">
+                        <h2 class="signposting">Dynamic Content</h2>
+                    </div>
+                    <p>
+                        Why do we want to connect our website with Google Sheets, or have any form of backend in our website? It’s so our website is able to load Dynamic Content. This means that our website’s content will load each time a user comes to our website! I’ve talked about the difference between Dynamic and Static web pages before in my other article on <a href="https://www.codingcucumbers.com/website/selenium-for-beginners">Selenium</a>.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/social_media_feed-min.png" class="inside_post_img" alt="social media feed">
+                        <p class="img_description">
+                            Social Media platforms like Facebook fill your feed with Dynamic content.
+                        </p>
+                    </div>
+                    <p>
+                        Simply put, by connecting our website to Google Sheets, it allows us to load data from Google Sheets itself. This means that making changes in our Google Sheets will thereby affect how our website will load! This is very useful because it means we can use Google Sheets as a database to store all kinds of information.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/database-min.jpg" class="inside_post_img" alt="Database">
+                        <p class="img_description">
+                            Read on to learn how to use Google Sheets as a Database!
+                        </p>
+                    </div>
+                    <p>
+                        For example, our website uses Google Sheets to store a history of all our articles. By connecting Google Sheets to our website using only Javascript, we are able to update our website with the latest articles posted very efficiently without ever needing to change any lines of code in our HTML file! All we have to do is add a new entry in our Google Sheets, and everything will load automatically!
+                    </p>
+                    <p>
+                        Ideally, a more robust backend system should be built if your website requires faster querying and loading of larger chunks of data, but Google Sheets provides a much simpler method of loading data while also being relatively efficient!
+                    </p>
+                    <p>
+                        I can think of a few other types of websites that can use Google Sheets as a database with relative ease. For example:
+                    </p>
+                    <ul>
+                        <li>Blogs accessing a record of all past articles</li>
+                        <li>E-commerce site accessing a record of all current products</li>
+                        <li>Photography site accessing a record of different types of photos</li>
+                    </ul>
+                    <p>
+                        But that’s enough talking, let’s get to how we use Google Sheets in our Javascript!
+                    </p>
+
+                    <div id="second_link">
+                        <h2 class="signposting">Publishing your Google Sheets</h2>
+                    </div>
+                    <p>
+                        The first step to accessing your Google Sheets through Javascript is to publish your Google Sheet. This is a very simple process which will make your Google Sheet available to the internet, therefore allowing us to access it through our Javascript later on. However, publishing your Google Sheet does have some security concerns.
+                    </p>
+                    <p>
+                        If your Google Sheet contains very sensitive information, I will highly discourage publishing your Google Sheet online. This is because anyone on the internet will be able to view your Google Sheet the moment you publish it! For example, if you have information about client details, bank account numbers etc. stored in your Google Sheet, you may want to look into more secure methods of loading your Dynamic Content.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/internet_security-min.jpg" class="inside_post_img" alt="Internet Security">
+                        <p class="img_description">
+                            Please be conscious of the sensitivity of your Google Sheet!
+                        </p>
+                    </div>
+                    <p>
+                        However, people will not be able to edit your data whatsoever. This is assuring because it means that our Google Sheet will not be meddled with and our website will not load any wrong information.
+                    </p>
+                    <p>
+                        Anyways, here’s how to publish your Google Sheet:
+                    </p>
+                    <ol>
+                        <li>Go to the Google Sheet you want to link to your website</li>
+                        <li>Click on File > Publish to the Web</li>
+                        <div class="inside_post_img_container">
+                            <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/google_sheets1.jpg" class="inside_post_img" alt="File and then Publish to Web">
+                        </div>
+                        <li>Click Publish</li>
+                        <div class="inside_post_img_container">
+                            <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/google_sheets2.jpg" class="inside_post_img" alt="Click to Publish to Web">
+                        </div>
+                        <li>Google Sheets will automatically publish all changes you make instantly. If you want to change that, click on Published content & settings and uncheck the “Automatically republish when changes are made” option</li>
+                        <div class="inside_post_img_container">
+                            <img src="../resources/post_pictures/inside_post_pictures/google_sheets_to_javascript/google_sheets3.jpg" class="inside_post_img" alt="Automatically republish when changes are made option">
+                        </div>
+                    </ol>
+                    <p>
+                        Instantly publishing any changes may seem good, but it also means that any mistakes when inputting data into your Google Sheets will directly be displayed on your website! If this is an issue, you may want to uncheck this option and only re-publish the Google Sheet after proper changes were made.
+                    </p>
+                    <br>
+                    <p>
+                        That’s all! Your Google Sheet is published on the internet and we are ready to access it with our Javascript!
+                    </p>
+
+                    <div id="third_link">
+                        <h2 class="signposting">Reading your Google Sheet</h2>
+                    </div>
+                    <p>
+                        Now all it takes to read our Google Sheet with Javascript is to request it! Using JavaScript, all we have to do is to fetch the Google Sheet and locate our data before using it! In this article, we will be fetching our Google Sheet data in the form of JSON, which will make things easier when we want to locate our data.
+                    </p>
+                    <p>
+                        Before fetching our Google Sheet data, we must first know the ID of our Google Sheet. Go to your Google Sheet and take note of its url. We can simply get our ID to our Google Sheet from that url! The link will be from “d/” to “/edit#gid=0”, for example:
+                    </p>
+                    <p>
+                        For a Google Sheet that looks like this:
+                    </p>
+                    <pre><code>
+    https://docs.google.com/spreadsheets/d/1D60gB7e9k1wLAficSZFLTjZtzHfOxY5lS4u41CWuXlw/edit#gid=0
+                    </code></pre>
+                    <p>
+                        The ID for this Google Sheet is:
+                    </p>
+                    <pre><code>
+    1D60gB7e9k1wLAficSZFLTjZtzHfOxY5lS4u41CWuXlw
+                    </code></pre>
+                    <p>
+                        With this ID, we can now fetch our data in JSON format. The code should look something like this:
+                    </p>
+                    <pre><code>
+    const response = await fetch("https://spreadsheets.google.com/feeds/cells/”YOUR ID HERE”/1/public/full?alt=json").then(response => {return response});
+    const json = response.json();
+    console.log(json);
+                    </code></pre>
+                    <p>
+                        Simply input your ID in place of “YOUR ID HERE”, and you should be able to fetch the data from your Google Sheet in your JavaScript!
+                    </p>
+                    <p>
+                        However, viewing your console, you may realise that the json printed is less than ideal. Our data is actually hidden behind many layers of unnecessary properties!
+                    </p>
+
+                    <div id="fourth_link">
+                        <h2 class="signposting">Extracting Data from Google Sheet</h2>
+                    </div>
+                    <p>
+                        To access our data, we need to access the “feed” property, then the “entry” property. This will return us a list of each cell in the Google Sheet.
+                    </p>
+                    <pre><code>
+    let list_of_cells = json.feed.entry;
+                    </code></pre>
+                    <p>
+                        Then, to extract the values out of each cell, we have to access the “gs$cell” property, followed by the “$t” property. If we wanted to print out each cell value in our Google Sheet, it may look something like this:
+                    </p>
+                    <pre><code>
+    for (cell of list_of_cells) {
+        console.log(cell.gs$cell.$t);
+    }
+                    </code></pre>
+                    <p>
+                        That’s about it! This was a complete step-by-step guide to using Google Sheets as a “pseudo-database” with JavaScript! It’s pretty simple, and I highly urge anyone that needs to make their website load Dynamic content to try using Google Sheets as their database!
+                    </p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>
+                        Fetching Google Sheets with JavaScript may not be something that popular, but I sincerely believe that it is a very apt way of retrieving data from a database for smaller scale websites! It is relatively simple and it also requires minimal effort to update the Google Sheet!
+                    </p>
+                    <p>
+                        I hope that you have learned something from today’s article, and if so, please subscribe to our email newsletter! We provide interesting and useful content about all things programming, so do stay tuned! Stay cool, cucumbers!
+                    </p>
+
+                </container>
+            </container>
+        </div>
+
+        <script language="javascript" type="text/javascript" src="newsletter.txt"></script>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
