@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>JavaScript Async, Then and Catch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="How to use Async, Then and Catch? Learn about the basics of Asynchronous Programming in JavaScript with code examples.">
+    <meta name="Silas">
+    <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Bungee&family=Bungee+Shade&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/data-intern-experience" />
+</head>
+
+<body>
+
+<script language="javascript" type="text/javascript"
+        src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">JavaScript Async, Then and Catch</h1>
+                <p class="preamble">What is Asynchronous Programming?</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                    <div class="img_cropper">
+                        <img src="../resources/about_us/silas_coding_cucumbers_aboutus.jpg" id="author_img" alt="Silas Author Image">
+                    </div>
+                    <div class="author_details">
+                        <p class="author_name">Silas Tay</p>
+                        <p class="date">25th July 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/silas.tsl/">
+                        <img src="../resources/socials/instagram-no-bg.png" alt="Instagram">
+                    </a>
+                    <a href="https://github.com/SilasTSL">
+                        <img src="../resources/socials/github_icon.png" href="https://github.com/SilasTSL" alt="Github">
+                    </a>
+                    <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
+                        <img src="../resources/socials/linkedin-no-bg.png" alt="Linkedin">
+                    </a>
+                    <div>
+                        <img src="../resources/socials/email_icon.png" alt="Email" class="silas_gmail">
+                    </div>
+                </container>
+            </div>
+
+            <img src="../resources/post_pictures/post_posters/javascript_async_poster-min.jpg" class="blog_post_img" id="example" alt="JavaScript Async, Then and Catch">
+
+            <container id="main_container">
+                <h2 class="signposting">Introduction</h2>
+                    <div class="text">
+                            <p>
+                                One of the more complicated concepts to understand in JavaScript is Asynchronous programming. Most of the time, our code works very linearly. If I were to call two functions back-to-back, function 1 will trigger, followed by function 2! This is representative of synchronous programming, which is something most programmers should be very familiar with.
+                            </p>
+                            <p>
+                                However, there are cases in which this order is less than ideal. Asynchronous programming is used when we need our code to escape this linearity. One very common example in JavaScript is when we need to fetch data from an API. When we need our code to wait for the result of a request, we need Asynchronous Programming.
+                            </p>
+                    </div>
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <li>
+                        <a href="#first_link">
+                            Asynchronous Programming
+                        </a>
+                        </li>
+
+                        <li>
+                        <a href="#second_link">
+                            Async and promises
+                        </a>
+                        </li>
+
+                        <li>
+                        <a href="#third_link">
+                            Then and Catch
+                        </a>
+                        </li>
+                    </ol>
+                </container>
+                <container class="main_text text">
+                    <div id="first_link">
+                        <h2 class="signposting">My Background</h2>
+                    </div>
+                    <p>
+                        So what exactly is <span class="highlight">Asynchronous Programming</span>? By definition, Asynchronous means not occurring at the same time. In the context of programming, our code is Asynchronous when they do not trigger one after another. With Asynchronous code, if one of our functions requires time to finish, the code will not get bottlenecked, but instead will continue on past the function. This is very useful because it prevents applications that require fetching data from loading too slowly!
+                    </p>
+                    <p>
+                        For example, imagine you have a website that needs to fetch data from an external source to fill up one element in your page. By fetching the data asynchronously, you can request for the data before loading all your other elements in the page, and when the data has been retrieved, load the element with the proper data. With synchronous code, you will need to wait for the data to be retrieved, then load all your other elements, then fill the specific element with the proper data. That’s very inefficient!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/javascript_async/user_interface-min.png" class="inside_post_img" alt="User Interface Loading">
+                        <p class="img_description">
+                            Quickly loading User Interfaces is often the most important aspect of applications.
+                        </p>
+                    </div>
+                    <p>
+                        A lot of programmers think of Asynchronous code as multi-threading programming. That’s a common misconception. The idea of Asynchronous Programming is to have your code relinquish control anytime it doesn’t need it, and focus on other tasks. In the same thread, if your code fetched something that requires time, it will simply move on. Basically, it helps to maximise the efficiency of your code!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/javascript_async/threading_vs_async-min.jpg" class="inside_post_img" alt="Multi-Threading vs Asynchronous">
+                        <p class="img_description">
+                            The difference between Multi-Threading vs Asynchronous.
+                        </p>
+                    </div>
+                    <p>
+                        If we were to go back to the website example, our code will first attempt to fetch the data that we need. While waiting for that fetch request to finish, it will not waste any time being stuck and instead move on to loading all the other elements in the page! When the request is finished, it then goes back and fills the specific element with the proper data. This all happens in one thread and it ensures that the thread does not waste any time waiting about!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/javascript_async/async_workflow-min.jpg" class="inside_post_img" alt="Asynchronous Workflow">
+                        <p class="img_description">
+                            When our code needs to wait, it just moves on!
+                        </p>
+                    </div>
+
+                    <div id="second_link">
+                        <h2 class="signposting">Async and Promise</h2>
+                    </div>
+                    <p>
+                        Let’s now move on to the <span class="highlight">Async</span> keyword. In JavaScript, using the Async keyword simply makes your function an Asynchronous function. It’s that simple! The syntax looks something like this:
+                    </p>
+                    <pre><code>
+    async function do_something() {#code}
+                    </code></pre>
+                    <p>
+                        Now what exactly does making our functions “Asynchronous” mean? Well, to be honest, nothing much… All it does is it opens up your function to be able to use JavaScript’s Promise-based code! In other words, it makes it so that your function now returns a Promise. But what is a <span class="highlight">Promise</span>?
+                    </p>
+                    <p>
+                        From the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">actual documentation</a>, a Promise represents the eventual completion (or failure) of an asynchronous operation and its resulting value. Since a Promise is the result of an Asynchronous function (that takes time to complete), it’s value is unknown the moment it is created. Thus, instead of returning a null value for Asynchronous functions, JavaScript returns Promises that represent the state of your request. A Promise “promises” to return the value of the request, once the Asynchronous task is finished. Basically, a Promise is an object that will return the value of your request if it succeeds, or the error message if the request is rejected.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/javascript_async/javascript_promise-min.jpg" class="inside_post_img" alt="Promises">
+                        <p class="img_description">
+                            JavaScript Promises aim to help us with Asynchronous programming.
+                        </p>
+                    </div>
+                    <p>
+                        A Promise has 3 possible states - Pending, Fulfilled or Rejected. They simply represent the status of the request. Pending means that the request has yet to be completed, Fulfilled means the request was a success and Rejected means the request failed. We can decide what to do with the obtained value of a Fulfilled Promise, or what to do with the Error Message of a Rejected Promise.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/javascript_async/promise_success_fail-min.jpg" class="inside_post_img" alt="Promises">
+                        <p class="img_description">
+                            JavaScript Promises can result in a Successful or Rejected request!
+                        </p>
+                    </div>
+                    <p>
+                        The way we use Promises in JavaScript is pretty unique. To use Promises, we have to attach Callback functions. Callback functions are simply functions that we pass as arguments into other functions. For promises, we normally provide two Callback functions, one if the Promise is Fulfilled (what to do with the obtained value), and another if the Promise is Rejected (what to do with the error message)!
+                    </p>
+                    <p>
+                        In JavaScript, we use the .then() method to deal with the Fulfilled Promise’s obtained value, and the .catch() method to deal with the Rejected Promise’s error message.
+                    </p>
+
+                    <div id="third_link">
+                        <h2 class="signposting">Then and Catch</h2>
+                    </div>
+                    <p>
+                        Let’s first deal with the <span class="highlight">.then()</span> method. We input a Callback function into the .then() method as an argument, and that function will trigger if our Promise is Fulfilled. The Callback function will automatically be passed an argument that represents the obtained value of your request. For example:
+                    </p>
+                    <pre><code>
+    async function fetch_data() {
+        return “Hello”
+    }
+                    </code></pre>
+                    <p>
+                        For a function like this, even though no request is made, it still returns a Promise since we dubbed it an Asynchronous function with the keyword “async”. Additionally, our “fetch_data” function is also likely to return a Fulfilled Promise almost instantly, because it does not require any sort of request. This will be a good time to demonstrate how to use the .then() method on Fulfilled Promises!
+                    </p>
+                    <p>
+                        To use the returned Promise, we use the .then() method.
+                    </p>
+                    <pre><code>
+    promise = fetch_data()
+    promise.then(function print_data(response) {
+        console.log(response);
+    })
+                    </code></pre>
+                    <p>
+                        This will print our response value (the response of our asynchronous function). In this case, the console will display “Hello”.
+                    </p>
+                    <p>
+                        Notice that in this case, we are creating a function as the Callback function of our .then() method. That seems pretty cumbersome! JavaScript actually has Arrow function expressions that help us to create simple functions quickly. It looks something like this:
+                    </p>
+                    <pre><code>
+    promise.then(response => {console.log(response});
+                    </code></pre>
+                    <p>
+                        This looks a lot neater than previously!
+                    </p>
+                    <p>
+                        That’s how you use the .then() method! We call the method on our promise, and the argument passed into the Callback function of the .then() method will be the response of our Fulfilled Promise. Pretty simple stuff!
+                    </p>
+                    <br>
+                    <p>
+                        Similarly, the <span class="highlight">.catch()</span> method is actually really simple too. Instead of passing the response of the Fulfilled Promise as the argument of the Callback Function, it will pass in the error of the Rejected Promise. Let’s see how this works:
+                    </p>
+                    <pre><code>
+    async function fetch_data_rejected() {
+        throw “Hello”;
+    }
+                    </code></pre>
+                    <p>
+                        This new function “fetch_data_rejected” will throw an error message of “Hello”! We can access this message with the .catch() method. It will look something like this:
+                    </p>
+                    <pre><code>
+    promise.then(error => {console.log(error});
+                    </code></pre>
+                    <p>
+                        This will similarly print out “Hello” in the console. It’s almost identical to the .then() method!
+                    </p>
+                    <p>
+                        To recap, we use .then() to deal with the response of a Fulfilled Promise, and we use .catch() to deal with the error message of a Rejected Promise!
+                    </p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>
+                        Asynchronous Programming is a concept that many programmers struggle with, myself included. I remember when I first started learning about the async, then and catch keywords, I was extremely confused! I hope that in today’s article, you have learnt what exactly each of those keywords represents. Promises in JavaScript is a particular dense topic and I merely talked about the basics of what we can do with Promises in JavaScript. If you are interested in learning more about Promises and Asynchronous JavaScript, I highly encourage you to take a look at the actual <a href="https://developer.mozilla.org/en-US/">MDN Web Docs</a>, which provides an in-depth tutorial on all things JavaScript!
+                    </p>
+                    <p>
+                        I sincerely hope that I have cleared many people’s misconceptions and confusions with this article. If you enjoyed it or have learnt something, please subscribe to our email newsletter to stay up to date with all our latest articles! Stay cool, cucumbers!
+                    </p>
+                </container>
+            </container>
+        </div>
+
+        <script language="javascript" type="text/javascript" src="newsletter.txt"></script>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
