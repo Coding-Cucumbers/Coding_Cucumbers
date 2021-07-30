@@ -91,7 +91,7 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.codingcucumbers.com/website/how-i-started_learning-golang</loc>
+  <loc>https://www.codingcucumbers.com/website/how-i-started-learning-golang</loc>
   <lastmod>2021-07-19T08:35:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
@@ -173,6 +173,16 @@
 <url>
   <loc>https://www.codingcucumbers.com/website/javascript-async</loc>
   <lastmod>2021-07-25T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/backend-engineer-intern</loc>
+  <lastmod>2021-07-28T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/hosting-telebot-with-heroku-for-free</loc>
+  <lastmod>2021-07-28T08:35:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
