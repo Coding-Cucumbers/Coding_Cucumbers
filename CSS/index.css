@@ -338,8 +338,6 @@ body {
     font-size: 1.3vw;
 }
 
-
-
 #main_series_container {
     display: none;
     width: 65%;
@@ -452,6 +450,17 @@ body {
     text-decoration: none;
 }
 
+.policy{
+  display: flex;
+  text-align: left;
+  margin-top: 40px;
+}
+
+.policy-cats{
+  color: white !important;
+  margin-right: 12px;
+}
+
 @media only screen and (max-width: 960px) {
 
   .header_nav_item {
@@ -536,9 +545,26 @@ body {
       margin-left: 3px;
   }
 
+  .social{
+      padding-right: 0 !important;
+  }
+
   .more_articles{
     font-size: 4.2vw;
     margin-top: 5%;
+  }
+
+  .policy{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .policy-cats{
+    font-size: 11px;
+  }
+
+  #input_box{
+    padding-right: 0;
   }
 
 }
