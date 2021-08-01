@@ -57,6 +57,17 @@
   height: 65px !important;
 }
 
+.policy{
+  display: flex;
+  text-align: left;
+  margin-top: 40px;
+}
+
+.policy-cats{
+  color: white !important;
+  margin-right: 12px;
+}
+
 @media only screen and (max-width: 960px) {
 
   #cc_logo_footer{
@@ -82,6 +93,19 @@
   #connect_para{
     font-size: 18px;
     display: block;
+  }
+
+  .policy{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .policy-cats{
+    font-size: 11px;
+  }
+
+  #input_box{
+    padding-right: 0;
   }
 
 
