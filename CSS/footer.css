@@ -68,6 +68,10 @@
   margin-right: 12px;
 }
 
+span {
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 960px) {
 
   #cc_logo_footer{
