@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>A Benginner's Guide to Threading in Python</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Learn how multi-threading code can be reduce the completion time of your scripts drastically and how to implement it in Python!">
+    <meta name="Silas">
+    <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/why-use-oop" />
+</head>
+
+<body>
+
+<script language="javascript" type="text/javascript"
+        src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">A Beginner’s Guide to Threading in Python</h1>
+                <p class="preamble">Bringing new dimensions to your code.</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                    <div class="img_cropper">
+                        <img src="../resources/about_us/silas_coding_cucumbers_aboutus.jpg" id="author_img" alt="Silas Author Image">
+                    </div>
+                    <div class="author_details">
+                        <p class="author_name">Silas Tay</p>
+                        <p class="date">4th August 2021</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/silas.tsl/">
+                        <img src="../resources/socials/instagram-no-bg.png" alt="Instagram">
+                    </a>
+                    <a href="https://github.com/SilasTSL">
+                        <img src="../resources/socials/github_icon.png" href="https://github.com/SilasTSL" alt="Github">
+                    </a>
+                    <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
+                        <img src="../resources/socials/linkedin-no-bg.png" alt="Linkedin">
+                    </a>
+                    <div>
+                        <img src="../resources/socials/email_icon.png" alt="Email" class="silas_gmail">
+                    </div>
+                </container>
+            </div>
+
+            <img src="../resources/post_pictures/post_posters/python-threading-min.jpg" class="blog_post_img" id="example" alt="A Beginner's Guide to Threading in Python">
+
+            <container id="main_container">
+                <h2 class="signposting">Introduction</h2>
+                    <div class="text">
+                            <p>
+                                Have you ever felt like your code was excruciatingly slow? It may be a very simple task, but due to the sheer number of repetitions, your code takes forever to complete. This is a very common issue! Lucky for us, there’s one way to overcome this problem - Threading! Threading allows us to produce code that can run “on multiple dimensions”, which speeds up the completion time of our code drastically.
+                            </p>
+                            <p>
+                                In today’s article, I hope to share the concept of Threading, and how we can use it in our Python scripts. In addition, I will also talk about how Threading is used and when it is ideal to use Threading, and when it should be avoided! I’ve been teasing this article in some of my previous articles for quite some time now, so let’s jump right in!
+                            </p>
+                    </div>
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <li>
+                        <a href="#first_link">
+                            Concept of Threading
+                        </a>
+                        </li>
+
+                        <li>
+                        <a href="#second_link">
+                            Python’s GIL
+                        </a>
+                        </li>
+
+                        <li>
+                        <a href="#third_link">
+                            Dos and Don'ts
+                        </a>
+                        </li>
+
+                        <li>
+                        <a href="#fourth_link">
+                            How to use Threading
+                        </a>
+                        </li>
+                    </ol>
+                </container>
+                <container class="main_text text">
+                    <div id="first_link">
+                        <h2 class="signposting">Concept of Threading</h2>
+                    </div>
+                    <p>
+                        What is Threading? In programming, a thread is a single sequential flow of control within a program (quoted from <a href="https://www.iitk.ac.in/esc101/05Aug/tutorial/essential/threads/definition.html#:~:text=Definition%3A%20A%20thread%20is%20a,tasks%20in%20a%20single%20program.">The Java Tutorial</a>). So if you were to run any of your Python scripts now, you are running one thread. Things start to get exciting when we consider using multiple threads in the same script! That’s basically like running instances of your script at the same time!
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/python-threading/thread-min.jpg" class="inside_post_img" alt="Threading real life picture">
+                        <p class="img_description">
+                            Each thread represents a separate instance of your code.
+                        </p>
+                    </div>
+                    <p>
+                        This is extremely efficient because the same script that took hours or days to complete, now takes minutes with Threading! With the right number of Threads, your script’s workload can be split evenly, thus making it extremely time-efficient. One very “real-world” example I like to use is Web Scraping.
+                    </p>
+                    <p>
+                        Imagine you need to write a script that scrapes 100 pages from a certain website, and each page takes on average 1 second to scrape. If I were to write a script that scrapes the website page by page, it would take me an average of 100 seconds to complete (that’s slow!). However, if I were to write a script that launches 10 threads, with each thread scraping 10 pages (so thread 1 would scrape page 1 - 10, thread 2 scrapes page 11 - 20 …), It would only take 10 seconds for my script to complete! That’s the power of Threading!
+                    </p>
+                    <p>
+                        It’s pretty amazing, isn’t it? Threading allows us to split up our tasks and run them concurrently, making full use of our computers’ processing power. As you may know, running multiple threads of code concurrently is not a very standard thing, especially in Python. This is largely due to Python’s Global Interpreter Lock (GIL).
+                    </p>
+
+                    <div id="second_link">
+                        <h2 class="signposting">GIL</h2>
+                    </div>
+                    <p>
+                        The Python <span class="highlight">Global Interpreter Lock</span> (GIL) is a system built by the developers of Python to solve memory issues. The problem was that with multiple threads, it was easy to mix up control of the same variable. With multiple threads running at the same time, there was no governing which thread could change, or even delete, shared variables.
+                    </p>
+                    <p>
+                        Now imagine we have 2 threads, thread 1 adds one to a variable named “count”, and thread 2 reduces one to the same “count” variable. As both threads are launched at the same time, with “count” having an initial value of 0, thread 1 will access it (as 0), add one to it, and return it to the main thread (as 1). At the same time, thread 2 will also access “count” (as 0), reduce one from it, and return it to the main thread (as -1). What happens now? Is “count” -1 or 1?
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/python-threading/threading-example-min.jpg" class="inside_post_img" alt="Threading Example">
+                        <p class="img_description">
+                            Without proper management, threading can get messy.
+                        </p>
+                    </div>
+                    <p>
+                        See the glaring problem now? Without proper thread management, your code can very quickly barrel into tons of bugs or even crash entirely. This is why Python has the GIL. The GIL ensures that at every one point of time, there can only be one thread that garners control.
+                    </p>
+                    <p>
+                        It’s like a hall pass! Whichever thread has the hall pass at one point of time, only that thread can continue. This helps simplify any lapses in variable memory, though it of course ruins the possibility of Threading. So in actual fact, Python’s Threading module isn’t actually launching multiple threads, but simply imitating multi-threading. However, at this stage it’s alright to just envision it as multi-threading.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/python-threading/hallpass-min.jpg" class="inside_post_img" alt="Hallpass">
+                        <p class="img_description">
+                            Whichever thread has the GIL, it has the "hallpass"!
+                        </p>
+                    </div>
+                    <p>
+                        With multiple threads, things aren’t as linear as before. We must be very conscious with which thread can get control over certain variables, and when they can pass on that control to other threads. In Python’s Threading module, this is resolved with Race Conditions, but I will not cover this concept in today’s article.
+                    </p>
+
+                    <div id="third_link">
+                        <h2 class="signposting">Dos and Don’ts</h2>
+                    </div>
+                    <p>
+                        I’ve painted a pretty picturesque idea of Threading thus far, however it isn’t a defectless system. Implementing Threading does not work for every script, and just because you implemented Threading does not mean your script will automatically be faster or more efficient. Due to the nature of Threading and the GIL, there are some limitations when it comes to Threading in Python.
+                    </p>
+                    <p>
+                        The concept of Threading is simply to use the most out of your CPU’s processing power. This works exceptionally when trying to launch separate threads that all work on tasks that require low processing power. With each thread using a small amount of processing power, they all can work smoothly and efficiently. However, when trying to work on tasks that consume a large amount of processing power, threading may not be the best solution. If your script already uses up all processing power of your CPU, threading is redundant.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/python-threading/computer-processor-min.jpg" class="inside_post_img" alt="Computer Processor">
+                        <p class="img_description">
+                            The applicability of Threading still boils down to the processing power of your CPU.
+                        </p>
+                    </div>
+                    <p>
+                        This is why Threading is ideal for simple tasks that require a lot of waiting, like Web Scraping! In Web Scraping, the majority of time taken is used to load the webpage we are scraping. This involves a lot of waiting around and very little processing speed, thus Threading is ideal. With each thread taking a minimum amount of processing power loading webpages, they all can work relatively smoothly to increase the efficiency of your overall script.
+                    </p>
+                    <p>
+                        A general rule of thumb is that each of your thread’s tasks should be relatively lightweight. This helps keep things running smoothly and ensures that the implementation of Threading will decrease the runtime of your code.
+                    </p>
+                    <p>
+                        Threading can also be used if you have multiple distinct tasks that your script has to go through. Each thread can be responsible for a single task. This requires breaking up the flow of your script a little, but can also be a lot more efficient. For example, you can manage one thread to collect data, one thread to clean data and finally another thread to send data to the database.
+                    </p>
+
+                    <div id="fourth_link">
+                        <h2 class="signposting">How to use Threading</h2>
+                    </div>
+                    <p>
+                        Lucky for us, Python actually has a built-in “threading” module for us to implement Threading! This module helps us to launch and kill threads smoothly, while also managing many other things related to Threading.
+                    </p>
+                    <p>
+                        To demonstrate the use of threading, let’s imagine we are building the Web Scraping script that we talked about earlier (scraping 100 pages from a website with each page taking 10 seconds).
+                    </p>
+                    <p>
+                        Without the use of Threading, our code may look something like this:
+                    </p>
+                    <pre><code>
+    #Without Threading:
+    for page_number in range(100):
+        time.sleep(1)
+        print(“Scraped page “ + page_number)
+    #The time needed for the script to complete will be about 100 seconds to complete!
+                    </code></pre>
+                    <p>
+                        This looks really slow and inefficient. Let's instead use Threading to speed up our code!
+                    </p>
+                    <p>
+                        Let’s first build a dummy scrape() method:
+                    </p>
+                    <pre><code>
+    import time
+    def scrape(thread_number):
+        print(“Scraping pages “ + str(thread_number + 1) + “ to “ + str(thread_number + 10))
+        for page_number in range(start_page, end_page + 1):
+            time.sleep(1)
+            print(“Scraped page “ + page_number)
+        return
+                    </code></pre>
+                    <p>
+                        This method simply imitates scraping pages, with each page taking 10 seconds!
+                    </p>
+                    <p>
+                        Moving on, let's finally launch some threads!
+                    </p>
+                    <pre><code>
+    import concurrent.futures
+    import threading
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        executor.map(scrape, range(10))
+                    </code></pre>
+                    <p>
+                        That’s a lot of new code, let me explain.
+                    </p>
+                    <p>
+                        The ThreadPoolExecutor object very neatly helps us to launch our threads. In our case, we hope to launch 10 threads, thus we input 10 as our parameter for “max_workers”. We also have to input what function our threads will carry out, which comes in when passing our “scrape” method as an argument in executor.map(). The second argument (range(10)) is used to pass as parameters into our scrape functions. In this case, we will pass in numbers 0, 1, 2, …, 9 into our 10 scrape threads.
+                    </p>
+                    <p>
+                        Now if we run this, you will probably see a bombardment of lines in your console. That just shows that each of your threads are working well, which is really great! Isn’t it so much faster?
+                    </p>
+                    <p>
+                        Just by implementing Threading, we were able to cut our script’s completion time by about 10 times! I hope this imaginary web scraping example helped to showcase the power of Threading.
+                    </p>
+
+                    <h2 class="signposting">Conclusion</h2>
+                    <p>
+                        When I was first introduced to Threading, I was pretty amazed. Especially because I was deep into data collection, Threading just seemed like the perfect step-up for my code! However, it’s vital that you learn exactly when to implement Threading, and when Threading is more of a worry.
+                    </p>
+                    <p>
+                        If possible, I urge everyone to try implementing Threading to your existing scripts! Think of ways to cut down the completion time of your script as much as you can. Doing this will help you look at things in a different light while undoubtedly improving your skills as a programmer. I truly think that Threading is something every programmer has to understand and implement. If you enjoyed the article, please subscribe to our email newsletter! Stay cool, cucumbers!
+                    </p>
+
+                </container>
+            </container>
+        </div>
+
+        <script language="javascript" type="text/javascript" src="newsletter.txt"></script>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
