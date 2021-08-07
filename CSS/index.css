@@ -459,6 +459,7 @@ body {
 .policy-cats{
   color: white !important;
   margin-right: 12px;
+  font-size: 0.75em;
 }
 
 @media only screen and (max-width: 960px) {
