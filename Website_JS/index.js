@@ -167,52 +167,44 @@ else {
 
 });
 
-max_post_per_page = 7;
+const max_post_per_page = 7;
 
-async function loadData() {
-    const response = await fetch("https://spreadsheets.google.com/feeds/cells/1RYNXbxtIeqSmtzJhNca459t8I9Kg_waQRJl-6jBezRc/1/public/full?alt=json").then(response => {return response});
-    const json = await response.json();
-    return json
-}
+//Blog History Sheets ID:
+const sheets_id = '1RYNXbxtIeqSmtzJhNca459t8I9Kg_waQRJl-6jBezRc';
+//API Key:
+const api_key = 'AIzaSyCJzFxSt5J-ZbZ1gHAzU5LO5TqRD7nLrNg';
 
-function fillAll() {
-    loadData().then(response => {
-        let data = response.feed.entry;
-        let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/8); i++) {
-            dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
-        }
-        //Swapping order of entries
-        let number_of_entries = Object.keys(dictionary_of_entries).length;
-        let new_dictionary_of_entries = {}
-        for (let i=0; i < number_of_entries; i++) {
-            new_dictionary_of_entries[i] = dictionary_of_entries[number_of_entries - 1 - i];
-        }
-        dictionary_of_entries = new_dictionary_of_entries;
-        console.log(dictionary_of_entries);
+//Total array of entries
+let total_entries = [];
 
-        fit_data(dictionary_of_entries);
-    });
-}
+//Current array of entries
+let current_entries = [];
+
+//Current entries split by page:
+let current_entries_split_by_page = [];
 
 function extract_data_from_row(row) {
-    let title = row[0].gs$cell.$t;
-    let date = row[1].gs$cell.$t;
-    let tag = row[2].gs$cell.$t;
-    let picture_link = row[3].gs$cell.$t;
-    let post_link = row[4].gs$cell.$t;
-    let preamble = row[5].gs$cell.$t;
-    let post_poster = row[6].gs$cell.$t;
-    let post_author = row[7].gs$cell.$t;
+    let title = row[0];
+    let date = row[1];
+    let tag = row[2];
+    let picture_link = row[3];
+    let post_link = row[4];
+    let preamble = row[5];
+    let post_poster = row[6];
+    let post_author = row[7];
+
     return [title, date, tag, picture_link, post_link, preamble, post_poster, post_author];
 }
 
-function fit_data(dictionary_of_entries) {
+function fit_data() {
+  //Fitting data for latest posts:
+  getJson(sheets_id, api_key).then(response => {
+    const array_of_entries = response.values.reverse();
     let post_thumbnails = document.getElementsByClassName("latest_post_thumbnail");
     let post_links = document.getElementsByClassName("latest_post_link");
     console.log(post_thumbnails);
     for (let i=0; i < max_post_per_page; i++) {
-        let entry = dictionary_of_entries[i];
+        let entry = array_of_entries[i];
         let [title, date, tag, picture_link, post_link, preamble, post_poster, post_author] = extract_data_from_row(entry);
         post_thumbnails[i].getElementsByClassName("post_title")[0].innerHTML = title;
         post_thumbnails[i].getElementsByClassName("latest_post_poster")[0].src = post_poster;
@@ -221,10 +213,31 @@ function fit_data(dictionary_of_entries) {
         post_links[i * 2].setAttribute("href", post_link);
         post_links[i * 2 + 1].setAttribute("href", post_link);
     }
+  });
+  return;
+}
+//GET https://sheets.googleapis.com/v4/spreadsheets/1RYNXbxtIeqSmtzJhNca459t8I9Kg_waQRJl-6jBezRc/values/Sheet1?key=AIzaSyCJzFxSt5J-ZbZ1gHAzU5LO5TqRD7nLrNg
+//`https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=${gid}`
+
+async function getJson(id,key){
+    const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${id}/values/Sheet1?key=${key}`).then(response => {return response});
+    const json = response.json();
+    return json;
 }
 
+async function actions() {
+    //Entry actions:
+    console.log("Welcome to Coding Cucumbers!");
+    console.log("Loading Data!");
 
-fillAll();
+    fit_data();
+
+    return;
+}
+
+actions();
+
+//End of data loading!
 
 function fadeIn(element, opacity_increment, callback) {
     element.style.opacity = "0";
@@ -269,3 +282,5 @@ function fadeHeader() {
 
 
 fadeHeader();
+
+

@@ -7,26 +7,81 @@
 
 //*** Google Sheets as JSON Callback: https://spreadsheets.google.com/feeds/cells/1RYNXbxtIeqSmtzJhNca459t8I9Kg_waQRJl-6jBezRc/1/public/full?alt=json
 
+//Blog History Sheets ID:
+const sheets_id = '1RYNXbxtIeqSmtzJhNca459t8I9Kg_waQRJl-6jBezRc';
+//API Key:
+const api_key = 'AIzaSyCJzFxSt5J-ZbZ1gHAzU5LO5TqRD7nLrNg';
+  
 const max_post_per_page = 8;
 
+
+//Total array of entries
+let total_entries = [];
+
+//Current array of entries
+let current_entries = [];
+
+//Current entries split by page:
+let current_entries_split_by_page = [];
+
 function extract_data_from_row(row) {
-    let title = row[0].gs$cell.$t;
-    let date = row[1].gs$cell.$t;
-    let tag = row[2].gs$cell.$t;
-    let picture_link = row[3].gs$cell.$t;
-    let post_link = row[4].gs$cell.$t;
+    let title = row[0];
+    let date = row[1];
+    let tag = row[2];
+    let picture_link = row[3];
+    let post_link = row[4];
     return [title, date, tag, picture_link, post_link];
 }
 
-function fit_data(dictionary_of_entries) {
+function split_entries_into_pages() {
+    //Splits current entries into arrays of 8:
+    console.log("Splitting current entries into pages!");
+
+    current_entries_split_by_page = [];
+
+    let counter = 0;
+    let current_page_entries = [];
+    for (let i = 0; i < current_entries.length; i++) {
+        if (counter >= max_post_per_page) {
+            counter = 1;
+            current_entries_split_by_page.push(current_page_entries);
+            current_page_entries = [];
+            current_page_entries.push(current_entries[i]);
+        } else {
+            counter++;
+            current_page_entries.push(current_entries[i]);
+        }
+    }
+    if (current_page_entries.length > 0) {
+        current_entries_split_by_page.push(current_page_entries);
+    }
+
+    console.log("Current entries split by pages: " + current_entries_split_by_page);
+    console.log("Splitting pages done!");
+
+    return;
+}
+
+function fit_data(array_of_entries) {
+    //Fits array of 8 data entries into the 8 post thumbnails:
+
+    //Making all post thumbnails empty:
     let post_thumbnails = document.getElementsByClassName("post_thumbnail");
     for (post_thumbnail of post_thumbnails){
         post_thumbnail.classList.add("hidden");
+        post_thumbnail.classList.remove("show");
     }
     let post_links = document.getElementsByClassName("post_thumbnail_link");
-    console.log(post_thumbnails);
-    for (let i=0; i < max_post_per_page; i++) {
-        let entry = dictionary_of_entries[i];
+
+    //Fitting data:
+    let entries_to_fit = array_of_entries.length; 
+    console.log("Number of entries in this page: " + entries_to_fit);
+    if (entries_to_fit > max_post_per_page) {
+        entries_to_fit = max_post_per_page;
+    }
+
+    for (let i=0; i < entries_to_fit; i++) {
+        let entry = array_of_entries[i];
         let [title, date, tag, picture_link, post_link] = extract_data_from_row(entry);
         post_thumbnails[i].getElementsByClassName("post_title")[0].innerHTML = title;
         post_thumbnails[i].getElementsByClassName("post_img")[0].src = picture_link;
@@ -36,389 +91,132 @@ function fit_data(dictionary_of_entries) {
         post_thumbnails[i].classList.remove("hidden");
         post_thumbnails[i].classList.add("show");
     }
+    return;
 }
+//GET https://sheets.googleapis.com/v4/spreadsheets/1RYNXbxtIeqSmtzJhNca459t8I9Kg_waQRJl-6jBezRc/values/Sheet1?key=AIzaSyCJzFxSt5J-ZbZ1gHAzU5LO5TqRD7nLrNg
+//`https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json&tq&gid=${gid}`
 
-async function loadData() {
-    const response = await fetch("https://spreadsheets.google.com/feeds/cells/1RYNXbxtIeqSmtzJhNca459t8I9Kg_waQRJl-6jBezRc/1/public/full?alt=json").then(response => {return response});
+async function getJson(id,key){
+    const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${id}/values/Sheet1?key=${key}`).then(response => {return response});
     const json = response.json();
-    return json
+    return json;
 }
 
-function fillAll() {
-    loadData().then(response => {
-        let data = response.feed.entry;
-        let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/8); i++) {
-            dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
-        }
-        //Swapping order of entries
-        let number_of_entries = Object.keys(dictionary_of_entries).length;
-        let new_dictionary_of_entries = {}
-        for (let i=0; i < number_of_entries; i++) {
-            new_dictionary_of_entries[i] = dictionary_of_entries[number_of_entries - 1 - i];
-        }
-        dictionary_of_entries = new_dictionary_of_entries;
-        console.log(dictionary_of_entries);
 
-        fit_data(dictionary_of_entries);
+async function fillAll() {
+    //Resets the 8 post thumbnails with the 8 recent posts:
+    await getJson(sheets_id, api_key).then(response => {
+        console.log("Filling all:");
+        total_entries = response.values.reverse();
+        current_entries = total_entries;
+
+        console.log("Total Entries: " + total_entries);
+        fit_data(current_entries);
+        console.log("Filled all!");
+        return data;
     });
-}
 
-//Resets posts based on filter selection
-function filterSelection(filter_tag) {
-    console.log("Filtering based on: "+filter_tag);
-    let post_thumbnails = document.getElementsByClassName("post_thumbnail");
-    let post_links = document.getElementsByClassName("post_thumbnail_link");
+    //Updating current entries and curent entries split by page
+    split_entries_into_pages();
 
-    if (filter_tag === "all") {
-        console.log("Filling everthing!");
-        loadPages();
-        fillAll();
-        return;
-    }
-    for (post_thumbnail of post_thumbnails) {
-        post_thumbnail.classList.remove("hidden");
-        post_thumbnail.classList.add("show");
-    }
-    loadData().then(response => {
-        let data = response.feed.entry;
-        let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/8); i++) {
-            dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
-        }
-        //Swapping order of entries
-        let number_of_entries = Object.keys(dictionary_of_entries).length;
-        let new_dictionary_of_entries = {}
-        for (let i=0; i < number_of_entries; i++) {
-            new_dictionary_of_entries[i] = dictionary_of_entries[number_of_entries - 1 - i];
-        }
-        dictionary_of_entries = new_dictionary_of_entries;
-
-        for (post_thumbnail of post_thumbnails) {
-            post_thumbnail.getElementsByClassName("post_title")[0].innerHTML = "";
-            post_thumbnail.getElementsByClassName("post_img")[0].src = "";
-            post_thumbnail.getElementsByClassName("post_date")[0].innerHTML = "";
-            post_thumbnail.getElementsByClassName("post_tag")[0].innerHTML = "";
-        }
-
-        thumbnail_number = 0;
-        for (let i=0; i < Object.keys(dictionary_of_entries).length; i++) {
-            let entry = dictionary_of_entries[i];
-            let [title, date, tag, picture_link, post_link] = extract_data_from_row(entry);
-            if (tag === filter_tag) {
-                console.log("Success");
-                post_thumbnails[thumbnail_number].getElementsByClassName("post_title")[0].innerHTML = title;
-                post_thumbnails[thumbnail_number].getElementsByClassName("post_img")[0].src = picture_link;
-                post_thumbnails[thumbnail_number].getElementsByClassName("post_date")[0].innerHTML = date;
-                post_thumbnails[thumbnail_number].getElementsByClassName("post_tag")[0].innerHTML = tag;
-                post_links[thumbnail_number].setAttribute("href", post_link);
-                thumbnail_number++;
-            } else {continue;}
-        }
-        for (post_thumbnail of post_thumbnails) {
-            if (!post_thumbnail.getElementsByClassName("post_title")[0].innerHTML) {
-                console.log(post_thumbnail+" removed!");
-                post_thumbnail.classList.add("hidden");
-                post_thumbnail.classList.remove("show");
-            }
-        }
-    })
     return;
 }
 
-fillAll();
+function filterDictionary(filter) {
+    //Filters total entries into a array of entries with specified filter only:
+    console.log("Filtering array based on: " + filter);
+    const data = total_entries;
+    let array_of_entries = [];
+    let number = 0;
 
-//Load Page Data
-function loadPageData(){
-    //Get current page
-    pagination = document.getElementById('pagination');
-    page_number = parseInt(pagination.value);
-    console.log(page_number);
-
-    //Check if any filter is applied
-    let current_filter;
-    let all_filters = document.getElementsByClassName("category_checkbox");
-    for (filter of all_filters) {
-        if (filter.checked === true) {
-            current_filter = filter;
+    for (let i = 0; i < data.length; i++) {
+        const entry = data[i];
+        if (entry[2] === filter || filter === "all") {
+            array_of_entries[number] = entry;
+            number++;
         }
     }
-    console.log("Current Filter Applied: " + current_filter.value);
-    //If next page when filter is applied!
-    if (current_filter.value !== 'all') {
-        loadData().then(response => {
-            let data = response.feed.entry;
-            let dictionary_of_entries = {};
-            let dictionary_of_entries_filtered = {};
-            for (let i=0; i < (data.length/8); i++) {
-                dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
-            }
-            //Swapping order of entries
-            let number_of_entries = Object.keys(dictionary_of_entries).length;
-            let new_dictionary_of_entries = {}
-            for (let i=0; i < number_of_entries; i++) {
-                new_dictionary_of_entries[i] = dictionary_of_entries[number_of_entries - 1 - i];
-            }
-            dictionary_of_entries = new_dictionary_of_entries;
 
-            //Extract only specific filter entries
-            let index = 0;
-            for (let i=0; i < Object.keys(dictionary_of_entries).length; i++) {
-                let [title, date, tag, picture_link, post_link] = extract_data_from_row(dictionary_of_entries[i]);
-                if (tag.toLowerCase() == current_filter.value) {
-                    console.log("count");
-                    dictionary_of_entries_filtered[index] = dictionary_of_entries[i];
-                    index++;
-                }
-            }
-            console.log("Number of filtered entries: " + Object.keys(dictionary_of_entries_filtered).length);
+    current_entries = array_of_entries;
+    console.log("Current entries updated: " + current_entries);    
 
-            //Split entries by pages
-            let filtered_entries_split_by_page = [];
-            let number_of_filtered_entries = Object.keys(dictionary_of_entries_filtered).length;
-            let current_page_entries = [];
-            let counter = 0;
-            for (let i=0; i < Object.keys(dictionary_of_entries_filtered).length; i++) {
-                current_page_entries.push(dictionary_of_entries_filtered[i]);
-                counter++;
-                if (counter == 8) {
-                    filtered_entries_split_by_page.push(current_page_entries);
-                    current_page_entries = [];
-                    counter = 0;
-                }
-            }
+    split_entries_into_pages();
 
-            //Fill last page entries
-            let last_page_entries = [];
-            let last_page_entries_number = number_of_filtered_entries % max_post_per_page;
-            for (let i = number_of_filtered_entries - last_page_entries_number; i < number_of_filtered_entries; i++) {
-                last_page_entries.push(dictionary_of_entries_filtered[i]);
-            }
-            filtered_entries_split_by_page.push(last_page_entries);
-            console.log("Filteredherehre" + filtered_entries_split_by_page);
-            //Fill data
-            let current_page_entries_filtered = filtered_entries_split_by_page[page_number-1];
-            let post_thumbnails = document.getElementsByClassName("post_thumbnail");
-            let post_links = document.getElementsByClassName("post_thumbnail_link");
+    console.log("Filtering done!");
 
-            for (post_thumbnail of post_thumbnails){
-                post_thumbnail.classList.remove("show");
-                post_thumbnail.classList.add("hidden");
-            }
-
-            for (let i=0; i < max_post_per_page; i++) {
-                if (i >= current_page_entries_filtered.length) {
-                    console.log("Filter less than 8!");
-                    break;
-                }
-                let entry = current_page_entries_filtered[i];
-                let [title, date, tag, picture_link, post_link] = extract_data_from_row(entry);
-                post_thumbnails[i].getElementsByClassName("post_title")[0].innerHTML = title;
-                post_thumbnails[i].getElementsByClassName("post_img")[0].src = picture_link;
-                post_thumbnails[i].getElementsByClassName("post_date")[0].innerHTML = date;
-                post_thumbnails[i].getElementsByClassName("post_tag")[0].innerHTML = tag;
-                post_links[i].setAttribute("href", post_link);
-                post_thumbnails[i].classList.remove("hidden");
-                post_thumbnails[i].classList.add("show");
-            }
-        })
-        return;
-    }
-
-    loadData().then(response => {
-        let data = response.feed.entry;
-        let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/8); i++) {
-            dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
-        }
-        //Swapping order of entries
-        let number_of_entries = Object.keys(dictionary_of_entries).length;
-        let new_dictionary_of_entries = {}
-        for (let i=0; i < number_of_entries; i++) {
-            new_dictionary_of_entries[i] = dictionary_of_entries[number_of_entries - 1 - i];
-        }
-        dictionary_of_entries = new_dictionary_of_entries;
-        //Split entries by page
-        let counter = 0;
-        let page_entries = [];
-        let entries_by_page = [];
-        for (let i=0; i < number_of_entries; i++) {
-            page_entries.push(dictionary_of_entries[i]);
-            counter++;
-            if (counter == 8) {
-                counter = 0;
-                entries_by_page.push(page_entries);
-                page_entries = [];
-            }
-        }
-        //Fill last page entries
-        let last_page_entries = [];
-        let last_page_entries_number = number_of_entries % max_post_per_page;
-        for (let i = number_of_entries - last_page_entries_number; i < number_of_entries; i++) {
-            last_page_entries.push(dictionary_of_entries[i]);
-        }
-        entries_by_page.push(last_page_entries);
-
-
-        //Fill data by page number
-        let current_page_entries = entries_by_page[page_number - 1];
-        let current_page_entries_length = current_page_entries.length;
-        console.log("Current page entries: "+ entries_by_page[page_number - 1] + ", total number of entries: " + current_page_entries_length);
-        let post_thumbnails = document.getElementsByClassName("post_thumbnail");
-        let post_links = document.getElementsByClassName("post_thumbnail_link");
-
-        for (let i=0; i < max_post_per_page; i++) {
-            if (i >= current_page_entries_length){
-                post_thumbnails[i].classList.remove("show");
-                post_thumbnails[i].classList.add("hidden");
-                continue;
-            }
-            let entry = current_page_entries[i];
-            let [title, date, tag, picture_link, post_link] = extract_data_from_row(entry);
-            post_thumbnails[i].getElementsByClassName("post_title")[0].innerHTML = title;
-            post_thumbnails[i].getElementsByClassName("post_img")[0].src = picture_link;
-            post_thumbnails[i].getElementsByClassName("post_date")[0].innerHTML = date;
-            post_thumbnails[i].getElementsByClassName("post_tag")[0].innerHTML = tag;
-            post_links[i].setAttribute("href", post_link)
-            post_thumbnails[i].classList.remove("hidden");
-            post_thumbnails[i].classList.add("show");
-        }
-    });
+    return current_entries;
 }
 
-function loadPages() {
-    //Load all pagination (first time)
-    //Remove all pagination currently
+function filterSelection(filter) {
+    //Filter current data entries according to specified filter (onclick for filter buttons):
+    //Loads 8 latest entries from current filter:
+    const entries = filterDictionary(filter);
+    fit_data(entries);
+
+    //Reloads pagination according to current entries:
+    loadPagination();
+
+    return;
+}
+
+function loadPagination() {
+    //Loads pagination 
+    console.log("Loading Pagination!");
+
+    //Remove all pagination currently:
     let pagination_pages_select = document.getElementById('pagination');
     pagination_pages_select.options.length = 0;
 
-    loadData().then(response => {
-        let data = response.feed.entry;
-        let dictionary_of_entries = {};
-        for (let i=0; i < (data.length/8); i++) {
-            dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
-        }
-        //Swapping order of entries
-        let number_of_entries = Object.keys(dictionary_of_entries).length;
-        let new_dictionary_of_entries = {}
-        for (let i=0; i < number_of_entries; i++) {
-            new_dictionary_of_entries[i] = dictionary_of_entries[number_of_entries - 1 - i];
-        }
-        dictionary_of_entries = new_dictionary_of_entries;
-        console.log(dictionary_of_entries);
+    //Loads current pagination according to current filter:
+    let total_number_of_entries = current_entries.length;
+    let total_number_of_pages = Math.ceil(total_number_of_entries / max_post_per_page);
+    for (let i = 1; i < (total_number_of_pages+1); i++){
+        let pagination = document.getElementById('pagination');
+        let pagination_page = document.createElement("option");
+        pagination_page.text = i;
+        pagination_page.classList.add("pagination_page");
+        pagination.onchange = loadPageData;
+        pagination.appendChild(pagination_page);
 
-        let total_number_of_entries = Object.keys(dictionary_of_entries).length;
-        let total_number_of_pages = Math.floor(total_number_of_entries / max_post_per_page);
-        let remainder = total_number_of_entries % max_post_per_page;
-        if (remainder > 0){total_number_of_pages++;};
-        for (let i = 1; i < (total_number_of_pages+1); i++){
-            let pagination = document.getElementById('pagination');
-            let pagination_page = document.createElement("option");
-            pagination_page.text = i;
-            pagination_page.classList.add("pagination_page");
-            pagination.onchange = loadPageData;
-            pagination.appendChild(pagination_page);
-
-        }
-    });
+    }
+    console.log("Total number of entries: " + total_number_of_entries + ", Total number of pages: " + total_number_of_pages);
+    return;
 }
 
-loadPages();
+function loadPageData() {
+    //Loads page data (onclick for pagination options):
 
+    //Getting current page:
+    const page_number = parseInt(document.getElementById('pagination').value);
+    console.log("Loading Page: " + page_number);
 
-function loadPagesIfFiltered(filter) {
-    //Get current pagination pages
-    let pagination_pages_select = document.getElementById('pagination');
-    pagination_pages_select.options.length = 0;
-    loadData().then(response => {
-        let data = response.feed.entry;
-        let dictionary_of_entries = {};
-        let dictionary_of_entries_filtered = {};
-        for (let i=0; i < (data.length/8); i++) {
-            dictionary_of_entries[i] = data.slice(i * 8, (i+1) * 8)
-        }
-        //Swapping order of entries
-        let number_of_entries = Object.keys(dictionary_of_entries).length;
-        let new_dictionary_of_entries = {}
-        for (let i=0; i < number_of_entries; i++) {
-            new_dictionary_of_entries[i] = dictionary_of_entries[number_of_entries - 1 - i];
-        }
-        dictionary_of_entries = new_dictionary_of_entries;
+    //Loading page data:
+    const current_page_entries = current_entries_split_by_page[page_number - 1];
+    console.log("Loading current page of entries: " + current_page_entries);
+    fit_data(current_page_entries);
 
-        //Extract only specific filter entries
-        let index = 0;
-        for (let i=0; i < Object.keys(dictionary_of_entries).length; i++) {
-            let [title, date, tag, picture_link, post_link] = extract_data_from_row(dictionary_of_entries[i]);
-            if (tag == filter) {
-                dictionary_of_entries_filtered[index] = dictionary_of_entries[i];
-                index++;
-            }
-        }
-        console.log("Number of filtered entries: " + Object.keys(dictionary_of_entries_filtered).length);
+    console.log("Done Loading Page: " + page_number);
 
-        //Split entries by pages
-        let filtered_entries_split_by_page = [];
-        let number_of_filtered_entries = Object.keys(dictionary_of_entries_filtered).length;
-        let current_page_entries = [];
-        let counter = 0;
-        for (let i=0; i < Object.keys(dictionary_of_entries_filtered).length; i++) {
-            current_page_entries.push(dictionary_of_entries_filtered[i]);
-            counter++;
-            if (counter == 8) {
-                filtered_entries_split_by_page.push(current_page_entries);
-                current_page_entries = [];
-                counter = 0;
-            }
-        }
-
-        //Fill last page entries
-        let last_page_entries = [];
-        let last_page_entries_number = number_of_filtered_entries % max_post_per_page;
-        for (let i = number_of_filtered_entries - last_page_entries_number; i < number_of_filtered_entries; i++) {
-            last_page_entries.push(dictionary_of_entries_filtered[i]);
-        }
-        filtered_entries_split_by_page.push(last_page_entries);
-
-        //Adding new pagination pages
-        let number_of_pages = Math.ceil(number_of_filtered_entries / max_post_per_page);
-        for (let i=1; i <= number_of_pages; i++) {
-            let pagination = document.getElementById('pagination');
-            let pagination_page = document.createElement("option");
-            pagination_page.text = i;
-            pagination_page.classList.add("pagination_page");
-            pagination.onchange = loadPageData;
-            pagination.appendChild(pagination_page);
-        }
-
-        //Load data
-        let first_page_filtered_entries = filtered_entries_split_by_page[0];
-        let post_thumbnails = document.getElementsByClassName("post_thumbnail");
-        let post_links = document.getElementsByClassName("post_thumbnail_link");
-
-        for (post_thumbnail of post_thumbnails){
-            post_thumbnail.classList.remove("show");
-            post_thumbnail.classList.add("hidden");
-        }
-
-        for (let i=0; i < max_post_per_page; i++) {
-            if (i >= first_page_filtered_entries.length) {
-                console.log("Filter less than 8!");
-                break;
-            }
-            let entry = filtered_entries_split_by_page[0][i];
-            let [title, date, tag, picture_link, post_link] = extract_data_from_row(entry);
-            post_thumbnails[i].getElementsByClassName("post_title")[0].innerHTML = title;
-            post_thumbnails[i].getElementsByClassName("post_img")[0].src = picture_link;
-            post_thumbnails[i].getElementsByClassName("post_date")[0].innerHTML = date;
-            post_thumbnails[i].getElementsByClassName("post_tag")[0].innerHTML = tag;
-            post_links[i].setAttribute("href", post_link);
-            post_thumbnails[i].classList.remove("hidden");
-            post_thumbnails[i].classList.add("show");
-        }
-
-    })
-
+    return;
 }
+
+async function actions() {
+    //Entry actions:
+    console.log("Welcome to Coding Cucumbers blog history page!");
+
+    //First filling of data & getting total dictionary of entries:
+    await fillAll();
+    loadPagination();
+
+    console.log("Entry actions done!");
+    return;
+}
+
+//Actions:
+actions();
+
+//End of data loading!
+
 
 var col_2 = document.getElementsByClassName("col-2")[0];
 var all_posts = document.getElementById('all_posts');

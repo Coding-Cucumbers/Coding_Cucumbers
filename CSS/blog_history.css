@@ -143,11 +143,11 @@ body {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .show {
-    display: flex;
+    display: flex !important;
 }
 
 .category_checkbox {
