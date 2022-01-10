@@ -215,5 +215,14 @@
   <lastmod>2021-08-09T08:35:13+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-
+<url>
+  <loc>https://www.codingcucumbers.com/website/NUS-CS1101S</loc>
+  <lastmod>2022-01-10T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.codingcucumbers.com/website/NUS-CS-everything-to-expect</loc>
+  <lastmod>2022-01-10T08:35:13+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
 </urlset>
