@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NUS CS2103T: Software Engineering</title>
+    <meta name="description" content="Everything to expect for NUS CS2103T module">
+    <meta name="Silas">
+    <link rel="icon" href="../resources/logos/CC_logo_no_words.png">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script data-ad-client="ca-pub-6525626618604810" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9WZBXGQYRN');
+    </script>
+    <link rel="canonical" href="https://www.codingcucumbers.com/website/NUS-CS2103T" />
+</head>
+
+<body>
+
+  <script language="javascript" type="text/javascript"
+    src="header.txt"></script>
+
+<div class="container-fluid main_container_box">
+    <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+            <div class="title_box">
+                <h1 class="title">NUS CS2103T: Software Engineering</h1><br>
+                <p class="preamble">Everything to know before you get started</p>
+            </div>
+
+            <div class="author">
+                <container class="author_container">
+                  <div class="img_cropper">
+                    <img src="../resources/about_us/silas_coding_cucumbers_aboutus.jpg" id="author_img" alt="author bryan image">
+                  </div>
+                    <div class="author_details">
+                        <p class="author_name">Silas Tay</p>
+                        <p class="date">18th December 2022</p>
+                    </div>
+                </container>
+
+                <container class="socials">
+                    <a href="https://www.instagram.com/silas.tsl/">
+                        <img src="../resources/socials/instagram-no-bg.png" alt="instagram icon">
+                    </a>
+                    <a href="https://github.com/silastsl">
+                        <img src="../resources/socials/github_icon.png" alt="github icon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/silas-tay-97a523208/">
+                        <img src="../resources/socials/linkedin-no-bg.png" alt="linkedin icon">
+                    </a>
+                    <div>
+                        <img src="../resources/socials/email_icon.png" class="silas_gmail" alt="email icon">
+                    </div>
+                </container>
+            </div>
+            <img src="../resources/post_pictures/post_posters/nus-cs2103t-poster-min.jpeg" alt="nus cs2103t" class="blog_post_img">
+
+            <container id="main_container">
+                <p class="signposting">Introduction</p>
+                <p class="text">
+                    CS2103T Software Engineering is one of the key computing modules you will take in your NUS Computer Science journey. Personally, it is one of the most interesting modules I have taken in NUS so far and really delves deep into the entire process of developing a software engineering product. This modules provides a great overview of what software engineering truly is about, giving you a high-level perspective on how to create a product from scratch.
+                </p>
+                <p class="text">
+                    In this article, I will cover the key concepts I learnt from CS2103T, helping you feel more prepared when it is your turn to take this module yourself. The aim of this article is not to be a complete cheatsheet of the entire module, but a general outline of the module’s content so that you know what to expect from CS2103T.
+                </p>
+
+                <container class="content_box text">
+                    <p class="content_title">Content Page</p>
+                    <ol class="content_list">
+                        <li>
+                        <a href="#first_link">
+                            SDLC Lifecycles
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#second_link">
+                            RCS
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#third_link">
+                            Design Models
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#fourth_link">
+                            Testing
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#fifth_link">
+                            Project Scoping
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#sixth_link">
+                            Design Models
+                        </a>
+                        </li>
+                        <li>
+                        <a href="#seventh_link">
+                            Conclusion
+                        </a>
+                        </li>
+                      </ol>
+                </container>
+
+                <container class="main_text text">
+                    <div id="first_link">
+                        <h2 class="signposting">SDLC Lifecycles</h2>
+                    </div>
+                    <p>
+                        One of the first things we were taught from the module was the concept of <span class="highlight">Software Development Lifecycles (SDLC)</span>. SLDCs are basically the stages required to develop a software engineering product from scratch! For example, stages such as gathering requirements, designing architecture, implementation and testing are all part of the SDLC. There are some basic SDLC lifecycles covered in the module.
+                    </p>
+                    <p>
+                        The <span class="highlight">Waterfall model</span> depicts software engineering as a linear process. This means that the project progresses in one direction, from one stage to the next. As each stage of the model is completed, they should produce information that supports the next stage of development. This process is also named the sequential model.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/NUS-CS2103T/waterfall-model.png" class="inside_post_img" alt="Waterfall Model">
+                        <p class="img_description">
+                            It is called the Waterfall model because the model flows from one stage to the next
+                        </p>
+                    </div>
+                    <p>
+                        The Waterfall model is mainly used when the problem statement is well-understood and stable from the start of development. This ensures that the entire project can be scoped and defined as one sequential model. However, the problem is that this is rarely the case in real-world projects.
+                    </p>
+                    <br>
+                    <p>
+                        The <span class="highlight">Iterative model</span> depicts software engineering as several iterations of SDLCs. Basically, it involves developing multiple versions of the product. It can also be seen as several cycles of the Sequential model! This way, each version of the product can be improved on with feedback from the previous version. These improvements can include things like bug fixes or even additional product requirements.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/NUS-CS2103T/iterative-model.png" class="inside_post_img" alt="Iterative Model">
+                        <p class="img_description">
+                            Iterative model includes creating several versions of the product
+                        </p>
+                    </div>
+                    <p>
+                        The Iterative model allows software engineers to have a polished version of the product at the end of each cycle. The key idea of this model is to be able to have a more and more complete version of the product at the end of each iteration. Additionally, you can define your problem statement and add on to it with each iteration, ensuring that your product improves with each version.
+                    </p>
+
+                    <div id="second_link">
+                        <h2 class="signposting">RCS</h2>
+                    </div>
+                    <p>
+                        <span class="highlight">Revision Control Software (RCS)</span> such as Git was also taught during the module. For those that are unfamiliar, RCS helps software engineers manage multiple versions of the product concurrently. This helps software engineers to safely coordinate large software engineering projects, while also ensuring that no past information is lost. A great example of RCS is actually Google Docs, whereby each change made to the document is saved by Google Docs itself, and the document can be retrieved to a previous state at any time.
+                    </p>
+                    <p>
+                        Git is a RCS that most software engineers use around the world, and the basic functionalities of Git will be taught in the module as well. On Coding Cucumbers, we have many articles on the functionalities of Git which I highly suggest you check out to get familiarised with the software (<a href="https://www.codingcucumbers.com/website/intro-to-git-for-beginners" target="_blank">Introduction to Git</a>), but I’ll try to give a rough overview of what is taught in the module here.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/NUS-CS2103T/github-icon.png" class="inside_post_img" alt="Github">
+                        <p class="img_description">
+                            Git is main RCS you will be using during the course of the module
+                        </p>
+                    </div>
+                    <p>
+                        In CS2103T, you will be working with remote repositories and learning to fork them into your Github and Clone them into your local computer. You will also learn to use the <span class="highlight">Forking Workflow</span> while developing your team project, which requires you to keep your team’s official project in a remote repository, with all team members forking that repository and create pull requests from their own forks to the main repository to make any changes. Don’t be afraid if you’re unfamiliar with all these jargon as the module does a pretty good job at explaining everything!
+                    </p>
+
+                    <div id="third_link">
+                        <h2 class="signposting">Design Models</h2>
+                    </div>
+                    <p>
+                        <span class="highlight">Design Models</span> were also a big part of the module’s content. Design Models help software engineers represent problems and solutions in a more simplified form. They are useful when trying to explain complex entities, which is a common occurrence in the world of software engineering.
+                    </p>
+                    <p>
+                        Three of the models taught in the module include Class Diagrams, Object Diagrams and Sequence Diagrams.
+                    </p>
+                    <p>
+                        <span class="highlight">Class Diagrams</span> help model the relationships between different Classes in the project. This can aid in explaining the role of each class. Class Diagrams can include the name, attributes and methods of each Class, but most importantly how each Class is related to another! These associations between Classes are key in using Class Diagrams to model a software engineering project.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/NUS-CS2103T/class-diagram.png" class="inside_post_img" alt="Class Diagram">
+                        <p class="img_description">
+                            An example of a Class Diagram
+                        </p>
+                    </div>
+                    <br>
+                    <p>
+                        <span class="highlight">Object Diagrams</span> are similar to Class Diagrams, but help model the interactions between instances of Classes, instead of Classes itself. Basically, Object Diagrams are more like instances of Class Diagrams.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/NUS-CS2103T/object-diagram.png" class="inside_post_img" alt="Object Diagram">
+                        <p class="img_description">
+                            An example of an Object Diagram
+                        </p>
+                    </div>
+                    <br>
+                    <p>
+                        <span class="highlight">Sequence Diagrams</span> help model interactions between different entities in the project. These interactions mainly involve method calls and object creations! Basically, Sequence Diagrams help visualise the timeline of the interactions between objects in the project.
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/NUS-CS2103T/sequence-diagram.png" class="inside_post_img" alt="Sequence Diagram">
+                        <p class="img_description">
+                            An example of a Sequence Diagram
+                        </p>
+                    </div>
+                    <br>
+                    <p>
+                        These diagrams will be taught during the course of the module and you will be required to use these diagrams to describe your project as well.
+                    </p>
+
+                    <div id="fourth_link">
+                        <h2 class="signposting">Testing</h2>
+                    </div>
+                    <p>
+                        <span class="highlight">Testing</span> is also a big part of the module. Different types of testing will be taught in the module itself and the extent of your project’s testing is also part of your assessment for your team project. Testing your code requires you to compare the actual behaviour of your code versus the expected behaviour of your code. This way, we are able to identify bugs and fix them before releasing the version of the product.
+                    </p>
+                    <p>Here are some types of testing covered in the module:</p>
+                    <p>
+                        <span class="highlight">Unit testing</span> is to test if each individual unit of the project works as expected. Each unit can refer to each class, method, subsystem etc.
+                    </p>
+                    <p>
+                        <span class="highight">Integration testing</span> is to test if the different parts of a project work together. Integration testing hopes to find bugs in the code that “binds” different parts of the project together. Unlike Unit testing, Integration testing will involve code from different parts of the project.
+                    </p>
+                    <p>
+                        Apart from the types of testing, the module also covers different methodologies when it comes to coming up with test cases. Although having a large number of test cases can mean more extensive testing, as software engineers we want our test code to be efficient and effective, and that requires us to put more thought into our test cases.
+                    </p>
+                    <p>
+                        Some of the test case methodologies taught include:
+                    </p>
+                    <p>
+                        <span class="highlight">Equivalence partitioning</span> involves grouping sets of test cases together that are likely to be processed by the code in the same way. One example is if you have some code that processes strings of length 10 characters. One partition could include test cases with strings of length 9 and below, another partition could include test cases with strings of length 10, and another partition could include test cases with strings of length above 10!
+                    </p>
+                    <br>
+                    <p>
+                        <span class="highlight">Boundary Value Analysis</span> involves test cases with values at the boundary of equivalence partitions. This is in the hopes of finding bugs that result from the code not handling values close to the boundaries of equivalence partitions correctly.
+                    </p>
+
+                    <div id="fifth_link">
+                        <h2 class="signposting">Project Scoping</h2>
+                    </div>
+                    <p>
+                        Apart from the technical aspects, Software Engineering also involves scoping out the project and creating a product that people actually use. I especially found this aspect of the module interesting, especially when ideating and validating our team’s project. In the module, we were taught how to craft use cases and user stories which are vital to scope which features are key to our project.
+                    </p>
+                    <p>
+                        <span class="highlight">Use cases</span> are descriptions of a sequence of actions that a user performs to yield a result. Use cases help us to define what our application actually does, and be very clear on how they can carry out specific actions in our application.
+                    </p>
+                    <p>
+                        An example use case can look like this:
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/NUS-CS2103T/usecase.png" class="inside_post_img" alt="Usecase">
+                        <p class="img_description">
+                            An example use case of a note-taking application
+                        </p>
+                    </div>
+                    <p>
+                        A use case can include many additional information, such as extensions and preconditions to add more depth to each use case. However, at its core the use case should at least include the set of steps a user takes to do a specific action.
+                    </p>
+                    <br>
+                    <p>
+                        <span class="highlight">User stories</span> are descriptions of an application’s feature, told from the point of view of a user. User stories help us sieve out what features are important to have in our application for our potential users, and what are the actual benefits gained by the users from each feature.
+                    </p>
+                    <p>
+                        An example user story can look like this:
+                    </p>
+                    <div class="inside_post_img_container">
+                        <img src="../resources/post_pictures/inside_post_pictures/NUS-CS2103T/userstory.png" class="inside_post_img" alt="Userstory">
+                        <p class="img_description">
+                            An example user story of a note-taking application
+                        </p>
+                    </div>
+                    <p>
+                        User stories are generally short and concise, however additional information can also be added to each user story (e.g. characteristics of specific user) to help round out the user story more. User stories can also be defined at various levels, with high-level user stories being called epics.
+                    </p>
+
+                    <div id="sixth_link">
+                        <h2 class="signposting">Design Patterns</h2>
+                    </div>
+                    <p>
+                        <span class="highlight">Design Patterns</span> are generally a solution that can be reused to solve a commonly occurring problem in software engineering. Although design patterns do not provide the actual solution to the problems, they help provide a “design” or “architecture” in which you can use to help build your code upon. The module covers many design patterns fairly extensively, so it's important to have a good understanding of all of them.
+                    </p>
+                    <p>
+                        <span class="highlight">Singleton pattern</span> refers to projects in which there are classes that should have no more than one instance (e.g. the main Controller class of the system). These instances are dubbed Singletons, and the Singleton pattern helps ensure that only one instance of these classes exists at any one point of time.
+                    </p>
+                    <p>
+                        The Singleton pattern involves simple things such as making the constructor of the Singleton class private and providing a specific static method to access the single instance of the class. This ensures that no other instance of the class can be created, unlike if the constructor is left public.
+                    </p>
+                    <br>
+                    <p>
+                        <span class="highlight">MVC pattern</span> refers to applications which support storage and retrieval of data, displaying of information to users, and changing data based on user inputs. Each of these actions can be controlled by a different component, namely the Model, View and Controller components.
+                    </p>
+                    <p>
+                        The Model component should be in charge of the storage and accessing of data. It “models” the data of the application in the code, and should hold all the classes that controls the data necessary for the application to function.
+                    </p>
+                    <p>
+                        The View component is basically the UI of the application, responsible of interacting with the user and pulling data from the Model component to display to the user.
+                    </p>
+                    <p>
+                        The Controller component ties the Model and View components together, being in charge of detecting UI events and updating the Model and View components as necessary.
+                    </p>
+                    <p>
+                        These design patterns are important to software engineers as they help solve commonly occurring problems in the development of most projects. Instead of “re-inventing the wheel”, many software engineers look to adopt some of these design patterns to help in the course of their development and can tremendously simplify many problems that they face.
+                    </p>
+
+
+                    <div id="seventh_link">
+                        <h2 class="signposting">Conclusion</h2>
+                    </div>
+                    <p>
+                        All in all, CS2103T is an extremely important module for all Computer Science students. Before this module, our curriculum and modules focused heavily on highly technical skills and aspects of Computer Science. However, CS2103T really takes a bird’s eye view at the entire process of software engineering, and provides a very well-rounded understanding of software engineering in general. 
+                    </p>
+                    <p>
+                        The module will definitely prove useful to any prospective software engineers in the future, and will aid all NUS CS students in whatever internships they may pursue in the future. With that, stay cool cucumbers!
+                    </p>
+                </container>
+            </container>
+
+
+        </div>
+
+
+
+<!-- newsletter popup -->
+<script language="javascript" type="text/javascript" src="newsletter.txt"></script>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+<br><br><br><br>
+
+<script src="../Website_JS/blogpost.js"></script>
+<script language="javascript" type="text/javascript" src="footer.txt"></script>
+</body>
+</html>
