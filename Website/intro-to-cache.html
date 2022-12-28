@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Intro to Cache and LRU</title>
+    <meta
+      name="description"
+      content="Introduction to cache concepts and LRU policy"
+    />
+    <meta name="Bryan" />
+    <link rel="icon" href="../resources/logos/CC_logo_no_words.png" />
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      data-ad-client="ca-pub-6525626618604810"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+
+    <link rel="stylesheet" type="text/css" href="../CSS/blogpost.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/footer.css" />
+    <link rel="stylesheet" type="text/css" href="../CSS/header.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway&family=Exo:wght@600&family=Ubuntu:wght@500&family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-9WZBXGQYRN"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-9WZBXGQYRN");
+    </script>
+    <link
+      rel="canonical"
+      href="https://www.codingcucumbers.com/website/intro-to-cache"
+    />
+  </head>
+
+  <body>
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="header.txt"
+    ></script>
+
+    <div class="container-fluid main_container_box">
+      <div class="row main_row">
+        <div class="col-3"></div>
+
+        <div id="main_post" class="col-6">
+          <div class="title_box">
+            <h1 class="title">The Beginner's Guide to Cache and LRU</h1>
+            <br />
+            <p class="preamble">
+              An Introduction to These Essential Computer Science Concepts
+            </p>
+          </div>
+
+          <div class="author">
+            <container class="author_container">
+              <div class="img_cropper">
+                <img
+                  src="../resources/about_us/bryan_coding_cucumbers_aboutus.jpg"
+                  id="author_img"
+                  alt="author bryan image"
+                />
+              </div>
+              <div class="author_details">
+                <p class="author_name">Bryan Ho</p>
+                <p class="date">28th December 2022</p>
+              </div>
+            </container>
+
+            <container class="socials">
+              <a href="https://www.instagram.com/badboibrybryy/">
+                <img
+                  src="../resources/socials/instagram-no-bg.png"
+                  alt="instagram icon"
+                />
+              </a>
+              <a href="https://github.com/bryanhce">
+                <img
+                  src="../resources/socials/github_icon.png"
+                  alt="github icon"
+                />
+              </a>
+              <a href="https://www.linkedin.com/in/bryan-ho-7271b91b4/">
+                <img
+                  src="../resources/socials/linkedin-no-bg.png"
+                  alt="linkedin icon"
+                />
+              </a>
+              <div>
+                <img
+                  src="../resources/socials/email_icon.png"
+                  class="bryan_gmail"
+                  alt="email icon"
+                />
+              </div>
+            </container>
+          </div>
+          <img
+            src="../resources/post_pictures/post_posters/cache-cover-min.jpg"
+            alt="intro to cache pic"
+            class="blog_post_img"
+          />
+
+          <container id="main_container">
+            <p class="signposting">Introduction</p>
+            <p class="text">
+              In this article, I will be sharing more about cache and the Least
+              Recently Used (LRU). Most of the content from this article is a
+              watered-down summary of my Computer Organisation cache topic
+              (credits to NUS CS2100 course).
+            </p>
+
+            <container class="content_box text">
+              <p class="content_title">Content Page</p>
+              <ol class="content_list">
+                <li>
+                  <a href="#first_link"> What is Cache </a>
+                </li>
+                <li>
+                  <a href="#second_link"> Cache Miss </a>
+                </li>
+                <li>
+                  <a href="#third_link"> LRU Policy </a>
+                </li>
+              </ol>
+            </container>
+
+            <container class="main_text text">
+              <div id="first_link">
+                <h2 class="signposting">What is Cache</h2>
+              </div>
+              <p>
+                Cache is a type of memory that allows for high-speed retrieval.
+                With the cache memory, for example, you will be able to access
+                information much quicker compared to reading the information
+                directly from your hard disk. I know it might sound a bit
+                abstract right now, but let me explain with the library analogy
+                my Computer Science professor once taught.
+              </p>
+              <br /><br />
+              <img
+                src="../resources/post_pictures/inside_post_pictures/intro-to-cache/analogy-library-min.jpg"
+                alt="library analogy library"
+                class="inside_post_img"
+              />
+              <p class="img_description">
+                Analogy for hard disk as library (credits canva)
+              </p>
+              <br /><br />
+              <p>
+                Imagine your hard disk memory (which stores all your information
+                or data) is like a physical library and the books are your
+                information. Everytime you wish to search for some data, you
+                would need to look through the entire library, shelves after
+                shelves, for that specific book. How inefficient! What’s worse
+                is that you need to place the book back on the shelf before
+                taking another book.
+              </p>
+              <br /><br />
+              <img
+                src="../resources/post_pictures/inside_post_pictures/intro-to-cache/analogy-desk-min.jpg"
+                alt="library analogy desk"
+                class="inside_post_img"
+              />
+              <p class="img_description">
+                Analogy for nearby table as cache (credits canva)
+              </p>
+              <br /><br />
+              <p>
+                Now, how can we optimize this? What if you already know the
+                books that you are likely to need and take all of them at once,
+                and place them on a nearby desk? Wouldn’t that be much faster?
+                And that is how cache works! The main idea is to keep the
+                commonly used information in a smaller and faster memory.
+              </p>
+              <p>
+                Just some more additional information, there are many types of
+                cache, and a few examples are direct mapped cache, set
+                associative cache and fully associative cache. I will not be
+                covering these different caches in this article, but they mainly
+                differ in the way they handle cache misses. I will share more
+                about cache misses and subsequently the Least Recently Used
+                (LRU) policy.
+              </p>
+
+              <div id="second_link">
+                <h2 class="signposting">Cache Miss</h2>
+              </div>
+              <p>
+                Studio is 1101’s version of tutorial, which is another 2 hours
+                of class and they are lessons conducted by Avengers (i.e. your
+                Teaching Assistants, typically a Year 2 CS student). The lessons
+                consist mostly of reviewing the studio worksheet (ungraded
+                homework) and in-class worksheets.
+              </p>
+
+              <div id="third_link">
+                <h2 class="signposting">LRU Policy</h2>
+              </div>
+              <p>
+                As the name suggests, the LRU policy suggests that you replace
+                the block of memory (or book) that has not been accessed (or
+                read) for the longest time. Let’s use an example to better
+                understand this concept.
+              </p>
+
+              <br /><br />
+              <img
+                src="../resources/post_pictures/inside_post_pictures/intro-to-cache/lru-1-min.jpg"
+                alt="LRU pic 1"
+                class="inside_post_img"
+              />
+              <p class="img_description">
+                Snapshot of the cache before any information is loaded into it
+              </p>
+              <br /><br />
+
+              <p>
+                We have an arbitrary order of memory access: m0, m4, m0, m8,
+                m12, m here refers to the data from the hard disk.
+              </p>
+
+              <br /><br />
+              <img
+                src="../resources/post_pictures/inside_post_pictures/intro-to-cache/lru-2-min.jpg"
+                alt="LRU pic 2"
+                class="inside_post_img"
+              />
+              <p class="img_description">After the first two memory accesses</p>
+              <br /><br />
+
+              <p>
+                Data from m0 is required, and it cannot be located in the cache
+                as it is currently empty. As such, m0 from the hard disk is
+                loaded into the cache and gets mapped to the first block.
+                Likewise, m4 from the hard disk is loaded to the second block.
+                This is pretty straightforward.
+              </p>
+
+              <br /><br />
+              <img
+                src="../resources/post_pictures/inside_post_pictures/intro-to-cache/lru-3-min.jpg"
+                alt="LRU pic 3"
+                class="inside_post_img"
+              />
+              <p class="img_description">After the next two memory accesses</p>
+              <br /><br />
+
+              <p>
+                Then, we see m0 being accessed again. Luckily, this data is
+                loaded into our cache and we need not load any new blocks from
+                the hard disk. We continue to m8 which is then mapped to the
+                third block.
+              </p>
+
+              <br /><br />
+              <img
+                src="../resources/post_pictures/inside_post_pictures/intro-to-cache/lru-4-min.jpg"
+                alt="LRU pic 4"
+                class="inside_post_img"
+              />
+              <p class="img_description">After the last memory accesses</p>
+              <br /><br />
+
+              <p>
+                Now we are at maximum capacity and we need to evict a data block
+                to make space for m12. By LRU policy, data at m4 should be
+                replaced with m12 as it was not used for the longest time, not
+                m0. Although m0 was loaded into the cache first, it is not the
+                least recently used!
+              </p>
+              <p>
+                While this policy might seem great, one major drawback is that
+                it is difficult to keep track of which is the least recently
+                used, especially if there are many sets of cache blocks. There
+                are also other policies such as FIFO (first in first out) or LFU
+                (least frequently used).
+              </p>
+              <h2 class="signposting">Conclusion</h2>
+              <p>
+                With that, I have covered the theoretical concept of cache and
+                LRU. Hopefully you found this article helpful and with this new
+                understanding, you might be able to crack the
+                <a href="https://leetcode.com/problems/lru-cache/"
+                  >famous leetcode question LRU cache</a
+                >
+                haha!
+              </p>
+            </container>
+          </container>
+        </div>
+
+        <!-- newsletter popup -->
+        <script
+          language="javascript"
+          type="text/javascript"
+          src="newsletter.txt"
+        ></script>
+        <div class="col-1"></div>
+      </div>
+    </div>
+    <br /><br /><br /><br />
+
+    <script src="../Website_JS/blogpost.js"></script>
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="footer.txt"
+    ></script>
+  </body>
+</html>
